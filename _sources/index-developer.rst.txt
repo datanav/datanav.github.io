@@ -1,0 +1,17 @@
+Developer reference
+===================
+
+.. toctree::
+
+   Quickstart <best-practices>
+   Building blocks <building-blocks>
+   Data synchronization <index-synchronization>
+   Operations <index-operations>
+   Data modelling <index-datamodelling>
+   Data Transformation Language (DTL) <DTLReferenceGuide>
+   Changelog <changelog>
+   Roadmap <roadmap>
+   Tools <tools>
+   Service Configuration <configuration>
+   Service API <api>
+   Deprecated features <deprecations>

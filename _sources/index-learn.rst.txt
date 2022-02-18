@@ -1,0 +1,7 @@
+Learn Sesam
+===========
+
+.. toctree::
+
+   Getting started <getting-started>
+

@@ -1,0 +1,7 @@
+Data Modelling
+==============
+
+.. toctree::
+
+   Entity Data Model <entitymodel>
+   Data modelling <data-modelling>

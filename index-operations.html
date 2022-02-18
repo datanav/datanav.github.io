@@ -1,0 +1,550 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Security" href="security.html" /><link rel="prev" title="Source datatype mappings" href="source-datatype-mapping.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Operations - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Quickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="building-blocks.html">Building blocks</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Operations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="operations">
+<h1>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#subscriptions-users-roles-and-permissions">Subscriptions, Users, Roles and Permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#sesam-node-runtime">Sesam node runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#the-secrets-manager">The secrets manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html#managing-secrets">Managing secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#the-lifetime-of-secrets">The lifetime of secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#using-secrets">Using secrets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notifications.html">Notifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-completed-pump-failed-notification-rules">Pump completed / Pump failed notification rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html#what-can-be-monitored">What can be monitored?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#entities-processed">Entities processed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#changed-entities">Changed entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#failed-retries">Failed retries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#dead-entities">Dead entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#failed-retried-entities">Failed retried entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#successfully-retried-entities">Successfully retried entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#read-errors">Read errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#write-errors">Write errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#sink-time">Sink time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#source-time">Source time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#transform-time">Transform time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#reason-why-stopped">Reason why stopped</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#traceback">Traceback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#additional-low-level-errormessage">Additional low-level errormessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#additional-low-level-traceback">Additional low-level traceback</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html#how-can-it-be-monitored">How can it be monitored?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#value-too-low">Value too low</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#value-too-high">Value too high</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#value-too-low-over-time">Value too low over time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#value-too-high-over-time">Value too high over time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-started-overdue">Pump started overdue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-finished-overdue">Pump finished overdue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-failed">Pump failed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#restore-completed">Restore completed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-offset-set">Pump offset set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#pattern-match">Pattern match</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#node-heartbeat-overdue">Node heartbeat overdue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#alert-rate-limiting">Alert rate limiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#notification-summary-api">Notification summary API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html#example-timeline">Example timeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id1">10:00</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id2">10:01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id3">10:02</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id4">10:03</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id5">10:04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id6">10:05</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id7">10:06</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id8">10:07</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id9">10:08</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id10">10:09</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id11">10:10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notifications.html#id12">10:11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-started-entity">The pump-started entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#prototype">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-completed-entity">The pump-completed entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id1">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id2">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-failed-entity">The pump-failed entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id3">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id4">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-read-error-entity">The read-error entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id5">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id6">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-write-error-entity">The write-error entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id7">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id8">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-offset-set-entity">The pump-offset-set entity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id9">Prototype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html#id10">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html#reference-architecture">Reference Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html#using-azure-data-factory-with-sesam">Using Azure Data Factory with Sesam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html#using-azure-synapse-analytics-with-sesam">Using Azure Synapse Analytics with Sesam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html#internal-versioning">Internal versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html#downloading-your-sesam-configuration-to-your-local-version-control-system-repository">Downloading your Sesam configuration to your local version control system repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html#recommended-workflow-for-a-sesam-project">Recommended workflow for a Sesam project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html#configuring-tests">Configuring tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html#dtl-parameters">DTL parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html#internal-properties">Internal properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html#endpoints">Endpoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html#running-tests-locally">Running tests locally</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="continuous-integration.html">Continuous integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html#ci-node">CI node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html#using-jenkins-or-azure-devops-for-automatic-ci-testing">Using Jenkins or Azure DevOps for automatic CI testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html#jenkins">Jenkins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html#azure-devops">Azure DevOps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html#github-autodeployer-microservice">GitHub Autodeployer microservice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html#using-jenkins-azure-devops-or-any-other-cd-tools">Using Jenkins, Azure DevOps or any other CD tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="self-hosted.html">Self-hosted service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#hardware-requirements">Hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#software-requirements">Software requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#firewall-requirements">Firewall requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#inbound-firewall-rules">Inbound firewall rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#outbound-firewall-rules">Outbound firewall rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#file-structure">File structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#license-key">License Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#agent-configuration-file">Agent Configuration File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#install-the-agent">Install the Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#bring-your-own-certificate">Bring your own certificate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html#migrate-an-old-installation-to-use-the-sesam-agent">Migrate an old installation to use the sesam-agent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="low-level-debugging.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#profiling-api-calls">Profiling API calls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#profiling-all-sesam-api-calls">Profiling all Sesam API calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#profiling-one-specific-sesam-api-call">Profiling one specific Sesam API call</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#profiling-a-pump-run">Profiling a pump run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#getting-a-stacktrace-of-all-the-threads-in-the-node">Getting a stacktrace of all the threads in the node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#using-the-api-status-stacktrace-api-endpoint">Using the “/api/status/stacktrace” api endpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#sending-the-sigusr1-signal-to-the-sesam-node-process">Sending the SIGUSR1 signal to the sesam node process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace">Checking if the health-checker thread in the node has created a stacktrace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#preventing-pipes-from-automatically-running">Preventing pipes from automatically running</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#using-the-instance-configuration-gui">Using the “Instance configuration” gui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#upload-a-full-node-config-with-a-node-metadata-entity">Upload a full node-config with a node metadata entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html#writing-a-sesam-node-data-startup-options-json-file">Writing a “/sesam/node/data/startup_options.json” file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#single-machine-service">Single machine service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html#backup">Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#clustered-service">Clustered service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html#id2">Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#monitoring">Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html#logs">Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html#metrics">Metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#isolation">Isolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#firewall">Firewall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behind-the-scenes.html#secure-development-policy">Secure Development policy</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="security.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Security</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="source-datatype-mapping.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Source datatype mappings</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,570 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting started" href="getting-started.html" /><link rel="prev" title="Deprecations" href="deprecations.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Learn Sesam - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-developer.html">Developer</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Quickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="building-blocks.html">Building blocks</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Learn Sesam</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="learn-sesam">
+<h1>Learn Sesam<a class="headerlink" href="#learn-sesam" title="Permalink to this headline">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#setting-up-our-sesam-instance">Setting up our Sesam instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#sign-up">Sign up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#upload-config">Upload config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#config-contents">Config contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#sesam-overview">Sesam overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#glossary">Glossary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#naming-conventions">Naming conventions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#general-rules">General rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#systems">Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#pipes">Pipes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#datasets">Datasets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#getting-started-pipes">Pipes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#basic-dtl-and-functions">Basic DTL and functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#lab-time">Lab time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#transformations">Transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#rules">Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#merging-sources">Merging sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#coalesce-list-and-other-useful-dtl-functions">Coalesce, list and other useful DTL functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#global-datasets">Global datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#namespace-identifiers">Namespace identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#merging-with-dtl">Merging with DTL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#apply">Apply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#hops">Hops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#apply-hops">Apply-hops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#should-i-add-or-merge-an-apply-hops">Should I “add” or “merge” an apply-hops?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#getting-started-labtime-2">Lab time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#dependency-tracking-and-resetting-a-pipe">Dependency-tracking and resetting a pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#sinks">Sinks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#csv-endpoint-sink">CSV endpoint sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#sql-database-to-csv-file-output-step-by-step">SQL database to CSV file output step by step</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#using-secrets">Using secrets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#creating-a-table-in-the-database">Creating a table in the database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#creating-our-csv-sink">Creating our CSV sink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#sql-sink-example-configuration">SQL sink example configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#http-endpoint-and-retrieving-data">HTTP-endpoint and retrieving data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#exposing-datasets-with-http-endpoint">Exposing datasets with HTTP-endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#fetch-data">Fetch data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#writing-data-to-external-systems">Writing data to external systems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#getting-started-labtime-3">Lab time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#pumps">Pumps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#dead-letters">Dead letters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#microservices">Microservices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#workflow">Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#microservices-with-docker">Microservices with Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#testing">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#push-to-docker-hub">Push to Docker Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#import-to-sesam-node">Import to Sesam node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#rest-apis">REST APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#authentication">Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#json-web-tokens">JSON Web Tokens</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#requests-methods">Requests methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#labs">Labs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#basics">Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-1">Lab 1</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#task">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-2">Lab 2</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id5">Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#import-data">Import data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-3">Lab 3</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id6">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-4">Lab 4</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id7">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-5">Lab 5</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id8">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-6">Lab 6</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id9">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-7">Lab 7</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id10">Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#data-modelling">Data Modelling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-8">Lab 8</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id11">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-9">Lab 9</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id12">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-10">Lab 10</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id13">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-11">Lab 11</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id14">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-12">Lab 12</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id15">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-13">Lab 13</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id16">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-14">Lab 14</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id17">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-15">Lab 15</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id18">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-16">Lab 16</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id19">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-17">Lab 17</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id20">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-18">Lab 18</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id21">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-19">Lab 19</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id22">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-20">Lab 20</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id23">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-21">Lab 21</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id24">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-22">Lab 22</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id25">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-23">Lab 23</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id26">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-24">Lab 24</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id27">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-25">Lab 25</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id28">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#lab-26">Lab 26</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="getting-started.html#id29">Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#learn-more">Learn more</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#solution-examples">Solution examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id30">Lab 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id31">Lab 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id32">Lab 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id33">Lab 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id34">Lab 5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id35">Lab 6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id36">Lab 7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id37">Lab 8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id38">Lab 9</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id39">Lab 10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id40">Lab 11</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id41">Lab 12</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id42">Lab 13</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id43">Lab 14</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id44">Lab 15</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id45">Lab 16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id46">Lab 17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id47">Lab 18</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id48">Lab 19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id49">Lab 20</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id50">Lab 21</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id51">Lab 22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id52">Lab 23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id53">Lab 24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id54">Lab 25</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started.html#id55">Lab 26</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="getting-started.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Getting started</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="deprecations.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Deprecations</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
