@@ -2,6 +2,7 @@ What is Sesam
 =============
 
 .. toctree::
+   :maxdepth: 1
 
    Core principles <core-principles>
    Key features <features>

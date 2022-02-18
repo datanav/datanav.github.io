@@ -2,6 +2,7 @@ Operations
 ==========
 
 .. toctree::
+   :maxdepth: 1
 
    Security <security>
    Notifications <notifications>

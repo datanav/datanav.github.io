@@ -2,6 +2,7 @@ Synchronization
 ===============
 
 .. toctree::
+   :maxdepth: 1
 
    Non-idempotency <idempotency>
    Cron Expressions <cron-expressions>

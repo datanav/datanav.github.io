@@ -2,6 +2,7 @@ Developer reference
 ===================
 
 .. toctree::
+   :maxdepth: 1
 
    Quickstart <best-practices>
    Building blocks <building-blocks>
