@@ -1,0 +1,508 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Notifications" href="notifications.html" /><link rel="prev" title="Non-idempotency" href="idempotency.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Security - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>There are two different security domains in Sesam.</p>
+<p>1. The most visible one is the security-features that deal with
+<a class="reference internal" href="#security-subscriptions-users-roles-and-permissions"><span class="std std-ref">users, roles and permissions</span></a> in Sesam.
+These control which persons are allowed to do what. This is very similar to how the
+permissions-settings on most file-systems work.</p>
+<p>2. In addition to the user-centric security-features, we also have the concept of
+<a class="reference internal" href="#secrets-manager"><span class="std std-ref">secrets</span></a> in Sesam. Secrets are used for things like database passwords.</p>
+<p>These two domains are explained in more detail below.</p>
+</div>
+<div class="section" id="subscriptions-users-roles-and-permissions">
+<span id="security-subscriptions-users-roles-and-permissions"></span><h2>Subscriptions, Users, Roles and Permissions<a class="headerlink" href="#subscriptions-users-roles-and-permissions" title="Permalink to this headline">#</a></h2>
+<p>The ability to perform actions in the Sesam Portal is controlled by assigning Roles to Users.
+The Roles is assigned in the scope of a specific Subscription, so a User can have different Roles
+in different Subscriptions.</p>
+<p>The ability to perform actions in the Sesam node is controlled by assigning Permissions to Roles.
+This is assigned in the various “Permissions” pages in the GUI.</p>
+<p>When a user tries to perform an action on a Sesam node, they must first log in via the Sesam Portal.
+The Portal will generate a JSON Web Token for the user; this is a datastructure that identifies the user
+and that contains a list of all the roles of the user.</p>
+<p>Inside the node, each pipe, system and dataset can be protected by assigning permissions to roles. The
+permissions of each user is then determined by iterating over the user’s roles and checking the
+permissions granted to each role.</p>
+<p>We will explain how the permissions checks is done via an example. Lets assume that a person wants to
+look at the contents of the dataset “dataset1”
+in the subscription “subA”:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>A person logs in to the Sesam Portal.</p></li>
+<li><p>The Sesam Portal backend checks that the email and password matches an existing User.</p></li>
+<li><p>The Sesam Portal backend examines the Roles the User has been assigned and sends the back a list of the
+Subscriptions that the User has a Role in.</p></li>
+<li><p>The person selects the Subscription “subA” in the GUI</p></li>
+<li><p>The GUI requests a JWT (Json Web Token) for the “subA”.</p></li>
+<li><p>The Sesam Portal backend creates a JWT that contains the User’s Roles in “subA” and signs the JWT
+with the Sesam Portals private encryption key.</p></li>
+<li><p>The GUI now connects to the Sesam node that is associated with “subA” with the JWT in the
+“Authorization” http request header.</p></li>
+<li><p>The Sesam node verifies that the JWT is valid by using the Sesam Portal’s public encryption key to
+check that the signature on the JWT is ok. The Sesam node now knows which Roles the User has.</p></li>
+<li><p>The person selects the “dataset1” dataset in the GUI. The GUI sends a request to the
+Sesam node asking for the content of the dataset.</p></li>
+<li><p>The Sesam node loads the ACL (Access Control List) that has been defined for the dataset. The
+node looks through the ACL to figure out if the current User has been granted the “Read data”
+permission.</p></li>
+<li><p>If the current User has the required permission, the Sesam node return the contents of the dataset
+in the http response. If not, the Sesam node sends a “403 Forbidden” http response instead.</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="sesam-node-runtime">
+<h3>Sesam node runtime<a class="headerlink" href="#sesam-node-runtime" title="Permalink to this headline">#</a></h3>
+<p>When a user creates a pipe, the pipe inherits the roles of that user. The list of roles is
+stored as part of the pipe-config. At runtime, a permission-check is made to check if the pipe is
+allowed to do what it is attempting to do. This includes checking if the pipe is allowed to read
+from its source system, and to write to its target system.</p>
+<p>If the permission checks fail, the pipe-run will fail and an error will be displayed on the pipe’s
+page in the GUI.</p>
+</div>
+</div>
+<div class="section" id="the-secrets-manager">
+<span id="secrets-manager"></span><h2>The secrets manager<a class="headerlink" href="#the-secrets-manager" title="Permalink to this headline">#</a></h2>
+<div class="section" id="managing-secrets">
+<h3>Managing secrets<a class="headerlink" href="#managing-secrets" title="Permalink to this headline">#</a></h3>
+<p>System configuration properties that contain secrets are managed by the Sesam Secrets manager API. See the
+<a class="reference internal" href="api.html#api-reference"><span class="std std-ref">API reference</span></a> for its documentation.</p>
+<p>You can use this API to upload or delete secrets to be used in <a class="reference internal" href="configuration.html#system-section"><span class="std std-ref">system components configuration</span></a>.
+The secrets should be in a JSON document as either a list of objects or a single object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"secret-property"</span><span class="p">:</span> <span class="s2">"secret-value"</span><span class="p">,</span>
+  <span class="s2">"another-secret-property"</span><span class="p">:</span> <span class="s2">"another-secret-value"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can upload your secrets using the command line client (or via the web API using a HTTP client such as <code class="docutils literal notranslate"><span class="pre">curl</span></code> or <code class="docutils literal notranslate"><span class="pre">wget</span></code>).</p>
+<p>You can either specify that the secrets should only be visible for one specific System by specifying the id of the System:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sesam</span> <span class="n">put</span><span class="o">-</span><span class="n">secrets</span> <span class="n">my_system_id</span> <span class="n">my</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">secrets</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>, or you can make the secrets “global” and available for all systems:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sesam</span> <span class="n">put</span><span class="o">-</span><span class="n">secrets</span> <span class="n">my</span><span class="o">-</span><span class="n">secrets</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>You can also list which secrets the Sesam secret manager is currently aware of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sesam</span> <span class="n">get</span><span class="o">-</span><span class="n">secrets</span> <span class="n">my_system_id</span>
+
+<span class="p">[</span><span class="s2">"system-secret-property"</span><span class="p">,</span> <span class="s2">"another-system-secret-property"</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sesam</span> <span class="n">get</span><span class="o">-</span><span class="n">secrets</span>
+
+<span class="p">[</span><span class="s2">"secret-property"</span><span class="p">,</span> <span class="s2">"another-secret-property"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The values of the secrets are stored internally in a strongly encrypted form using a key that is unique to each instance
+of Sesam. Note that once uploaded to the Secrets manager, you cannot extract the original value(s) of the secret(s) so
+you must store them in a secure fashion off-site.</p>
+</div>
+<div class="section" id="the-lifetime-of-secrets">
+<h3>The lifetime of secrets<a class="headerlink" href="#the-lifetime-of-secrets" title="Permalink to this headline">#</a></h3>
+<p>Global secrets lives until they are explicitly deleted.</p>
+<p>System secrets lives until they are explicitly deleted, or until the System is removed. So, if you delete and re-add
+a System, you have to upload all the System-local secrets again.</p>
+</div>
+<div class="section" id="using-secrets">
+<h3>Using secrets<a class="headerlink" href="#using-secrets" title="Permalink to this headline">#</a></h3>
+<p>Once you have uploaded your secrets to the Secrets manager, you can start using them in your <a class="reference internal" href="configuration.html#system-section"><span class="std std-ref">system configuration</span></a>
+by substituting the configuration property value(s) using a special syntax.</p>
+<p>An example: given a existing system configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"my-system"</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"oracle"</span><span class="p">,</span>
+  <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"my-db-server"</span><span class="p">,</span>
+  <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"my-user"</span><span class="p">,</span>
+  <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"my-password"</span><span class="p">,</span>
+  <span class="s2">".."</span><span class="p">:</span> <span class="s2">".."</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Extract the secret properties into a separate JSON document, and give them names you can remember:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"my-system-host"</span><span class="p">:</span> <span class="s2">"my-db-server"</span><span class="p">,</span>
+    <span class="s2">"my-system-username"</span><span class="p">:</span> <span class="s2">"my-user"</span><span class="p">,</span>
+    <span class="s2">"my-system-password"</span><span class="p">:</span> <span class="s2">"my-password"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Save the JSON document to a .json file and store it securely off site. Then upload it to the Secret manager using the
+sesam api. You can then substitute the original secret values in the system configuration with the substitution keys
+using the “$SECRET(key)” syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"my-system"</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"oracle"</span><span class="p">,</span>
+  <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"$SECRET(my-system-host)"</span><span class="p">,</span>
+  <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"$SECRET(my-system-username)"</span><span class="p">,</span>
+  <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"$SECRET(my-system-password)"</span><span class="p">,</span>
+  <span class="s2">".."</span><span class="p">:</span> <span class="s2">".."</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The substituted secret values are only used as-needed during run time, and their values will never be exposed in
+the API (or log files).</p>
+<p>You can also compose a property that consists of several secrets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"my-system"</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"url"</span><span class="p">,</span>
+  <span class="s2">"base_url"</span><span class="p">:</span> <span class="s2">"http://$SECRET(my-system-username):$SECRET(my-system-password)@example.com"</span><span class="p">,</span>
+  <span class="s2">".."</span><span class="p">:</span> <span class="s2">".."</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that when using properties that contain multiple secrets, you cannot nest secret values inside each other, and the
+resulting property will always be a string. Secrets can be combined with environment variables, but they cannot be nested.
+See the chapter on <a class="reference internal" href="configuration.html#environment-variables"><span class="std std-ref">configuration environment variables</span></a> for details.</p>
+<p>Secrets applies only to System configuration entities.</p>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="notifications.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Notifications</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="idempotency.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Non-idempotency</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Security</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#subscriptions-users-roles-and-permissions">Subscriptions, Users, Roles and Permissions</a><ul>
+<li><a class="reference internal" href="#sesam-node-runtime">Sesam node runtime</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-secrets-manager">The secrets manager</a><ul>
+<li><a class="reference internal" href="#managing-secrets">Managing secrets</a></li>
+<li><a class="reference internal" href="#the-lifetime-of-secrets">The lifetime of secrets</a></li>
+<li><a class="reference internal" href="#using-secrets">Using secrets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

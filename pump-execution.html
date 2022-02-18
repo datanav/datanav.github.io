@@ -1,0 +1,886 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Cron expressions" href="cron-expressions.html" /><link rel="prev" title="JSON Push Protocol" href="json-push.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>The Pump Execution Dataset - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="the-pump-execution-dataset">
+<h1>The Pump Execution Dataset<a class="headerlink" href="#the-pump-execution-dataset" title="Permalink to this headline">#</a></h1>
+<p>The pump execution dataset is a log which contains entities with
+information about a particular pump’s execution history. The dataset
+id is computed from the pump’s <code class="docutils literal notranslate"><span class="pre">_id</span></code> property as
+<code class="docutils literal notranslate"><span class="pre">system:pump_execution:&lt;pump_id&gt;</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pump execution entities are subject to change. Their ids and
+structure may be changed in the future. The dataset is not meant
+to be a public API that applications can use.</p>
+</div>
+<p>It will always contain at least two entities for each time the pump
+runs. The first will have the id “pump-started” and the last either
+“pump-ended” <em>or</em> “pump-completed”. In between these entities,
+there may be entities recording read errors and/or write
+errors. Other informational entities such as “pump-enabled”/”pump-disabled” or “pipe-offset-set” may also be present.</p>
+<p>Depending on the pump settings, the write errors can then be
+retried one or more times during the next runs.</p>
+<div class="section" id="the-pump-started-entity">
+<h2>The pump-started entity<a class="headerlink" href="#the-pump-started-entity" title="Permalink to this headline">#</a></h2>
+<p>The “pump-started” is written to the pump execution dataset when the pump has started, but before any other processing
+takes place.</p>
+<div class="section" id="prototype">
+<h3>Prototype<a class="headerlink" href="#prototype" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-started"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-started"</span><span class="p">,</span>
+    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"iso-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
+    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
+    <span class="s2">"user"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"some@user.com"</span><span class="p">,</span>
+        <span class="s2">"remote_addr"</span><span class="p">:</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span>
+        <span class="s2">"user_id"</span><span class="p">:</span> <span class="s2">"some@user.com"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for pump-started entities is fixed and will always be “pump-started”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for pump-started entities is fixed and will always be “pump-started”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sync_type</span></code></p></td>
+<td><p>Enum&lt;String&gt;</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sync_type</span></code> value denotes the type of pipe run that produced this log entry. It can be one of the followin
+values: <code class="docutils literal notranslate"><span class="pre">full</span></code>, <code class="docutils literal notranslate"><span class="pre">partial</span></code> or <code class="docutils literal notranslate"><span class="pre">incremental</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump started (“YYYY-MM-DDTHH:mm:SS.fZ”)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pump_definition</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value of the pump configuration used to instantiate the pump</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Information about the user that started the run, if available.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="the-pump-completed-entity">
+<h2>The pump-completed entity<a class="headerlink" href="#the-pump-completed-entity" title="Permalink to this headline">#</a></h2>
+<p>If the pump completes successfully, it will write a “pump-completed” entity to the execution log.</p>
+<div class="section" id="id1">
+<h3>Prototype<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-completed"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-completed"</span><span class="p">,</span>
+    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
+    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"pump-started-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"end_time"</span><span class="p">:</span> <span class="s2">"pump-ended-iso-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
+    <span class="s2">"pump_started_location"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">"retry_entities_exist"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">"entities_succeeded"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"entities_failed"</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for pump-completed entities is fixed and will always be “pump-completed”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for pump-completed entities is fixed and will always be “pump-completed”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pump_definition</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value of the pump configuration used to instantiate the pump</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sync_type</span></code></p></td>
+<td><p>Enum&lt;String&gt;</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sync_type</span></code> value denotes the type of pipe run that produced this log entry. It can be one of the followin
+values: <code class="docutils literal notranslate"><span class="pre">full</span></code>, <code class="docutils literal notranslate"><span class="pre">partial</span></code> or <code class="docutils literal notranslate"><span class="pre">incremental</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump started (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump ended (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pump_started_location</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The absolute index into the log where the corresponding “pump-started” entity is located. It is used by
+the pump’s retry mechanism to “rewind” the log to the last successfully completed run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retry_entities_exist</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if there was logged any entities that can be retried during this run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entities_succeeded</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A counter with the number of entities that was successfully written to the pipe’s sink during this run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">entities_failed</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A counter with the number of entities that failed to be written to the pipe’s sink during this run.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="the-pump-failed-entity">
+<h2>The pump-failed entity<a class="headerlink" href="#the-pump-failed-entity" title="Permalink to this headline">#</a></h2>
+<p>If the pump fails for some reason, it will write a “pump-failed” entity when it terminates.</p>
+<div class="section" id="id3">
+<h3>Prototype<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-failed"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-failed"</span><span class="p">,</span>
+    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
+    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"pump-started-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"end_time"</span><span class="p">:</span> <span class="s2">"pump-ended-iso-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"pump_started_location"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">"retry_entities_exist"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">"entities_succeeded"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"entities_failed"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"reason_why_stopped"</span><span class="p">:</span> <span class="s2">"traceback-info"</span><span class="p">,</span>
+    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
+    <span class="s2">"exception_entity"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity"</span><span class="p">,</span>
+      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="p">},</span>
+    <span class="s2">"node_build_info"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"build"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"date"</span><span class="p">:</span> <span class="s2">"2021-12-29T13:51:21.566325+00:00"</span><span class="p">,</span>
+        <span class="s2">"dirty"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"git-revision"</span><span class="p">:</span> <span class="s2">"6c8eb3c17"</span><span class="p">,</span>
+        <span class="s2">"hash"</span><span class="p">:</span> <span class="s2">"6c8eb3c17"</span><span class="p">,</span>
+        <span class="s2">"release"</span><span class="p">:</span> <span class="s2">"1.0"</span><span class="p">,</span>
+        <span class="s2">"teamcity-buildnumber"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"1.0.dev"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Properties<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for pump-failed entities is fixed and will always be “pump-failed”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for pump-failed entities is fixed and will always be “pump-failed”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sync_type</span></code></p></td>
+<td><p>Enum&lt;String&gt;</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sync_type</span></code> value denotes the type of pipe run that produced this log entry. It can be one of the followin
+values: <code class="docutils literal notranslate"><span class="pre">full</span></code>, <code class="docutils literal notranslate"><span class="pre">partial</span></code> or <code class="docutils literal notranslate"><span class="pre">incremental</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pump_definition</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value of the pump configuration used to instantiate the pump</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump started (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump ended (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pump_started_location</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The absolute index into the log where the corresponding “pump-started” entity is located. It is used by
+the pump’s retry mechanism to “rewind” the log to the last successfully completed run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retry_entities_exist</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if there was logged any entities that can be retried during this run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exception_entity</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A complete embedded copy of the entity that caused the failure (if available).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">entities_succeeded</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A counter with the number of entities that was successfully written to the pipe’s sink during this run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entities_failed</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A counter with the number of entities that failed to be written to the pipe’s sink during this run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reason_why_stopped</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Information about why the pump failed. It contains among other things a stack trace of the execution failure.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">node_build_info</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Information about the sesam instance the pipe was run on.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="the-read-error-entity">
+<h2>The read-error entity<a class="headerlink" href="#the-read-error-entity" title="Permalink to this headline">#</a></h2>
+<p>The execution dataset also can contain entities that record failed reads and/or entities wich represents retryable
+entities (from write errors).</p>
+<div class="section" id="id5">
+<h3>Prototype<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"read-error:&lt;GUID&gt;"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"read-error"</span><span class="p">,</span>
+    <span class="s2">"error_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"failure-ISO-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"exception"</span><span class="p">:</span> <span class="s2">"traceback-info-from-pump"</span><span class="p">,</span>
+    <span class="s2">"original_exception"</span><span class="p">:</span> <span class="s2">"the-exception-cast-by-source"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for read-error entities is computed from the string prefix “read-error:” concatenated with
+a GUID string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for read-error entities is fixed and will always be “read-error”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A integer value that will be either <code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning that the source was unable to establish communications with
+the source system, or <code class="docutils literal notranslate"><span class="pre">1</span></code> - meaning that there was an error while trying to read a particular entity from the
+source.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp when the read error happened (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exception</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Information about from the pump failure. It a stack trace of the execution failure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">original_exception</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Information about from the source about the read failure. It contains among other things a stack trace of the
+execution failure in the source.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="the-write-error-entity">
+<h2>The write-error entity<a class="headerlink" href="#the-write-error-entity" title="Permalink to this headline">#</a></h2>
+<p>For retryable (write) errors, the entity has a similar form to the “read-error” entity, except irs <code class="docutils literal notranslate"><span class="pre">_id</span></code> property is
+computed from the entity that was unsuccessfully written. It also contains the complete entity as an embedded
+child entity.</p>
+<div class="section" id="id7">
+<h3>Prototype<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"write-error:&lt;entity_id&gt;"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"write-error"</span><span class="p">,</span>
+    <span class="s2">"error_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"failure-ISO-timestamp-in-UTC"</span><span class="p">,</span>
+    <span class="s2">"retry_attempts"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"retryable"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">"resolved"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">"dead"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">"entity"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity"</span><span class="p">,</span>
+      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="p">},</span>
+    <span class="s2">"resolved_entity"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity-that-resolved-the-error-if-different"</span><span class="p">,</span>
+      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="p">},</span>
+    <span class="s2">"exception"</span><span class="p">:</span> <span class="s2">"traceback-info-from-pump"</span><span class="p">,</span>
+    <span class="s2">"original_exception"</span><span class="p">:</span> <span class="s2">"the-exception-cast-by-sink"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Properties<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for read-error entities is computed from the string prefix “write-error:” concatenated with
+the failed entity <code class="docutils literal notranslate"><span class="pre">_id</span></code> property.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for write-error entities is fixed and will always be “write-error”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A integer value that will be either <code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning that the sink was unable to establish communications with
+the target system, or <code class="docutils literal notranslate"><span class="pre">1</span></code> - meaning that there was an error while writing the particular entity to the
+target system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp when the write error happened (“YYYY-MM-DDTHH:mm:SS.fZ”).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">retry_attempts</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>A counter of how many times the failing entity has been retried. Note that the first time it is written to the
+execution dataset it will be 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retryable</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if the entity can be retried by the retry mechanism. It is used for the case where a new
+version of a entity comes from the source while there also exist a previously failed version in the
+execution dataset. In this case, if the new version is sucessfully written to the sink a new write-error entity
+is written to the log for this entity, but marked as not retryable (i.e <code class="docutils literal notranslate"><span class="pre">false</span></code> value) so it can be skipped
+during retries.</p>
+</td>
+</tr>
+<tr class="row-even" id="execution-log-resolved-property"><td><p><code class="docutils literal notranslate"><span class="pre">resolved</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if the entity was successfully resolved either by a newer version of the entity or because
+a retry succeeded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dead</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if the entity has been given up on, for example having exceeded some number of retries. If a
+dead letter dataset is specified for the pump, the “dead” entity will be written there and a final “write-error”
+entity written to the execution with the <code class="docutils literal notranslate"><span class="pre">dead</span></code> flag set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This entity will then never be retried
+again (until a new version comes along from the source).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entity</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A complete embedded copy of the failed entity.</p>
+</td>
+</tr>
+<tr class="row-odd" id="execution-log-resolved-entity"><td><p><code class="docutils literal notranslate"><span class="pre">resolved_entity</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A complete embedded copy of the entity that resolved the write-error if it was retried (and if it differs from
+<code class="docutils literal notranslate"><span class="pre">entity</span></code>). This property will only be set if <code class="docutils literal notranslate"><span class="pre">resolved</span></code> is also <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exception</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Information about from the pump failure. It a stack trace of the execution failure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">original_exception</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Information about from the sink about the write failure. It contains among other things a stack trace of the
+execution failure in the sink.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="the-pump-offset-set-entity">
+<h2>The pump-offset-set entity<a class="headerlink" href="#the-pump-offset-set-entity" title="Permalink to this headline">#</a></h2>
+<p>The “pump-offset-set” is written to the pump execution dataset when the pump offset has been set or reset explicitly.</p>
+<div class="section" id="id9">
+<h3>Prototype<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-offset-set"</span><span class="p">,</span>
+    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"2022-01-04T13:20:28.630647Z"</span><span class="p">,</span>
+    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-offset-set"</span><span class="p">,</span>
+    <span class="s2">"is_reset"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">"original_pipe_offset"</span><span class="p">:</span> <span class="s2">"1033311"</span><span class="p">,</span>
+    <span class="s2">"pipe_offset"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"user"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"some@user.com"</span><span class="p">,</span>
+        <span class="s2">"remote_addr"</span><span class="p">:</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span>
+        <span class="s2">"user_id"</span><span class="p">:</span> <span class="s2">"some@user.com"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Properties<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 13%"/>
+<col style="width: 75%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> value for pump-offset-set entities is fixed and will always be “pump-offset-set”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event_type</span></code> value for pump-started entities is fixed and will always be “pump-offset-set”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event_time</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The ISO-formatted timestamp for the timestamp the pump offset was set (“YYYY-MM-DDTHH:mm:SS.fZ”)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pipe_offset</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The pipe offset that was set.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">original_pipe_offset</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The pipe offset that was set before it was overwritten.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is_reset</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>A flag indicating if this was caused by someone resetting the pipe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>Information about the user that started the run, if available.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="cron-expressions.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Cron expressions</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="json-push.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">JSON Push Protocol</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">The Pump Execution Dataset</a><ul>
+<li><a class="reference internal" href="#the-pump-started-entity">The pump-started entity</a><ul>
+<li><a class="reference internal" href="#prototype">Prototype</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-pump-completed-entity">The pump-completed entity</a><ul>
+<li><a class="reference internal" href="#id1">Prototype</a></li>
+<li><a class="reference internal" href="#id2">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-pump-failed-entity">The pump-failed entity</a><ul>
+<li><a class="reference internal" href="#id3">Prototype</a></li>
+<li><a class="reference internal" href="#id4">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-read-error-entity">The read-error entity</a><ul>
+<li><a class="reference internal" href="#id5">Prototype</a></li>
+<li><a class="reference internal" href="#id6">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-write-error-entity">The write-error entity</a><ul>
+<li><a class="reference internal" href="#id7">Prototype</a></li>
+<li><a class="reference internal" href="#id8">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-pump-offset-set-entity">The pump-offset-set entity</a><ul>
+<li><a class="reference internal" href="#id9">Prototype</a></li>
+<li><a class="reference internal" href="#id10">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

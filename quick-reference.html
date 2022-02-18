@@ -1,0 +1,656 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Developer Guide" href="developer-guide.html" /><link rel="prev" title="Getting started" href="getting-started.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Quick Reference - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quick Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="quick-reference">
+<span id="id1"></span><h1>Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">#</a></h1>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 70%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Sources</p></td>
+<td><p><a class="reference internal" href="configuration.html#conditional-source"><span class="std std-ref">conditional</span></a> ·
+<a class="reference internal" href="configuration.html#csv-source"><span class="std std-ref">csv</span></a> ·
+<a class="reference internal" href="configuration.html#dataset-source"><span class="std std-ref">dataset</span></a> ·
+<a class="reference internal" href="configuration.html#diff-datasets-source"><span class="std std-ref">diff_datasets</span></a> ·
+<a class="reference internal" href="configuration.html#embedded-source"><span class="std std-ref">embedded</span></a> ·
+<a class="reference internal" href="configuration.html#empty-source"><span class="std std-ref">empty</span></a> ·
+<a class="reference internal" href="configuration.html#http-endpoint-source"><span class="std std-ref">http_endpoint</span></a> ·
+<a class="reference internal" href="configuration.html#json-source"><span class="std std-ref">json</span></a> ·
+<a class="reference internal" href="configuration.html#ldap-source"><span class="std std-ref">ldap</span></a> ·
+<a class="reference internal" href="configuration.html#merge-source"><span class="std std-ref">merge</span></a> ·
+<a class="reference internal" href="configuration.html#merge-datasets-source"><span class="std std-ref">merge_datasets</span></a> ·
+<a class="reference internal" href="configuration.html#rdf-source"><span class="std std-ref">rdf</span></a> ·
+<a class="reference internal" href="configuration.html#rest-source"><span class="std std-ref">rest</span></a> ·
+<a class="reference internal" href="configuration.html#sdshare-source"><span class="std std-ref">sdshare</span></a> ·
+<a class="reference internal" href="configuration.html#sparql-source"><span class="std std-ref">sparql</span></a> ·
+<a class="reference internal" href="configuration.html#sql-source"><span class="std std-ref">sql</span></a> ·
+<a class="reference internal" href="configuration.html#union-datasets-source"><span class="std std-ref">union_datasets</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Transforms</p></td>
+<td><p><a class="reference internal" href="configuration.html#conditional-transform"><span class="std std-ref">conditional</span></a> ·
+<a class="reference internal" href="configuration.html#dtl-transform"><span class="std std-ref">dtl</span></a> ·
+<a class="reference internal" href="configuration.html#emit-children-transform"><span class="std std-ref">emit_children</span></a> ·
+<a class="reference internal" href="configuration.html#http-transform"><span class="std std-ref">http</span></a> ·
+<a class="reference internal" href="configuration.html#json-schema-transform"><span class="std std-ref">json_schema</span></a> ·
+<a class="reference internal" href="configuration.html#rdf-transform"><span class="std std-ref">rdf</span></a> ·
+<a class="reference internal" href="configuration.html#rest-transform"><span class="std std-ref">rest</span></a> ·
+<a class="reference internal" href="configuration.html#xml-transform"><span class="std std-ref">xml</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sinks</p></td>
+<td><p><a class="reference internal" href="configuration.html#conditional-sink"><span class="std std-ref">conditional</span></a> ·
+<a class="reference internal" href="configuration.html#csv-endpoint-sink"><span class="std std-ref">csv_endpoint</span></a> ·
+<a class="reference internal" href="configuration.html#databrowser-sink"><span class="std std-ref">databrowser</span></a> ·
+<a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset</span></a> ·
+<a class="reference internal" href="configuration.html#elasticsearch-sink"><span class="std std-ref">elasticsearch</span></a> ·
+<a class="reference internal" href="configuration.html#http-endpoint-sink"><span class="std std-ref">http_endpoint</span></a> ·
+<a class="reference internal" href="configuration.html#json-sink"><span class="std std-ref">json</span></a> ·
+<a class="reference internal" href="configuration.html#mail-sink"><span class="std std-ref">mail</span></a> ·
+<a class="reference internal" href="configuration.html#null-sink"><span class="std std-ref">null</span></a> ·
+<a class="reference internal" href="configuration.html#rest-sink"><span class="std std-ref">rest</span></a> ·
+<a class="reference internal" href="configuration.html#sdshare-sink"><span class="std std-ref">sdshare</span></a> ·
+<a class="reference internal" href="configuration.html#sms-sink"><span class="std std-ref">sms</span></a> ·
+<a class="reference internal" href="configuration.html#solr-sink"><span class="std std-ref">solr</span></a> ·
+<a class="reference internal" href="configuration.html#sparql-sink"><span class="std std-ref">sparql</span></a> ·
+<a class="reference internal" href="configuration.html#sql-sink"><span class="std std-ref">sql</span></a> ·
+<a class="reference internal" href="configuration.html#xml-endpoint-sink"><span class="std std-ref">xml_endpoint</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Systems</p></td>
+<td><p><a class="reference internal" href="configuration.html#elasticsearch-system"><span class="std std-ref">elasticsearch</span></a> ·
+<a class="reference internal" href="configuration.html#ldap-system"><span class="std std-ref">ldap</span></a> ·
+<a class="reference internal" href="configuration.html#microservice-system"><span class="std std-ref">microservice</span></a> ·
+<a class="reference internal" href="configuration.html#mssql-system"><span class="std std-ref">mssql</span></a> ·
+<a class="reference internal" href="configuration.html#mssql-azure-dw-system"><span class="std std-ref">mssql-azure-dw</span></a> ·
+<a class="reference internal" href="configuration.html#mysql-system"><span class="std std-ref">mysql</span></a> ·
+<a class="reference internal" href="configuration.html#oracle-system"><span class="std std-ref">oracle</span></a> ·
+<a class="reference internal" href="configuration.html#oracle-tns-system"><span class="std std-ref">oracle_tns</span></a> ·
+<a class="reference internal" href="configuration.html#postgresql-system"><span class="std std-ref">postgresql</span></a> ·
+<a class="reference internal" href="configuration.html#rest-system"><span class="std std-ref">rest</span></a> ·
+<a class="reference internal" href="configuration.html#smtp-system"><span class="std std-ref">smtp</span></a> ·
+<a class="reference internal" href="configuration.html#solr-system"><span class="std std-ref">solr</span></a> ·
+<a class="reference internal" href="configuration.html#twilio-system"><span class="std std-ref">twilio</span></a> ·
+<a class="reference internal" href="configuration.html#url-system"><span class="std std-ref">url</span></a></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="dtl-transforms">
+<h2>DTL Transforms<a class="headerlink" href="#dtl-transforms" title="Permalink to this headline">#</a></h2>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 70%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Conditionals</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-case"><span class="std std-ref">case</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-case-eq"><span class="std std-ref">case-eq</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-if"><span class="std std-ref">if</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Filters</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-discard"><span class="std std-ref">discard</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-filter"><span class="std std-ref">filter</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Side-effects</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-add"><span class="std std-ref">add</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-copy"><span class="std std-ref">copy</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-default"><span class="std std-ref">default</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-make-ni"><span class="std std-ref">make-ni</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-merge"><span class="std std-ref">merge</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-merge-union"><span class="std std-ref">merge-union</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-remove"><span class="std std-ref">remove</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-rename"><span class="std std-ref">rename</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Creation</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-create"><span class="std std-ref">create</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-create-child"><span class="std std-ref">create-child</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Comments</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-comment"><span class="std std-ref">comment</span></a></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="dtl-functions">
+<h2>DTL Functions<a class="headerlink" href="#dtl-functions" title="Permalink to this headline">#</a></h2>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 70%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Boolean logic</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#and-dtl-function"><span class="std std-ref">and</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#or-dtl-function"><span class="std std-ref">or</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#not-dtl-function"><span class="std std-ref">not</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#all-dtl-function"><span class="std std-ref">all</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#any-dtl-function"><span class="std std-ref">any</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Booleans</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#boolean-dtl-function"><span class="std std-ref">boolean</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-boolean-dtl-function"><span class="std std-ref">is-boolean</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparisons</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#eq-dtl-function"><span class="std std-ref">eq</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#neq-dtl-function"><span class="std std-ref">neq</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#gt-dtl-function"><span class="std std-ref">gt</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#gte-dtl-function"><span class="std std-ref">gte</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#lt-dtl-function"><span class="std std-ref">lt</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#lte-dtl-function"><span class="std std-ref">lte</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-empty-dtl-function"><span class="std std-ref">is-empty</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-not-empty-dtl-function"><span class="std std-ref">is-not-empty</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-changed-dtl-function"><span class="std std-ref">is-changed</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Conditionals</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#if-dtl-function"><span class="std std-ref">if</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#case-eq-dtl-function"><span class="std std-ref">case-eq</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#case-dtl-function"><span class="std std-ref">case</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-null-dtl-function"><span class="std std-ref">is-null</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-not-null-dtl-function"><span class="std std-ref">is-not-null</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#if-null-dtl-function"><span class="std std-ref">if-null</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#coalesce-dtl-function"><span class="std std-ref">coalesce</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Numbers</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#integer-dtl-function"><span class="std std-ref">integer</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-integer-dtl-function"><span class="std std-ref">is-integer</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#decimal-dtl-function"><span class="std std-ref">decimal</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-decimal-dtl-function"><span class="std std-ref">is-decimal</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#float-dtl-function"><span class="std std-ref">float</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-float-dtl-function"><span class="std std-ref">is-float</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#hex-dtl-function"><span class="std std-ref">hex</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Date and time</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#now-dtl-function"><span class="std std-ref">now</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-dtl-function"><span class="std std-ref">datetime</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-parse-dtl-function"><span class="std std-ref">datetime-parse</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-format-dtl-function"><span class="std std-ref">datetime-format</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-plus-dtl-function"><span class="std std-ref">datetime-plus</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-diff-dtl-function"><span class="std std-ref">datetime-diff</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#datetime-shift-dtl-function"><span class="std std-ref">datetime-shift</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-datetime-dtl-function"><span class="std std-ref">is-datetime</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Strings</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#string-dtl-function"><span class="std std-ref">string</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-string-dtl-function"><span class="std std-ref">is-string</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#upper-dtl-function"><span class="std std-ref">upper</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#lower-dtl-function"><span class="std std-ref">lower</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#length-dtl-function"><span class="std std-ref">length</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#concat-dtl-function"><span class="std std-ref">concat</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#join-dtl-function"><span class="std std-ref">join</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#split-dtl-function"><span class="std std-ref">split</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#strip-dtl-function"><span class="std std-ref">strip</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#lstrip-dtl-function"><span class="std std-ref">lstrip</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#rstrip-dtl-function"><span class="std std-ref">rstrip</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ljust-dtl-function"><span class="std std-ref">ljust</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#rjust-dtl-function"><span class="std std-ref">rjust</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#replace-dtl-function"><span class="std std-ref">replace</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#substring-dtl-function"><span class="std std-ref">substring</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#matches-dtl-function"><span class="std std-ref">matches</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Bytes</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#bytes-dtl-function"><span class="std std-ref">bytes</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-bytes-dtl-function"><span class="std std-ref">is-bytes</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#base64-encode-dtl-function"><span class="std std-ref">base64-encode</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#base64-decode-dtl-function"><span class="std std-ref">base64-decode</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Encryption</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#encrypt-dtl-function"><span class="std std-ref">encrypt</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#encrypt-pki-dtl-function"><span class="std std-ref">encrypt-pki</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#encrypt-pgp-dtl-function"><span class="std std-ref">encrypt-pgp</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#decrypt-dtl-function"><span class="std std-ref">decrypt</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#decrypt-pki-dtl-function"><span class="std std-ref">decrypt-pki</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#decrypt-pgp-dtl-function"><span class="std std-ref">decrypt-pgp</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>JSON</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#json-dtl-function"><span class="std std-ref">json</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#json-transit-dtl-function"><span class="std std-ref">json-transit</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#json-parse-dtl-function"><span class="std std-ref">json-parse</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#json-transit-parse-dtl-function"><span class="std std-ref">json-transit-parse</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>URIs</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#uri-dtl-function"><span class="std std-ref">uri</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-uri-dtl-function"><span class="std std-ref">is-uri</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#url-quote-dtl-function"><span class="std std-ref">url-quote</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#url-unquote-dtl-function"><span class="std std-ref">url-unquote</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>UUIDs</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#uuid-dtl-function"><span class="std std-ref">uuid</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-uuid-dtl-function"><span class="std std-ref">is-uuid</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nested transformations</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#apply-dtl-function"><span class="std std-ref">apply</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#apply-hops-dtl-function"><span class="std std-ref">apply-hops</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Paths</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#path-dtl-function"><span class="std std-ref">path</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hops</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#hops-dtl-function"><span class="std std-ref">hops</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Entity lookups</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#lookup-entity-dtl-function"><span class="std std-ref">lookup-entity</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Namespaced identifiers</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#ni-dtl-function"><span class="std std-ref">ni</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-ni-dtl-function"><span class="std std-ref">is-ni</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ni-ns-dtl-function"><span class="std std-ref">ni-ns</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ni-id-dtl-function"><span class="std std-ref">ni-id</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ni-collapse-dtl-function"><span class="std std-ref">ni-collapse</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ni-expand-dtl-function"><span class="std std-ref">ni-expand</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Lists</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#list-dtl-function"><span class="std std-ref">list</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-list-dtl-function"><span class="std std-ref">is-list</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#first-dtl-function"><span class="std std-ref">first</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#last-dtl-function"><span class="std std-ref">last</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#in-dtl-function"><span class="std std-ref">in</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#nth-dtl-function"><span class="std std-ref">nth</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#slice-dtl-function"><span class="std std-ref">slice</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#insert-dtl-function"><span class="std std-ref">insert</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#combine-dtl-function"><span class="std std-ref">combine</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#flatten-dtl-function"><span class="std std-ref">flatten</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#filter-dtl-function"><span class="std std-ref">filter</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#min-dtl-function"><span class="std std-ref">min</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#max-dtl-function"><span class="std std-ref">max</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#sum-dtl-function"><span class="std std-ref">sum</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#count-dtl-function"><span class="std std-ref">count</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#range-dtl-function"><span class="std std-ref">range</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#enumerate-dtl-function"><span class="std std-ref">enumerate</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#distinct-dtl-function"><span class="std std-ref">distinct</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#sorted-dtl-function"><span class="std std-ref">sorted</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#sorted-descending-dtl-function"><span class="std std-ref">sorted-descending</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#reversed-dtl-function"><span class="std std-ref">reversed</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#map-dtl-function"><span class="std std-ref">map</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#map-values-dtl-function"><span class="std std-ref">map-values</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#map-dict-dtl-function"><span class="std std-ref">map-dict</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#group-by-dtl-function"><span class="std std-ref">group-by</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sets</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#union-dtl-function"><span class="std std-ref">union</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#intersection-dtl-function"><span class="std std-ref">intersection</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#intersects-dtl-function"><span class="std std-ref">intersects</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#difference-dtl-function"><span class="std std-ref">difference</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Dictionaries</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#items-dtl-function"><span class="std std-ref">items</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#dict-dtl-function"><span class="std std-ref">dict</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#is-dict-dtl-function"><span class="std std-ref">is-dict</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#keys-dtl-function"><span class="std std-ref">keys</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#values-dtl-function"><span class="std std-ref">values</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#key-values-dtl-function"><span class="std std-ref">key-values</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tuples</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#tuples-dtl-function"><span class="std std-ref">tuples</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Hashing</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#hash128-dtl-function"><span class="std std-ref">hash128</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Math</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#plus-dtl-function"><span class="std std-ref">plus</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#plus-symbol-dtl-function"><span class="std std-ref">+</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#minus-dtl-function"><span class="std std-ref">minus</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#minus-symbol-dtl-function"><span class="std std-ref">-</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#divide-dtl-function"><span class="std std-ref">divide</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#divide-symbol-dtl-function"><span class="std std-ref">/</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#multiply-dtl-function"><span class="std std-ref">multiply</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#multiply-symbol-dtl-function"><span class="std std-ref">*</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#mod-dtl-function"><span class="std std-ref">mod</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#mod-symbol-dtl-function"><span class="std std-ref">%</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#pow-dtl-function"><span class="std std-ref">pow</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#pow-symbol-dtl-function"><span class="std std-ref">^</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#round-dtl-function"><span class="std std-ref">round</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#ceil-dtl-function"><span class="std std-ref">ceil</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#floor-dtl-function"><span class="std std-ref">floor</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#abs-dtl-function"><span class="std std-ref">abs</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#sqrt-dtl-function"><span class="std std-ref">sqrt</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#sin-dtl-function"><span class="std std-ref">sin</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#cos-dtl-function"><span class="std std-ref">cos</span></a> ·
+<a class="reference internal" href="DTLReferenceGuide.html#tan-dtl-function"><span class="std std-ref">tan</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Misc</p></td>
+<td><p><a class="reference internal" href="DTLReferenceGuide.html#fail-dtl-function"><span class="std std-ref">fail!</span></a></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="developer-guide.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Developer Guide</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="getting-started.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Getting started</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Quick Reference</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#dtl-transforms">DTL Transforms</a></li>
+<li><a class="reference internal" href="#dtl-functions">DTL Functions</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

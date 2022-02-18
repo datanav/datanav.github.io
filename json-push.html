@@ -1,0 +1,869 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The Pump Execution Dataset" href="pump-execution.html" /><link rel="prev" title="JSON Pull Protocol" href="json-pull.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>JSON Push Protocol - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="json-push-protocol">
+<h1>JSON Push Protocol<a class="headerlink" href="#json-push-protocol" title="Permalink to this headline">#</a></h1>
+<p>The JSON Push protocol is an HTTP-based protocol that uses POST
+requests to perfom incremental or full data syncs across to an HTTP
+endpoint. It supports splitting up the data into smaller batches, so
+that not all the data have to be sent in a single request.</p>
+<p>The protocol is supported by the <a class="reference internal" href="configuration.html#http-endpoint-source"><span class="std std-ref">http_endpoint</span></a> source and the <a class="reference internal" href="configuration.html#json-sink"><span class="std std-ref">json</span></a>
+sink. This protocol can be used by microservices and other clients to
+send entities.</p>
+<div class="section" id="requests">
+<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">#</a></h2>
+<p>The following HTTP request parameters are supported:</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 80%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sequence_id</p></td>
+<td><p>A string token that is generated every time the data sync is
+started. Included in all requests.</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_full</p></td>
+<td><p>A boolean. Has the value <code class="docutils literal notranslate"><span class="pre">true</span></code> if this is a full data sync,
+and <code class="docutils literal notranslate"><span class="pre">false</span></code> if not. Included in all requests. The default
+value is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>request_id</p></td>
+<td><p>A string token that is generated for every request. Included
+in all requests.</p></td>
+</tr>
+<tr class="row-odd"><td><p>previous_request_id</p></td>
+<td><p>A string token referencing the request_id of the
+previous request. Included in all but the first request.</p></td>
+</tr>
+<tr class="row-even"><td><p>is_first</p></td>
+<td><p>A boolean. Included in the first request with the value <code class="docutils literal notranslate"><span class="pre">true</span></code>. Note that this flag
+is only set during a full data sync (i.e. <code class="docutils literal notranslate"><span class="pre">is_full</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_last</p></td>
+<td><p>A boolean. Included in the last request with the value <code class="docutils literal notranslate"><span class="pre">true</span></code>. Note that this flag
+is only set during a full data sync (i.e. <code class="docutils literal notranslate"><span class="pre">is_full</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The HTTP body is JSON data which will always be in the form of a
+JSON array even if it is a single entity. The
+serialisation of entities as JSON is described in more detail
+<a class="reference internal" href="entitymodel.html"><span class="doc">here</span></a>.</p>
+<p>If the sequence_id is not the same as the one that is currently
+active, then it will replace the active one (full sync only). Only a
+single sequence_id should be active at any time. A sequence id goes
+out of scope when the ‘is_last=true’ request parameter is given. Note
+that an incremental request does not affect the active sequence.</p>
+</div>
+<div class="section" id="conflicts">
+<h2>Conflicts<a class="headerlink" href="#conflicts" title="Permalink to this headline">#</a></h2>
+<p>When doing an incremental sync the request parameters can silently be
+ignored and the entities should be accepted.</p>
+<p>The HTTP server should recognize these cases as conflicting when doing
+a full data sync:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">previous_request_id</span></code> does not match with the request_id of the
+previous request. Return ‘409 Conflict’.</p></li>
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">is_full</span></code> is not the same as in the previous request of
+the same sequence. Return ‘409 Conflict’.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">is_first</span></code> request parameter is true when we know that it is not
+the first request in the active sequence. Return ‘409 Conflict’.</p></li>
+</ul>
+<p>If the JSON Push Sink receives a <code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> response code, then it
+must stop the active sync, and try again later. It should start from
+the beginning with a new sequence if it was a full data sync.</p>
+</div>
+<div class="section" id="examples">
+<span id="json-push-examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<p>This section contains three examples that illustrates how you can use
+the JSON push protocol to push data to Sesam using incremental and
+full syncs. The examples use the <code class="docutils literal notranslate"><span class="pre">curl</span></code> command line utility.</p>
+<p>Our examples all use the following pipe which sets up a receiver
+endpoint that we can use to push our JSON entities to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat pipe.json
+{
+    "_id": "myendpoint",
+    "type": "pipe",
+    "source": {
+        "type": "http_endpoint"
+    },
+    "sink": {
+        "type": "dataset",
+        "dataset": "mydataset"
+    }
+}
+</pre></div>
+</div>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">curl</span></code> command to communicate with Sesam we need a JWT
+token for authorization. We’ll add the JWT authorization header to an
+environment variable to make this easier:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">AUTH_HEADER</span><span class="o">=</span><span class="s2">"Authorization: bearer YOUR-JWT-TOKEN"</span>
+</pre></div>
+</div>
+<div class="section" id="example-0-incremental-sync">
+<h3>Example 0: incremental sync<a class="headerlink" href="#example-0-incremental-sync" title="Permalink to this headline">#</a></h3>
+<p>This example has one JSON request body, which looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat sequence0.json
+[
+    {
+        "_id": "a",
+        "name": "A"
+    },
+    {
+        "_id": "b",
+        "name": "B"
+    }
+]
+</pre></div>
+</div>
+<p>We can now <code class="docutils literal notranslate"><span class="pre">POST</span></code> the contents of the <code class="docutils literal notranslate"><span class="pre">sequence0.json</span></code> file to the
+<code class="docutils literal notranslate"><span class="pre">/api/receivers/myendpoint/entities</span></code> endpoint. This request is
+treated as an incremental sync, which in practice will just add the
+entities to the <code class="docutils literal notranslate"><span class="pre">mydataset</span></code> dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence0.json http://localhost:9042/api/receivers/myendpoint/entities
+{}
+</pre></div>
+</div>
+<p>If we now look at the <code class="docutils literal notranslate"><span class="pre">mydataset</span></code> dataset using the API, it now looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  }
+]
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-1-full-sync">
+<h3>Example 1: full sync<a class="headerlink" href="#example-1-full-sync" title="Permalink to this headline">#</a></h3>
+<p>This example has three JSON request bodies, which look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat sequence1.0.json
+[
+    {
+        "_id": "b",
+        "name": "B"
+    }
+]
+
+$ cat sequence1.1.json
+[
+    {
+        "_id": "a",
+        "name": "A (updated)"
+    },
+    {
+        "_id": "c",
+        "name": "C"
+    }
+]
+
+$ cat sequence1.2.json
+[
+    {
+        "_id": "d",
+        "name": "D"
+    }
+]
+</pre></div>
+</div>
+<p>We can now <code class="docutils literal notranslate"><span class="pre">POST</span></code> the contents of the three files to the
+<code class="docutils literal notranslate"><span class="pre">/api/receivers/myendpoint/entities</span></code> endpoint. We’ll want to do this
+in one sequence, but across three HTTP requests.</p>
+<p>All our request set the request parameter <code class="docutils literal notranslate"><span class="pre">is_full</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> in
+order to indicate that we’re doing a full sync, i.e. we’re sending the
+complete set of data in this sequence. This will enable deletion
+detection, which we’ll see an example of later.</p>
+<p>We also set the <code class="docutils literal notranslate"><span class="pre">sequence_id</span></code> request parameter to a unique token
+that represents our sequence. In this case we use the value <code class="docutils literal notranslate"><span class="pre">1</span></code> to
+indicate that this is our first sequence.</p>
+<p>Since this is our first request in the sequence we set <code class="docutils literal notranslate"><span class="pre">request_id</span></code>
+to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general it is a good idea to use <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a> for
+<code class="docutils literal notranslate"><span class="pre">sequence_id</span></code>, so that we can guarantee that they are unique. For
+<code class="docutils literal notranslate"><span class="pre">request_id</span></code> it is OK to use numbers as the request id is local
+to the sequence.</p>
+</div>
+<p>The first request starts the sequence and posts the contents of the
+first file. Note that the <code class="docutils literal notranslate"><span class="pre">is_first</span></code> request parameter is set to
+<code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence1.0.json 'http://localhost:9042/api/receivers/myendpoint/entities?is_full=true&amp;sequence_id=1&amp;request_id=1&amp;is_first=true'
+{}
+</pre></div>
+</div>
+<p>Our dataset now contains the same two entities as before as the first
+file did not contain any changes to the <code class="docutils literal notranslate"><span class="pre">b</span></code> entity. This is normal
+as a dataset will only update when entities actually are different.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  }
+]
+</pre></div>
+</div>
+<p>The second request posts the contents of the second file. Note that
+the <code class="docutils literal notranslate"><span class="pre">previous_request_id</span></code> references the <code class="docutils literal notranslate"><span class="pre">request_id</span></code> of our
+previous request. This is just a safety measure so that we make sure
+that we don’t miss any requests.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence1.1.json 'http://localhost:9042/api/receivers/myendpoint/entities?is_full=true&amp;sequence_id=1&amp;request_id=2&amp;previous_request_id=1'
+</pre></div>
+</div>
+<p>Our dataset now contains an updated <code class="docutils literal notranslate"><span class="pre">a</span></code> entity and a new <code class="docutils literal notranslate"><span class="pre">c</span></code> entity.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  },
+  {
+    "name": "A (updated)",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 2,
+    "_previous": 0,
+    "_ts": 1489654329529744,
+    "_hash": "73873bcb381ebef10644a0bda6798e6a"
+  },
+  {
+    "name": "C",
+    "_id": "c",
+    "_deleted": false,
+    "_updated": 3,
+    "_previous": null,
+    "_ts": 1489654329529773,
+    "_hash": "3b6c7ae2d4d66d9f1cf185f0c3004cce"
+  }
+]
+</pre></div>
+</div>
+<p>The third request is our last request. It posts the contents of the
+third file. Here the <code class="docutils literal notranslate"><span class="pre">is_last</span></code> request parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>
+to tell the server that this is the last request in the sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence1.2.json 'http://localhost:9042/api/receivers/myendpoint/entities?is_full=true&amp;sequence_id=1&amp;request_id=3&amp;previous_request_id=2&amp;is_last=true'
+{}
+</pre></div>
+</div>
+<p>Our dataset now contains a new <code class="docutils literal notranslate"><span class="pre">d</span></code> entity.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curls -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  },
+  {
+    "name": "A (updated)",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 2,
+    "_previous": 0,
+    "_ts": 1489654329529744,
+    "_hash": "73873bcb381ebef10644a0bda6798e6a"
+  },
+  {
+    "name": "C",
+    "_id": "c",
+    "_deleted": false,
+    "_updated": 3,
+    "_previous": null,
+    "_ts": 1489654329529773,
+    "_hash": "3b6c7ae2d4d66d9f1cf185f0c3004cce"
+  },
+  {
+    "name": "D",
+    "_id": "d",
+    "_deleted": false,
+    "_updated": 4,
+    "_previous": null,
+    "_ts": 1489654349898053,
+    "_hash": "9d8255209c3e1d318e8cf2cab7a3a73e"
+  }
+]
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2-full-sync-deletion-detection">
+<h3>Example 2: full sync (deletion detection)<a class="headerlink" href="#example-2-full-sync-deletion-detection" title="Permalink to this headline">#</a></h3>
+<p>This example has two JSON request bodies, which look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat sequence2.0.json
+[
+    {
+        "_id": "a",
+        "name": "A"
+    },
+    {
+        "_id": "b",
+        "name": "B"
+    }
+]
+
+$ cat sequence2.1.json
+[
+    {
+        "_id": "d",
+        "name": "D"
+    }
+]
+</pre></div>
+</div>
+<p>This example is similar to the previous one, but this time there’s
+only two requests and we’ll show off the deletion detection
+feature. Entities that exists in the dataset, but are not part of the
+entities sent in a sequence will be marked as deleted.</p>
+<p>The first request starts the sequence and posts the contents of the
+first file. Note that the <code class="docutils literal notranslate"><span class="pre">is_first</span></code> request parameter is set to
+<code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence2.0.json 'http://localhost:9042/api/receivers/myendpoint/entities?is_full=true&amp;sequence_id=2&amp;request_id=1&amp;is_first=true'
+</pre></div>
+</div>
+<p>Our dataset now contains an updated <code class="docutils literal notranslate"><span class="pre">a</span></code> entity. <code class="docutils literal notranslate"><span class="pre">b</span></code> did not
+change, so it was not added to the dataset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  },
+  {
+    "name": "A (updated)",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 2,
+    "_previous": 0,
+    "_ts": 1489654329529744,
+    "_hash": "73873bcb381ebef10644a0bda6798e6a"
+  },
+  {
+    "name": "C",
+    "_id": "c",
+    "_deleted": false,
+    "_updated": 3,
+    "_previous": null,
+    "_ts": 1489654329529773,
+    "_hash": "3b6c7ae2d4d66d9f1cf185f0c3004cce"
+  },
+  {
+    "name": "D",
+    "_id": "d",
+    "_deleted": false,
+    "_updated": 4,
+    "_previous": null,
+    "_ts": 1489654349898053,
+    "_hash": "9d8255209c3e1d318e8cf2cab7a3a73e"
+  },
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 5,
+    "_previous": 2,
+    "_ts": 1489654388968749,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  }
+]
+</pre></div>
+</div>
+<p>The second request is our last request. It posts the contents of the
+second file. Here the <code class="docutils literal notranslate"><span class="pre">is_last</span></code> request parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>
+to tell the server that this is the last request in the sequence. Note
+that in this example there was no middle request that was neither
+<code class="docutils literal notranslate"><span class="pre">is_first</span></code> nor <code class="docutils literal notranslate"><span class="pre">is_last</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -X POST -H "$AUTH_HEADER" -H "Content-Type: application/json" --data @sequence2.1.json 'http://localhost:9042/api/receivers/myendpoint/entities?is_full=true&amp;sequence_id=2&amp;request_id=2&amp;previous_request_id=1&amp;is_last=true'
+</pre></div>
+</div>
+<p>Our dataset now contains a deleted <code class="docutils literal notranslate"><span class="pre">c</span></code> entity. The entity was
+deleted because it did exist in the dataset, but was not part of the
+entities that we sent. It is thus marked as deleted. <code class="docutils literal notranslate"><span class="pre">d</span></code> did not
+change.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" http://localhost:9042/api/datasets/mydataset/entities | jq .
+[
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 0,
+    "_previous": null,
+    "_ts": 1489654249474509,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "B",
+    "_id": "b",
+    "_deleted": false,
+    "_updated": 1,
+    "_previous": null,
+    "_ts": 1489654249474537,
+    "_hash": "d3b66df7c0e6513556378c2ec5b91d5c"
+  },
+  {
+    "name": "A (updated)",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 2,
+    "_previous": 0,
+    "_ts": 1489654329529744,
+    "_hash": "73873bcb381ebef10644a0bda6798e6a"
+  },
+  {
+    "name": "C",
+    "_id": "c",
+    "_deleted": false,
+    "_updated": 3,
+    "_previous": null,
+    "_ts": 1489654329529773,
+    "_hash": "3b6c7ae2d4d66d9f1cf185f0c3004cce"
+  },
+  {
+    "name": "D",
+    "_id": "d",
+    "_deleted": false,
+    "_updated": 4,
+    "_previous": null,
+    "_ts": 1489654349898053,
+    "_hash": "9d8255209c3e1d318e8cf2cab7a3a73e"
+  },
+  {
+    "name": "A",
+    "_id": "a",
+    "_deleted": false,
+    "_updated": 5,
+    "_previous": 2,
+    "_ts": 1489654388968749,
+    "_hash": "8b48c6574f7e8474194090eb9123666e"
+  },
+  {
+    "name": "C",
+    "_id": "c",
+    "_deleted": true,
+    "_updated": 6,
+    "_previous": 3,
+    "_ts": 1489654451658805,
+    "_hash": "ec83ea023462b80f19a23e39639f7307"
+  }
+]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="pump-execution.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">The Pump Execution Dataset</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="json-pull.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">JSON Pull Protocol</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">JSON Push Protocol</a><ul>
+<li><a class="reference internal" href="#requests">Requests</a></li>
+<li><a class="reference internal" href="#conflicts">Conflicts</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-0-incremental-sync">Example 0: incremental sync</a></li>
+<li><a class="reference internal" href="#example-1-full-sync">Example 1: full sync</a></li>
+<li><a class="reference internal" href="#example-2-full-sync-deletion-detection">Example 2: full sync (deletion detection)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1840 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Tools" href="tools.html" /><link rel="prev" title="Sesam in Microsoft Azure" href="azure.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Deprecations - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="deprecations">
+<span id="id1"></span><h1>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">#</a></h1>
+<p>This document contains deprecated sections from the documentation. Do
+not make use of these features.</p>
+<div class="section" id="dtl-functions">
+<h2>DTL Functions<a class="headerlink" href="#dtl-functions" title="Permalink to this headline">#</a></h2>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 33%"/>
+<col style="width: 56%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p>
+</th>
+</tr>
+</thead>
+<tbody id="curie-dtl-function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">curie</span></code></p></td>
+<td><div class="line-block">
+<div class="line"><em>Arguments:</em></div>
+<div class="line-block">
+<div class="line">PREFIX(string{1}),</div>
+<div class="line">VALUES(value-expression{1})</div>
+<div class="line"><br/></div>
+</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Constructs new CURIEs as URI objects based on a the PREFIX
+and VALUES arguments.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["curie",</span> <span class="pre">"foo",</span> <span class="pre">"bar"]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">This will produce a URI object with the value <code class="docutils literal notranslate"><span class="pre">"~rfoo:bar"</span></code>.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["curie",</span> <span class="pre">"foo",</span> <span class="pre">["list",</span> <span class="pre">"bar",</span> <span class="pre">"zoo"]]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">This will produce a list of two URI objects with the
+values <code class="docutils literal notranslate"><span class="pre">["~rfoo:bar",</span> <span class="pre">"~rfoo:zoo"]</span></code>.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd" id="uri-expand-dtl-function"><td><p><code class="docutils literal notranslate"><span class="pre">uri-expand</span></code></p></td>
+<td><div class="line-block">
+<div class="line"><em>Arguments:</em></div>
+<div class="line-block">
+<div class="line">FUNCTION(function-expression(0|1}</div>
+<div class="line">ENTITIES(value-expression{1})</div>
+<div class="line"><br/></div>
+</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">Runs the given entities through the prefixing rules and the
+prefix expansion mapping defined in the node metadata RDF registry.
+The given entities must have a <code class="docutils literal notranslate"><span class="pre">_dataset</span></code> property containing the
+id of the dataset to which they belong <em>or</em> the key to look up the
+prefixes must be computed by the (optional) FUNCTION argument. The
+result of the FUNCTION argument will override any <code class="docutils literal notranslate"><span class="pre">_dataset</span></code>
+property on the entity. The id given or computed will be used to locate
+the prefix rules and prefix expansion mapping within the node RDF registry.
+Note that the result of FUNCTION must be a single string value.</div>
+</div>
+<div class="line-block">
+<div class="line">The main purpose of this function is to prepare entities for
+translation into RDF form. See the <a class="reference internal" href="rdf-support.html"><span class="doc">RDF support</span></a>
+document for more information about how this works.</div>
+</div>
+<div class="line-block">
+<div class="line">Example node metadata:</div>
+</div>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"rdf"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"people"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"p"</span><span class="p">:</span> <span class="s2">"http://example.org/people/"</span>
+         <span class="p">},</span>
+         <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"p"</span><span class="p">,</span>
+           <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s2">"p"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"name"</span><span class="p">],</span>
+              <span class="s2">"c"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"Employer"</span><span class="p">],</span>
+              <span class="s2">"_"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+           <span class="p">]</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Example input entity:</div>
+</div>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"john_doe"</span><span class="p">,</span>
+  <span class="s2">"_dataset"</span><span class="p">:</span> <span class="s2">"people"</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John Doe"</span><span class="p">,</span>
+  <span class="s2">"employer"</span><span class="p">:</span> <span class="s2">"Example Ltd."</span><span class="p">,</span>
+  <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1973-01-21"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Given the above configuration you should expect the following URI-expanded
+entity in the result:</div>
+</div>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;http://example.org/people/john_doe&gt;"</span><span class="p">,</span>
+  <span class="s2">"_dataset"</span><span class="p">:</span> <span class="s2">"people"</span><span class="p">,</span>
+  <span class="s2">"&lt;http://example.org/people/name&gt;"</span><span class="p">:</span> <span class="s2">"John Doe"</span><span class="p">,</span>
+  <span class="s2">"&lt;http://example.org/company/employer&gt;"</span><span class="p">:</span> <span class="s2">"Example Ltd."</span><span class="p">,</span>
+  <span class="s2">"&lt;http://example.org/born&gt;"</span><span class="p">:</span> <span class="s2">"1973-01-21"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["uri-expand",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{"_id":</span> <span class="pre">"mary",</span> <span class="pre">"_dataset":</span> <span class="pre">"people",</span> <span class="pre">"name":</span> <span class="pre">"Mary</span> <span class="pre">Jones"}]</span></code></div>
+<div class="line"><br/></div>
+</div>
+<div class="line">Returns an URI expanded version of the <code class="docutils literal notranslate"><span class="pre">mary</span></code> entity.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["uri-expand",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["lookup",</span> <span class="pre">["list",</span> <span class="pre">"~rsesam:A/foo"],</span> <span class="pre">"bar"]]</span></code></div>
+<div class="line"><br/></div>
+</div>
+<div class="line">Looks up the <code class="docutils literal notranslate"><span class="pre">foo</span></code> entity in the <code class="docutils literal notranslate"><span class="pre">A</span></code> dataset and <code class="docutils literal notranslate"><span class="pre">bar</span></code> in the current
+dataset, then URI expands them.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["uri-expand",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["list",</span> <span class="pre">{"_id":</span> <span class="pre">"mary",</span> <span class="pre">"name":</span> <span class="pre">"Mary</span> <span class="pre">Jones"}]]</span></code></div>
+<div class="line"><br/></div>
+</div>
+<div class="line">Returns an empty list because the <code class="docutils literal notranslate"><span class="pre">mary</span></code> entity is missing the <code class="docutils literal notranslate"><span class="pre">_dataset</span></code>
+property.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["uri-expand",</span> <span class="pre">["string",</span> <span class="pre">"people"],</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{"_id":</span> <span class="pre">"mary",</span> <span class="pre">"_dataset":</span> <span class="pre">"employees",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">"name":</span> <span class="pre">"Mary</span> <span class="pre">Jones"}]</span></code></div>
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="line">Returns an URI expanded version of the <code class="docutils literal notranslate"><span class="pre">mary</span></code> entity using the prefixes
+registered by the “people” key in the node RDF registry (i.e. the
+<code class="docutils literal notranslate"><span class="pre">_dataset</span></code> value of “employees” is overriden by the computed value)</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["uri-expand",</span> <span class="pre">["string",</span> <span class="pre">"_.type"],</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{"_id":</span> <span class="pre">"mary",</span> <span class="pre">"_dataset":</span> <span class="pre">"employees",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">"type":</span> <span class="pre">"person",</span> <span class="pre">"name":</span> <span class="pre">"Mary</span> <span class="pre">Jones"}]</span></code></div>
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="line">Returns an URI expanded version of the <code class="docutils literal notranslate"><span class="pre">mary</span></code> entity using the prefixes
+registered by the “person” key in the node RDF registry. The <code class="docutils literal notranslate"><span class="pre">_dataset</span></code>
+value of “employees” is overriden by the computed value (based on
+the contents of the entity’s <code class="docutils literal notranslate"><span class="pre">type</span></code> property in this example).</div>
+</div>
+</td>
+</tr>
+<tr class="row-even" id="lookup-dtl-function"><td><p><code class="docutils literal notranslate"><span class="pre">lookup</span></code></p></td>
+<td><div class="line-block">
+<div class="line"><em>Arguments:</em></div>
+<div class="line-block">
+<div class="line">DATASET_IDS(value-expression{0|1})</div>
+<div class="line">ENTITY_REFERENCES(value-expression{1})</div>
+<div class="line"><br/></div>
+</div>
+<div class="line">Returns an entity or a list of entities by resolving the strings or URIs in
+ENTITY_REFERENCES. The URIs will be resolved by looking up entities by
+id in the given datasets. Relative references will be resolved in the
+current dataset or in the DATASET_IDS datasets if specified. The returned
+entities have an extra <code class="docutils literal notranslate"><span class="pre">_dataset</span></code> property containing the id of the dataset
+where they came from.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["lookup",</span> <span class="pre">"~rsesam:A/foo"]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">Looks up the <code class="docutils literal notranslate"><span class="pre">foo</span></code> entity in the <code class="docutils literal notranslate"><span class="pre">A</span></code> dataset.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["lookup",</span> <span class="pre">"A",</span> <span class="pre">["list",</span> <span class="pre">"foo",</span> <span class="pre">"sesam:B/bar"]]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">Looks up the <code class="docutils literal notranslate"><span class="pre">foo</span></code> entity in the <code class="docutils literal notranslate"><span class="pre">A</span></code> dataset and the <code class="docutils literal notranslate"><span class="pre">bar</span></code>
+entity in the <code class="docutils literal notranslate"><span class="pre">B</span></code> dataset.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["lookup",</span> <span class="pre">"bar"]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">Looks up the <code class="docutils literal notranslate"><span class="pre">bar</span></code> entity in the current dataset.</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["lookup",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["list",</span> <span class="pre">"A",</span> <span class="pre">"B"],</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["list",</span> <span class="pre">"bar",</span> <span class="pre">"baz",</span></code></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">"~rsesam:C/foo",</span> <span class="pre">"~rsesam:D/quux"]</span></code></div>
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="line">Looks up the <code class="docutils literal notranslate"><span class="pre">bar</span></code> and <code class="docutils literal notranslate"><span class="pre">baz</span></code> entities in the <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> datasets.
+<code class="docutils literal notranslate"><span class="pre">foo</span></code> is looked up in the <code class="docutils literal notranslate"><span class="pre">C</span></code> dataset and <code class="docutils literal notranslate"><span class="pre">quux</span></code> in the <code class="docutils literal notranslate"><span class="pre">D</span></code>
+dataset because they are explicit entity references.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd" id="reference-dtl-function"><td><p><code class="docutils literal notranslate"><span class="pre">reference</span></code></p></td>
+<td><div class="line-block">
+<div class="line"><em>Arguments:</em></div>
+<div class="line-block">
+<div class="line">DATASET_ID(string{1})</div>
+<div class="line">ENTITY_IDS(value-expression{})</div>
+<div class="line"><br/></div>
+</div>
+<div class="line">Returns a URI that can be used to reference entities in the given
+dataset. The DATASET_ID and ENTITY_IDS parts will be URI path
+encoded. URIs of this type can be resolved using the <code class="docutils literal notranslate"><span class="pre">lookup</span></code> function.</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["reference",</span> <span class="pre">"foo",</span> <span class="pre">"bar"]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">Returns <code class="docutils literal notranslate"><span class="pre">"~rsesam:foo/bar"</span></code> (which is a value of the URI datatype)).</div>
+<div class="line"><br/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">["reference",</span> <span class="pre">"foo",</span> <span class="pre">["list",</span> <span class="pre">"a",</span> <span class="pre">"b"]]</span></code></div>
+<div class="line"><br/></div>
+<div class="line">Returns <code class="docutils literal notranslate"><span class="pre">["~rsesam:foo/a",</span> <span class="pre">"~rsesam:foo/b"]</span></code>.</div>
+<div class="line"><br/></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">#</a></h2>
+<div class="section" id="the-kafka-source">
+<span id="kafka-source"></span><h3>The Kafka source<a class="headerlink" href="#the-kafka-source" title="Permalink to this headline">#</a></h3>
+<p>The Kafka source consumes data from a Kafka topic. The consumer stores the offset in the pipe, and does not commit the consumer offset back to Kafka.</p>
+<p>The entities emitted from this source has offset, partition, timestamp, value and key as properties. Message keys in Kafka can be any bytes, but the source will try to utf-8 decode the key and add that as the <code class="docutils literal notranslate"><span class="pre">_id</span></code> property.</p>
+<div class="section" id="prototype">
+<h4>Prototype<a class="headerlink" href="#prototype" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"kafka"</span><span class="p">,</span>
+    <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"kafka-system-id"</span><span class="p">,</span>
+    <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"some-topic"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The id of the <a class="reference internal" href="#kafka-system"><span class="std std-ref">Kafka System</span></a> component to use.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">topic</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The topic to consume from.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">partitions</span></code></p></td>
+<td><p>List&lt;Integer&gt;</p></td>
+<td><p>Manual assignment of partitions if only a subset of the topic is to be consumed by this pipe. In Azure Event Hubs this property
+has to be set for assignment to work for now.</p></td>
+<td><p>&lt;All&gt;</p></td>
+<td><p>No (Yes for Event Hubs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seek_to_beginning</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If the consumer should start from the beginning of the topic or only consume new messages. This only applies to the first run,
+subsequent runs will continue where it left off unless the pipe is reset.</p></td>
+<td><p>false</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ignore_null_keys</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If the consumer should drop messages that does not have keys.</p></td>
+<td><p>true</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">consumer_timeout_ms</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The pipe will consume all available messages from the topic. Once all messages has been consumed it will wait for this period of
+time until it will complete. Note that for topics that receives new messages more often than this interval the pipe will never
+complete.</p></td>
+<td><p>60000</p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="example-configuration">
+<h4>Example configuration<a class="headerlink" href="#example-configuration" title="Permalink to this headline">#</a></h4>
+<p>The outermost object would be your <a class="reference internal" href="configuration.html#pipe-section"><span class="std std-ref">pipe</span></a>
+configuration, which is omitted here for brevity.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"kafka"</span><span class="p">,</span>
+        <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"my-kafka"</span><span class="p">,</span>
+        <span class="s2">"consumer_timeout_ms"</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+        <span class="s2">"ignore_null_keys"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">"partitions"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s2">"seek_to_beginning"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"foo"</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transforms">
+<h2>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">#</a></h2>
+<div class="section" id="the-properties-to-curies-transform">
+<span id="properties-to-curies"></span><h3>The properties to CURIEs transform<a class="headerlink" href="#the-properties-to-curies-transform" title="Permalink to this headline">#</a></h3>
+<p>This transform can transform entity properties to <a class="reference external" href="https://www.w3.org/TR/curie/">RDF CURIEs</a> (a superset of <a class="reference external" href="https://en.wikipedia.org/wiki/QName">XML QNames</a>)
+based on wildcard patterns. It is used primarily when dealing with or preparing to output
+<a class="reference external" href="https://www.w3.org/RDF/">RDF</a> data. Note that URL quoting is applied to the property names
+as part of the transform. Also note that by default the path separator character (“/) is not quoted, but the behaviour
+is configurable.</p>
+<div class="section" id="id2">
+<h4>Prototype<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"properties_to_curies"</span><span class="p">,</span>
+    <span class="s2">"rule"</span><span class="p">:</span> <span class="s2">"rdf-registry-entry"</span><span class="p">,</span>
+    <span class="s2">"quote_safe_characters"</span><span class="p">:</span> <span class="s2">"/"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"optional-id-prefix"</span><span class="p">,</span>
+    <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">"optional_some_prefix"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"optional_some_pattern"</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Properties<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rule</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The id of the key in the <a class="reference internal" href="#rdf-registry"><span class="std std-ref">RDF registry</span></a> containing the prefix rules to to use for the transformation.
+See <a class="reference internal" href="rdf-support.html"><span class="doc">RDF support</span></a> for more information about the RDF registry and how to configure it.</p></td>
+<td></td>
+<td><p>Yes*</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">quote_safe_characters</span></code></p></td>
+<td><p>String</p></td>
+<td><p>A string of characters that should be treated as “safe” from URL quoting by the transform. By default this is
+the slash character (“/”).  If this property is set to the empty string (“”), all characters of the property name
+will be URL quoted. This property can also be set at the RDF registry level, but this value will be overridden
+if set directly on the transform configuration.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The prefix to use for <code class="docutils literal notranslate"><span class="pre">_id</span></code> properties</p></td>
+<td></td>
+<td><p>Yes*</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">properties</span></code></p></td>
+<td><p>List&lt;(String, List&lt;String&gt;)&gt;</p></td>
+<td><p>A list of String,List pairs that make up the rules for which properties should be assigned which prefixes.
+See the example section below for a fuller explanation of this property.</p></td>
+<td></td>
+<td><p>Yes*</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">rule</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">properties</span></code> are mutually exclusive. If all three are present,
+<code class="docutils literal notranslate"><span class="pre">rule</span></code> is given precedence and <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">properties</span></code> are ignored.</p>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">rule</span></code> property references a <a class="reference internal" href="#rdf-registry"><span class="std std-ref">RDF registry entry</span></a> containing a <code class="docutils literal notranslate"><span class="pre">prefix_rules</span></code> object.
+See <a class="reference internal" href="rdf-support.html"><span class="doc">RDF support</span></a> for more information about the RDF registry and how to configure it.
+Alternatively, the contents of the <code class="docutils literal notranslate"><span class="pre">prefix_rules</span></code> entry (i.e. .the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">properties</span></code>) can be included inline
+in the transform configuration.</p>
+<p>Given a pre-existing RDF registry entry <code class="docutils literal notranslate"><span class="pre">my_entry</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"my_entry"</span><span class="p">:</span> <span class="p">{</span>
+   <span class="o">..</span>
+   <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">,</span>
+       <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"c"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">],</span>
+            <span class="s2">"_"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">],</span>
+            <span class="s2">"t"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"t_*"</span><span class="p">],</span>
+            <span class="s2">"m"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">,</span> <span class="s2">"m*"</span><span class="p">],</span>
+            <span class="s2">"s"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">],</span>
+            <span class="s2">"x"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+       <span class="p">]</span>
+   <span class="p">}</span>
+   <span class="o">..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And a transform configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"properties_to_curies"</span><span class="p">,</span>
+    <span class="s2">"rule"</span><span class="p">:</span> <span class="s2">"my_entry"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And the input entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"foo/bar"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"t_a"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"a/b"</span><span class="p">:</span> <span class="s2">"A/B"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"married"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"t_b"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"world"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hi&gt;"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The transform will output the following transformed entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;x:foo/bar&gt;"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:name&gt;"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:born&gt;"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:code&gt;"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"&lt;t:t_a&gt;"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:a/b&gt;"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"&lt;_:status&gt;"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"&lt;m:married&gt;"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"&lt;s:spouse&gt;"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"&lt;c:code&gt;"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"&lt;t:t_b&gt;"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"&lt;t:t_c&gt;"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hello&gt;"</span><span class="p">:</span> <span class="s2">"world"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hi&gt;"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">quote_safe_characters</span></code> to “” would instead yield:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;x:foo</span><span class="si">%2F</span><span class="s2">bar&gt;"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:name&gt;"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:born&gt;"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:code&gt;"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"&lt;t:t_a&gt;"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:a</span><span class="si">%2F</span><span class="s2">b&gt;"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"&lt;_:status&gt;"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"&lt;m:married&gt;"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"&lt;s:spouse&gt;"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"&lt;c:code&gt;"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"&lt;t:t_b&gt;"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"&lt;t:t_c&gt;"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hello&gt;"</span><span class="p">:</span> <span class="s2">"world"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hi&gt;"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice that now “/” has also been URL quoted (“%2F”)</p>
+</div>
+</div>
+<div class="section" id="the-uris-to-curies-transform">
+<span id="uris-to-curies-transform"></span><h3>The URIs to CURIEs transform<a class="headerlink" href="#the-uris-to-curies-transform" title="Permalink to this headline">#</a></h3>
+<p>This transform can transform entity properties containing URIs in the keys and/or the values to a more compact form
+using <a class="reference external" href="https://www.w3.org/TR/curie/">RDF CURIEs</a> (a superset of <a class="reference external" href="https://en.wikipedia.org/wiki/QName">XML QNames</a>).
+It is used primarily when dealing with or reading RDF data. See the <a class="reference internal" href="rdf-support.html"><span class="doc">Working with RDF</span></a> document for more information
+about working with <a class="reference external" href="https://www.w3.org/TR/2004/REC-rdf-primer-20040210/">RDF</a> data in Sesam.</p>
+<div class="section" id="id5">
+<h4>Prototype<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"uris_to_curies"</span><span class="p">,</span>
+    <span class="s2">"prefix_includes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"entry1"</span><span class="p">,</span> <span class="s2">"entry2"</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prefix_includes</span></code></p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>A list of string keys to look up in the instance-wide <a class="reference internal" href="#rdf-registry"><span class="std std-ref">RDF registry</span></a>. These keys reference
+objects which contain RDF support structures such as CURIE prefixes (and possibly references to other prefix
+sets to include).
+The prefixes collected from the RDF registry will be used to compress full URIs to CURIEs.
+See <a class="reference internal" href="rdf-support.html"><span class="doc">RDF support</span></a> for more information about the RDF registry and how to configure it.
+The <a class="reference internal" href="#built-in-prefixes"><span class="std std-ref">common RDF prefixes</span></a> are built-in and you don’t have to provide the mapping for it
+(i.e. RDF, RDFS, OWL etc).</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="id7">
+<h4>Example<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<p>Given the configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"transform"</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"uris_to_curies"</span><span class="p">,</span>
+         <span class="s2">"prefix_includes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"my_entry"</span><span class="p">]</span>
+       <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The RDF registry entry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"my_entry"</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"http://psi.foo.com/"</span>
+      <span class="s2">"test"</span><span class="p">:</span> <span class="s2">"http://psi.test.com/"</span>
+   <span class="p">}</span>
+   <span class="o">..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And the input entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"http://psi.test.com/2"</span><span class="p">,</span>
+    <span class="s2">"http://psi.test.com/name"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"http://psi.test.com/code"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"http://psi.foo.com/married"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"url1"</span><span class="p">:</span> <span class="s2">"~rhttp://www.foo.com"</span><span class="p">,</span>
+        <span class="s2">"url2"</span><span class="p">:</span> <span class="s2">"~rhttp://psi.foo.com/url2"</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"child"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"http://psi.test.com/hello"</span><span class="p">:</span> <span class="s2">"http://psi.foo.com/world"</span><span class="p">,</span>
+            <span class="s2">"http://psi.tests.com/s"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The transform will output the following compact/”compressed” transformed entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;test:2&gt;"</span><span class="p">,</span>
+    <span class="s2">"&lt;test:name&gt;"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"&lt;test:code&gt;"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"&lt;foo:married&gt;"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"url1"</span><span class="p">:</span> <span class="s2">"~rhttp://www.foo.com"</span><span class="p">,</span>
+        <span class="s2">"url2"</span><span class="p">:</span> <span class="s2">"~rfoo:url2"</span><span class="p">,</span>
+        <span class="s2">"child"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"&lt;test:hello&gt;"</span><span class="p">:</span> <span class="s2">"&lt;foo:world&gt;"</span><span class="p">,</span>
+            <span class="s2">"http://psi.tests.com/s"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that the transform will not attempt to unquote the remainder elements after the matched prefixes.</p>
+</div>
+</div>
+<div class="section" id="the-lower-keys-transform">
+<span id="lower-keys-transform"></span><h3>The lower keys transform<a class="headerlink" href="#the-lower-keys-transform" title="Permalink to this headline">#</a></h3>
+<p>This transform transforms all the keys of an entity to lower case (optionally recursively).</p>
+<div class="section" id="id8">
+<h4>Prototype<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"lower_keys"</span><span class="p">,</span>
+    <span class="s2">"recurse"</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>Properties<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">recurse</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>An optional flag to indicate whether to do the case conversion recursively or not (default is false, which means
+no recursion).</p></td>
+<td><p>false</p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="id10">
+<h4>Example<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<p>With the default transform configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"lower_keys"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And given the the input entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"http://psi.test.com/2"</span><span class="p">,</span>
+    <span class="s2">"Born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"CODE"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"Status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"http://psi.foo.com/married"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"Spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"URL1"</span><span class="p">:</span> <span class="s2">"~rhttp://www.foo.com"</span><span class="p">,</span>
+        <span class="s2">"URL2"</span><span class="p">:</span> <span class="s2">"~rhttp://psi.foo.com/url2"</span><span class="p">,</span>
+        <span class="s2">"CODE"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"Child"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"http://psi.test.com/hello"</span><span class="p">:</span> <span class="s2">"http://psi.foo.com/world"</span><span class="p">,</span>
+            <span class="s2">"http://psi.tests.com/S"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The transform will output the following transformed entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"http://psi.test.com/2"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"http://psi.foo.com/married"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"Spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"URL1"</span><span class="p">:</span> <span class="s2">"~rhttp://www.foo.com"</span><span class="p">,</span>
+        <span class="s2">"URL2"</span><span class="p">:</span> <span class="s2">"~rhttp://psi.foo.com/url2"</span><span class="p">,</span>
+        <span class="s2">"CODE"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"Child"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"http://psi.test.com/hello"</span><span class="p">:</span> <span class="s2">"http://psi.foo.com/world"</span><span class="p">,</span>
+            <span class="s2">"http://psi.tests.com/S"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that only the root keys are transformed. If the <code class="docutils literal notranslate"><span class="pre">recurse</span></code> property is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in the configuration,
+however, the result would instead become:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"http://psi.test.com/2"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"http://psi.foo.com/married"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">"spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"url1"</span><span class="p">:</span> <span class="s2">"~rhttp://www.foo.com"</span><span class="p">,</span>
+        <span class="s2">"url2"</span><span class="p">:</span> <span class="s2">"~rhttp://psi.foo.com/url2"</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"child"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"http://psi.test.com/hello"</span><span class="p">:</span> <span class="s2">"http://psi.foo.com/world"</span><span class="p">,</span>
+            <span class="s2">"http://psi.tests.com/s"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-upper-keys-transform">
+<span id="upper-keys-transform"></span><h3>The upper keys transform<a class="headerlink" href="#the-upper-keys-transform" title="Permalink to this headline">#</a></h3>
+<p>This transform transforms all the keys of an entity to upper case (optionally recursively).
+The transform mirrors the <a class="reference internal" href="#lower-keys-transform"><span class="std std-ref">lower case transform</span></a> exactly except for the keys being
+transformed to upper case. See previous section for details.</p>
+</div>
+<div class="section" id="the-undirected-graph-transform">
+<span id="undirected-graph-transform"></span><h3>The undirected graph transform<a class="headerlink" href="#the-undirected-graph-transform" title="Permalink to this headline">#</a></h3>
+<p>The undirected graph transform transforms a list of properties representing nodes in a graph into all its
+possible sets of edges, forming a complete graph. The transform will generate all possible edges in the
+graph, which will be twice the number of entities as there are values in the aggregate of the list of properties given.
+See the example section for an example.</p>
+<div class="section" id="id11">
+<h4>Prototype<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"undirected_graph"</span><span class="p">,</span>
+    <span class="s2">"nodes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"_id"</span><span class="p">,</span> <span class="s2">"sameAs"</span><span class="p">],</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"from-property"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"to-property"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>Properties<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nodes</span></code></p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>A list of entity property names that should be used to pick the nodes of the graph. The properties must refer
+to a value that is either a string or a URI, or a list of strings or URIs. No other value types are allowed in
+the transform.</p></td>
+<td><p>[“_id”, “sameAs”]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the property to use as “from” point in the generated entity for an edge in the graph.</p></td>
+<td><p>“from”</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">to</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The name of the property to use as the “to” point in the generated entity for an edge in the graph.</p></td>
+<td><p>“to”</p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="id13">
+<h4>Example<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<p>Given the configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"transform"</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"undirected_graph"</span><span class="p">,</span>
+         <span class="s2">"nodes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"_id"</span><span class="p">,</span> <span class="s2">"map"</span><span class="p">],</span>
+         <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"from"</span><span class="p">,</span>
+         <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"to"</span>
+       <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And the input entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span>
+   <span class="s2">"map"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"zoo"</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The transform will output the following edges of the graph as entities on its output stream:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"foo.bar"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"bar"</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"foo.zoo"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"zoo"</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"bar.foo"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"foo"</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"bar.zoo"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"zoo"</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"zoo.foo"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"zoo"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"foo"</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"zoo.bar"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"zoo"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"bar"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sinks">
+<h2>Sinks<a class="headerlink" href="#sinks" title="Permalink to this headline">#</a></h2>
+<div class="section" id="deprecated-properties">
+<h3>Deprecated Properties<a class="headerlink" href="#deprecated-properties" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">prefix_includes</span></code> property has been deprecated for the <a class="reference internal" href="configuration.html#sparql-sink"><span class="std std-ref">sparql</span></a>, <a class="reference internal" href="configuration.html#sdshare-sink"><span class="std std-ref">sdshare</span></a>, <a class="reference internal" href="configuration.html#databrowser-sink"><span class="std std-ref">databrowser</span></a>, and <a class="reference internal" href="configuration.html#http-endpoint-sink"><span class="std std-ref">http_endpoint</span></a> sinks.</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prefix_includes</span></code></p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>A list of string keys to look up in the node-wide <a class="reference internal" href="#rdf-registry"><span class="std std-ref">RDF registry</span></a>. These keys reference objects which contain
+RDF support structures such as CURIE prefixes (and possibly references to other prefix sets to include).
+The prefixes collected from the RDF registry will be used to expand CURIEs into full URIs.
+See <a class="reference internal" href="rdf-support.html"><span class="doc">RDF support</span></a> for more information about the RDF registry and how to configure it.
+You do not need include any prefix sets to use the <a class="reference internal" href="#built-in-prefixes"><span class="std std-ref">common RDF prefixes</span></a> (i.e. RDF,
+RDFS, OWL and so on).</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="the-kafka-sink">
+<span id="kafka-sink"></span><h3>The Kafka sink<a class="headerlink" href="#the-kafka-sink" title="Permalink to this headline">#</a></h3>
+<p>The Kafka sink produces data to a Kafka topic.</p>
+<p>Entities sent to this sink will use the key, value and partition properties if present, otherwise the key will be utf-8 encoded version of <code class="docutils literal notranslate"><span class="pre">_id</span></code> and the value will be the entire entity. If partition is not specified, the partitioning will be based on the key.</p>
+<p>The properties used matches the properties emitted by the <a class="reference internal" href="#kafka-source"><span class="std std-ref">Kafka source</span></a>. This means that it should be possible to consume a topic and produce to a new topic in a pipe with no DTL.</p>
+<p>The sink will flush to Kafka after every batch.</p>
+<div class="section" id="id14">
+<h4>Prototype<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"kafka"</span><span class="p">,</span>
+    <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"kafka-system-id"</span><span class="p">,</span>
+    <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"some-topic"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>Properties<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The id of the <a class="reference internal" href="#kafka-system"><span class="std std-ref">Kafka System</span></a> component to use.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">topic</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The topic to send to.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="id16">
+<h4>Example configuration<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<p>The outermost object would be your <a class="reference internal" href="configuration.html#pipe-section"><span class="std std-ref">pipe</span></a>
+configuration, which is omitted here for brevity.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"sink"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"kafka"</span><span class="p">,</span>
+        <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"my-kafka"</span><span class="p">,</span>
+        <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"foo"</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="systems">
+<h2>Systems<a class="headerlink" href="#systems" title="Permalink to this headline">#</a></h2>
+<div class="section" id="the-kafka-system">
+<span id="kafka-system"></span><h3>The Kafka system<a class="headerlink" href="#the-kafka-system" title="Permalink to this headline">#</a></h3>
+<p>This system can be used to read and write data from <a class="reference external" href="https://kafka.apache.org">Apache Kafka</a> as well as <a class="reference external" href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview">Azure Event Hubs for Apache Kafka</a>.</p>
+<div class="section" id="id17">
+<h4>Prototype<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-system"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Name of system"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"system:kafka"</span><span class="p">,</span>
+    <span class="s2">"bootstrap_servers"</span><span class="p">:</span> <span class="s2">"localhost:9092,otherhost:9092"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>Properties<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 65%"/>
+<col style="width: 11%"/>
+<col style="width: 3%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bootstrap_servers</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Comma separated list of bootstrap servers with hostname and port. For Azure Event Hubs this should be set to <code class="docutils literal notranslate"><span class="pre">&lt;fqdn&gt;:9093</span></code>.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sasl_username</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Username to use when authentication against a SASL enabled Kafka cluster. If username is set, authentication will be performed.
+For Azure Event Hubs this property must be set to <code class="docutils literal notranslate"><span class="pre">$ConnectionString</span></code> and the connection string should be passed as the
+password.</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sasl_password</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Password to use when authentication against a SASL enabled Kafka cluster. For Azure Event Hubs this should be set to <code class="docutils literal notranslate"><span class="pre">Endpoint=sb://[...]</span></code>.</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-rdf-registry">
+<span id="rdf-registry"></span><h2>The RDF registry<a class="headerlink" href="#the-rdf-registry" title="Permalink to this headline">#</a></h2>
+<p>When working with RDF data in Sesam, we would like to be able to define, maintain and share these RDF prefixes
+among our datasets and DTL transforms. For this purpose Sesam has a built-in <em>RDF registry</em>.
+You can configure the registry by including an entity in your configuration on the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"node"</span>
+   <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"metadata"</span><span class="p">,</span>
+   <span class="s2">"rdf"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"dataset1"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"http://example.com/foo/"</span><span class="p">,</span>
+              <span class="s2">"foo_schema"</span><span class="p">:</span> <span class="s2">"http://example.com/foo/schema/"</span>
+          <span class="p">},</span>
+          <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span>
+              <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"foo_schema"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+              <span class="p">]</span>
+          <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"dataset2"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"http://example.com/bar/"</span><span class="p">,</span>
+              <span class="s2">"bar_schema"</span><span class="p">:</span> <span class="s2">"http://example.com/bar/schema/"</span>
+          <span class="p">},</span>
+          <span class="s2">"prefix_includes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"dataset1"</span><span class="p">],</span>
+          <span class="s2">"quote_safe_characters"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span>
+              <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"foo_schema"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"some_prop"</span><span class="p">],</span>
+                  <span class="s2">"bar_schema"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+              <span class="p">]</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The root key <code class="docutils literal notranslate"><span class="pre">rdf</span></code> above contains the entire configuration of the RDF registry. Its sub-keys will usually correspond
+to dataset ids, although you can register any valid key here.</p>
+<div class="section" id="rdf-registry-items">
+<h3>RDF registry items<a class="headerlink" href="#rdf-registry-items" title="Permalink to this headline">#</a></h3>
+<p>The “prototype” of a RDF registry entry <code class="docutils literal notranslate"><span class="pre">entry_id</span></code> look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="s2">"entry_id"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"foo"</span> <span class="p">:</span> <span class="s2">"http://example.com/foo/"</span><span class="p">,</span>
+       <span class="s2">"baz"</span> <span class="p">:</span> <span class="s2">"http://example.com/baz/"</span><span class="p">,</span>
+       <span class="s2">"bar"</span> <span class="p">:</span> <span class="s2">"http://example.com/baz/"</span>
+    <span class="p">},</span>
+    <span class="s2">"prefix_includes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"list_of"</span><span class="p">,</span> <span class="s2">"other"</span><span class="p">,</span> <span class="s2">"registry"</span><span class="p">,</span> <span class="s2">"entries"</span><span class="p">],</span>
+    <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span>
+        <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"foo"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"some_prop"</span><span class="p">],</span>
+            <span class="s2">"baz"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">"quote_safe_characters"</span><span class="p">:</span> <span class="s2">"/æåø"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">quote_safe_characters</span></code> is an optional property of the RDF registry entity. If specified, it should
+contains a string of characters that should be excluded from URL quoting when constructing CURIEs. It can also be
+specified on the <a class="reference internal" href="#properties-to-curies"><span class="std std-ref">properties to CURIEs transform</span></a> where, if specified, will take precedence
+over any value it might have in the RDF registry entry. This property defaults to “/” and would normally not need
+to be changed. A value of “” (the emtpy string) means “quote all characters”. See below for more detail on the use of
+this transform.</p>
+<div class="section" id="prefixes">
+<h4>Prefixes<a class="headerlink" href="#prefixes" title="Permalink to this headline">#</a></h4>
+<p>Each registry item must contain at least a single property <code class="docutils literal notranslate"><span class="pre">prefixes</span></code> which is a object containing prefix
+to URI mappings for CURIE generation or expansion. The registry items can also contain a list property <code class="docutils literal notranslate"><span class="pre">prefix_includes</span></code>
+which must be references to other existing RDF registry keys. When looking up items in the RDF registry, any prefix elements
+in this list will be recursively included. Take care that you don’t have overlapping prefix names, as the final result
+will be undefined. Also make sure you don’t create circular references using this property.</p>
+</div>
+<div class="section" id="built-in-prefixes">
+<span id="id19"></span><h4>Built-in prefixes<a class="headerlink" href="#built-in-prefixes" title="Permalink to this headline">#</a></h4>
+<p>The Sesam RDF registry has built-in support for the common prefixes in RDF, such as <code class="docutils literal notranslate"><span class="pre">rdf</span></code>, <code class="docutils literal notranslate"><span class="pre">rdfs</span></code> and <code class="docutils literal notranslate"><span class="pre">owl</span></code>.
+This means you don’t have to define these yourself to use them in your CURIEs. The full list of built-in prefixes is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_"</span><span class="p">:</span> <span class="s2">"http://example.org/"</span><span class="p">,</span>
+    <span class="s2">"rdf"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><span class="p">,</span>
+    <span class="s2">"rdfs"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span>
+    <span class="s2">"owl"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2002/07/owl#"</span><span class="p">,</span>
+    <span class="s2">"xsd"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2001/XMLSchema#"</span><span class="p">,</span>
+    <span class="s2">"skos"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2004/02/skos/core#"</span><span class="p">,</span>
+    <span class="s2">"foaf"</span><span class="p">:</span> <span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span>
+    <span class="s2">"wgs84"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2003/01/geo/wgs84_pos#"</span><span class="p">,</span>
+    <span class="s2">"dc"</span><span class="p">:</span> <span class="s2">"http://purl.org/dc/elements/1.1/"</span><span class="p">,</span>
+    <span class="s2">"dcterms"</span><span class="p">:</span> <span class="s2">"http://purl.org/dc/terms/"</span><span class="p">,</span>
+    <span class="s2">"gs"</span><span class="p">:</span> <span class="s2">"http://www.opengis.net/ont/geosparql#"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The “_” prefix is used in general as a fallback if no prefix is defined for a property when mapping an entity
+to its RDF representation.</p>
+</div>
+<div class="section" id="prefix-rules">
+<h4>Prefix rules<a class="headerlink" href="#prefix-rules" title="Permalink to this headline">#</a></h4>
+<p>The final property that can exist in a RDF registry item is <code class="docutils literal notranslate"><span class="pre">prefix_rules</span></code>. This element tells us how to create RDF
+CURIEs from a plain entity: the <code class="docutils literal notranslate"><span class="pre">id</span></code> property contains the prefix to use for the <code class="docutils literal notranslate"><span class="pre">_id</span></code> property of the entity
+(i.e. the subject in RDF) and the <code class="docutils literal notranslate"><span class="pre">properties</span></code> property is a list of property pairs that encode the rules for what
+prefix to apply to which property of the entity.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">properties</span></code> format is tuples of string/list pairs, where the first item is the prefix to add and the second is
+the path expression that is used to match against. The number of elements in the list must be even. Path expressions
+are evaluated in order and the first matching path expression will win, so if a path expression matches the prefix will
+be assigned to the matching key.</p>
+<p>A path expression is a list of strings. The left-most string value is the most specific. <code class="docutils literal notranslate"><span class="pre">**</span></code> can be used to denote
+nestedness at an arbitrary depth. <code class="docutils literal notranslate"><span class="pre">*</span></code> can be used as a wildcard in the string values themselves.</p>
+</div>
+<div class="section" id="the-property-to-curie-transform">
+<span id="the-properties-to-curie-transform-local"></span><h4>The property to CURIE transform<a class="headerlink" href="#the-property-to-curie-transform" title="Permalink to this headline">#</a></h4>
+<p>A complete example of how the <code class="docutils literal notranslate"><span class="pre">prefix_rules</span></code> property works; we want to transform an entity that looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"born"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"t_a"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"married"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">"spouse"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"t_b"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"t_c"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"hello"</span><span class="p">:</span> <span class="s2">"world"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hi&gt;"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>to RDF form using CURIEs. We start by defining the rules for this transformation in the RDF registry entry <code class="docutils literal notranslate"><span class="pre">my_entry</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"my_entry"</span><span class="p">:</span> <span class="p">{</span>
+   <span class="o">..</span>
+   <span class="s2">"prefix_rules"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">,</span>
+       <span class="s2">"properties"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"c"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">],</span>
+            <span class="s2">"_"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">],</span>
+            <span class="s2">"t"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"t_*"</span><span class="p">],</span>
+            <span class="s2">"m"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">,</span> <span class="s2">"m*"</span><span class="p">],</span>
+            <span class="s2">"s"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">],</span>
+            <span class="s2">"x"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"**"</span><span class="p">]</span>
+       <span class="p">]</span>
+   <span class="p">}</span>
+   <span class="o">..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We then add a <a class="reference internal" href="#properties-to-curies"><span class="std std-ref">properties to CURIEs transform</span></a> to the start of our pipe’s
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+    <span class="s2">"transform"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"properties_to_curies"</span><span class="p">,</span>
+            <span class="s2">"rule"</span><span class="p">:</span> <span class="s2">"my_entry"</span>
+        <span class="p">}</span>
+        <span class="o">..</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>This transform will use our <code class="docutils literal notranslate"><span class="pre">my_entry</span></code> rules and produce the following transformed entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;x:2&gt;"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:name&gt;"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:born&gt;"</span><span class="p">:</span> <span class="s2">"1980-01-23"</span><span class="p">,</span>
+    <span class="s2">"&lt;x:code&gt;"</span><span class="p">:</span> <span class="s2">"AB32"</span><span class="p">,</span>
+    <span class="s2">"&lt;t:t_a&gt;"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
+    <span class="s2">"&lt;_:status&gt;"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"&lt;m:married&gt;"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">"&lt;s:spouse&gt;"</span><span class="p">:</span> <span class="s2">"Pam"</span><span class="p">,</span>
+        <span class="s2">"&lt;c:code&gt;"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">"&lt;t:t_b&gt;"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"&lt;t:t_c&gt;"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hello&gt;"</span><span class="p">:</span> <span class="s2">"world"</span><span class="p">,</span>
+            <span class="s2">"&lt;s:hi&gt;"</span><span class="p">:</span> <span class="s2">"bye"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rdf-input">
+<h2>RDF input<a class="headerlink" href="#rdf-input" title="Permalink to this headline">#</a></h2>
+<p>Sesam supports RDF input from several different sources:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="configuration.html#rdf-source"><span class="std std-ref">The RDF source</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#sdshare-source"><span class="std std-ref">The SDShare source</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#sparql-source"><span class="std std-ref">The SPARQL source</span></a></p></li>
+</ul>
+<p>Additionally, you can set up a <a class="reference internal" href="configuration.html#http-endpoint-source"><span class="std std-ref">HTTP endpoint source</span></a> which includes a <cite>SDShare Push</cite> capable
+HTTP endpoint where you can post RDF data in NTriples format in accordance with the <code class="docutils literal notranslate"><span class="pre">SDShare</span> <span class="pre">Push</span> <span class="pre">protocol</span></code>.</p>
+<div class="section" id="id20">
+<h3>The URIs to CURIEs transform<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p>All of these methods of RDF input will provide entities to your data flows on the general form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;http://example.com/bar&gt;"</span><span class="p">,</span>
+    <span class="s2">"&lt;http://example.com/schema/some_predicate&gt;"</span><span class="p">:</span> <span class="s2">"Some literal"</span><span class="p">,</span>
+    <span class="s2">"&lt;http://example.com/schema/other_predicate&gt;"</span><span class="p">:</span> <span class="s2">"~rhttp://example.com/zoo"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When processing this data in the flow, we would like to first transform these entities to CURIE form using the
+RDF registry to manage the prefixes. In the above example we can add a <a class="reference internal" href="#uris-to-curies-transform"><span class="std std-ref">URIs to CURIEs transform</span></a>
+to the pipe to achieve this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"my-pipe"</span><span class="p">,</span>
+    <span class="o">..</span>
+    <span class="s2">"transform"</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+         <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"uris_to_curies"</span><span class="p">,</span>
+         <span class="s2">"prefix_includes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"my_entry"</span><span class="p">]</span>
+       <span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>where the corresponding <code class="docutils literal notranslate"><span class="pre">my_entry</span></code> in the RDF registry looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="s2">"my_entry"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"prefixes"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"http://example.com/"</span><span class="p">,</span>
+        <span class="s2">"foo_schema"</span><span class="p">:</span> <span class="s2">"http://example.com/schema/"</span>
+    <span class="p">}</span>
+    <span class="o">..</span>
+<span class="p">}</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>This transform will then produce the following entity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;foo:bar&gt;"</span><span class="p">,</span>
+   <span class="s2">"&lt;foo_schema:some_predicate&gt;"</span><span class="p">:</span> <span class="s2">"Some literal"</span><span class="p">,</span>
+   <span class="s2">"&lt;foo_schema:other_predicate&gt;"</span><span class="p">:</span> <span class="s2">"~rfoo:zoo"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rdf-in-transforms">
+<h2>RDF in transforms<a class="headerlink" href="#rdf-in-transforms" title="Permalink to this headline">#</a></h2>
+<p>The Sesam DTL language features several functions that are useful when working with RDF data in your flow.</p>
+<div class="section" id="accessing-curies-properties">
+<h3>Accessing CURIEs properties<a class="headerlink" href="#accessing-curies-properties" title="Permalink to this headline">#</a></h3>
+<p>When addressing properties in CURIEs form in DTL transform, you can simply use their names verbatim. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="p">[</span><span class="s2">"rename"</span><span class="p">,</span> <span class="s2">"&lt;foo:third_predicate&gt;"</span><span class="p">,</span> <span class="s2">"&lt;foo:some_predicate&gt;"</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"_S.&lt;foo_schema:other_predicate&gt;"</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"&lt;rdfs:label&gt;"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">]</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>You can also use the CURIEs in path expressions in the same way as any other property name. If you want to add a URI
+literal as part of your transformed entity you can use the DTL <a class="reference internal" href="#curie-dtl-function"><span class="std std-ref">curie function</span></a>, which takes
+a prefix and a value expression (i.e. a literal or a function) and produces a URI property value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"&lt;foo_schema:baz&gt;"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"curie"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"zoo"</span><span class="p">]]</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>This will add a property that looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="o">..</span>
+  <span class="s2">"&lt;foo_schema:baz&gt;"</span><span class="p">:</span> <span class="s2">"~rfoo:zoo"</span>
+  <span class="o">..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="curie-expansion-in-dtl">
+<h3>CURIE expansion in DTL<a class="headerlink" href="#curie-expansion-in-dtl" title="Permalink to this headline">#</a></h3>
+<p>When processing RDF data in a flow, we sometimes would like to expand an entity or a child entity from CURIEs to full
+URI form (for example if there are conflicting usages of prefixes). This can be done using the DTL
+<a class="reference internal" href="#uri-expand-dtl-function"><span class="std std-ref">uri-expand</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"&lt;baz:expanded&gt;"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"uri-expand"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"string"</span><span class="p">,</span> <span class="s2">"my_entry"</span><span class="p">],</span> <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;foo:bob&gt;"</span><span class="p">,</span> <span class="s2">"&lt;foo:name&gt;"</span><span class="p">:</span> <span class="s2">"Bob Jones"</span><span class="p">}]]</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>This will expand the properties of the entity (here shown inline, but typically will be from a <a class="reference internal" href="DTLReferenceGuide.html#hops-dtl-function"><span class="std std-ref">hops</span></a> join or some
+other function) to its “full” form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="o">..</span>
+  <span class="s2">"&lt;baz:expanded&gt;"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"&lt;http://example.com/foo/bob&gt;"</span><span class="p">,</span>
+      <span class="s2">"&lt;http://example.com/foo/name&gt;"</span><span class="p">:</span> <span class="s2">"Bob Jones"</span>
+  <span class="p">}</span>
+  <span class="o">..</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that expanding CURIEs is normally done at the endpoint of your flow (i.e. by the sink or a SDShare feed, see below).
+However, if the sink you are using to output the final data is not RDF aware (i.e. supports automatic prefix expansion)
+you can use the <code class="docutils literal notranslate"><span class="pre">uri-expand</span></code> function to achieve the same functionality.</p>
+</div>
+</div>
+<div class="section" id="pipes">
+<h2>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">#</a></h2>
+<div class="section" id="short-hand-configuration">
+<h3>Short-hand configuration<a class="headerlink" href="#short-hand-configuration" title="Permalink to this headline">#</a></h3>
+<p>As mentioned earlier, in the <a class="reference internal" href="configuration.html#pipe-section"><span class="std std-ref">pipe section</span></a>, there is a special “short hand” configuration for
+one of the most used pipes; pipes pumping entities from RDBMS tables to an internal dataset. Since this is an often
+encountered usecase, we have condensed the information needed into a single url-style form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"system:mysql"</span><span class="p">,</span>
+       <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Northwind database"</span><span class="p">,</span>
+       <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"northwind"</span><span class="p">,</span>
+       <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"secret"</span><span class="p">,</span>
+       <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"mydb.example.org"</span><span class="p">,</span>
+       <span class="s2">"database"</span><span class="p">:</span> <span class="s2">"Northwind"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind:Orders"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
+       <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Orders from northwind"</span><span class="p">,</span>
+       <span class="s2">"short_config"</span><span class="p">:</span> <span class="s2">"sql://Northwind/Orders"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Currently, only the <a class="reference internal" href="configuration.html#sql-system"><span class="std std-ref">sql system</span></a> and <a class="reference internal" href="configuration.html#sql-source"><span class="std std-ref">source</span></a> is supported
+though other short forms may be added at a later time. The above example using the <code class="docutils literal notranslate"><span class="pre">short_config</span></code> form is equivalent
+to this fully expanded pipe configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"system:mysql"</span><span class="p">,</span>
+       <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Northwind database"</span><span class="p">,</span>
+       <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"northwind"</span><span class="p">,</span>
+       <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"secret"</span><span class="p">,</span>
+       <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"mydb.example.org"</span><span class="p">,</span>
+       <span class="s2">"database"</span><span class="p">:</span> <span class="s2">"Northwind"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind:Orders"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
+       <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"sql"</span><span class="p">,</span>
+           <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"Northwind"</span><span class="p">,</span>
+           <span class="s2">"table"</span><span class="p">:</span> <span class="s2">"Orders"</span>
+       <span class="p">},</span>
+       <span class="s2">"sink"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dataset"</span><span class="p">,</span>
+           <span class="s2">"dataset"</span><span class="p">:</span> <span class="s2">"Northwind:Orders"</span>
+       <span class="p">},</span>
+       <span class="s2">"pump"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"schedule_interval"</span><span class="p">:</span> <span class="mi">30</span>
+       <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>You can combine the short form with properties from the <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a>, <a class="reference internal" href="configuration.html#sql-source"><span class="std std-ref">sql source</span></a>
+and specific <a class="reference internal" href="configuration.html#pump-section"><span class="std std-ref">pump</span></a> properties, as long as the <code class="docutils literal notranslate"><span class="pre">_id</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span></code> properties aren’t overridden, for example
+changing the pump schedule and startup flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"system:mysql"</span><span class="p">,</span>
+       <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Northwind database"</span><span class="p">,</span>
+       <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"northwind"</span><span class="p">,</span>
+       <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"secret"</span><span class="p">,</span>
+       <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"mydb.example.org"</span><span class="p">,</span>
+       <span class="s2">"database"</span><span class="p">:</span> <span class="s2">"Northwind"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Northwind:Orders"</span><span class="p">,</span>
+       <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
+       <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Orders from northwind"</span><span class="p">,</span>
+       <span class="s2">"short_config"</span><span class="p">:</span> <span class="s2">"sql://Northwind/Orders"</span><span class="p">,</span>
+       <span class="s2">"pump"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">"schedule_interval"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+           <span class="s2">"run_at_startup"</span><span class="p">:</span> <span class="n">true</span>
+       <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="tools.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tools</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="azure.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Sesam in Microsoft Azure</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Deprecations</a><ul>
+<li><a class="reference internal" href="#dtl-functions">DTL Functions</a></li>
+<li><a class="reference internal" href="#sources">Sources</a><ul>
+<li><a class="reference internal" href="#the-kafka-source">The Kafka source</a><ul>
+<li><a class="reference internal" href="#prototype">Prototype</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#example-configuration">Example configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transforms">Transforms</a><ul>
+<li><a class="reference internal" href="#the-properties-to-curies-transform">The properties to CURIEs transform</a><ul>
+<li><a class="reference internal" href="#id2">Prototype</a></li>
+<li><a class="reference internal" href="#id3">Properties</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-uris-to-curies-transform">The URIs to CURIEs transform</a><ul>
+<li><a class="reference internal" href="#id5">Prototype</a></li>
+<li><a class="reference internal" href="#id6">Properties</a></li>
+<li><a class="reference internal" href="#id7">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-lower-keys-transform">The lower keys transform</a><ul>
+<li><a class="reference internal" href="#id8">Prototype</a></li>
+<li><a class="reference internal" href="#id9">Properties</a></li>
+<li><a class="reference internal" href="#id10">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-upper-keys-transform">The upper keys transform</a></li>
+<li><a class="reference internal" href="#the-undirected-graph-transform">The undirected graph transform</a><ul>
+<li><a class="reference internal" href="#id11">Prototype</a></li>
+<li><a class="reference internal" href="#id12">Properties</a></li>
+<li><a class="reference internal" href="#id13">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sinks">Sinks</a><ul>
+<li><a class="reference internal" href="#deprecated-properties">Deprecated Properties</a></li>
+<li><a class="reference internal" href="#the-kafka-sink">The Kafka sink</a><ul>
+<li><a class="reference internal" href="#id14">Prototype</a></li>
+<li><a class="reference internal" href="#id15">Properties</a></li>
+<li><a class="reference internal" href="#id16">Example configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#systems">Systems</a><ul>
+<li><a class="reference internal" href="#the-kafka-system">The Kafka system</a><ul>
+<li><a class="reference internal" href="#id17">Prototype</a></li>
+<li><a class="reference internal" href="#id18">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-rdf-registry">The RDF registry</a><ul>
+<li><a class="reference internal" href="#rdf-registry-items">RDF registry items</a><ul>
+<li><a class="reference internal" href="#prefixes">Prefixes</a></li>
+<li><a class="reference internal" href="#built-in-prefixes">Built-in prefixes</a></li>
+<li><a class="reference internal" href="#prefix-rules">Prefix rules</a></li>
+<li><a class="reference internal" href="#the-property-to-curie-transform">The property to CURIE transform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rdf-input">RDF input</a><ul>
+<li><a class="reference internal" href="#id20">The URIs to CURIEs transform</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rdf-in-transforms">RDF in transforms</a><ul>
+<li><a class="reference internal" href="#accessing-curies-properties">Accessing CURIEs properties</a></li>
+<li><a class="reference internal" href="#curie-expansion-in-dtl">CURIE expansion in DTL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pipes">Pipes</a><ul>
+<li><a class="reference internal" href="#short-hand-configuration">Short-hand configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

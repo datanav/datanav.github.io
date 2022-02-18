@@ -1,0 +1,453 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Roadmap" href="roadmap.html" /><link rel="prev" title="Sesam Community" href="community.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Behind the scenes - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="behind-the-scenes">
+<h1>Behind the scenes<a class="headerlink" href="#behind-the-scenes" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Sesam utilizes two architectures currently, a single machine service or a clustered machine service.
+The single machine can be setup as a <em>Developer</em> or <em>Single compute</em> subscription. Note that the developer subscription does not support VPN or have backups.
+The clustered machine architecture is set up as the <em>Multi compute</em> subscription type, this can scale in width using multiple machines.
+In the future we aim to host all subscription types on the same architecture. Both setups use container run times to host the service.</p>
+<p>The Sesam software is distributed as standard <a class="reference external" href="https://opencontainers.org/">OCI images</a> (aka Docker images). The container images are hosted on <a class="reference external" href="https://hub.docker.com/">Docker Hub</a> in a private repository.</p>
+<p>The infrastructure is provisioned by <a class="reference external" href="https://www.terraform.io/">Terraform</a> on <a class="reference external" href="https://azure.microsoft.com/">Microsoft Azure</a> . The default Microsoft Azure region is North Europe (Dublin, Ireland). The data never leaves this region. The data is encrypted at rest using a key managed by Microsoft Azure. Bringing your own key is currently not yet supported.</p>
+<p>Sesam uses <a class="reference external" href="https://rocksdb.org/">RocksDB</a>, an embedded high-performance key-value database, to persist data. The data
+is stored in the compact <a class="reference external" href="https://msgpack.org/">MessagePack</a> data format, and is further compressed using
+RocksDB’s default <a class="reference external" href="https://github.com/facebook/rocksdb/wiki/Compression/">compression</a> settings.</p>
+</div>
+<div class="section" id="single-machine-service">
+<h2>Single machine service<a class="headerlink" href="#single-machine-service" title="Permalink to this headline">#</a></h2>
+<p>This service is hosted on a single virtual machine. The size of the virtual machine varies between the subscription types. All software runs as Docker containers, except the agent which runs directly on the host. These subscriptions are provisioned as individual resource groups in one shared Azure subscription. Each subscription has its own Azure Network Security Group. Data is stored on managed network disks.</p>
+<p>The services consist of the following software components:</p>
+<ul class="simple">
+<li><p>An agent that self-updates and makes sure that the other software that should run actually are running. It will also automatically upgrade the other software components.</p></li>
+<li><p>A reverse proxy that does TLS termination, traffic management and routing. The TLS certificate is automatically managed via <a class="reference external" href="https://letsencrypt.org/">Let’s Encrypt</a>, but it is also possible to bring your own certificates. The proxy listens to port 443 and routes traffic to the Sesam service instance.</p></li>
+<li><p>The Sesam service instance – commonly called “the node”. This is the service that hosts the service API.</p></li>
+<li><p>A log shipper that ships logs. Logs are shipped to Sesam for monitoring, notification and billing purposes.</p></li>
+<li><p>A metrics agent that ships metrics. Metrics are shipped to Sesam for monitoring purposes.</p></li>
+<li><p>User-defined <a class="reference internal" href="configuration.html#microservice-system"><span class="std std-ref">microservices</span></a> . The microservice systems are spun up as individual Docker containers.</p></li>
+</ul>
+<div class="section" id="backup">
+<span id="single-arch-backup"></span><h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">#</a></h3>
+<p>Backup is performed once every 24 hours. Seven daily checkpoints are retained on the local disk if the backup policy is <code class="docutils literal notranslate"><span class="pre">Local</span></code>.
+All Sesam hosted <em>Single compute</em> subscriptions have <code class="docutils literal notranslate"><span class="pre">Geo-redundant</span></code> backup enabled, which is a daily Azure VM backup. The <code class="docutils literal notranslate"><span class="pre">Geo-redundant</span></code> retention policy is to keep the last backup, 7 daily backups, 4 weekly backups and 4 monthly backups.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Geo-redundant</span></code> backups are kept for 30 days after deletion as this is mandated by Azure. If the service is self-hosted then the owner is responsible for creating off-site backups of the checkpoint directories or the virtual machine.</p>
+</div>
+</div>
+<div class="section" id="clustered-service">
+<span id="multi-arch"></span><h2>Clustered service<a class="headerlink" href="#clustered-service" title="Permalink to this headline">#</a></h2>
+<p>This service is hosted on <a class="reference external" href="https://kubernetes.io/">Kubernetes</a> and can scale out to a large number of machines. It is dynamic and can scale out as your processing requirements increase. These subscriptions will be provisioned in one Azure subscription per customer. Each subscription has its own Azure Network Security Group. Data is stored on local NVMe disks and/or managed network disks.</p>
+<p>The services consists of the following software components:</p>
+<ul class="simple">
+<li><p>A reverse proxy that does TLS termination, traffic management, and routing.  The TLS certificate is automatically managed via <a class="reference external" href="https://letsencrypt.org/">Let’s Encrypt</a>. The proxy listens to port 443 and routes traffic to the Sesam service instance.</p></li>
+<li><p>Aggregator: the service that hosts the service API.</p></li>
+<li><p>Storage node: stores the configuration and the provisioner topology.</p></li>
+<li><p>Provisioner: a Kubernetes operator that does provisioning of processing pipes.</p></li>
+<li><p>The Sesam service instance(s) – commonly called the “node”. Each of these run one or more <a class="reference internal" href="concepts.html#concepts-pipes"><span class="std std-ref">pipes</span></a>.</p></li>
+<li><p>A log shipper that ships logs. Logs are shipped to Sesam for monitoring and billing purposes.</p></li>
+<li><p>A metrics agent that ships metrics. Metrics are shipped to Sesam for monitoring purposes.</p></li>
+<li><p>User-defined <a class="reference internal" href="configuration.html#microservice-system"><span class="std std-ref">microservices</span></a>. The microservice systems are spun up as individual Kubernetes deployments.</p></li>
+</ul>
+<div class="section" id="id2">
+<h3>Backup<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Backup is performed once every 24 hours. A <code class="docutils literal notranslate"><span class="pre">Geo-redundant</span></code> backup is written to the Azure subscription’s Azure storage account at the same time. The <code class="docutils literal notranslate"><span class="pre">Geo-redundant</span></code> retension policy is to keep the last backup, 7 daily backups, 4 weekly backups and 4 monthly backups.</p>
+</div>
+</div>
+<div class="section" id="monitoring">
+<span id="id3"></span><h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">#</a></h2>
+<div class="section" id="logs">
+<h3>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">#</a></h3>
+<p>The following kinds of logs are shipped to Sesam:</p>
+<ul class="simple">
+<li><p>Service logs. This includes error messages.</p></li>
+<li><p>Health checks and service status.</p></li>
+<li><p>Sesam configuration. No sensitive data is shipped, so no embedded data nor secrets are shipped.</p></li>
+<li><p>The pipe execution dataset. This is only shipped when pipe monitoring is enabled. It is used to trigger notifications for registered notification rules. Execution logs regarding failing pipes contain the entity objects which caused the failure, however these objects are not shipped to Sesam.</p></li>
+<li><p>System logs, currently only the kernel logs are shipped.</p></li>
+</ul>
+</div>
+<div class="section" id="metrics">
+<h3>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">#</a></h3>
+<p>This is a Prometheus-compatible system that pushes telemetry data from the local virtual machines to Sesam. The metrics include information like memory usage, disk usage and other resource usage. This information is used for monitoring and operations.</p>
+</div>
+</div>
+<div class="section" id="isolation">
+<h2>Isolation<a class="headerlink" href="#isolation" title="Permalink to this headline">#</a></h2>
+<p>Subscriptions are segregated and run on separate isolated hardware. Subscriptions under the same <em>subscription group</em> share a common network. In the <a class="reference internal" href="#multi-arch"><span class="std std-ref">clustered service</span></a> a subscription group exists inside its own Azure subscription.</p>
+</div>
+<div class="section" id="firewall">
+<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">#</a></h2>
+<p>All cloud services have an Azure Network Security Group in front. Only port 443 can be opened as this is the port used by the <a class="reference internal" href="api.html"><span class="doc">service API</span></a>.</p>
+</div>
+<div class="section" id="termination">
+<h2>Termination<a class="headerlink" href="#termination" title="Permalink to this headline">#</a></h2>
+<p>When a subscription is terminated all data in it is deleted. Backups are deleted, but in the case of Azure backups as described in the <a class="reference internal" href="#single-arch-backup"><span class="std std-ref">single machine service</span></a> those backups are retained for 30 days after deletion.</p>
+</div>
+<div class="section" id="secure-development-policy">
+<h2>Secure Development policy<a class="headerlink" href="#secure-development-policy" title="Permalink to this headline">#</a></h2>
+<p>Sesam is ISO/IEC 27001 certified and follows a secure development policy. This policy ensures that development environments are secure and that the processes for developing and implementing systems and system changes encourage the use of secure coding and development practices. Changes to systems within the development lifecycle is controlled by the use of formal change control procedures.</p>
+<ul class="simple">
+<li><p>Sesam software is developed using a <a class="reference external" href="https://trunkbaseddevelopment.com/">scaled trunk-based development model</a>.</p></li>
+<li><p>All software changes must have unit tests, integration tests and other functional tests before being reviewed and then merged into the trunk.</p></li>
+<li><p>All software changes must be reviewed by at least one other developer before being eligible for being merged into the trunk. Major changes are reviewed by a larger audience before being accepted.</p></li>
+<li><p>Changes relating to security, robustness or stability are planned and approved before development begins.</p></li>
+<li><p>Major architectural changes like new technologies, protocols and third-party components are subject to formal change control procedures.</p></li>
+<li><p>Before new third-party libraries are used or upgraded, a review of these are made by at least two developers from the core development group. No third-party library will be accepted for use unless it is well-known, has seen steady uptake, is being actively maintained and there are no serious security issues related to it.</p></li>
+<li><p>Third-party libraries and their transitive dependencies are pinned to specific versions to avoid unintentional upgrades.</p></li>
+<li><p>Third-party dependencies are reviewed on a regular basis.</p></li>
+<li><p>Software artifacts are verified and checked against published hashes to avoid tampering risks.</p></li>
+</ul>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="roadmap.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Roadmap</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="community.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Sesam Community</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Behind the scenes</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#single-machine-service">Single machine service</a><ul>
+<li><a class="reference internal" href="#backup">Backup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clustered-service">Clustered service</a><ul>
+<li><a class="reference internal" href="#id2">Backup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monitoring">Monitoring</a><ul>
+<li><a class="reference internal" href="#logs">Logs</a></li>
+<li><a class="reference internal" href="#metrics">Metrics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#isolation">Isolation</a></li>
+<li><a class="reference internal" href="#firewall">Firewall</a></li>
+<li><a class="reference internal" href="#termination">Termination</a></li>
+<li><a class="reference internal" href="#secure-development-policy">Secure Development policy</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

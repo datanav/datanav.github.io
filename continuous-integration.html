@@ -1,0 +1,552 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Automatic deployment" href="automatic-deployment.html" /><link rel="prev" title="Testing a Sesam configuration locally" href="testing-locally.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Continuous integration (CI) - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="continuous-integration-ci">
+<span id="setup-ci"></span><h1>Continuous integration (CI)<a class="headerlink" href="#continuous-integration-ci" title="Permalink to this headline">#</a></h1>
+<p>When adding new pipes to your existing Sesam configuration, it is important to verify that these doesn’t break any existing pipes, flows or integrations in your Sesam node. To do this you should add automatic tests to your project. In order to fully be able to have automated CI testing it is required to have a designated CI node.</p>
+<p>When setting up automatic CI testing for a Sesam project, the following check should be required for the test to pass:</p>
+<ul class="simple">
+<li><p>Running, validating and passing a test of the configuration against the CI node.</p></li>
+</ul>
+<p>In addition you should consider adding a check that requires that pull requests (PR) needs to be approved by another member of the team in order for the PR to be merged.</p>
+<div class="section" id="ci-node">
+<h2>CI node<a class="headerlink" href="#ci-node" title="Permalink to this headline">#</a></h2>
+<p>In order to be able to test your Sesam configuration across the project team, you need to have a CI node. The sole purpose of this node is to provide a Sesam environment to test changes to the configuration against. Tests will be run in the same way as you will test your configuration locally, except that it should be initiated from your automatic CI testing system instead.</p>
+<p>It is important that when running testing against the CI node, only one test should run at the same time. When running a test against a CI node with the Sesam client, the configuration will be overwritten, which will cause a running test to fail or not to finish. Setting up your automatic CI testing, you need to have this in mind.</p>
+<p>The CI node should be unable to write any data to another system, bear this in mind when configuring up the node. As the least safety regarding this, the node should not contain any variables or secrets necessary to connect to a system that the Sesam configuration usually will send data to.</p>
+<p>Usually, the CI node should be a smaller instance than the production node, as the data used in the tests should not be of a considerable size.</p>
+</div>
+<div class="section" id="using-jenkins-or-azure-devops-for-automatic-ci-testing">
+<h2>Using Jenkins or Azure DevOps for automatic CI testing<a class="headerlink" href="#using-jenkins-or-azure-devops-for-automatic-ci-testing" title="Permalink to this headline">#</a></h2>
+<div class="section" id="jenkins">
+<h3>Jenkins<a class="headerlink" href="#jenkins" title="Permalink to this headline">#</a></h3>
+<p>This section describes how to set up Jenkins build with Google Cloud.</p>
+<p>Jenkins is a CI/CD tool that does not immediately support a single build pipeline. The reason for the need of a single build pipeline is that we upload the node config to a single node, if there are mulitple builds running at the same time, multiple configs will be pushed to one node, which will result in tests not completing. You should therefore consider the following, if choosing to use Jenkins as your CI/CD tool.</p>
+<p>To set up builds in jenkins, you will need to add a few files to your repository
+my-project-directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-project-directory
+  ├ deployment
+  | ├ jenkins
+  | | └ jobs
+  | |   └ build
+  | |     ├ dm-pod.yaml
+  | |     └ Jenkinsfile
+  | └ sesam
+  |   ├ cloudbuild.yaml
+  |   ├ Dockerfile
+  |   └ Readme.md
+  ├ node
+  | └ ++
+  └ ++
+</pre></div>
+</div>
+<p>dm-pod.yaml:</p>
+<p>Describes what type of container that should be used in the build process.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">Pod</span>
+<span class="n">spec</span><span class="p">:</span>
+
+  <span class="n">containers</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">sesam</span><span class="o">-</span><span class="n">ci</span><span class="o">-</span><span class="n">container</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">eu</span><span class="o">.</span><span class="n">gcr</span><span class="o">.</span><span class="n">io</span><span class="o">/&lt;</span><span class="n">your_gcr_repo</span><span class="o">&gt;/</span><span class="n">sesam</span><span class="p">:</span><span class="o">&lt;</span><span class="n">version_of_sesam_client</span><span class="o">&gt;</span>
+    <span class="n">tty</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">command</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">cat</span>
+    <span class="n">resources</span><span class="p">:</span>
+      <span class="n">limits</span><span class="p">:</span>
+        <span class="n">memory</span><span class="p">:</span> <span class="mi">6</span><span class="n">Gi</span>
+        <span class="n">cpu</span><span class="p">:</span> <span class="mf">1.7</span>
+</pre></div>
+</div>
+<p>Jenkinsfile:</p>
+<p>The Jenkinsfile contains the stages that are supposed to run when the tests are running. The three default stages are:</p>
+<ul class="simple">
+<li><p>Set environment variables for container</p></li>
+<li><p>Verify usage of correct Sesam client version.</p></li>
+<li><p>Running the tests and printing scheduler logs to see error messages in output.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!groovy</span>
+
+<span class="n">pipeline</span> <span class="p">{</span>
+    <span class="n">options</span> <span class="p">{</span>
+        <span class="n">disableConcurrentBuilds</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">agent</span> <span class="p">{</span>
+        <span class="n">kubernetes</span> <span class="p">{</span>
+            <span class="n">label</span> <span class="s2">"dm-$</span><span class="si">{BRANCH_NAME}</span><span class="s2">-$</span><span class="si">{BUILD_ID}</span><span class="s2">"</span>
+            <span class="n">defaultContainer</span> <span class="s1">'jnlp'</span>
+            <span class="n">yamlFile</span> <span class="s1">'deployment/jenkins/jobs/build/dm-pod.yaml'</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">environment</span> <span class="p">{</span>
+        <span class="n">Sesam_CI_node_jwt</span> <span class="o">=</span> <span class="n">credentials</span><span class="p">(</span><span class="s1">'Sesam_CI_node_jwt'</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">stages</span> <span class="p">{</span>
+        <span class="n">stage</span><span class="p">(</span><span class="s1">'Set Sesam env vars'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">steps</span> <span class="p">{</span>
+                <span class="n">script</span> <span class="p">{</span>
+                    <span class="n">env</span><span class="o">.</span><span class="n">Sesam_CI_node</span> <span class="o">=</span> <span class="s2">"datahub-****.sesam.cloud"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">stage</span><span class="p">(</span><span class="s2">"Verify Sesam version"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">steps</span> <span class="p">{</span>
+                <span class="nb">dir</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">container</span><span class="p">(</span><span class="s1">'sesam-ci-container'</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">sh</span> <span class="s2">"/./sesam -version"</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">stage</span><span class="p">(</span><span class="s2">"Run Sesam tests"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">steps</span> <span class="p">{</span>
+                <span class="nb">dir</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">container</span><span class="p">(</span><span class="s1">'sesam-ci-container'</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">sh</span> <span class="s2">"export NODE='$</span><span class="si">{env.Sesam_CI_node}</span><span class="s2">'; export JWT='$Sesam_CI_node_jwt'; cd node &amp;&amp; /./sesam -vv test  -print-scheduler-log"</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The files under the sesam folder here describes the files that should exist in the repository where jenkins is configured. Usually you do not have access to this repository, but you will need to provide these files.</p>
+<p>cloudbuild.yaml:</p>
+<p>cloudbuild.yaml A build config file defines the fields that are needed for Cloud Build to perform your tasks. You’ll need a build config file if you are starting builds using the gcloud command-line tool or build triggers. You can write the build config file using the YAML or the JSON syntax.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s1">'gcr.io/cloud-builders/docker'</span>
+    <span class="n">args</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s1">'build'</span><span class="p">,</span>
+      <span class="s1">'-t'</span><span class="p">,</span> <span class="s1">'eu.gcr.io/&lt;your_gcr_repo&gt;/sesam:latest'</span><span class="p">,</span>
+      <span class="s1">'-t'</span><span class="p">,</span> <span class="s1">'eu.gcr.io/&lt;your_gcr_repo&gt;/sesam:1.16.1'</span><span class="p">,</span>
+      <span class="s1">'.'</span>
+    <span class="p">]</span>
+<span class="n">images</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s1">'eu.gcr.io/&lt;your_gcr_repo&gt;/sesam'</span>
+<span class="n">tags</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s1">'1.16.1'</span>
+  <span class="o">-</span> <span class="s1">'latest'</span>
+</pre></div>
+</div>
+<p>Dockerfile:</p>
+<p>The dockerfile describes the container that should run when the build process is executed. This container should be deployed to the repository that is used, i.e:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM debian:9.9-slim
+MAINTAINER [Your name] "your.email.address@domain.no"
+
+ARG SESAM_CI_VERSION=1.16.1
+
+SHELL ["/bin/bash", "-c"]
+
+RUN apt-get update
+RUN apt-get install -y wget
+
+RUN set -x
+RUN wget -O sesam.tar.gz https://github.com/sesam-community/sesam-py/releases/download/$SESAM_CI_VERSION/sesam-linux-$SESAM_CI_VERSION.tar.gz
+RUN tar -xf sesam.tar.gz
+RUN rm sesam.tar.gz
+</pre></div>
+</div>
+<p>This dockerfile builds a container with the sesam client that is needed to execute the build. Replace [Your name] with the name of the person responsible for the build process, alongside with his or hers email-address.</p>
+</div>
+<div class="section" id="azure-devops">
+<h3>Azure DevOps<a class="headerlink" href="#azure-devops" title="Permalink to this headline">#</a></h3>
+<p>Azure DevOps is a bit easier to set up with a single build pipeline. You will need to add the following config to your Azure DevOps setup under Pipelines</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Sesam AzureDevops Pipeline
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    wget -O sesam.tar.gz https://github.com/sesam-community/sesam-py/releases/download/$(sesam_cli_version)/sesam-linux-$(sesam_cli_version).tar.gz
+    tar -xf sesam.tar.gz
+    rm sesam.tar.gz
+  displayName: 'Download Sesam CLI'
+
+- script: ./sesam -version
+  displayName: 'Verify Sesam CLI version'
+
+- script: |
+    export NODE='$(node)'
+    export JWT='$(node_jwt)'
+    cd node
+    .././sesam -vv test  -print-scheduler-log
+  displayName: 'Run Tests'
+</pre></div>
+</div>
+<p>You will also have to add variables</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sesam_cli_version</span> <span class="o">=</span> <span class="mf">1.16.1</span> <span class="p">(</span><span class="n">version</span> <span class="n">of</span> <span class="n">the</span> <span class="n">CLI</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">project</span><span class="p">)</span>
+<span class="n">node</span>              <span class="o">=</span> <span class="n">datahub</span><span class="o">-***.</span><span class="n">sesam</span><span class="o">.</span><span class="n">cloud</span> <span class="p">(</span><span class="n">the</span> <span class="n">node</span> <span class="n">url</span> <span class="n">to</span> <span class="n">the</span> <span class="n">CI</span> <span class="n">server</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">project</span><span class="p">)</span>
+<span class="n">node_jwt</span>          <span class="o">=</span> <span class="n">bearer</span> <span class="o">******</span> <span class="p">(</span><span class="n">jwt</span> <span class="k">for</span> <span class="n">the</span> <span class="n">CI</span> <span class="n">server</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Branch permissions are also needed to not be able to merge a Pull Request unless the tests have completed successfully. These permissions needs to be set under</p>
+<p><code class="docutils literal notranslate"><span class="pre">Repos-&gt;Branches-&gt;More-&gt;Branch</span> <span class="pre">Policies-&gt;Add</span> <span class="pre">Build</span> <span class="pre">Policy</span></code></p>
+<p>Use the default settings.</p>
+<p>You will also need to turn on <code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">a</span> <span class="pre">minimum</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">reviewers</span></code>, and set it to <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">Check</span> <span class="pre">for</span> <span class="pre">linked</span> <span class="pre">work</span> <span class="pre">items</span></code>. This makes it easier to trace and close the tasks/issues for the Pull Request.</p>
+<p>These settings are required for your main branches <code class="docutils literal notranslate"><span class="pre">develop</span></code> and <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">trigger</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">none</span></code>, the build process will only trigger on Pull Requests. There is no need to build <code class="docutils literal notranslate"><span class="pre">master</span></code> and <code class="docutils literal notranslate"><span class="pre">develop</span></code> after merge.</p>
+<p>Note if there is support for parallel builds on the agent pool you will need to disable this so that only one build process runs and the second build is queued up. This can be done by adding capability on the build agent. You will also need to add this in the .yaml file to enable it.
+Add user capabilities in the agent pool (key value pair), key = Limit and value = DisAbleParallel</p>
+<p>Your yaml file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pool</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="n">agent</span> <span class="n">pool</span> <span class="n">name</span><span class="p">}</span>
+  <span class="n">demands</span><span class="p">:</span> <span class="n">Limit</span> <span class="o">-</span><span class="n">equals</span> <span class="n">DisAbleParallel</span>
+</pre></div>
+</div>
+<p>Your configuration will end up being in your repository under the main directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-project-directory
+  ├ node
+  | ├ pipes
+  | ├ systems
+  | ├ expected
+  | └ ++
+  └ azure-pipelines.yml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="automatic-deployment.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Automatic deployment</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="testing-locally.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Testing a Sesam configuration locally</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Continuous integration (CI)</a><ul>
+<li><a class="reference internal" href="#ci-node">CI node</a></li>
+<li><a class="reference internal" href="#using-jenkins-or-azure-devops-for-automatic-ci-testing">Using Jenkins or Azure DevOps for automatic CI testing</a><ul>
+<li><a class="reference internal" href="#jenkins">Jenkins</a></li>
+<li><a class="reference internal" href="#azure-devops">Azure DevOps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

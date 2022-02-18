@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Patterns &#8212; Sesam documentation</title>
+    
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'who cares',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sesam in Microsoft Azure" href="azure.html" />
+    <link rel="prev" title="Working on a Sesam project" href="project-workflow.html" />
+  
+   
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="right" >
+          <a href="azure.html" title="Sesam in Microsoft Azure"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project-workflow.html" title="Working on a Sesam project"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Sesam documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developer-guide.html" accesskey="U">Developer Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+        <a href="
+    index.html" class="text-logo">Sesam</a>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developer-guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal.html">Legal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+    
+  </div>
+</div>
+        
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+                <li><a href="developer-guide.html">Developer Guide</a></li>
+              
+              <li>Patterns</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="patterns">
+<h1>Patterns<a class="headerlink" href="#patterns" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#collect-patterns" id="id1">Collect patterns</a><ul>
+<li><a class="reference internal" href="#source-with-since-but-no-deletions" id="id2">Source with since but no deletions</a></li>
+<li><a class="reference internal" href="#source-that-only-provides-delta-streams" id="id3">Source that only provides delta streams</a></li>
+<li><a class="reference internal" href="#source-with-parameterized-input" id="id4">Source with parameterized input</a></li>
+<li><a class="reference internal" href="#recreate-best-effort-history-from-a-source" id="id5">Recreate best effort history from a source</a></li>
+<li><a class="reference internal" href="#make-periodic-entities-from-a-versioned-history" id="id6">Make periodic entities from a versioned history</a></li>
+<li><a class="reference internal" href="#sporadic-empty-response" id="id7">Sporadic empty response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enrich-patterns" id="id8">Enrich patterns</a><ul>
+<li><a class="reference internal" href="#extract-foreign-references-as-separate-datatypes" id="id9">Extract foreign references as separate datatypes</a></li>
+<li><a class="reference internal" href="#adding-type-information" id="id10">Adding type information</a></li>
+<li><a class="reference internal" href="#flattening-complex-objects" id="id11">Flattening complex objects</a></li>
+<li><a class="reference internal" href="#splitting-out-lists-of-sub-objects" id="id12">Splitting out lists of sub objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connect-patterns" id="id13">Connect patterns</a><ul>
+<li><a class="reference internal" href="#washing-data" id="id14">Washing data</a></li>
+<li><a class="reference internal" href="#manual-merge" id="id15">Manual merge</a></li>
+<li><a class="reference internal" href="#external-merge" id="id16">External merge</a></li>
+<li><a class="reference internal" href="#golden-property-based-on-priority" id="id17">Golden property based on priority</a></li>
+<li><a class="reference internal" href="#golden-property-based-on-last-updated" id="id18">Golden property based on last updated</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transform-patterns" id="id19">Transform patterns</a></li>
+<li><a class="reference internal" href="#share-patterns" id="id20">Share patterns</a></li>
+</ul>
+</div>
+<p>We've identified a set of patterns when working with problems related to data flows in Sesam. We find it very useful
+to name these patterns as it makes it easier to refer to it when discussing problems.</p>
+<p>Here we present a list of them grouped by which step the problem manifests itself.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This document is work in progress, but we publish it as it might contain useful tips.</p>
+</div>
+<div class="section" id="collect-patterns">
+<h2><a class="toc-backref" href="#id1">Collect patterns</a><a class="headerlink" href="#collect-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="source-with-since-but-no-deletions">
+<h3><a class="toc-backref" href="#id2">Source with since but no deletions</a><a class="headerlink" href="#source-with-since-but-no-deletions" title="Permalink to this headline">¶</a></h3>
+<p>Provides data with changes but nothing about deletions. Requires periodic rescans. Called update-in-place
+systems.</p>
+</div>
+<div class="section" id="source-that-only-provides-delta-streams">
+<h3><a class="toc-backref" href="#id3">Source that only provides delta streams</a><a class="headerlink" href="#source-that-only-provides-delta-streams" title="Permalink to this headline">¶</a></h3>
+<p>If you restart the pipe you lose a lot of data, make two pipes (?), disable reset and use durable pipe,
+disable deletion tracking.</p>
+</div>
+<div class="section" id="source-with-parameterized-input">
+<h3><a class="toc-backref" href="#id4">Source with parameterized input</a><a class="headerlink" href="#source-with-parameterized-input" title="Permalink to this headline">¶</a></h3>
+<p>Fetch more data based on some input source, requires rescan all the time, perhaps partial rescan could work?</p>
+</div>
+<div class="section" id="recreate-best-effort-history-from-a-source">
+<h3><a class="toc-backref" href="#id5">Recreate best effort history from a source</a><a class="headerlink" href="#recreate-best-effort-history-from-a-source" title="Permalink to this headline">¶</a></h3>
+<p>We become master, pipe should be durable (coming feature).</p>
+</div>
+<div class="section" id="make-periodic-entities-from-a-versioned-history">
+<h3><a class="toc-backref" href="#id6">Make periodic entities from a versioned history</a><a class="headerlink" href="#make-periodic-entities-from-a-versioned-history" title="Permalink to this headline">¶</a></h3>
+<p>If a source provides a list of older versions of an entity, one way to materialize this is to convert this into periodic entities instead. This might make it easier to work with if your domain uses fixed periods for other purposes. One way to do this is to use the fixed periods as source and then for each period hop to the versioned dataset and join in the relevant version for this period.</p>
+</div>
+<div class="section" id="sporadic-empty-response">
+<h3><a class="toc-backref" href="#id7">Sporadic empty response</a><a class="headerlink" href="#sporadic-empty-response" title="Permalink to this headline">¶</a></h3>
+<p>Source sometimes produces an empty array for some reason (during restarts, authenticaion problems, etc). Use <a class="reference internal" href="concepts.html#concepts-circuit-breakers"><span class="std std-ref">circuit breakers</span></a>.</p>
+</div>
+</div>
+<div class="section" id="enrich-patterns">
+<h2><a class="toc-backref" href="#id8">Enrich patterns</a><a class="headerlink" href="#enrich-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extract-foreign-references-as-separate-datatypes">
+<h3><a class="toc-backref" href="#id9">Extract foreign references as separate datatypes</a><a class="headerlink" href="#extract-foreign-references-as-separate-datatypes" title="Permalink to this headline">¶</a></h3>
+<p>Don't make NIs to stuff that is outside your control, keep the namespace local to the system. Extract the
+properties to new separate datatypes. If you don't have them as objects you can't merge them with the same concept from
+other sources. Time is not a good candidate for NI. Postal codes is an example. If you make a ni make it reference your
+own namespace. Use create.</p>
+</div>
+<div class="section" id="adding-type-information">
+<h3><a class="toc-backref" href="#id10">Adding type information</a><a class="headerlink" href="#adding-type-information" title="Permalink to this headline">¶</a></h3>
+<p>Useful to pick out relevant subsets from the globals later. Add data type property (rdf:type or $type).</p>
+</div>
+<div class="section" id="flattening-complex-objects">
+<h3><a class="toc-backref" href="#id11">Flattening complex objects</a><a class="headerlink" href="#flattening-complex-objects" title="Permalink to this headline">¶</a></h3>
+<p>Gives you flat structures. Can be easier to work with.</p>
+</div>
+<div class="section" id="splitting-out-lists-of-sub-objects">
+<h3><a class="toc-backref" href="#id12">Splitting out lists of sub objects</a><a class="headerlink" href="#splitting-out-lists-of-sub-objects" title="Permalink to this headline">¶</a></h3>
+<p>Aggregate objects, are the sub objects part of the parent or can they live on their own? Use <a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-create-child"><span class="std std-ref">create-child</span></a> and <a class="reference internal" href="configuration.html#emit-children-transform"><span class="std std-ref">emit_children</span></a>.</p>
+</div>
+</div>
+<div class="section" id="connect-patterns">
+<h2><a class="toc-backref" href="#id13">Connect patterns</a><a class="headerlink" href="#connect-patterns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="washing-data">
+<h3><a class="toc-backref" href="#id14">Washing data</a><a class="headerlink" href="#washing-data" title="Permalink to this headline">¶</a></h3>
+<p>Should be added as new properties, you might need the dirty data.</p>
+</div>
+<div class="section" id="manual-merge">
+<h3><a class="toc-backref" href="#id15">Manual merge</a><a class="headerlink" href="#manual-merge" title="Permalink to this headline">¶</a></h3>
+<p>Hardhoded dataset with manually connected ids, could also be an external source with manual input. Linking table.</p>
+</div>
+<div class="section" id="external-merge">
+<h3><a class="toc-backref" href="#id16">External merge</a><a class="headerlink" href="#external-merge" title="Permalink to this headline">¶</a></h3>
+<p>AI connected objects, same pattern as manual merge. Duke is an example. Produces link objects.</p>
+</div>
+<div class="section" id="golden-property-based-on-priority">
+<h3><a class="toc-backref" href="#id17">Golden property based on priority</a><a class="headerlink" href="#golden-property-based-on-priority" title="Permalink to this headline">¶</a></h3>
+<p>Use coalesce.</p>
+</div>
+<div class="section" id="golden-property-based-on-last-updated">
+<h3><a class="toc-backref" href="#id18">Golden property based on last updated</a><a class="headerlink" href="#golden-property-based-on-last-updated" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have a reliable timestamp from the source that you propagate. Think about feedback loops if data is
+synced back.</p>
+</div>
+</div>
+<div class="section" id="transform-patterns">
+<h2><a class="toc-backref" href="#id19">Transform patterns</a><a class="headerlink" href="#transform-patterns" title="Permalink to this headline">¶</a></h2>
+<p>No patterns described yet.</p>
+</div>
+<div class="section" id="share-patterns">
+<h2><a class="toc-backref" href="#id20">Share patterns</a><a class="headerlink" href="#share-patterns" title="Permalink to this headline">¶</a></h2>
+<p>No patterns described yet.</p>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="project-workflow.html" title="previous chapter (use the left arrow)">Working on a Sesam project</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="azure.html" title="next chapter (use the right arrow)">Sesam in Microsoft Azure</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="http-routingtable.html" title="HTTP Routing Table"
+             >routing table</a> |</li>
+        <li class="right" >
+          <a href="azure.html" title="Sesam in Microsoft Azure"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project-workflow.html" title="Working on a Sesam project"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Sesam documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developer-guide.html" >Developer Guide</a> &#187;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; 2021 Sesam.io AS
+  </div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+
+  </body>
+</html>

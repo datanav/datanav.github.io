@@ -1,0 +1,443 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Non-idempotency" href="idempotency.html" /><link rel="prev" title="Cron expressions" href="cron-expressions.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Working with RDF - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="working-with-rdf">
+<h1>Working with RDF<a class="headerlink" href="#working-with-rdf" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Sesam has several features to facilitate working with RDF data both as input, when doing transforms and finally
+when exposing or producing data for external consumption.</p>
+<p>In this document we will cover what you need to know when working with RDF data with Sesam.</p>
+<div class="section" id="core-concepts">
+<h3>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">#</a></h3>
+<p>First, a short recap of the core concepts when working with RDF, see the <a class="reference external" href="https://www.w3.org/RDF/">RDF standard</a> for more details:</p>
+<p>The RDF data model consists in essence of statements about a particular subject. This is given as a <em>triple</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subject</span> <span class="n">predicate</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>While subjects and predicates are always URIs, objects can be either a literal (i.e. a quoted string, representing dates,
+numbers, strings etc) or another subject (URI). There are other optional elements to these subjects such as language
+and/or datatype identifiers - again refer to the standard for more detail.</p>
+<p>You can have multiple statements for a single subject.</p>
+<p>A common representation of such RDF triples is <a class="reference external" href="https://www.w3.org/TR/2014/REC-n-triples-20140225/">NTriples</a>,
+where each URI is enclosed in brackets and every statement (triple) ends with a punctuation mark. Semicolon can also be
+used to end a statement meaning that the subject on the next line will be omitted (i.e. the subjects stays the same/carries over).
+An example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">employees</span><span class="o">/</span><span class="n">bob</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">1999</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="mi">22</span><span class="o">-</span><span class="n">rdf</span><span class="o">-</span><span class="n">syntax</span><span class="o">-</span><span class="n">ns</span><span class="c1">#type&gt; &lt;http://company.com/schema/employee&gt;;</span>
+    <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">first</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="s2">"Bob"</span><span class="p">;</span>
+    <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">employed</span><span class="o">-</span><span class="n">by</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Here we have three individual statements regarding the subject <code class="docutils literal notranslate"><span class="pre">http://company.com/employees/bob</span></code>. We’re stating
+that is has a RDF <code class="docutils literal notranslate"><span class="pre">type</span></code> represented by the subject <code class="docutils literal notranslate"><span class="pre">http://company.com/schema/employee</span></code> and that this <code class="docutils literal notranslate"><span class="pre">employee</span></code>
+has a literal property “Bob” and is employed by a company represented by the subject <code class="docutils literal notranslate"><span class="pre">http://company.com</span></code>.</p>
+<p>Now, this is fairly straight forward but perhaps a bit verbose in the long run. To alleviate this, we can use the
+concept of <em>prefixes</em> and <a class="reference external" href="https://www.w3.org/TR/curie/">RDF CURIEs</a>. A <em>prefix</em> is the “constant” part of a URL,
+i.e. everything up to a certain path-element (usually the last). Using CURIEs means giving these common prefixes short
+hand names enabling us to rewrite the full URI to a shorter “prefix:path” form.</p>
+<p>Let us define some prefixes for the above example, and give them such short hand names. The example below is in
+<a class="reference external" href="https://www.w3.org/TR/turtle/">RDF Turtle format</a>, which is a superset of NTriples. Turtle syntax supports prefixes
+and CURIEs and is often used when writing RDF manually or intended to be read by humans. In general, it is considered
+good practice to reduce full URIs to CURIEs using prefixes whenever possible. When working with RDF in Sesam we try to
+follow this rule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span> <span class="n">employees</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">employees</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">rdf</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">1999</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="mi">22</span><span class="o">-</span><span class="n">rdf</span><span class="o">-</span><span class="n">syntax</span><span class="o">-</span><span class="n">ns</span><span class="c1">#&gt;</span>
+<span class="n">PREFIX</span> <span class="n">emp_schema</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">schema</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>Now, rewriting the original URIs with these short form CURIEs we get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">employees</span><span class="p">:</span><span class="n">bob</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">rdf</span><span class="p">:</span><span class="nb">type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">employee</span><span class="o">&gt;</span> <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">employees</span><span class="p">:</span><span class="n">bob</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">emp_schema</span><span class="p">:</span><span class="n">first</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="s2">"Bob"</span> <span class="o">.</span>
+<span class="o">&lt;</span><span class="n">employees</span><span class="p">:</span><span class="n">bob</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">emp_schema</span><span class="p">:</span><span class="n">employed</span><span class="o">-</span><span class="n">by</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">company</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>This is both shorter, easier to work with and also makes it easier to <em>change the prefix</em> without having to
+reprocess or reload any of our data.</p>
+</div>
+</div>
+<div class="section" id="rdf-input">
+<h2>RDF input<a class="headerlink" href="#rdf-input" title="Permalink to this headline">#</a></h2>
+<p>Sesam supports RDF input from several different sources:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="configuration.html#rdf-source"><span class="std std-ref">The RDF source</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#sdshare-source"><span class="std std-ref">The SDShare source</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#sparql-source"><span class="std std-ref">The SPARQL source</span></a></p></li>
+</ul>
+<p>Additionally, you can set up a <a class="reference internal" href="configuration.html#http-endpoint-source"><span class="std std-ref">HTTP endpoint source</span></a> which includes a <cite>SDShare Push</cite> capable
+HTTP endpoint where you can post RDF data in NTriples format in accordance with the <code class="docutils literal notranslate"><span class="pre">SDShare</span> <span class="pre">Push</span> <span class="pre">protocol</span></code>.</p>
+</div>
+<div class="section" id="rdf-output">
+<h2>RDF output<a class="headerlink" href="#rdf-output" title="Permalink to this headline">#</a></h2>
+<p>Sesam has several ways of outputting RDF data:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="configuration.html#sparql-sink"><span class="std std-ref">The SPARQL sink</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#sdshare-sink"><span class="std std-ref">The SDShare Push sink</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#databrowser-sink"><span class="std std-ref">The Databrowser sink</span></a></p></li>
+<li><p><a class="reference internal" href="configuration.html#http-endpoint-sink"><span class="std std-ref">The HTTP endpoint sink</span></a></p></li>
+</ul>
+<p>Consult the reference documentation for how to set up and use these sinks to produce RDF output.</p>
+<div class="section" id="notes-on-the-rdf-output">
+<h3>Notes on the RDF output<a class="headerlink" href="#notes-on-the-rdf-output" title="Permalink to this headline">#</a></h3>
+<p>When converting your entities to RDF, some rules are applied:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Nested entities will be represented as <a class="reference external" href="https://en.wikipedia.org/wiki/Blank_node">RDF Blank Nodes</a> (aka BNodes),</p></li>
+<li><p>List properties are represented by repeating the predicates as many times as there are entries in the lists</p></li>
+<li><p>RDF datatypes are automatically added based on the type of the property</p></li>
+<li><p>RDF language tags are currently not supported</p></li>
+</ul>
+</div></blockquote>
+<p>Note that many RDF capable receivers are unable to deal with BNodes, so be sure to check this before finalizing
+your flow configuration. If your data is nested and the receiver doesn’t support BNodes, you must “flatten” your entity using a
+DTL transform before being sent to the sink (see the DTL <a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-merge"><span class="std std-ref">merge</span></a> and <a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-merge-union"><span class="std std-ref">merge-union</span></a> functions).</p>
+</div>
+<div class="section" id="sdshare-feeds-from-datasets">
+<h3>SDShare feeds from datasets<a class="headerlink" href="#sdshare-feeds-from-datasets" title="Permalink to this headline">#</a></h3>
+<p>Datasets feature built-in support for SDShare feeds. The SDShare feed from a dataset is available through the <a class="reference internal" href="api.html#sdshare-feed-from-dataset"><span class="std std-ref">Sesam REST API</span></a>.</p>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="idempotency.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Non-idempotency</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="cron-expressions.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Cron expressions</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Working with RDF</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#core-concepts">Core Concepts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rdf-input">RDF input</a></li>
+<li><a class="reference internal" href="#rdf-output">RDF output</a><ul>
+<li><a class="reference internal" href="#notes-on-the-rdf-output">Notes on the RDF output</a></li>
+<li><a class="reference internal" href="#sdshare-feeds-from-datasets">SDShare feeds from datasets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

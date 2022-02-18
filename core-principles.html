@@ -1,0 +1,563 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Key features and benefits" href="features.html" /><link rel="prev" title="Sesam Master Data Hub" href="index.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Core principles - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the restructured Sesam Documenantation site. For production go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Core principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="developer-guide.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="core-principles">
+<h1>Core principles<a class="headerlink" href="#core-principles" title="Permalink to this headline">#</a></h1>
+<p>Sesam is a master data hub that simplifies the process of making
+up-to-date master data available in a data platform architecture. Sesam
+enables rapid development of solutions that can be effectively
+managed on top of a data platform. Sesam is a data platform component
+that collects data from source systems and connects all representations of
+an object across a variety of source systems in a continuously updated
+and dynamic <a class="reference external" href="https://en.wikipedia.org/wiki/Data_model">data model</a>,
+and makes the data easily accessible inside the data platform.</p>
+<p>Sesam has a set of fundamental principles to ensure that the capture,
+exploitation, and management of master data in data platform solutions
+will be as fast and efficient as possible. Together, these principles
+ensure continuously updated master data, with high data quality, that
+can be effectively managed over time.</p>
+<div class="section" id="master-data-is-any-structured-data-that-changes-not-just-the-most-central-data">
+<h2>Master data is any structured data that changes, not just the most central data<a class="headerlink" href="#master-data-is-any-structured-data-that-changes-not-just-the-most-central-data" title="Permalink to this headline">#</a></h2>
+<p>The definition of <a class="reference external" href="https://en.wikipedia.org/wiki/Master_data">master
+data</a> is “Data that
+provides context to transactional data”, but in a data platform
+architecture, the definition of transactional data is somewhat unclear.
+We therefore redefine this to be “Data that provides context to time series
+data”. With <a class="reference external" href="https://en.wikipedia.org/wiki/Time_series">time series,</a>
+we mean data that is captured at a given time and that never changes,
+such as sensor data and log data. It gives us the following definition
+of master data in a data platform:</p>
+<blockquote>
+<div><p><em>Structured data that changes over time and that is needed for use
+outside the system where it was created.</em></p>
+</div></blockquote>
+<p>This means that master data is not limited to customer, product, asset,
+and employee data, but contains both <a class="reference external" href="https://en.wikipedia.org/wiki/Reference_data">reference
+data</a> and all possible
+forms of structured data stored in a system, where the data also is
+required to be made available outside of that system. Master data is all
+data in a data platform that is neither unstructured nor in time
+series. Examples of master data slightly outside the usual definition
+are: order and invoice information, work orders, timesheet, document
+metadata, as well as any type of category.</p>
+</div>
+<div class="section" id="parallel-and-continuously-function-adapted-data-models-not-static-and-canonical">
+<h2>Parallel and continuously function-adapted data models, not static and canonical<a class="headerlink" href="#parallel-and-continuously-function-adapted-data-models-not-static-and-canonical" title="Permalink to this headline">#</a></h2>
+<p>The biggest challenge for data quality is that each system in a
+composite architecture has different representations of the same object.
+The challenge is amplified in a data-driven architecture, where the data
+itself should be meaningful and not wrapped in functional shells as in a
+traditional <a class="reference external" href="https://en.wikipedia.org/wiki/Service-oriented_architecture">SOA
+architecture.</a></p>
+<p>The “simple” solution is to agree on one a single data model for each
+object type, a so-called <a class="reference external" href="https://en.wikipedia.org/wiki/Canonical_model">canonical
+model</a>, that ideally
+represents a standardized superset everything you will ever need, from
+all systems.
+While this may be a requirement in a message-based integration
+architecture, and is truly valuable in an industry-wide data
+<a class="reference external" href="https://en.wikipedia.org/wiki/Interoperability">interoperability</a>
+scenario, in a data platform however, the canonical model becomes a constant burden
+demanding continual enhancement and expansion over time. The result becomes a
+datamodel that fits none of the source systems, and always lags behind
+the continously evolving needs of the platform.</p>
+<p>Many businesses have wasted enormous resources on a utopia of a stable canonical model,
+only to realize that it is not possible. An ideal model does not exist,
+and one must realize that any given data model will always be a
+perspective of the object one wants to describe, not an objective and lasting truth.</p>
+<p>In Sesam, we solve this fundamental problem in the diametrically
+opposite way: We collect all the different representations of an object,
+without changing the data model for any of the different
+representations. Instead of a false idea of “<a class="reference external" href="https://en.wikipedia.org/wiki/Single_source_of_truth">Single source of
+Truth,”</a> Sesam
+will gather and connect all perspectives, i.e. data models, which exists
+about an object in a composite dynamic representation. Any single master
+data object becomes available, in all its different perspectives, as a
+single resource. This makes it easy to continuously develop the platform-wide,
+domain-wide, or functionality-wide data models needed in the data
+platform. The composite object representation linking all the different
+representations across systems is stored as a single object in <a class="reference internal" href="concepts.html#concepts-global-datasets"><span class="std std-ref">global
+datasets</span></a>.</p>
+<p>The representation is stored in a standard
+<a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> based format, and
+continuously updated with data from all source systems. The complete
+object is stored in one global dataset only, and in a single data
+format. However, the data models describing the object can be
+continuously enhanced, based on the development of the source systems,
+and driven by the functional needs at any time.</p>
+</div>
+<div class="section" id="adapt-your-data-platform-to-the-business-systems-not-the-other-way-around">
+<h2>Adapt your data platform to the business systems, not the other way around<a class="headerlink" href="#adapt-your-data-platform-to-the-business-systems-not-the-other-way-around" title="Permalink to this headline">#</a></h2>
+<p>A data platform exists to collect data from different systems and share
+this data in a consistent manner, to make it easier to retrieve the
+value that lies in the data. This is an ongoing process that must
+facilitate continually expanding value outtake, and quick delivery of
+the right data with the right quality for new purposes.</p>
+<p>The master data
+will need to be compiled from a set of business systems that are
+constantly changing, both in the case of new versions of a system,
+and in the case or replacing them with new systems. To effectively
+manage a data platform, and make it fast and easy
+to use best-of-breed business systems  <a class="reference external" href="https://en.wikipedia.org/wiki/Out_of_the_box_(feature)">out-of-the-box</a>,
+it is essential that the business systems
+and data platform are as loosely coupled as possible.</p>
+<p>Sesam does not require any modifications in the business systems, but
+instead each system talk in their own language, meaning they can collect and
+share data in the form that the system supports, through mechanisms for
+which the systems were built. Whether the business system communicates via
+REST API, SOAP, XML, CSV, SQL or any other communication form or format
+is irrelevant. If there is structured data, Sesam will be able to talk to
+every system in their own language.</p>
+<p>Internally in Sesam all data is transformed into a
+<a class="reference internal" href="concepts.html#concepts-transit-encoding"><span class="std std-ref">extended</span></a> JSON based
+data format, but retains its original data model. This is essential to
+not degrade the quality of the data. Any conversion from one data model
+to another will mean a reduction in data quality.</p>
+<p>In Sesam, the original
+data model will be retained in addition to the origin of the data by
+using <a class="reference internal" href="data-modelling.html#best-practice-namespace"><span class="std std-ref">namespaces</span></a>, and
+thus the context in which they were created is retained as part of the
+data format. It ensures that data is not lost in the transmission from
+business system to data platform.</p>
+</div>
+<div class="section" id="synchronize-the-data-don-t-let-it-flow-only-in-one-direction">
+<h2>Synchronize the data, don’t let it flow only in one direction<a class="headerlink" href="#synchronize-the-data-don-t-let-it-flow-only-in-one-direction" title="Permalink to this headline">#</a></h2>
+<p>Any system that is the source of master data needs to continuously keep
+their data up to date. These data updates do not have to come through
+the system’s own UI, but should be able to originate from anywhere in
+the data platform architecture. The aim of a data platform is to make
+data available to ensure that a wide set of value-added services, such
+as automation, machine learning, mobile applications, web etc. can be deployed.</p>
+<p>All services built on data will be able to create new valuable data that is
+sent back and will further enrich the data platform. This data should
+not only remain inside the data platform, but continuously update the
+subject systems in question.</p>
+<p>Sesam synchronizes data from its global
+dataset back into the business system, so that in practice one achieves
+a functional <a class="reference external" href="https://en.wikipedia.org/wiki/Multi-master_replication">multi-master
+replication</a>
+across both business systems and the entire data platform solution. In
+all systems where semantically equal properties about the same object
+exist, the data will be coordinated to achieve consistency on all
+levels.</p>
+</div>
+<div class="section" id="build-autonomous-services-avoid-dependencies-and-tight-coupling">
+<h2>Build autonomous services, avoid dependencies, and tight coupling<a class="headerlink" href="#build-autonomous-services-avoid-dependencies-and-tight-coupling" title="Permalink to this headline">#</a></h2>
+<p>Just as a common data model can’t meet all needs, one data access point
+isn’t effective to cover a wide range of data-driven services. The most
+stable architecture is to allow each service to have an optimized data
+source with a subset of data that is tailored to the service’s needs.
+This forms the core of a <a class="reference external" href="https://en.wikipedia.org/wiki/Loose_coupling">loosely
+connected</a>
+architecture, and means that each service can choose to use the data
+store and the data model that is most efficient, while ensuring that the
+services do not stop working at the same time due to a common
+dependency.</p>
+<p>Sesam is optimized for synchronizing master data between the
+master data hub and each service’s data store in the same way as against
+business systems. Regardless of the optimal store for a service, whether
+it’s SQL-based, search-index-based, NoSQL-based, graph-based, or using
+special tools such as Firebase, Qlik, Tableau, etc.</p>
+</div>
+<div class="section" id="stream-changes-to-master-data-don-t-use-slow-and-resource-intensive-etl">
+<h2>Stream changes to master data, don’t use slow and resource intensive ETL<a class="headerlink" href="#stream-changes-to-master-data-don-t-use-slow-and-resource-intensive-etl" title="Permalink to this headline">#</a></h2>
+<p>Traditional data platform architecture is often based on <a class="reference external" href="https://en.wikipedia.org/wiki/Extract,_transform,_load">ETL</a> to retrieve
+master data as opposed to time series data, which in most cases is
+streamed into the platform. A reason for this is that the amount of
+master data is usually limited, and that the source systems often cannot
+deliver a stream of changes.</p>
+<p>The biggest problem in this approach is
+that master data is always composed from multiple systems, so all data
+from all systems must be reloaded each time data is updated. This causes
+a low refresh rate, and undesired dependencies between source systems to
+make ETL jobs able to complete. This causes all downstream systems that
+need master data to also be forced to batch process their data using
+ETL.</p>
+<p>Sesam is an at-design-time <a class="reference external" href="https://en.wikipedia.org/wiki/Dataflow">dataflow</a>
+tool optimized to always just
+collect changes and stream them into the global datasets, and from there
+out to all systems that need the change. Regardless of whether a
+source supports change tracking, Sesam will immediately convert any
+batch load to a stream of the real changes contained in that batch using
+delta comparison.</p>
+<p>Sesam will automatically interpret the dataflow
+configuration so that it knows every single object affected by any
+change. Even the construction of complex composite data objects across a
+multitude of source systems with advanced dependencies, is automaticaly
+change tracked by the Sesam engine.
+This non trivial requirement is a prerequisite for being able to stream
+compound objects without having to ETL the entire dataset each time updated
+data is needed.</p>
+</div>
+<div class="section" id="standardize-master-data-management-dont-hide-it-in-code">
+<h2>Standardize master data management, don’t hide it in code<a class="headerlink" href="#standardize-master-data-management-dont-hide-it-in-code" title="Permalink to this headline">#</a></h2>
+<p>The complexity of a data platform is increasing for every system and
+data type you add to it, and the chance of losing control becomes
+eminent over time. It’s imperative to standardize the way master data is
+managed and gain a transparent unified methodology throughout the
+platform, which is flexible and can be maintained over time.</p>
+<p>Coding is extremly effective in an isolated environment,
+and it gives every developer free
+rein to solve their individual tasks to their own liking. The problem is
+effective management over time in a complex environment.
+Every code snippet becomes a <a class="reference external" href="https://en.wikipedia.org/wiki/Black_box">black
+box</a>, and while this may be
+the best way to solve some functional needs, it is destructive when it
+comes to managing master data.</p>
+<p>A core challenge in a heterogeneous environment, as data platforms are,
+is the lack of transparency. Utilization of composite data from a wide
+range of source systems is the core principle to gain value from a data
+platform, and if the process for generation of that data is not
+transparent, you can never trust its quality.</p>
+<p>In Sesam every part of the dataflow, storage and management is highly
+standardized and defined declaratively. There is no code, only
+structured <a class="reference internal" href="concepts.html#concepts-config"><span class="std std-ref">configuration</span></a>, stored as data,
+which instructs the platform
+how to collect data, how to connect and enrich them, and how to share
+them. This makes the master data management completely transparent, and
+even the most complicated dataflow self-documented. All data can be
+traced back to its origin, inspected at any point in a flow, and the
+data quality completely trustworthy.</p>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="features.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Key features and benefits</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Core principles</a><ul>
+<li><a class="reference internal" href="#master-data-is-any-structured-data-that-changes-not-just-the-most-central-data">Master data is any structured data that changes, not just the most central data</a></li>
+<li><a class="reference internal" href="#parallel-and-continuously-function-adapted-data-models-not-static-and-canonical">Parallel and continuously function-adapted data models, not static and canonical</a></li>
+<li><a class="reference internal" href="#adapt-your-data-platform-to-the-business-systems-not-the-other-way-around">Adapt your data platform to the business systems, not the other way around</a></li>
+<li><a class="reference internal" href="#synchronize-the-data-don-t-let-it-flow-only-in-one-direction">Synchronize the data, don’t let it flow only in one direction</a></li>
+<li><a class="reference internal" href="#build-autonomous-services-avoid-dependencies-and-tight-coupling">Build autonomous services, avoid dependencies, and tight coupling</a></li>
+<li><a class="reference internal" href="#stream-changes-to-master-data-don-t-use-slow-and-resource-intensive-etl">Stream changes to master data, don’t use slow and resource intensive ETL</a></li>
+<li><a class="reference internal" href="#standardize-master-data-management-dont-hide-it-in-code">Standardize master data management, don’t hide it in code</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
