@@ -1,0 +1,565 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Building blocks" href="developer-guide.html" /><link rel="prev" title="Setting up an environment" href="setup-environment.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Creating a Dataflow in Sesam - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Creating a dataflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="creating-a-dataflow-in-sesam">
+<span id="creating-a-sesam-dataflow"></span><h1>Creating a Dataflow in Sesam<a class="headerlink" href="#creating-a-dataflow-in-sesam" title="Permalink to this headline">#</a></h1>
+<p>An ideal dataflow in Sesam consists of the following conceptual steps: <em>Collect</em>, <em>Enrich</em>, <em>Connect</em>, <em>Transform</em> and <em>Share</em>. These steps are explained below. Following these principles ensures data is modelled in a way that allows Sesam to operate optimally, so it’s important to get acquainted with them and the reasoning behind them.</p>
+<div class="section" id="collect">
+<span id="id1"></span><h2>Collect<a class="headerlink" href="#collect" title="Permalink to this headline">#</a></h2>
+<p>Collecting data is primarily concerned with raw data and how Sesam operates when pulling data from a source.</p>
+<div class="section" id="push-or-pull-data">
+<span id="collect-push-or-pull"></span><h3>Push or pull data?<a class="headerlink" href="#push-or-pull-data" title="Permalink to this headline">#</a></h3>
+<p>Sesam prefers to be the active party when scheduling the moving of data as it enters or exits Sesam. Therefore, Sesam prefers to pull data as this increases control and ensures Sesam can administer when data enters Sesam.</p>
+<p>With regards to pushing of data, the challenge is that Sesam receives the data but at the same time has no option to request the data again, should the need arise.</p>
+</div>
+<div class="section" id="raw-data">
+<span id="collect-raw-data"></span><h3>Raw data<a class="headerlink" href="#raw-data" title="Permalink to this headline">#</a></h3>
+<p>Data is fed into Sesam through <a class="reference internal" href="data-modelling.html#best-practice-inbound-pipes"><span class="std std-ref">an inbound pipe</span></a>. Firstly, you will do an analysis of the data. Then add a raw pipe to make sure Sesam has a copy of the original data. From the result of the analysis, you will then add properties, in the <a class="reference internal" href="#enrich"><span class="std std-ref">Enrich</span></a> step, that will enhance the data in terms of modelling, reusability and connectivity.</p>
+</div>
+<div class="section" id="advantages">
+<span id="collect-advantages"></span><h3>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">#</a></h3>
+<p>Importing raw data can be interesting for multiple reasons. When an external system can only push data for example, having a record of the data received allows us to consult previously ingested data or re-run a dataflow without having to request a new data delivery, which can sometimes be impossible. Or if an external system is to be decommissioned, historical data can be preserved within Sesam and made available should the replacing system need it. There are also external systems that prune data which might be necessary for other external systems with a broader lifecycle scope. For example, an ERP system will keep data from procuration to decommission, while the lifespan of data will be shorter in a system focusing on operations.</p>
+</div>
+<div class="section" id="a-two-step-approach">
+<span id="collect-two-step-approach"></span><h3>A two step approach<a class="headerlink" href="#a-two-step-approach" title="Permalink to this headline">#</a></h3>
+<p>To fullfil both goals of raw data retention and the ability to leverage the semantic capabilities of Sesam, an intermediary dataset becomes necessary. A “raw” pipe will be inserted before the input pipe and act as a double-door entrance. Its duties are to interface with the external system and create the verbatim raw dataset. From the input pipe’s point of view, elaborated in the <a class="reference internal" href="#enrich"><span class="std std-ref">Enrich</span></a> step, the raw dataset is the data source as if it was from the external system itself.</p>
+</div>
+<div class="section" id="test-data">
+<span id="collect-test-data"></span><h3>Test data<a class="headerlink" href="#test-data" title="Permalink to this headline">#</a></h3>
+<p>Test data is generated to be able to test that the data behaves as expected.</p>
+<p>It is a best practice to build a foundation of test data in the inbound pipe and then build on this as the need for testing arises. This is a smoother option than to try to generate perfect test data at the very beginning. This set of data can consist of ten or so objects, anonymized if required. Make sure it contains the fields required for testing, i.e. if you are testing merging, you need the fields you are merging on (e.g., merging person from HR and ERP system, you need social security number in both datasets).</p>
+<p>To read more about test data and how it is set up in Sesam, please click <a class="reference internal" href="data-modelling.html#best-practice-inbound-pipes"><span class="std std-ref">here</span></a></p>
+</div>
+<div class="section" id="monitoring">
+<span id="collect-monitoring"></span><h3>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">#</a></h3>
+<p>Sesam has a built-in monitoring function to help to ensure data flows as expected and there are no bottlenecks or any stops. A best practice in Sesam is to switch on monitoring in the inbound and the outbound pipes as it will make clear if data is not flowing as expected.</p>
+</div>
+</div>
+<div class="section" id="enrich">
+<span id="id2"></span><h2>Enrich<a class="headerlink" href="#enrich" title="Permalink to this headline">#</a></h2>
+<p>The enrichment step is concerned with adding <a class="reference internal" href="product-features.html#concepts-namespaces"><span class="std std-ref">namespaces</span></a> and <a class="reference internal" href="data-modelling.html#best-practice-namespace"><span class="std std-ref">namespaced identifiers</span></a>. Sesam makes use of RDF (<a class="reference external" href="https://www.w3.org/RDF/">https://www.w3.org/RDF/</a>) to apply this enrichment and as such describe what a certain field means. Other types of semantics can be utilized if need be.</p>
+<div class="section" id="semantics-as-a-method-of-enrichment">
+<span id="id3"></span><h3>Semantics as a method of enrichment<a class="headerlink" href="#semantics-as-a-method-of-enrichment" title="Permalink to this headline">#</a></h3>
+<p>Classifying data in Sesam is done by using semantics to describe properties of a certain field. If one uses RDF or other methods to define semantics of input from sources, it will be easier to understand what a field is in the latter steps in a Sesam dataflow.</p>
+<p>As an example, imagine a source having a field called <em>first name</em>, albeit in another system a similar field might be called <em>given name</em>. Using semantics, you can clarify whether these are the same, where they originate from and how they should be related. By using semantics, like RDF, Uniform Resource Identifiers (URI) can be created. If not using standards, one should make a data catalog that defines the semantics of the input sources and output targets. As such, ensuring that proper enrichment can be carried out.</p>
+<p>The following are benefits of semantic enrichment:</p>
+<ul>
+<li><p><strong>References to other datasets</strong>: if a property is a reference or relation to another dataset, such as a foreign key field in a relational database, you should add an additional property that contains a reference to that dataset. This should be in the form of a <a class="reference internal" href="data-modelling.html#best-practice-namespace"><span class="std std-ref">namespaced identifier</span></a>. These references are usually key properties when semantically linking data together in a global dataset, <a class="reference internal" href="#connect"><span class="std std-ref">Connect</span></a>, but are also useful when connecting data in preparation pipes, <a class="reference internal" href="#transform"><span class="std std-ref">Transform</span></a>.</p>
+<blockquote>
+<div><div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p>When raw data is linked to data used to categorize it or other metadata, it is advisable to split it; keep data and metadata separate. The metadata used to categorize can be merged into a global like <code class="docutils literal notranslate"><span class="pre">global-classification</span></code>.</p></li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="data-modelling.html#best-practice-rdf-type"><span class="std std-ref">An RDF type</span></a>: this is a property providing a qualifier of what the data is and can be seen as metadata used to relate data and provide a semantic context to the data. When used with a namespace, it keeps track of the origin of the data, as well as the business type. An RDF type is useful in terms of filtering data, both from global datasets and in <a class="reference internal" href="DTLReferenceGuide.html#hops-dtl-function"><span class="std std-ref">hops</span></a> to other datasets.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="connect">
+<span id="id4"></span><h2>Connect<a class="headerlink" href="#connect" title="Permalink to this headline">#</a></h2>
+<p>The raw data, having now been enriched, are ready to be connected to other data from other sources. This can be done in various ways and the next few chapters will describe this in detail.</p>
+<div class="section" id="global-pipes-datasets">
+<span id="connect-global-pipes-datasets"></span><h3>Global pipes / datasets<a class="headerlink" href="#global-pipes-datasets" title="Permalink to this headline">#</a></h3>
+<p>When connecting data in Sesam, it is important to understand <a class="reference internal" href="data-modelling.html#best-practice-global-pipes"><span class="std std-ref">global datasets</span></a> as these are collections of data that pertain to the same concept from different sources.</p>
+<p>The main purpose of a global dataset is to be the single authorative location to get fresh data about a specific concept. Generally when we want to start building globals, we start at a high level and work our way into the details. For example, if we work for a business which sells stationary, it will be natural to create globals based on various things we sell: global-paper, global-pens, global-postit, global-equipment etc. This is exactly how we would stock the shelves in a stationary shop. If, however we are a pen specialist, our perspective would be completely different and we would have a global-pencil, global-marker, global-ballpoint global-ink etc. Here we have so many kinds of pens that it does not make sense to have a shelf for printing paper or notebooks, but we would sort the pens after type of pen in the very same way we sort them into various global datasets.</p>
+<p>Neither of these two examples are wrong but make sense for each example as their data requirements and use of data are very different, even though a lot of their data is the same. So, when wanting to sort data in globals in order to retrieve it in the <a class="reference internal" href="#transform"><span class="std std-ref">Transform</span></a> step, it is important to ensure logical grouping.</p>
+<p>A general rule is that every dataset that is written to Sesam from an external data source should be put into its appropriate global, however small it is.</p>
+<p>When defining global datasets, there are a few guidelines for modelling:</p>
+<ul class="simple">
+<li><p>A global dataset should be defined by what the data it contains is.</p></li>
+<li><p>Try to keep the number of global datasets low.</p></li>
+<li><p>Every dataset written to Sesam through an inbound pipe should be put into a global dataset, do not put a dataset into multiple global datasets.</p></li>
+<li><p>If unsure which global a dataset should belong to, choosing one of the candidates is usually good enough, try avoiding creating new global datasets just for one dataset.</p></li>
+<li><p>There is no definite right or wrong way in how you organize your global datasets.</p></li>
+<li><p>Avoid system specific global datasets.</p></li>
+</ul>
+<p>When a global dataset has been defined, there are some questions to be considered in terms of how a global dataset should work:</p>
+<ul class="simple">
+<li><p>Should data in a global dataset be merged to a single entity or not?</p></li>
+<li><p>Is the data of such a format and quality that a <a class="reference internal" href="data-modelling.html#best-practice-golden-record"><span class="std std-ref">golden record</span></a> can be defined?</p></li>
+<li><p>Would enhancing the data in a global dataset with data from another dataset improve the data for later use?</p></li>
+</ul>
+</div>
+<div class="section" id="classification-of-data">
+<span id="connect-classification-of-data"></span><h3>Classification of data<a class="headerlink" href="#classification-of-data" title="Permalink to this headline">#</a></h3>
+<p>How do we decide which data pertains to the same concept? For example a person can potentially end up in global-customer, global-employee or global-person, which one is correct?</p>
+<p>In Sesam we recommend a <em>one dimensional structure</em>, i.e. data can only belong to one global. Let us use an example; a company has lots of data about persons: customers, clients, prospects, employees and applicants. It is tempting to be able to separate these to generate a global for each. The problem with this is a person with a unique ID can end up in two or more globals (e.g., global-customer and global-person). Then it is the <em>role</em> of the person deciding and not the <em>concept</em>, which is data about persons.</p>
+<p>So how can we differentiate between all the various types of persons? In Sesam we add a category. This is multidimensional, which means you can add several categories to each data type. For a person, this could be “Customer” then we could further add subcategories of customers like “VIP customer”, “Private customer” etc. So <em>top level of classification is one dimensional</em> and <em>lower categories and subcategories are multidimensional</em> as an object can have several categories.</p>
+<p>These principles coincide with <a class="reference external" href="https://en.wikipedia.org/wiki/Linnaean_taxonomy">Carl Linnaeus</a> principles of taxonomy; it is one dimensions that is each species can only belong to one category. He had 7 classifications:</p>
+<p>Kingdom
+Phylum
+Classes
+Orders
+Family
+Genera
+Species</p>
+<p>When classifying in Sesam, it is advisable to start high up in the hierarchy but not at top as that proves to be too general, but for most data modelling, starting at Phylum or Classes is a good starting point. To further classify deeper down in the hierarchy, we add categories and subcategories.</p>
+<p>To meet this requirement for classifying data, as stated previously, we recommend generating a <em>global-classification</em> dataset. This contains various metadata that can be picked up and enriched via hops to the data that needs categorization.</p>
+</div>
+<div class="section" id="merge-data-in-a-global-dataset-or-not">
+<span id="connect-merge-data-or-not"></span><h3>Merge data in a global dataset or not<a class="headerlink" href="#merge-data-in-a-global-dataset-or-not" title="Permalink to this headline">#</a></h3>
+<p>To emphasize: One of the main purposes of a global dataset is to present a single authoritative truth about a concept or data. Therefore, it is important to ask yourself whether data from different systems should be merged in a global or not.</p>
+<p>It is logical to merge data from various systems in one global dataset if they define the same kind of object or type. For example, if some of the various sources contain person data, it would be logical to create a global dataset for person data and then merge each entity that refers to the same person. This is done so that when you ask for information about a specific entity, you also get information about that entity from the other systems. In terms of reusability this is a highly versatile way of getting all the data you need.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>However, merging data comes with a cost. In certain cases, changing the rules of how the data are merged requires the pipe to be reset and run again. For large datasets this might mean that it will take time before the downstream pipes will get updates.</p></li>
+</ul>
+</div>
+<p>In some cases, merging the data isn’t logical. For instance, data like countries, counties, cities and streets might be put into a global location dataset, but it is not logical to merge these data. For example, if we think of Norway (a country) and Oslo (a city), they both could fit into a global location dataset, both being locations, but we can agree that Norway and Oslo are not the same thing.</p>
+<p>Also note that if a global dataset contains merged data, it does not necessarily mean that every other dataset in the global must be merged. Some data might be telling something about an entity but it’s not necessarily the same thing.</p>
+</div>
+<div class="section" id="defining-global-properties">
+<span id="connect-defining-global-properties"></span><h3>Defining global properties<a class="headerlink" href="#defining-global-properties" title="Permalink to this headline">#</a></h3>
+<p>For background on global properties, please read <a class="reference internal" href="data-modelling.html#best-practice-golden-record"><span class="std std-ref">here</span></a>.</p>
+<p>There are 3 main reasons to introduce global properties:</p>
+<ul class="simple">
+<li><p>These are established standards you want to use.</p></li>
+<li><p>One will establish standard characteristics that make it easier for consumers of data to know which properties to use.</p></li>
+<li><p>Properties that are conceptually about the same thing, albeit they originate from more than one system, logic must be defined to ensure the desired system is authoritative</p></li>
+</ul>
+<p>Often when you merge datasets together in a global dataset, you will find that some of the merged datasets contain properties that are the same. In some cases, it is valuable to add one global property to the global dataset that will be the most reliable with regards to these properties.</p>
+<p>For instance, let us say we have a person global dataset that merges three datasets from three different systems. All of these datasets contain a property for zipcode, but we know that one of the systems isn’t adequately updated. By adding a global zipcode property, determining which of the systems are the most reliable and using the zipcode from that source as the value, we provide a way for the downstream pipes to get the most reliable information.</p>
+<p>Instead of having to define global properties in advance, Sesam is built so that these can be continuously defined and changed over time and as needed. Some recommendations for when to establish global properties:</p>
+<ul class="simple">
+<li><p>In advance, if standardised schema are to be used.</p></li>
+<li><p>On demand, when a consumer needs properties that may originate from more than one system.</p></li>
+</ul>
+<p>If you need to use a <a class="reference internal" href="DTLReferenceGuide.html#hops-dtl-function"><span class="std std-ref">hops</span></a> function to another global dataset when creating global properties, it is recommended to do this through feedback loops.</p>
+</div>
+<div class="section" id="feedback-loops">
+<span id="connect-feedback-loops"></span><h3>Feedback loops<a class="headerlink" href="#feedback-loops" title="Permalink to this headline">#</a></h3>
+<p>A feedback loop is a downstream pipe from a global, that creates a dataset that is merged back in to the same global. This mechanism is needed to build properies that need to be created recursively. It is also the recommended way to add properties that is dependent on hops to other datasets.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Be aware that a feedback pipe will effectively block the completeness feature if it is not excluded from the completeness chain.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="transform">
+<span id="id5"></span><h2>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">#</a></h2>
+<p>Transforming data is concerned with late schema binding and as such data formats become relevant.</p>
+<div class="section" id="late-schema-binding">
+<span id="transform-late-schema-binding"></span><h3>Late schema binding<a class="headerlink" href="#late-schema-binding" title="Permalink to this headline">#</a></h3>
+<p>As everything in Sesam is JSON, Sesam is schemaless. Therefore, Sesam supports any data schema and transforms the data from the global datasets into the target schema before offering it to the target system. In a Sesam dataflow, this is done in <a class="reference internal" href="data-modelling.html#best-practice-preparation-pipes"><span class="std std-ref">preparation pipes</span></a>.</p>
+<p>Sesam does not offer automatic schema validation nor business rules validation. Such validation has to be developed outside of Sesam.</p>
+</div>
+<div class="section" id="data-format">
+<span id="transform-data-format"></span><h3>Data format<a class="headerlink" href="#data-format" title="Permalink to this headline">#</a></h3>
+<p>Sesam has native connectors to transform its internal JSON format into the most common data formats, like XML, JSON, SQL, CSV, Excel etc. Any format not supported can be delivered using the push mechanism through a microservice. Sesam has a library of <a class="reference external" href="https://github.com/sesam-community">microservices</a>, but in some cases a new microservice has to be developed if Sesam needs to connect to an unfamiliar or special system. This can be necessary because of special data format or security requirements of the targets.</p>
+</div>
+</div>
+<div class="section" id="share">
+<span id="id6"></span><h2>Share<a class="headerlink" href="#share" title="Permalink to this headline">#</a></h2>
+<p>The main benefit of Sesam is its ability to share data by delivering it in the form that each target system asks for. Instead of changing the systems to fit the data, Sesam speaks the target’s language.</p>
+<p>The core principle of data management with Sesam is to bring data to any target systems in need. The targets will use their optimized data storage to store the new data.</p>
+<div class="section" id="transport">
+<span id="share-transport"></span><h3>Transport<a class="headerlink" href="#transport" title="Permalink to this headline">#</a></h3>
+<p>Sesam supports both push and publish mechanisms. Push has the advantage of making it possible for Data Managers to control the flow and know the state of the target system. Publish has an advantage that gives the target system control over their dataflow, but supports a limited array of data formats, such as JSON, CSV, XML, RDF, SD-SHARE and only supports HTTPS.
+Sesam does not support ad hoc querying on published data. Sesam has a limited support for pre-defined query properties or data subsets.</p>
+</div>
+<div class="section" id="share-identifiers">
+<span id="identifiers"></span><h3>Identifiers<a class="headerlink" href="#share-identifiers" title="Permalink to this headline">#</a></h3>
+<p>When sending data to a target system, the main challenge is using the right identifiers for the object you update, and also the right identifiers for any references from that object to other objects in the same target system.
+The correct ID for the necessary objects is available in the global datasets, and by hopping to them in the outgoing flow, the correct identifiers can be populated.</p>
+</div>
+<div class="section" id="completeness">
+<span id="share-completeness"></span><h3>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">#</a></h3>
+<p>To ensure that any composed object is complete before sending it to a target system, the completeness feature(if set) will delay the transfer of incomplete objects to targets. If the completeness feature is not set, incomplete objects will be sent to targets.</p>
+</div>
+<div class="section" id="generated-identifiers">
+<span id="share-generated-identifiers"></span><h3>Generated identifiers<a class="headerlink" href="#generated-identifiers" title="Permalink to this headline">#</a></h3>
+<p>In API-based systems the result of the insert or update call should feed back into the target input flow, to handle IDs and errors.</p>
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="developer-guide.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Building blocks</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="setup-environment.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Setting up an environment</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Creating a Dataflow in Sesam</a><ul>
+<li><a class="reference internal" href="#collect">Collect</a><ul>
+<li><a class="reference internal" href="#push-or-pull-data">Push or pull data?</a></li>
+<li><a class="reference internal" href="#raw-data">Raw data</a></li>
+<li><a class="reference internal" href="#advantages">Advantages</a></li>
+<li><a class="reference internal" href="#a-two-step-approach">A two step approach</a></li>
+<li><a class="reference internal" href="#test-data">Test data</a></li>
+<li><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enrich">Enrich</a><ul>
+<li><a class="reference internal" href="#semantics-as-a-method-of-enrichment">Semantics as a method of enrichment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connect">Connect</a><ul>
+<li><a class="reference internal" href="#global-pipes-datasets">Global pipes / datasets</a></li>
+<li><a class="reference internal" href="#classification-of-data">Classification of data</a></li>
+<li><a class="reference internal" href="#merge-data-in-a-global-dataset-or-not">Merge data in a global dataset or not</a></li>
+<li><a class="reference internal" href="#defining-global-properties">Defining global properties</a></li>
+<li><a class="reference internal" href="#feedback-loops">Feedback loops</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transform">Transform</a><ul>
+<li><a class="reference internal" href="#late-schema-binding">Late schema binding</a></li>
+<li><a class="reference internal" href="#data-format">Data format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#share">Share</a><ul>
+<li><a class="reference internal" href="#transport">Transport</a></li>
+<li><a class="reference internal" href="#share-identifiers">Identifiers</a></li>
+<li><a class="reference internal" href="#completeness">Completeness</a></li>
+<li><a class="reference internal" href="#generated-identifiers">Generated identifiers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

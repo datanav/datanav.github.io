@@ -5,5 +5,4 @@ What is Sesam
    :maxdepth: 1
 
    Core principles <core-principles>
-   Key features <features>
-   Concepts <concepts>
+   Key benefits <features>

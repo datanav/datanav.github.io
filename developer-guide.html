@@ -2,13 +2,14 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Service Configuration Guide" href="configuration.html" /><link rel="prev" title="Quick Reference" href="quick-reference.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Features" href="product-features.html" /><link rel="prev" title="Creating a Dataflow in Sesam" href="sesam-dataflow.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>Developer Guide - Docs</title>
+        <title>Building blocks - Docs</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
     
 
@@ -109,7 +110,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the current documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
   </aside>
 </div>
 
@@ -133,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -156,74 +157,90 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Key features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="best-practices.html">Best Practices</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="pre-planning.html">Planning a Sesam project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup-environment.html">Setting up a Sesam environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="collecting_data.html">Collect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-enrichment.html">Enrichment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connecting-data.html">Connect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="transform-data.html">Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sharing-data.html">Sharing data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Building blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l3"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecated features</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
@@ -232,7 +249,8 @@
 <li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
 </ul>
 
 </div>
@@ -253,181 +271,99 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <div class="section" id="developer-guide">
-<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Service Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#general">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#environment-variables">Environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#service-metadata">Service metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#pipes">Pipes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#sources">Sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#transforms">Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#sinks">Sinks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#systems">Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#pumps">Pumps</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="entitymodel.html">Entity Data Model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html#reserved-fields">Reserved fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html#special-fields">Special fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html#standard-types">Standard types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html#extension-types">Extension types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entitymodel.html#mixed-type-ordering">Mixed type ordering</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#annotated-example">Annotated Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#variables">Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#path-expressions-and-hops">Path Expressions and Hops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#how-joins-work">How joins work</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#namespaces">Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#argument-types">Argument types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#transforms">Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#expression-language">Expression language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html#supported-timezones">Supported timezones</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Service API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#instance-api-reference">Instance API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#portal-api-reference">Portal API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#swagger-files">Swagger Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#config-groups">Config groups</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="extension-points.html">Developer Extension Points</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension-points.html#creating-a-custom-data-source">Creating a Custom Data Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-points.html#pushing-data-into-the-hub">Pushing Data Into The Hub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-points.html#creating-a-custom-transform">Creating a Custom Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-points.html#creating-a-custom-data-sink">Creating a Custom Data Sink</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="json-pull.html#requests">Requests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-pull.html#response-headers">Response headers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-pull.html#example-published-endpoint">Example: published endpoint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-pull.html#example-dataset-subset">Example: dataset subset</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="json-push.html">JSON Push Protocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="json-push.html#requests">Requests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-push.html#conflicts">Conflicts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-push.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-started-entity">The pump-started entity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-completed-entity">The pump-completed entity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-failed-entity">The pump-failed entity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-read-error-entity">The read-error entity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-write-error-entity">The write-error entity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pump-execution.html#the-pump-offset-set-entity">The pump-offset-set entity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cron-expressions.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rdf-support.html">RDF support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rdf-support.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rdf-support.html#rdf-input">RDF input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rdf-support.html#rdf-output">RDF output</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="idempotency.html">Non-idempotency</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="idempotency.html#the-challenge">The Challenge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="idempotency.html#piece-of-advice">Piece of Advice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="security.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#subscriptions-users-roles-and-permissions">Subscriptions, Users, Roles and Permissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#the-secrets-manager">The secrets manager</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="notifications.html">Notifications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-completed-pump-failed-notification-rules">Pump completed / Pump failed notification rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-started-overdue">Pump started overdue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-finished-overdue">Pump finished overdue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-failed">Pump failed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#restore-completed">Restore completed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pump-offset-set">Pump offset set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#pattern-match">Pattern match</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#node-heartbeat-overdue">Node heartbeat overdue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#alert-rate-limiting">Alert rate limiting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notifications.html#notification-summary-api">Notification summary API</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="low-level-debugging.html">Low-level debugging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#profiling-api-calls">Profiling API calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#getting-a-stacktrace-of-all-the-threads-in-the-node">Getting a stacktrace of all the threads in the node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="low-level-debugging.html#preventing-pipes-from-automatically-running">Preventing pipes from automatically running</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source-datatype-mapping.html#sql-systems">SQL systems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="self-hosted.html">Self-hosted service</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#hardware-requirements">Hardware requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#software-requirements">Software requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#firewall-requirements">Firewall requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="self-hosted.html#installation">Installation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="data-modelling.html">Data modelling in Sesam</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#data-handling-philosophy">Data handling philosophy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#global-datasets">Global datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#namespace-and-namespaced-identifiers">Namespace and namespaced identifiers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#naming-conventions">Naming conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#workflow-for-transforming-data-in-sesam">Workflow for transforming data in Sesam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#tips-for-global-datasets">Tips for global datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#how-to-do-global-datasets-in-sesam">How to do global datasets in Sesam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#recipe-for-generating-global-datasets">Recipe for generating global datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-modelling.html#additional-sesam-tips">Additional Sesam tips</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="azure.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="azure.html#reference-architecture">Reference Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="azure.html#using-azure-data-factory-with-sesam">Using Azure Data Factory with Sesam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="azure.html#using-azure-synapse-analytics-with-sesam">Using Azure Synapse Analytics with Sesam</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="deprecations.html">Deprecated features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#dtl-functions">DTL Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#sources">Sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#transforms">Transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#sinks">Sinks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#systems">Systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#the-rdf-registry">The RDF registry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#rdf-input">RDF input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#rdf-in-transforms">RDF in transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deprecations.html#pipes">Pipes</a></li>
-</ul>
-</li>
-</ul>
+          <div class="section" id="building-blocks">
+<h1>Building blocks<a class="headerlink" href="#building-blocks" title="Permalink to this headline">#</a></h1>
+<div class="section" id="streams-of-entities">
+<span id="concepts-streaming"></span><h2>Streams of entities<a class="headerlink" href="#streams-of-entities" title="Permalink to this headline">#</a></h2>
+<p>Sesam consumes and produces streams of <a class="reference internal" href="entitymodel.html"><span class="doc">entities</span></a>. An entity is very much like a JSON object and consists of a number of key-value pairs along with some special reserved property names. See the <a class="reference internal" href="entitymodel.html"><span class="doc">entity data model</span></a> document for more details about entities.</p>
+<p>The following is a quick example of the shape of entities that are consumed and exposed by Sesam.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Bill"</span><span class="p">,</span>
+        <span class="s2">"dob"</span><span class="p">:</span> <span class="s2">"01-01-1980"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Jane"</span><span class="p">,</span>
+        <span class="s2">"dob"</span><span class="p">:</span> <span class="s2">"04-10-1992"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Streams of entities flow through pipes. A pipe has an associated pump that is scheduled to regularly pull data entities from the source, push them through any transforms and send the results to the sink. The most common source is the <a class="reference internal" href="configuration.html#dataset-source"><span class="std std-ref">dataset source</span></a> which reads entities from a dataset. The most common sink is the <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a> which writes entities to a dataset. There are also <a class="reference internal" href="configuration.html#source-section"><span class="std std-ref">sources</span></a> and <a class="reference internal" href="configuration.html#sink-section"><span class="std std-ref">sinks</span></a> that can read and write data to and from external systems outside of Sesam.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sesam’s service API is not built to serve a large number of concurrent clients. Sesam is primarily an asynchronous batching and stream processing system. The Service API is not meant to be used by user-facing applications that have low latency and high throughput requirements. For that reason we do not currently give any guarantees in this regard. In practice means that if you have such a requirement you should stream the data out of Sesam and host it in a dedicated publishing systems that can scale its endpoints.</p>
+</div>
+</div>
+<div class="section" id="datasets">
+<span id="concepts-datasets"></span><h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">#</a></h2>
+<p>A dataset is the basic means of storage inside Sesam. A dataset is a log of <a class="reference internal" href="entitymodel.html"><span class="doc">entities</span></a> supported by primary and secondary indexes. A <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a> can write entities to the dataset. An entity is appended to the log if it is new (as in, an entity with a never-before-seen <code class="docutils literal notranslate"><span class="pre">_id</span></code> property) or if it is different from the previous version of the same entity.</p>
+<p>A content hash is generated from the content of each entity. This hash value is used to determine if an entity has changed over time. The content hashing is what enables <a class="reference internal" href="product-features.html#concepts-change-tracking"><span class="std std-ref">change tracking</span></a>.</p>
+<p>The <a class="reference internal" href="configuration.html#dataset-source"><span class="std std-ref">dataset source</span></a> exposes the entities from the dataset so that they can be streamed through <a class="reference internal" href="#concepts-pipes"><span class="std std-ref">pipes</span></a>. As the main data structure is a log the source can read from a specific location in the log. Datasets have full <a class="reference internal" href="product-features.html#concepts-continuation-support"><span class="std std-ref">continuation support</span></a>.</p>
+<a class="reference internal image-reference" href="_images/dataset-structure.png"><img alt="Dataset structure" class="align-center" src="_images/dataset-structure.png" style="width: 800px;"/></a>
+</div>
+<div class="section" id="systems">
+<span id="concepts-systems"></span><span id="concepts-config"></span><h2>Systems<a class="headerlink" href="#systems" title="Permalink to this headline">#</a></h2>
+<p>A <a class="reference internal" href="configuration.html#system-section"><span class="std std-ref">system</span></a> is any database or API that could be used as a source of data for Sesam or as the target of entities coming out of Sesam. The system components provide a way to represent the actual systems being connected or integrated.</p>
+<p>The system component has a couple of uses. Firstly it can be used to introspect the underlying system and provide back lists of possible ‘source’ or ‘sink’ targets. Often this information can be used on the command line or in the <em>Sesam Management Studio</em> to quickly and efficiently configure how Sesam consumes or delivers data.</p>
+<p>The other use of the <em>system</em> is that it allows configuration that may apply to many <em>source</em> definitions, e.g. connection strings, to be located and managed in just one place. Systems also provide services like connection pooling and rate limiting.</p>
+<p>You can also run your own <a class="reference internal" href="product-features.html#concepts-extensions"><span class="std std-ref">extension systems</span></a>.</p>
+</div>
+<div class="section" id="pipes">
+<span id="concepts-pipes"></span><h2>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">#</a></h2>
+<p>A <a class="reference internal" href="configuration.html#pipe-section"><span class="std std-ref">pipe</span></a> is composed of a <a class="reference internal" href="#concepts-sources"><span class="std std-ref">source</span></a>, a chain of <a class="reference internal" href="#concepts-transforms"><span class="std std-ref">transforms</span></a>, a <a class="reference internal" href="#concepts-sinks"><span class="std std-ref">sink</span></a>, and a <a class="reference internal" href="#concepts-pumps"><span class="std std-ref">pump</span></a>. It is an atomic unit that makes sure that data flows from the source to the sink. It is a simple way to talk about the <a class="reference internal" href="#concepts-flows"><span class="std std-ref">flow</span></a> of data from a source system to a target system. The pipe is also the only way to specify how entities flow from dataset to dataset.</p>
+<a class="reference internal image-reference" href="_images/pipes-structure.png"><img alt="Pipe structure" class="align-center" src="_images/pipes-structure.png" style="width: 600px;"/></a>
+<div class="section" id="sources">
+<span id="concepts-sources"></span><h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">#</a></h3>
+<p>A <a class="reference internal" href="configuration.html#source-section"><span class="std std-ref">source</span></a> exposes a stream of entities. Typically, this stream of entities will be the entities in a dataset, rows of data in a SQL database table, the rows in a CSV file, or JSON data from an API.</p>
+<a class="reference internal image-reference" href="_images/pipes-source.png"><img alt="Source" class="align-center" src="_images/pipes-source.png" style="width: 800px;"/></a>
+<p>Sources have varying support for <a class="reference internal" href="product-features.html#concepts-continuation-support"><span class="std std-ref">continuations</span></a>. They accept an additional parameter called a <em>since</em> token. This token is used to fetch only the entities that have changed since the location stored in the token. This is used to ask for only the entities that have changed since the last time Sesam asked for them. The since token is an opaque string token that may take any form; it is interpreted by the source only. For example, for a SQL source it might be a datestamp, for a log based source it might be an offset.</p>
+<p>Sesam provides a number of out of the box <em>source</em> types, such as <a class="reference internal" href="configuration.html#sql-source"><span class="std std-ref">SQL</span></a> and <a class="reference internal" href="configuration.html#ldap-source"><span class="std std-ref">LDAP</span></a>. It is also easy for developers to expose a <a class="reference internal" href="product-features.html#concepts-extensions"><span class="std std-ref">microservice</span></a> that can supply data from an external service. The built-in <a class="reference internal" href="configuration.html#json-source"><span class="std std-ref">json</span></a> source is able to consume data from these endpoints. These custom data providers can be written and hosted in any language.</p>
+<p>To help with this there are a number of template projects hosted on our <a class="reference external" href="https://github.com/sesam-community">GitHub</a> to make this process as easy as possible.</p>
+</div>
+<div class="section" id="transforms">
+<span id="concepts-transforms"></span><h3>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">#</a></h3>
+<p>Entities streaming through a pipe can be <a class="reference internal" href="configuration.html#transform-section"><span class="std std-ref">transformed</span></a> on their way from the source to the sink. A transform chain takes a stream of entities, transforms them, and creates a new stream of entities. There are several different transform types supported; the primary one being the <a class="reference internal" href="configuration.html#dtl-transform"><span class="std std-ref">DTL transform</span></a>, which uses the <a class="reference internal" href="DTLReferenceGuide.html"><span class="doc">Data Transformation Language</span></a> (DTL) to join and transform data into new shapes.</p>
+<p id="concepts-dtl">DTL has a simple syntax and model where the user declares how to construct a new data entity. It has commands such as ‘add’, ‘copy’, and ‘merge’. These may operate on properties, lists of values or complete entities.</p>
+<a class="reference internal image-reference" href="_images/pipes-transform.png"><img alt="Transform" class="align-center" src="_images/pipes-transform.png" style="width: 800px;"/></a>
+<p>In general, DTL is applied to entities in a dataset and the resulting entities are pushed into a sink that writes to a new dataset. The new dataset is then used as a source for sinks that write the data to external systems.</p>
+</div>
+<div class="section" id="sinks">
+<span id="concepts-sinks"></span><h3>Sinks<a class="headerlink" href="#sinks" title="Permalink to this headline">#</a></h3>
+<p>A <a class="reference internal" href="configuration.html#sink-section"><span class="std std-ref">sink</span></a> is a component that can consume entities fed to it by a pump. The sink has the responsibility to write these entities to the target, handle transactional boundaries and potentially batching of multiple entities if supported by the target system.</p>
+<p>Several types of sinks, such as the <a class="reference internal" href="configuration.html#sql-sink"><span class="std std-ref">SQL sink</span></a>, are available. Using the <a class="reference internal" href="configuration.html#json-sink"><span class="std std-ref">JSON push sink</span></a> enables entities to be pushed to custom microservices or other Sesam service instances.</p>
+<a class="reference internal image-reference" href="_images/pipes-sink.png"><img alt="Sink" class="align-center" src="_images/pipes-sink.png" style="width: 800px;"/></a>
+</div>
+<div class="section" id="pumps">
+<span id="concepts-pumps"></span><h3>Pumps<a class="headerlink" href="#pumps" title="Permalink to this headline">#</a></h3>
+<p>A <a class="reference internal" href="product-features.html#concepts-scheduling-and-signalling"><span class="std std-ref">scheduler</span></a> handles the mechanics of <a class="reference internal" href="configuration.html#pump-section"><span class="std std-ref">pumping</span></a> data from a source to a sink. It runs periodically or on a <a class="reference internal" href="cron-expressions.html"><span class="doc">cron</span></a> schedule and reads entities from a source and writes them to a sink.</p>
+<p>It’s also capable of rescanning the source from scratch at configurable points in time. If errors occur during reading or writing of entities, it will keep a log of the failed entities and in the case of writes it can retry writing an entity later.</p>
+<p>The retry strategy is configurable in several ways and if an end state is reached for a failed entity, it can be written to a <em>dead letter</em> dataset for further processing.</p>
+</div>
+</div>
+<div class="section" id="flows">
+<span id="concepts-flows"></span><h2>Flows<a class="headerlink" href="#flows" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="#concepts-pipes"><span class="std std-ref">Pipes</span></a> read from sources and writes to sinks. The output of one pipe can be read by many downstream pipes. In this way pipes can be chained together into a directed graph – also called a flow. In some special situations you may also have cycles in this graph. The Sesam Management Studio has features for <a class="reference internal" href="management-studio.html#management-studio-flows"><span class="std std-ref">visualising and inspecting flows</span></a>.</p>
+</div>
+<div class="section" id="environment-variables">
+<span id="concepts-environment-variables"></span><h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h2>
+<p>An <a class="reference internal" href="configuration.html#environment-variables"><span class="std std-ref">environment variable</span></a> is a named value that you can reference in your configuration. Environment variables are used to parameterize your configuration so that you can easily enable/disable or change certain aspects of your configuration. If you have an environment variable called <code class="docutils literal notranslate"><span class="pre">myvariable</span></code> then you can reference it in configuration like this: <code class="docutils literal notranslate"><span class="pre">"$ENV(myvariable)"</span></code>. Do not use environment variables for sensitive values; use <a class="reference internal" href="#concepts-secrets"><span class="std std-ref">secrets</span></a> instead. Environment variables are global only.</p>
+</div>
+<div class="section" id="secrets">
+<span id="concepts-secrets"></span><h2>Secrets<a class="headerlink" href="#secrets" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="security.html#secrets-manager"><span class="std std-ref">Secrets</span></a> are like environment variables except that they are write-only. Once written to the API you cannot read them back out, but you can reference them in your configuration. They should be used for sensitive values like passwords and other credentials. A secret can only be used in certain locations of the configuration. If you have a secret called <code class="docutils literal notranslate"><span class="pre">mysecret</span></code> then you can reference it in configuration like this: <code class="docutils literal notranslate"><span class="pre">"$SECRET(mysecret)"</span></code>. Secrets can either be global or be local to a system (recommended).</p>
+</div>
+<div class="section" id="service-metadata">
+<span id="concepts-service-metadata"></span><h2>Service Metadata<a class="headerlink" href="#service-metadata" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference internal" href="configuration.html#service-metadata-section"><span class="std std-ref">service metadata</span></a> is a singleton configuration entity that is used for service-wide settings.</p>
 </div>
 </div>
 
@@ -436,23 +372,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="configuration.html">
+          <a class="next-page" href="product-features.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Service Configuration Guide</div>
+                <div class="title">Features</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="quick-reference.html">
+          <a class="prev-page" href="sesam-dataflow.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Quick Reference</div>
+                <div class="title">Creating a Dataflow in Sesam</div>
                 
               </div>
             </a>
@@ -475,8 +411,40 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Building blocks</a><ul>
+<li><a class="reference internal" href="#streams-of-entities">Streams of entities</a></li>
+<li><a class="reference internal" href="#datasets">Datasets</a></li>
+<li><a class="reference internal" href="#systems">Systems</a></li>
+<li><a class="reference internal" href="#pipes">Pipes</a><ul>
+<li><a class="reference internal" href="#sources">Sources</a></li>
+<li><a class="reference internal" href="#transforms">Transforms</a></li>
+<li><a class="reference internal" href="#sinks">Sinks</a></li>
+<li><a class="reference internal" href="#pumps">Pumps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flows">Flows</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li><a class="reference internal" href="#secrets">Secrets</a></li>
+<li><a class="reference internal" href="#service-metadata">Service Metadata</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

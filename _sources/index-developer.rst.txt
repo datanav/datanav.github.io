@@ -4,12 +4,15 @@ Developer reference
 .. toctree::
    :maxdepth: 1
 
-   Quickstart <best-practices>
-   Building blocks <building-blocks>
+   Project kickstart <best-practices>
+   Building blocks <developer-guide>
+   Features <product-features>
    Data synchronization <index-synchronization>
-   Operations <index-operations>
    Data modelling <index-datamodelling>
+   Data platforms <index-dataplatforms>
+   Operations <index-operations>
    Data Transformation Language (DTL) <DTLReferenceGuide>
+   Design patterns <patterns>
    Changelog <changelog>
    Roadmap <roadmap>
    Tools <tools>

@@ -1,0 +1,517 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Synchronization" href="index-synchronization.html" /><link rel="prev" title="Building blocks" href="developer-guide.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+        <title>Features - Docs</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">Developer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Features</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Working on a Sesam project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">#</a></h1>
+<div class="section" id="scheduling-and-signalling">
+<span id="concepts-scheduling-and-signalling"></span><h2>Scheduling and signalling<a class="headerlink" href="#scheduling-and-signalling" title="Permalink to this headline">#</a></h2>
+<p>The active part of a pipe is called a <a class="reference internal" href="configuration.html#pump-section"><span class="std std-ref">pump</span></a>. A pump makes entities flow through the pipe. It can be scheduled to run at regular intervals. These intervals can be specified in seconds or using a <a class="reference internal" href="cron-expressions.html"><span class="doc">cron expression</span></a>. One can also optionally schedule the pipe to do full rescans.</p>
+<p>Signalling is an optional feature that automatically signals downstream pipes when data changes upstream. The signal then schedules the pump for immediate execution. This feature allows for new data to flow downstream at a much faster pace than if the pumps just ran at scheduled intervals.</p>
+</div>
+<div class="section" id="continuation-support">
+<span id="concepts-continuation-support"></span><h2>Continuation Support<a class="headerlink" href="#continuation-support" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="developer-guide.html#concepts-sources"><span class="std std-ref">Sources</span></a> can optionally support a since marker which lets them pick up where the previous stream of entities left off - like a “bookmark” in the entity stream. This <a class="reference internal" href="configuration.html#continuation-support"><span class="std std-ref">continuation support</span></a> allows a pipe to process changes incrementally. The next time the pipe runs it will continue where the previous run finished. Combined with change tracking this reduces the amount of work that needs to be done.</p>
+</div>
+<div class="section" id="change-tracking">
+<span id="concepts-change-tracking"></span><h2>Change Tracking<a class="headerlink" href="#change-tracking" title="Permalink to this headline">#</a></h2>
+<p>Sesam is special in that it really cares when data has changed. The typical pattern is to read data from a source and push it to a sink that is writing into a dataset. The dataset is essentially a log of the entities it receives. However, if a new log entry was added every time the source was checked then log would grow very fast and be of little use. There are mechanisms at both ends to prevent this. When reading data from a source, it may be possible to just ask for the entities that have changed since the last time, if the source supports it. This uses the knowledge of the source, such as a last updated time stamp, to ensure that only entities that have been created, deleted or modified are exposed. On the side of the dataset, regardless of where the data comes from, an incoming entity is compared with the existing version of that entity and only updated if they are different. The comparison is done by comparing the hashes of the old and new entity.</p>
+</div>
+<div class="section" id="deletion-tracking">
+<span id="concepts-deletion-tracking"></span><h2>Deletion Tracking<a class="headerlink" href="#deletion-tracking" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a> is capable of detecting that entities have disappeared from the source. It can do this when the pipe does a full rescan. At the end of a pipe run the sink will write a deleted version of those entities (where the <code class="docutils literal notranslate"><span class="pre">"_deleted"</span></code> property is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>). This is a useful feature particularly when the source itself is not able to emit deletes. It is also useful in the cases where filters or other configuration changes causes previously emitted entities to no longer be produced by the pipe.</p>
+</div>
+<div class="section" id="dependency-tracking">
+<span id="concepts-dependency-tracking"></span><h2>Dependency Tracking<a class="headerlink" href="#dependency-tracking" title="Permalink to this headline">#</a></h2>
+<p>One of the really smart things that Sesam can do is to understand complex dependencies in DTL. This is best described with an example. Imagine a dataset of customers and a dataset of addresses. Each address has a property <code class="docutils literal notranslate"><span class="pre">customer_id</span></code> that is the primary key of the customer entity to which it belongs. A user creates a DTL transform that processes all customers and creates a new <code class="docutils literal notranslate"><span class="pre">customer-with-address</span></code> structure that includes the address as a property. To do this they can use the <a class="reference internal" href="DTLReferenceGuide.html#hops-dtl-function"><span class="std std-ref">hops</span></a> function to connect the customer and address. This DTL transform forms part of a pipe and as such when a customer entity is updated, added or deleted it will be at the head of the dataset log and gets processed the next time the pump runs. But what if the address changes? As far as the expected output the customer itself has also changed.</p>
+<p>This is in essence a problem of cache invalidation of complex queries. With Sesam, we have solved this problem. We are empowered to solve the problem thanks to our dedicated transform language. This allows us to introspect the transform to see where the dependencies are. Once we understand the dependencies we can create data structures and events that are able to understand that a change to an address should put a corresponding customer entity at the front of the dataset log again. Once it is there it will be pulled the next time the pump is run and a new customer entity containing the updated address is exposed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only pipes that use the <a class="reference internal" href="configuration.html#dataset-source"><span class="std std-ref">dataset source</span></a> supports dependency tracking. The primary reason for that is a technical one; the tracked entities need to be looked up by id before a specific point in time and fed through the pipe. This is currently only implemented for the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> source type. It is unlikely that it can be implemented for other source types as those have latency and ambiguity issues.</p>
+</div>
+</div>
+<div class="section" id="automatic-reprocessing">
+<span id="concepts-automatic-reprocessing"></span><h2>Automatic Reprocessing<a class="headerlink" href="#automatic-reprocessing" title="Permalink to this headline">#</a></h2>
+<p>There are many possible reasons why a pipe may fall out of sync. Configuration may change, datasets may be deleted and then recreated, sources may be truncated, data may be restored from backup, joins to new datasets can be introduced and so on. In these cases the pipe should be reset and it should perform a full rescan to get a new view of the world. Sesam has a feature called <a class="reference internal" href="configuration.html#automatic-reprocessing"><span class="std std-ref">automatic reprocessing</span></a> that will detect that the pipe has fallen out of sync and needs to be reset. This is currently an opt-in feature, but if you enable it in the pipe or in <a class="reference internal" href="developer-guide.html#concepts-service-metadata"><span class="std std-ref">service metadata</span></a> the pipe will automatically reset itself and perform a full rescan – making sure that it is no longer out of sync. In some situations it may need to rewind just a little, instead of doing a full rescan - in any case you can then be sure that it is no longer out of sync.</p>
+</div>
+<div class="section" id="namespaces">
+<span id="concepts-namespaces"></span><h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="data-modelling.html#best-practice-namespace"><span class="std std-ref">Namespaces</span></a> are inspired by The Resource Description Framework <a class="reference external" href="https://www.w3.org/RDF/">(RDF)</a>. You’ll see them in terms of namespaced identifiers - also called NIs. A NI is a special datatype defined in the <a class="reference internal" href="entitymodel.html"><span class="doc">entity data model</span></a>. In essence they are a string consisting of two parts, the namespace and the identifier. <code class="docutils literal notranslate"><span class="pre">"~:global-person:john-doe"</span></code> is an example. The <code class="docutils literal notranslate"><span class="pre">~:</span></code> is the type part that tells you that it is a namespaced identifier. <code class="docutils literal notranslate"><span class="pre">global-person</span></code> in this case is the namespace and <code class="docutils literal notranslate"><span class="pre">john-doe</span></code> is the identifier.</p>
+<p>Properties can also have namespaces, but here the <code class="docutils literal notranslate"><span class="pre">~:</span></code> part is not used. <code class="docutils literal notranslate"><span class="pre">global-person:fullname</span></code> is an example of such a namespaced property. Namespaced properties are essential when <a class="reference internal" href="#concepts-merging"><span class="std std-ref">merging</span></a> to avoid naming collisions and to maintain provenance of the properties.</p>
+<p>A namespaced identifier is a unique reference to an abstract thing. It is an identifer. In Sesam it is not a globally unique identifier, but it is a unique identifier inside one Sesam datahub. There are mechanisms in place for collapsing and expanding namespaced identifiers to globally unique identifiers on import and export.</p>
+<p>Namespaced identifiers and properties with namespaces will automatically expand to fully qualified Uniform Resource Identifiers (URIs) when exporting to RDF. URIs in RDF are similarly collapsed into namespaced identifiers and properties with namespaces on import. They can also be expanded and collapsed using DTL.</p>
+<p>Sesam can <a class="reference external" href="https://docs.sesam.io/rdf-support.html?highlight=rdf#">utilize RDF</a> for input, transformation or producing data for external consumption.</p>
+</div>
+<div class="section" id="global-datasets">
+<span id="concepts-global-datasets"></span><h2>Global datasets<a class="headerlink" href="#global-datasets" title="Permalink to this headline">#</a></h2>
+<p>The use of global datasets is described in depth in the <a class="reference internal" href="data-modelling.html#best-practice-global"><span class="std std-ref">Best Practice</span></a> document. The principle is to have one go-to dataset to find data about a specific type of data. A global dataset typically co-locates and <a class="reference internal" href="#concepts-merging"><span class="std std-ref">merges</span></a> data from many different sources.</p>
+</div>
+<div class="section" id="merging">
+<span id="concepts-merging"></span><h2>Merging<a class="headerlink" href="#merging" title="Permalink to this headline">#</a></h2>
+<p>An essential feature that enables <a class="reference internal" href="#concepts-global-datasets"><span class="std std-ref">global datasets</span></a> is the ability to <a class="reference internal" href="getting-started.html#getting-started-merging-sources"><span class="std std-ref">merge</span></a> different entities into one entity representing the same thing. Organizations often have multiple systems that share overlapping information about employees, customers, products etc. The <a class="reference internal" href="configuration.html#merge-source"><span class="std std-ref">merge source</span></a> lets you define equivalence rules that enables you to merge entities. The merge source is able to merge incrementally producing a stream of entities that have been merged – or unmerged (when an equivalence rule no longer applies).</p>
+</div>
+<div class="section" id="transit-encoding">
+<span id="concepts-transit-encoding"></span><h2>Transit encoding<a class="headerlink" href="#transit-encoding" title="Permalink to this headline">#</a></h2>
+<p>Sesam’s entity data model is a <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> compatible data model. JSON itself supports a limited number of data types, so in order to make the model richer, the entity data model supports a subset of the <a class="reference external" href="https://github.com/cognitect/transit-format">Transit</a> data types. Transit encoding is a technique for encoding a larger set of data types in JSON. See the <a class="reference internal" href="entitymodel.html"><span class="doc">entity data model</span></a> for more information about this encoding.</p>
+</div>
+<div class="section" id="schema-collection">
+<span id="schema-inferencing"></span><h2>Schema collection<a class="headerlink" href="#schema-collection" title="Permalink to this headline">#</a></h2>
+<p>Data in Sesam is dynamically typed. Properties can be added or removed and their types changed over time. Schema validation can be enforced, but it is optional. This dynamism makes the system agile. Automatic schema collection is enabled by default. Sesam tracks the changes to entities and will automatically generate a schema for the source entities and sink entities of pipes. In practice this means that you can see the structure of the data that went into the pipe and the data that came out of the pipe. This feature is the foundation that <a class="reference internal" href="roadmap.html#property-lineage"><span class="std std-ref">property lineage</span></a> builds on.</p>
+</div>
+<div class="section" id="compaction">
+<span id="concepts-compaction"></span><h2>Compaction<a class="headerlink" href="#compaction" title="Permalink to this headline">#</a></h2>
+<p>A dataset is an append-only immutable log of data that would, left unchecked, grow forever. This problem is partly mitigated as entities are only written to the log if they are new or different (based on a content hash comparison) from the most recent version of that entity. To supplement this and ensure that a dataset does not consume all available disk space a retention policy can be defined. A retention policy describes the general way in which the log should be compacted. The default policy is to keep two versions of every entity. This is the minimal number of versions to keep in order to make dependency tracking work. A time-based policy is also available allowing you to say how old and entity can be before it becomes a candidate for <a class="reference internal" href="configuration.html#pipe-compaction"><span class="std std-ref">compaction</span></a>.</p>
+</div>
+<div class="section" id="completeness">
+<span id="concepts-completeness"></span><h2>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="configuration.html#completeness"><span class="std std-ref">Completeness</span></a> is a feature that you typically enable on outgoing pipes. It makes sure that all pipes that this pipe is dependent on have run before it processes the source entities of this pipe. The timestamp of the source entity is compared with the completeness timestamp that was inherited from its upstream and dependent pipes. This feature effectively holds back the processing of source entities until it can be sure that dependent pipes have completed. This is useful when you want to have a final entity version before you send it to the target system. It also reduces the number of times you have to send the entity to the target system as there might be several state transitions until the entity can be considered complete.</p>
+</div>
+<div class="section" id="circuit-breakers">
+<span id="concepts-circuit-breakers"></span><h2>Circuit Breakers<a class="headerlink" href="#circuit-breakers" title="Permalink to this headline">#</a></h2>
+<p>A <a class="reference internal" href="configuration.html#circuit-breakers-section"><span class="std std-ref">circuit breaker</span></a> is a safety mechanism that one can enable on the <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a>. The circuit breaker will trip if a larger than expected number of entities are written to a dataset in a pipe run. When tripped, the pipe will refuse to run and it has to be untripped manually. This safety mechanism is there to prevent unforeseen tsunamis of changes and to prevent them from propagating downstream.</p>
+</div>
+<div class="section" id="notifications">
+<span id="concepts-notifications"></span><h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">#</a></h2>
+<p>Monitoring of pipes can be enabled. Once a pipe is being monitored, you can add <a class="reference internal" href="notifications.html"><span class="doc">notification rules</span></a> to pipes and be alerted when those rules are triggered. You can get notification alerts in the user-interface or by email.</p>
+</div>
+<div class="section" id="extensions">
+<span id="concepts-extensions"></span><h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">#</a></h2>
+<p>Sesam provides a finite number of <a class="reference internal" href="developer-guide.html#concepts-systems"><span class="std std-ref">systems</span></a>, but you can build and run your own microservice extension systems. The <a class="reference internal" href="configuration.html#microservice-system"><span class="std std-ref">microservice system</span></a> allows you to use custom Docker images to host them inside the Sesam service.</p>
+</div>
+<div class="section" id="integrated-search">
+<span id="concepts-integrated-search"></span><h2>Integrated Search<a class="headerlink" href="#integrated-search" title="Permalink to this headline">#</a></h2>
+<p>Integrated Search is now available for all subscriptions with clustered architecture. This is how you can activate the new feature:</p>
+<ul class="simple">
+<li><p>Login to portal.sesam.io</p></li>
+<li><p>Select the subscription you want to use</p></li>
+<li><p>Navigate to Subscription on the left menu</p></li>
+<li><p>Click on Products tab</p></li>
+<li><p>Click on “Enable Integrated Search”</p></li>
+</ul>
+<p>If your subscription is not yet on a clustered architecture please take contact with support to start the migration.</p>
+<p>Integrated data browsing gives you more insight into your data and relationships within. Once enabled, globals are
+indexed and available for free text search and navigation. Note that this incurs a 2x increase in data size needed for
+global pipes.</p>
+</div>
+<div class="section" id="network-policy">
+<h2>Network Policy<a class="headerlink" href="#network-policy" title="Permalink to this headline">#</a></h2>
+<p>One has the option of blocking all public access through it or denying all except for a whitelist of ip addresses and ranges. In the new architecture it is possible to push the IP white listing down to the reverse proxy and also allow public access and restricted access to pipes through custom rules on the pipes. There are no restrictions on outgoing traffic currently.</p>
+</div>
+<div class="section" id="vpn">
+<span id="concepts-vpn"></span><h2>VPN<a class="headerlink" href="#vpn" title="Permalink to this headline">#</a></h2>
+<p>You can extend Sesam into your own network using a IPSec-based Virtual Private Network. You can configure VPN under
+Subscriptions Settings in the Management Studio. Note that there is a additional surcharge for VPN, see
+<a class="reference internal" href="pricing.html"><span class="doc">Subscription Fee, payment terms</span></a> for more information.</p>
+<p>To enable the VPN feature on your subscription:</p>
+<ul class="simple">
+<li><p>Login to portal.sesam.io</p></li>
+<li><p>Navigate to Subscription on the left menu</p></li>
+<li><p>Click on Products tab</p></li>
+<li><p>Tick the checkbox “Enable VPN”</p></li>
+</ul>
+<p>Navigate to Subscription on the left menu and select the new VPN tab. This is where the rest of the configuration will be done.</p>
+<p>Take note of the Sesam Peer VPN Gateway and Sesam address spaces and configure your on-premises VPN device accordingly.
+You can find a list of supported VPN devices and configuration guides at <a class="reference external" href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices">https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices</a>.</p>
+<p>Finally under “Add or modify VPN details” fill in the required fields to setup the actual connection between sesam and your on-premises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Gateway Address:  on-premises VPN device IP address or FQDN.</p></li>
+<li><p>Address Spaces: Sesam will route the address range that you specify to the on-premises VPN device IP address.</p></li>
+<li><p>PSK: a string of characters that is used as an authentication key between sesam and on-premises VPN device.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="status-page">
+<h2>Status Page<a class="headerlink" href="#status-page" title="Permalink to this headline">#</a></h2>
+<p>Sesam hosts a status page at <a class="reference external" href="https://status.sesam.io/">https://status.sesam.io/</a>. There you will find the real-time operational status of the Sesam services. Any incidents will be reported there, but you can also register and get emails when there are changes in the operational status. A notification badge will also be shown in the <a class="reference internal" href="management-studio.html"><span class="doc">Sesam Management Studio</span></a> when incidents occur. If you have other custom requirements there is also a provisional <a class="reference external" href="https://status.sesam.io/api">Status API</a> that you can use.</p>
+</div>
+<div class="section" id="software-channels">
+<h2>Software channels<a class="headerlink" href="#software-channels" title="Permalink to this headline">#</a></h2>
+<p>Sesam software is released through a phased rollout scheme. There are four different release channels – commonly called canaries. This is done to give changes and new features some time in non-production environments before they are rolled out to production. The goal is to reduce risk.</p>
+<p>The available channels are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">weekly-prod</span></code> is release bi-weekly and is the most stable release. <em>Use this in production!</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weekly</span></code> is release once a week. Use this in staging environments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nightly</span></code> is released every night. Use this in development environments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latest</span></code> is released every time a pull request is merged. Use this only for developent environments, and only when you know what you’re doing.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can for any reason choose to not promote new versions of any software channel, build dates will correspond to a minimum, not a maximum age.</p>
+</div>
+<p>Weekly and nightly upgrades are performed between 00-03 CET. Weekly upgrades are performed night to Monday.
+Security hotfixes will not wait for the scheduled window. Downgrades are not supported.</p>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="index-synchronization.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Synchronization</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="developer-guide.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Building blocks</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022 Sesam.io AS
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Features</a><ul>
+<li><a class="reference internal" href="#scheduling-and-signalling">Scheduling and signalling</a></li>
+<li><a class="reference internal" href="#continuation-support">Continuation Support</a></li>
+<li><a class="reference internal" href="#change-tracking">Change Tracking</a></li>
+<li><a class="reference internal" href="#deletion-tracking">Deletion Tracking</a></li>
+<li><a class="reference internal" href="#dependency-tracking">Dependency Tracking</a></li>
+<li><a class="reference internal" href="#automatic-reprocessing">Automatic Reprocessing</a></li>
+<li><a class="reference internal" href="#namespaces">Namespaces</a></li>
+<li><a class="reference internal" href="#global-datasets">Global datasets</a></li>
+<li><a class="reference internal" href="#merging">Merging</a></li>
+<li><a class="reference internal" href="#transit-encoding">Transit encoding</a></li>
+<li><a class="reference internal" href="#schema-collection">Schema collection</a></li>
+<li><a class="reference internal" href="#compaction">Compaction</a></li>
+<li><a class="reference internal" href="#completeness">Completeness</a></li>
+<li><a class="reference internal" href="#circuit-breakers">Circuit Breakers</a></li>
+<li><a class="reference internal" href="#notifications">Notifications</a></li>
+<li><a class="reference internal" href="#extensions">Extensions</a></li>
+<li><a class="reference internal" href="#integrated-search">Integrated Search</a></li>
+<li><a class="reference internal" href="#network-policy">Network Policy</a></li>
+<li><a class="reference internal" href="#vpn">VPN</a></li>
+<li><a class="reference internal" href="#status-page">Status Page</a></li>
+<li><a class="reference internal" href="#software-channels">Software channels</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
