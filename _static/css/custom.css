@@ -3,3 +3,16 @@
 h3 {
     /* color: green; */
 }
+
+.sidebar-drawer {
+	place-content: start;
+	width: 15%;
+}
+
+.content {
+	width: 80%;
+}
+
+.toc-drawer {
+	place-content: end;
+}
