@@ -1,286 +1,542 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="JSON Push Protocol" href="json-push.html" /><link rel="prev" title="Working with RDF" href="rdf-support.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>JSON Pull Protocol - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Pull Protocol &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JSON Push Protocol" href="json-push.html" />
+    <link rel="prev" title="Working with RDF" href="rdf-support.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requests">
+   Requests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#response-headers">
+   Response headers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-published-endpoint">
+   Example: published endpoint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-dataset-subset">
+   Example: dataset subset
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="json-pull-protocol">
-<h1>JSON Pull Protocol<a class="headerlink" href="#json-pull-protocol" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="json-pull-protocol">
+<h1>JSON Pull Protocol<a class="headerlink" href="#json-pull-protocol" title="Permalink to this headline">¶</a></h1>
 <p>The JSON Pull protocol is an HTTP-based protocol that uses GET
 requests to retrieve streams of <a class="reference internal" href="entitymodel.html"><span class="doc">entities</span></a>. It
 supports splitting up the data across multiple requests.</p>
@@ -288,12 +544,12 @@ supports splitting up the data across multiple requests.</p>
 source. This protocol can be used by microservices and other clients
 to retrieve entities.</p>
 <div class="section" id="requests">
-<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">#</a></h2>
+<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h2>
 <p>The following HTTP request parameters are supported:</p>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 20%"/>
-<col style="width: 80%"/>
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -330,18 +586,18 @@ feature and the endpoint may not support subsets at all. In that
 case it may ignore the request parameter entirely.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>The HTTP body is JSON data which will always be in the form of a
 JSON array even if it is a single entity. The
 serialisation of entities as JSON is described in more detail
 <a class="reference internal" href="entitymodel.html"><span class="doc">here</span></a>.</p>
 </div>
 <div class="section" id="response-headers">
-<h2>Response headers<a class="headerlink" href="#response-headers" title="Permalink to this headline">#</a></h2>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h2>Response headers<a class="headerlink" href="#response-headers" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 20%"/>
-<col style="width: 80%"/>
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Header</p></th>
@@ -371,45 +627,45 @@ serialisation of entities as JSON is described in more detail
 <td><p>This the highest committed offset in the dataset at the point when it was last restored. The value is JSON encoded.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>The <a class="reference internal" href="configuration.html#automatic-reprocessing"><span class="std std-ref">automatic reprocessing</span></a> feature makes use of several of these headers to know when to rewind or reset a pipe.</p>
 </div>
 <div class="section" id="example-published-endpoint">
-<span id="json-pull-examples"></span><h2>Example: published endpoint<a class="headerlink" href="#example-published-endpoint" title="Permalink to this headline">#</a></h2>
+<span id="json-pull-examples"></span><h2>Example: published endpoint<a class="headerlink" href="#example-published-endpoint" title="Permalink to this headline">¶</a></h2>
 <p>In this example we’ll use two pipes. The first loads letters into the
 <code class="docutils literal notranslate"><span class="pre">letters</span></code> dataset:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"letters"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-    <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"embedded"</span><span class="p">,</span>
-        <span class="s2">"entities"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"B"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"D"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"E"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"F"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"G"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"H"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"I"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"J"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"K"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"L"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"M"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"N"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"O"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"P"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Q"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"R"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"S"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"T"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"U"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"V"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"W"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"X"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Y"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Z"</span><span class="p">}</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;letters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;embedded&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;J&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;O&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Q&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;S&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;U&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;W&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Z&quot;</span><span class="p">}</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -417,14 +673,14 @@ serialisation of entities as JSON is described in more detail
 </div>
 <p>The second one publishes the dataset as an <a class="reference internal" href="configuration.html#http-endpoint-sink"><span class="std std-ref">HTTP endpoint</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"published-letters"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-    <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dataset"</span><span class="p">,</span>
-        <span class="s2">"dataset"</span><span class="p">:</span> <span class="s2">"letters"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;published-letters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;letters&quot;</span>
     <span class="p">},</span>
-    <span class="s2">"sink"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http_endpoint"</span>
+    <span class="s2">&quot;sink&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http_endpoint&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -435,62 +691,62 @@ letter.</p>
 <p>To use the <code class="docutils literal notranslate"><span class="pre">curl</span></code> command to communicate with Sesam we need a JWT
 token for authorization. We’ll add the JWT authorization header to an
 environment variable to make this easier:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">AUTH_HEADER</span><span class="o">=</span><span class="s2">"Authorization: bearer YOUR-JWT-TOKEN"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">AUTH_HEADER</span><span class="o">=</span><span class="s2">&quot;Authorization: bearer YOUR-JWT-TOKEN&quot;</span>
 </pre></div>
 </div>
 <p>Now we can use the <a class="reference external" href="./api.html#get--publishers-pipe_id-entities">published endpoint</a>,
 <code class="docutils literal notranslate"><span class="pre">/api/publishers/published-letters/entities</span></code>, which supports the
 JSON Pull protocol, to retrieve the entities.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" 'http://localhost:9042/api/publishers/published-letters/entities' | jq .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H &quot;$AUTH_HEADER&quot; &#39;http://localhost:9042/api/publishers/published-letters/entities&#39; | jq .
 [
   {
-    "_id": "A",
-    "_deleted": false,
-    "_updated": 0,
-    "_previous": null,
-    "_ts": 1507790035417034,
-    "_hash": "16347804dece906038080f1ce18fc581"
+    &quot;_id&quot;: &quot;A&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 0,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417034,
+    &quot;_hash&quot;: &quot;16347804dece906038080f1ce18fc581&quot;
   },
   {
-    "_id": "B",
-    "_deleted": false,
-    "_updated": 1,
-    "_previous": null,
-    "_ts": 1507790035417078,
-    "_hash": "49316b0ce64d07e4cf58ff8caede27c3"
+    &quot;_id&quot;: &quot;B&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 1,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417078,
+    &quot;_hash&quot;: &quot;49316b0ce64d07e4cf58ff8caede27c3&quot;
   },
   {
-    "_id": "C",
-    "_deleted": false,
-    "_updated": 2,
-    "_previous": null,
-    "_ts": 1507790035417108,
-    "_hash": "964675e8251bbc72f66e6b97fe91482f"
+    &quot;_id&quot;: &quot;C&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 2,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417108,
+    &quot;_hash&quot;: &quot;964675e8251bbc72f66e6b97fe91482f&quot;
   },
   ...snip...
   {
-    "_id": "X",
-    "_deleted": false,
-    "_updated": 23,
-    "_previous": null,
-    "_ts": 1507790035417768,
-    "_hash": "268c63c34e22c7a63053e8aad251b3aa"
+    &quot;_id&quot;: &quot;X&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 23,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417768,
+    &quot;_hash&quot;: &quot;268c63c34e22c7a63053e8aad251b3aa&quot;
   },
   {
-    "_id": "Y",
-    "_deleted": false,
-    "_updated": 24,
-    "_previous": null,
-    "_ts": 1507790035417793,
-    "_hash": "986e0f38daace41b0bd4a122ed540967"
+    &quot;_id&quot;: &quot;Y&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 24,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417793,
+    &quot;_hash&quot;: &quot;986e0f38daace41b0bd4a122ed540967&quot;
   },
   {
-    "_id": "Z",
-    "_deleted": false,
-    "_updated": 25,
-    "_previous": null,
-    "_ts": 1507790035417817,
-    "_hash": "05118526797098ea97f0b63ae562e174"
+    &quot;_id&quot;: &quot;Z&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 25,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417817,
+    &quot;_hash&quot;: &quot;05118526797098ea97f0b63ae562e174&quot;
   }
 ]
 </pre></div>
@@ -499,41 +755,41 @@ JSON Pull protocol, to retrieve the entities.</p>
 dataset was returned.</p>
 <p>We can also ask for entities that arrived after as specific point by
 using the <code class="docutils literal notranslate"><span class="pre">since</span></code> request parameter. This will return only entities
-that have a value in their <code class="docutils literal notranslate"><span class="pre">"_updated"</span></code> property that are ordered after
+that have a value in their <code class="docutils literal notranslate"><span class="pre">&quot;_updated&quot;</span></code> property that are ordered after
 the one given in the <code class="docutils literal notranslate"><span class="pre">since</span></code> request parameter.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" 'http://localhost:9042/api/publishers/published-letters/entities?since=21' | jq .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H &quot;$AUTH_HEADER&quot; &#39;http://localhost:9042/api/publishers/published-letters/entities?since=21&#39; | jq .
 [
   {
-    "_id": "W",
-    "_deleted": false,
-    "_updated": 22,
-    "_previous": null,
-    "_ts": 1507790035417743,
-    "_hash": "fb732242a8014e1409cb20a9888ca91e"
+    &quot;_id&quot;: &quot;W&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 22,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417743,
+    &quot;_hash&quot;: &quot;fb732242a8014e1409cb20a9888ca91e&quot;
   },
   {
-    "_id": "X",
-    "_deleted": false,
-    "_updated": 23,
-    "_previous": null,
-    "_ts": 1507790035417768,
-    "_hash": "268c63c34e22c7a63053e8aad251b3aa"
+    &quot;_id&quot;: &quot;X&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 23,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417768,
+    &quot;_hash&quot;: &quot;268c63c34e22c7a63053e8aad251b3aa&quot;
   },
   {
-    "_id": "Y",
-    "_deleted": false,
-    "_updated": 24,
-    "_previous": null,
-    "_ts": 1507790035417793,
-    "_hash": "986e0f38daace41b0bd4a122ed540967"
+    &quot;_id&quot;: &quot;Y&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 24,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417793,
+    &quot;_hash&quot;: &quot;986e0f38daace41b0bd4a122ed540967&quot;
   },
   {
-    "_id": "Z",
-    "_deleted": false,
-    "_updated": 25,
-    "_previous": null,
-    "_ts": 1507790035417817,
-    "_hash": "05118526797098ea97f0b63ae562e174"
+    &quot;_id&quot;: &quot;Z&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 25,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417817,
+    &quot;_hash&quot;: &quot;05118526797098ea97f0b63ae562e174&quot;
   }
 ]
 </pre></div>
@@ -544,159 +800,159 @@ sequence values 22, 23, 24 and 25.</p>
 can use the <code class="docutils literal notranslate"><span class="pre">limit</span></code> request parameter to specify how many entities
 we want.</p>
 <p>Let’s ask for 3 entities since 20.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" 'http://localhost:9042/api/publishers/published-letters/entities?since=20&amp;limit=3' | jq .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H &quot;$AUTH_HEADER&quot; &#39;http://localhost:9042/api/publishers/published-letters/entities?since=20&amp;limit=3&#39; | jq .
 [
   {
-    "_id": "V",
-    "_deleted": false,
-    "_updated": 21,
-    "_previous": null,
-    "_ts": 1507790035417716,
-    "_hash": "3e51777d62023b889d1c0f5e31b5fdba"
+    &quot;_id&quot;: &quot;V&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 21,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417716,
+    &quot;_hash&quot;: &quot;3e51777d62023b889d1c0f5e31b5fdba&quot;
   },
   {
-    "_id": "W",
-    "_deleted": false,
-    "_updated": 22,
-    "_previous": null,
-    "_ts": 1507790035417743,
-    "_hash": "fb732242a8014e1409cb20a9888ca91e"
+    &quot;_id&quot;: &quot;W&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 22,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417743,
+    &quot;_hash&quot;: &quot;fb732242a8014e1409cb20a9888ca91e&quot;
   },
   {
-    "_id": "X",
-    "_deleted": false,
-    "_updated": 23,
-    "_previous": null,
-    "_ts": 1507790035417768,
-    "_hash": "268c63c34e22c7a63053e8aad251b3aa"
+    &quot;_id&quot;: &quot;X&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 23,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417768,
+    &quot;_hash&quot;: &quot;268c63c34e22c7a63053e8aad251b3aa&quot;
   }
 ]
 </pre></div>
 </div>
 <p>And then 3 entities since 23.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" 'http://localhost:9042/api/publishers/published-letters/entities?since=23&amp;limit=3' | jq .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H &quot;$AUTH_HEADER&quot; &#39;http://localhost:9042/api/publishers/published-letters/entities?since=23&amp;limit=3&#39; | jq .
 [
   {
-    "_id": "Y",
-    "_deleted": false,
-    "_updated": 24,
-    "_previous": null,
-    "_ts": 1507790035417793,
-    "_hash": "986e0f38daace41b0bd4a122ed540967"
+    &quot;_id&quot;: &quot;Y&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 24,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417793,
+    &quot;_hash&quot;: &quot;986e0f38daace41b0bd4a122ed540967&quot;
   },
   {
-    "_id": "Z",
-    "_deleted": false,
-    "_updated": 25,
-    "_previous": null,
-    "_ts": 1507790035417817,
-    "_hash": "05118526797098ea97f0b63ae562e174"
+    &quot;_id&quot;: &quot;Z&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 25,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1507790035417817,
+    &quot;_hash&quot;: &quot;05118526797098ea97f0b63ae562e174&quot;
   }
 ]
 </pre></div>
 </div>
 </div>
 <div class="section" id="example-dataset-subset">
-<h2>Example: dataset subset<a class="headerlink" href="#example-dataset-subset" title="Permalink to this headline">#</a></h2>
+<h2>Example: dataset subset<a class="headerlink" href="#example-dataset-subset" title="Permalink to this headline">¶</a></h2>
 <p>In this example we’ll use one pipe. It is almost the same as the one in the previous section, but this time we’ve identified the vowels and also declared an index on the <a class="reference internal" href="configuration.html#dataset-sink"><span class="std std-ref">dataset sink</span></a>. This index can be used to retrieve a subset from the <code class="docutils literal notranslate"><span class="pre">letters</span></code> dataset:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"letters"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-    <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"embedded"</span><span class="p">,</span>
-        <span class="s2">"entities"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"B"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"C"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"D"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"E"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"F"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"G"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"H"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"I"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"J"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"K"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"L"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"M"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"N"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"O"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"P"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Q"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"R"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"S"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"T"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"U"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"V"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"W"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"X"</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"vowel"</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"Z"</span><span class="p">}</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;letters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;embedded&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;J&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Q&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;S&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;W&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;vowel&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Z&quot;</span><span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
-    <span class="s2">"sink"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"indexes"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"_S.vowel"</span><span class="p">]</span>
+    <span class="s2">&quot;sink&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;indexes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;_S.vowel&quot;</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Now we can use the <a class="reference external" href="./api.html#get--datasets-dataset_id-entities">dataset endpoint</a>,
 <code class="docutils literal notranslate"><span class="pre">/api/datasets/letters/entities</span></code>, which supports the
-JSON Pull protocol, to retrieve the subset. The subset is expressed as an equality expression, <code class="docutils literal notranslate"><span class="pre">["eq",</span> <span class="pre">"_S.vowel",</span> <span class="pre">true]</span></code>, with the index expression in the left side and the subset value on the right side. Note that all request parameters must be URL encoded, and in the case of the subset expression this makes it look garbled.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H "$AUTH_HEADER" 'http://localhost:9042/api/datasets/letters/entities?subset=%5B%22eq%22%2C+%22_S.vowel%22%2C+true%5D' | jq .
+JSON Pull protocol, to retrieve the subset. The subset is expressed as an equality expression, <code class="docutils literal notranslate"><span class="pre">[&quot;eq&quot;,</span> <span class="pre">&quot;_S.vowel&quot;,</span> <span class="pre">true]</span></code>, with the index expression in the left side and the subset value on the right side. Note that all request parameters must be URL encoded, and in the case of the subset expression this makes it look garbled.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -s -H &quot;$AUTH_HEADER&quot; &#39;http://localhost:9042/api/datasets/letters/entities?subset=%5B%22eq%22%2C+%22_S.vowel%22%2C+true%5D&#39; | jq .
 [
   {
-    "vowel": true,
-    "_id": "A",
-    "_deleted": false,
-    "_updated": 0,
-    "_previous": null,
-    "_ts": 1566889765658992,
-    "_hash": "bd43d289d45c8dccffda0aa05d9e39cf"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;A&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 0,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765658992,
+    &quot;_hash&quot;: &quot;bd43d289d45c8dccffda0aa05d9e39cf&quot;
   },
   {
-    "vowel": true,
-    "_id": "E",
-    "_deleted": false,
-    "_updated": 4,
-    "_previous": null,
-    "_ts": 1566889765659581,
-    "_hash": "36d1cfe98ee07d463c82d356cac55c35"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;E&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 4,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765659581,
+    &quot;_hash&quot;: &quot;36d1cfe98ee07d463c82d356cac55c35&quot;
   },
   {
-    "vowel": true,
-    "_id": "I",
-    "_deleted": false,
-    "_updated": 8,
-    "_previous": null,
-    "_ts": 1566889765660099,
-    "_hash": "0f46df8330b95f661d1165eba5a141ac"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;I&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 8,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765660099,
+    &quot;_hash&quot;: &quot;0f46df8330b95f661d1165eba5a141ac&quot;
   },
   {
-    "vowel": true,
-    "_id": "O",
-    "_deleted": false,
-    "_updated": 14,
-    "_previous": null,
-    "_ts": 1566889765660912,
-    "_hash": "0a02eda8f99d6bf81f49e63a059f95fa"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;O&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 14,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765660912,
+    &quot;_hash&quot;: &quot;0a02eda8f99d6bf81f49e63a059f95fa&quot;
   },
   {
-    "vowel": true,
-    "_id": "U",
-    "_deleted": false,
-    "_updated": 20,
-    "_previous": null,
-    "_ts": 1566889765661476,
-    "_hash": "c50c560caac61b289a605a8f23e044ce"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;U&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 20,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765661476,
+    &quot;_hash&quot;: &quot;c50c560caac61b289a605a8f23e044ce&quot;
   },
   {
-    "vowel": true,
-    "_id": "Y",
-    "_deleted": false,
-    "_updated": 24,
-    "_previous": null,
-    "_ts": 1566889765661751,
-    "_hash": "82bb94970ffea2b08cc15de9d26dd4f6"
+    &quot;vowel&quot;: true,
+    &quot;_id&quot;: &quot;Y&quot;,
+    &quot;_deleted&quot;: false,
+    &quot;_updated&quot;: 24,
+    &quot;_previous&quot;: null,
+    &quot;_ts&quot;: 1566889765661751,
+    &quot;_hash&quot;: &quot;82bb94970ffea2b08cc15de9d26dd4f6&quot;
   }
 ]
 </pre></div>
@@ -705,82 +961,59 @@ JSON Pull protocol, to retrieve the subset. The subset is expressed as an equali
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="json-push.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">JSON Push Protocol</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="rdf-support.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Working with RDF</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
-              
-            </div>
-          </div>
-        </div>
-        
-      </footer>
-    </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">JSON Pull Protocol</a><ul>
-<li><a class="reference internal" href="#requests">Requests</a></li>
-<li><a class="reference internal" href="#response-headers">Response headers</a></li>
-<li><a class="reference internal" href="#example-published-endpoint">Example: published endpoint</a></li>
-<li><a class="reference internal" href="#example-dataset-subset">Example: dataset subset</a></li>
-</ul>
-</li>
-</ul>
 
-          </div>
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="rdf-support.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Working with RDF</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="json-push.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">JSON Push Protocol</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>

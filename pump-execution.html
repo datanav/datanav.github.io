@@ -1,286 +1,624 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Working on a Sesam project" href="project-workflow.html" /><link rel="prev" title="Notifications" href="notifications.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>The Pump Execution Dataset - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Pump Execution Dataset &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working on a Sesam project" href="project-workflow.html" />
+    <link rel="prev" title="Notifications" href="notifications.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index-operations.html">Operations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pump-started-entity">
+   The pump-started entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prototype">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pump-completed-entity">
+   The pump-completed entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pump-failed-entity">
+   The pump-failed entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-read-error-entity">
+   The read-error entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-write-error-entity">
+   The write-error entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pump-offset-set-entity">
+   The pump-offset-set entity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Prototype
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="the-pump-execution-dataset">
-<h1>The Pump Execution Dataset<a class="headerlink" href="#the-pump-execution-dataset" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="the-pump-execution-dataset">
+<h1>The Pump Execution Dataset<a class="headerlink" href="#the-pump-execution-dataset" title="Permalink to this headline">¶</a></h1>
 <p>The pump execution dataset is a log which contains entities with
 information about a particular pump’s execution history. The dataset
 id is computed from the pump’s <code class="docutils literal notranslate"><span class="pre">_id</span></code> property as
@@ -299,33 +637,33 @@ errors. Other informational entities such as “pump-enabled”/”pump-disabled
 <p>Depending on the pump settings, the write errors can then be
 retried one or more times during the next runs.</p>
 <div class="section" id="the-pump-started-entity">
-<h2>The pump-started entity<a class="headerlink" href="#the-pump-started-entity" title="Permalink to this headline">#</a></h2>
+<h2>The pump-started entity<a class="headerlink" href="#the-pump-started-entity" title="Permalink to this headline">¶</a></h2>
 <p>The “pump-started” is written to the pump execution dataset when the pump has started, but before any other processing
 takes place.</p>
 <div class="section" id="prototype">
-<h3>Prototype<a class="headerlink" href="#prototype" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#prototype" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-started"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-started"</span><span class="p">,</span>
-    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"iso-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
-    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
-    <span class="s2">"user"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"some@user.com"</span><span class="p">,</span>
-        <span class="s2">"remote_addr"</span><span class="p">:</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span>
-        <span class="s2">"user_id"</span><span class="p">:</span> <span class="s2">"some@user.com"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;pump-started&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-started&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="s2">&quot;iso-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sync_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type-of-sync&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pump_definition&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-configuration-id&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;some@user.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;some@user.com&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -360,36 +698,36 @@ values: <code class="docutils literal notranslate"><span class="pre">full</span>
 <td><p>Information about the user that started the run, if available.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-pump-completed-entity">
-<h2>The pump-completed entity<a class="headerlink" href="#the-pump-completed-entity" title="Permalink to this headline">#</a></h2>
+<h2>The pump-completed entity<a class="headerlink" href="#the-pump-completed-entity" title="Permalink to this headline">¶</a></h2>
 <p>If the pump completes successfully, it will write a “pump-completed” entity to the execution log.</p>
 <div class="section" id="id1">
-<h3>Prototype<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-completed"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-completed"</span><span class="p">,</span>
-    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
-    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"pump-started-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"end_time"</span><span class="p">:</span> <span class="s2">"pump-ended-iso-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
-    <span class="s2">"pump_started_location"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
-    <span class="s2">"retry_entities_exist"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"entities_succeeded"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"entities_failed"</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;pump-completed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-completed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pump_definition&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-configuration-id&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-started-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;end_time&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-ended-iso-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sync_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type-of-sync&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pump_started_location&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">&quot;retry_entities_exist&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;entities_succeeded&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;entities_failed&quot;</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -441,51 +779,51 @@ the pump’s retry mechanism to “rewind” the log to the last successfully co
 <td><p>A counter with the number of entities that failed to be written to the pipe’s sink during this run.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-pump-failed-entity">
-<h2>The pump-failed entity<a class="headerlink" href="#the-pump-failed-entity" title="Permalink to this headline">#</a></h2>
+<h2>The pump-failed entity<a class="headerlink" href="#the-pump-failed-entity" title="Permalink to this headline">¶</a></h2>
 <p>If the pump fails for some reason, it will write a “pump-failed” entity when it terminates.</p>
 <div class="section" id="id3">
-<h3>Prototype<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-failed"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-failed"</span><span class="p">,</span>
-    <span class="s2">"pump_definition"</span><span class="p">:</span> <span class="s2">"pump-configuration-id"</span><span class="p">,</span>
-    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"pump-started-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"end_time"</span><span class="p">:</span> <span class="s2">"pump-ended-iso-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"pump_started_location"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
-    <span class="s2">"retry_entities_exist"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s2">"entities_succeeded"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"entities_failed"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"reason_why_stopped"</span><span class="p">:</span> <span class="s2">"traceback-info"</span><span class="p">,</span>
-    <span class="s2">"sync_type"</span><span class="p">:</span> <span class="s2">"type-of-sync"</span><span class="p">,</span>
-    <span class="s2">"exception_entity"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity"</span><span class="p">,</span>
-      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;pump-failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pump_definition&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-configuration-id&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-started-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;end_time&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-ended-iso-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pump_started_location&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">&quot;retry_entities_exist&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;entities_succeeded&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;entities_failed&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;reason_why_stopped&quot;</span><span class="p">:</span> <span class="s2">&quot;traceback-info&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sync_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type-of-sync&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exception_entity&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id-of-the-entity&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;entity-property&quot;</span><span class="p">:</span> <span class="s2">&quot;entity-value&quot;</span>
     <span class="p">},</span>
-    <span class="s2">"node_build_info"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"build"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s2">"date"</span><span class="p">:</span> <span class="s2">"2021-12-29T13:51:21.566325+00:00"</span><span class="p">,</span>
-        <span class="s2">"dirty"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s2">"git-revision"</span><span class="p">:</span> <span class="s2">"6c8eb3c17"</span><span class="p">,</span>
-        <span class="s2">"hash"</span><span class="p">:</span> <span class="s2">"6c8eb3c17"</span><span class="p">,</span>
-        <span class="s2">"release"</span><span class="p">:</span> <span class="s2">"1.0"</span><span class="p">,</span>
-        <span class="s2">"teamcity-buildnumber"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"1.0.dev"</span>
+    <span class="s2">&quot;node_build_info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;build&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-12-29T13:51:21.566325+00:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dirty&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;git-revision&quot;</span><span class="p">:</span> <span class="s2">&quot;6c8eb3c17&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;6c8eb3c17&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;teamcity-buildnumber&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.dev&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>Properties<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -549,33 +887,33 @@ the pump’s retry mechanism to “rewind” the log to the last successfully co
 <td><p>Information about the sesam instance the pipe was run on.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-read-error-entity">
-<h2>The read-error entity<a class="headerlink" href="#the-read-error-entity" title="Permalink to this headline">#</a></h2>
+<h2>The read-error entity<a class="headerlink" href="#the-read-error-entity" title="Permalink to this headline">¶</a></h2>
 <p>The execution dataset also can contain entities that record failed reads and/or entities wich represents retryable
 entities (from write errors).</p>
 <div class="section" id="id5">
-<h3>Prototype<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"read-error:&lt;GUID&gt;"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"read-error"</span><span class="p">,</span>
-    <span class="s2">"error_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"failure-ISO-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"exception"</span><span class="p">:</span> <span class="s2">"traceback-info-from-pump"</span><span class="p">,</span>
-    <span class="s2">"original_exception"</span><span class="p">:</span> <span class="s2">"the-exception-cast-by-source"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;read-error:&lt;GUID&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;read-error&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;event_time&quot;</span><span class="p">:</span> <span class="s2">&quot;failure-ISO-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exception&quot;</span><span class="p">:</span> <span class="s2">&quot;traceback-info-from-pump&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;original_exception&quot;</span><span class="p">:</span> <span class="s2">&quot;the-exception-cast-by-source&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -613,46 +951,46 @@ source.</p></td>
 execution failure in the source.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-write-error-entity">
-<h2>The write-error entity<a class="headerlink" href="#the-write-error-entity" title="Permalink to this headline">#</a></h2>
+<h2>The write-error entity<a class="headerlink" href="#the-write-error-entity" title="Permalink to this headline">¶</a></h2>
 <p>For retryable (write) errors, the entity has a similar form to the “read-error” entity, except irs <code class="docutils literal notranslate"><span class="pre">_id</span></code> property is
 computed from the entity that was unsuccessfully written. It also contains the complete entity as an embedded
 child entity.</p>
 <div class="section" id="id7">
-<h3>Prototype<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"write-error:&lt;entity_id&gt;"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"write-error"</span><span class="p">,</span>
-    <span class="s2">"error_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"failure-ISO-timestamp-in-UTC"</span><span class="p">,</span>
-    <span class="s2">"retry_attempts"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"retryable"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"resolved"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s2">"dead"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"entity"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity"</span><span class="p">,</span>
-      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;write-error:&lt;entity_id&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;write-error&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;event_time&quot;</span><span class="p">:</span> <span class="s2">&quot;failure-ISO-timestamp-in-UTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;retry_attempts&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;retryable&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;resolved&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dead&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;entity&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id-of-the-entity&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;entity-property&quot;</span><span class="p">:</span> <span class="s2">&quot;entity-value&quot;</span>
     <span class="p">},</span>
-    <span class="s2">"resolved_entity"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"id-of-the-entity-that-resolved-the-error-if-different"</span><span class="p">,</span>
-      <span class="s2">"entity-property"</span><span class="p">:</span> <span class="s2">"entity-value"</span>
+    <span class="s2">&quot;resolved_entity&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;id-of-the-entity-that-resolved-the-error-if-different&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;entity-property&quot;</span><span class="p">:</span> <span class="s2">&quot;entity-value&quot;</span>
     <span class="p">},</span>
-    <span class="s2">"exception"</span><span class="p">:</span> <span class="s2">"traceback-info-from-pump"</span><span class="p">,</span>
-    <span class="s2">"original_exception"</span><span class="p">:</span> <span class="s2">"the-exception-cast-by-sink"</span><span class="p">,</span>
+    <span class="s2">&quot;exception&quot;</span><span class="p">:</span> <span class="s2">&quot;traceback-info-from-pump&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;original_exception&quot;</span><span class="p">:</span> <span class="s2">&quot;the-exception-cast-by-sink&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
-<h3>Properties<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -726,37 +1064,37 @@ again (until a new version comes along from the source).</p></td>
 execution failure in the sink.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-pump-offset-set-entity">
-<h2>The pump-offset-set entity<a class="headerlink" href="#the-pump-offset-set-entity" title="Permalink to this headline">#</a></h2>
+<h2>The pump-offset-set entity<a class="headerlink" href="#the-pump-offset-set-entity" title="Permalink to this headline">¶</a></h2>
 <p>The “pump-offset-set” is written to the pump execution dataset when the pump offset has been set or reset explicitly.</p>
 <div class="section" id="id9">
-<h3>Prototype<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>Prototype<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">"_id"</span><span class="p">:</span>  <span class="s2">"pump-offset-set"</span><span class="p">,</span>
-    <span class="s2">"event_time"</span><span class="p">:</span> <span class="s2">"2022-01-04T13:20:28.630647Z"</span><span class="p">,</span>
-    <span class="s2">"event_type"</span><span class="p">:</span> <span class="s2">"pump-offset-set"</span><span class="p">,</span>
-    <span class="s2">"is_reset"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s2">"original_pipe_offset"</span><span class="p">:</span> <span class="s2">"1033311"</span><span class="p">,</span>
-    <span class="s2">"pipe_offset"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"user"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"some@user.com"</span><span class="p">,</span>
-        <span class="s2">"remote_addr"</span><span class="p">:</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span>
-        <span class="s2">"user_id"</span><span class="p">:</span> <span class="s2">"some@user.com"</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span>  <span class="s2">&quot;pump-offset-set&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-01-04T13:20:28.630647Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;event_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump-offset-set&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_reset&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;original_pipe_offset&quot;</span><span class="p">:</span> <span class="s2">&quot;1033311&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_offset&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;some@user.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;some@user.com&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id10">
-<h3>Properties<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
-<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<h3>Properties<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 75%"/>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -794,113 +1132,64 @@ execution failure in the sink.</p></td>
 <td><p>Information about the user that started the run, if available.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="project-workflow.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Working on a Sesam project</div>
+
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="notifications.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Notifications</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
               
-            </div>
-          </div>
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="notifications.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Notifications</p>
         </div>
-        
-      </footer>
+    </a>
+    <a class='right-next' id="next-link" href="project-workflow.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Working on a Sesam project</p>
     </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">The Pump Execution Dataset</a><ul>
-<li><a class="reference internal" href="#the-pump-started-entity">The pump-started entity</a><ul>
-<li><a class="reference internal" href="#prototype">Prototype</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-pump-completed-entity">The pump-completed entity</a><ul>
-<li><a class="reference internal" href="#id1">Prototype</a></li>
-<li><a class="reference internal" href="#id2">Properties</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-pump-failed-entity">The pump-failed entity</a><ul>
-<li><a class="reference internal" href="#id3">Prototype</a></li>
-<li><a class="reference internal" href="#id4">Properties</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-read-error-entity">The read-error entity</a><ul>
-<li><a class="reference internal" href="#id5">Prototype</a></li>
-<li><a class="reference internal" href="#id6">Properties</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-write-error-entity">The write-error entity</a><ul>
-<li><a class="reference internal" href="#id7">Prototype</a></li>
-<li><a class="reference internal" href="#id8">Properties</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-pump-offset-set-entity">The pump-offset-set entity</a><ul>
-<li><a class="reference internal" href="#id9">Prototype</a></li>
-<li><a class="reference internal" href="#id10">Properties</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
 
-          </div>
-        </div>
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>

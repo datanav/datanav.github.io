@@ -1,297 +1,599 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Behind the scenes" href="behind-the-scenes.html" /><link rel="prev" title="Self-hosted service" href="self-hosted.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>Low-level debugging - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Low-level debugging &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Behind the scenes" href="behind-the-scenes.html" />
+    <link rel="prev" title="Self-hosted service" href="self-hosted.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index-operations.html">Operations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profiling-api-calls">
+   Profiling API calls
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#profiling-all-sesam-api-calls">
+     Profiling all Sesam API calls
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#profiling-one-specific-sesam-api-call">
+     Profiling one specific Sesam API call
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#profiling-a-pump-run">
+     Profiling a pump run
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-a-stacktrace-of-all-the-threads-in-the-node">
+   Getting a stacktrace of all the threads in the node
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-api-status-stacktrace-api-endpoint">
+     Using the “/api/status/stacktrace” api endpoint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sending-the-sigusr1-signal-to-the-sesam-node-process">
+     Sending the SIGUSR1 signal to the sesam node process
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace">
+     Checking if the health-checker thread in the node has created a stacktrace
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preventing-pipes-from-automatically-running">
+   Preventing pipes from automatically running
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-instance-configuration-gui">
+     Using the “Instance configuration” gui
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#upload-a-full-node-config-with-a-node-metadata-entity">
+     Upload a full node-config with a node metadata entity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-a-sesam-node-data-startup-options-json-file">
+     Writing a “/sesam/node/data/startup_options.json” file
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="low-level-debugging">
-<h1>Low-level debugging<a class="headerlink" href="#low-level-debugging" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="low-level-debugging">
+<h1>Low-level debugging<a class="headerlink" href="#low-level-debugging" title="Permalink to this headline">¶</a></h1>
 <p>This page contains tips and tricks for doing various low-level debugging tasks. This information is only relevant
 for system administrators who are hosting a sesam instance, since most of the techiques require access to the
 filesystem of the box that the sesam instance is running on.</p>
 <div class="section" id="profiling-api-calls">
-<h2>Profiling API calls<a class="headerlink" href="#profiling-api-calls" title="Permalink to this headline">#</a></h2>
+<h2>Profiling API calls<a class="headerlink" href="#profiling-api-calls" title="Permalink to this headline">¶</a></h2>
 <p>If a call to one of the
 <a class="reference internal" href="api.html#api-top"><span class="std std-ref">Sesam API</span></a> endpoints are too slow it is sometimes useful to do some profiling to figure out what
 the cause of the problem is.</p>
 <p>There are two different options for doing this:</p>
 <div class="section" id="profiling-all-sesam-api-calls">
-<h3>Profiling all Sesam API calls<a class="headerlink" href="#profiling-all-sesam-api-calls" title="Permalink to this headline">#</a></h3>
+<h3>Profiling all Sesam API calls<a class="headerlink" href="#profiling-all-sesam-api-calls" title="Permalink to this headline">¶</a></h3>
 <p>Starting the sesam service with the ‘–enable-api-profiler’ commanline option set. This will make the sesam service
 log <em>all</em> api calls to files in the “&lt;LOGFILE_FOLDER&gt;/api_profiler” folder.</p>
 <p>This is mainly useful for development and debugging, since it requires you to restart the sesam service with
@@ -301,40 +603,40 @@ a Sesam service that is running in the Sesam cloud.</p>
 would eventually fill up the disk.</p>
 </div>
 <div class="section" id="profiling-one-specific-sesam-api-call">
-<h3>Profiling one specific Sesam API call<a class="headerlink" href="#profiling-one-specific-sesam-api-call" title="Permalink to this headline">#</a></h3>
+<h3>Profiling one specific Sesam API call<a class="headerlink" href="#profiling-one-specific-sesam-api-call" title="Permalink to this headline">¶</a></h3>
 <p>Adding the special “SESAM-API-PROFILER” header to the Sesam APi request will make the Sesam instance return a file
 containing the profile-information for the api-call. The “real” response from the api-call is discarded.</p>
 <p>A header-value of “pstats” will return a file that can be loaded with pythons <a class="reference external" href="https://docs.python.org/3/library/profile.html#the-stats-class">pstats module</a>.</p>
 <p>A header-value of “calltree” will return a file that can be opened in <a class="reference external" href="https://kcachegrind.github.io/html/Home.html">KCachegrind</a>.</p>
 <blockquote>
 <div><p>Examples using curl:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span><span class="n">J</span> <span class="o">-</span><span class="n">H</span> <span class="s2">"SESAM-API-PROFILER:calltree"</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span><span class="n">J</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;SESAM-API-PROFILER:calltree&quot;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span>
 
-<span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span><span class="n">J</span> <span class="o">-</span><span class="n">H</span> <span class="s2">"SESAM-API-PROFILER:pstats"</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span><span class="n">J</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;SESAM-API-PROFILER:pstats&quot;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span>
 </pre></div>
 </div>
 </div></blockquote>
 </div>
 <div class="section" id="profiling-a-pump-run">
-<h3>Profiling a pump run<a class="headerlink" href="#profiling-a-pump-run" title="Permalink to this headline">#</a></h3>
+<h3>Profiling a pump run<a class="headerlink" href="#profiling-a-pump-run" title="Permalink to this headline">¶</a></h3>
 <p>Adding a special “profiler” request parameter to the Sesam API request will make the Sesam instance write files
 containing the profile-information for the pump run. The profile files are written to the logs folder of the instance
 with a “<em>.pstat” and “</em>.calltree” extension. The filename also contains the id of the pipe and the start
 timestamp.</p>
 <blockquote>
 <div><p>Examples using curl:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">--</span><span class="n">data</span> <span class="s2">"profiler=true"</span> <span class="o">--</span><span class="n">data</span> <span class="s2">"operation=start"</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">pump</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">--</span><span class="n">data</span> <span class="s2">&quot;profiler=true&quot;</span> <span class="o">--</span><span class="n">data</span> <span class="s2">&quot;operation=start&quot;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9042</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pipes</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">pump</span>
 </pre></div>
 </div>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="getting-a-stacktrace-of-all-the-threads-in-the-node">
-<h2>Getting a stacktrace of all the threads in the node<a class="headerlink" href="#getting-a-stacktrace-of-all-the-threads-in-the-node" title="Permalink to this headline">#</a></h2>
+<h2>Getting a stacktrace of all the threads in the node<a class="headerlink" href="#getting-a-stacktrace-of-all-the-threads-in-the-node" title="Permalink to this headline">¶</a></h2>
 <p>If the sesam node seems to be frozen or otherwise is behaving oddly, it can be useful to look at the stacktraces of
 all the currently running threads in the node. There are two ways of retrieving this information:</p>
 <div class="section" id="using-the-api-status-stacktrace-api-endpoint">
-<h3>Using the “/api/status/stacktrace” api endpoint<a class="headerlink" href="#using-the-api-status-stacktrace-api-endpoint" title="Permalink to this headline">#</a></h3>
+<h3>Using the “/api/status/stacktrace” api endpoint<a class="headerlink" href="#using-the-api-status-stacktrace-api-endpoint" title="Permalink to this headline">¶</a></h3>
 <p>This is an “unofficial” endpoint that returns a html file. If the node has authentication enabled (this is the usual
 case) the endpoint requires that the JWT grants the “group:Admin” role.</p>
 <blockquote>
@@ -345,7 +647,7 @@ case) the endpoint requires that the JWT grants the “group:Admin” role.</p>
 </div></blockquote>
 </div>
 <div class="section" id="sending-the-sigusr1-signal-to-the-sesam-node-process">
-<h3>Sending the SIGUSR1 signal to the sesam node process<a class="headerlink" href="#sending-the-sigusr1-signal-to-the-sesam-node-process" title="Permalink to this headline">#</a></h3>
+<h3>Sending the SIGUSR1 signal to the sesam node process<a class="headerlink" href="#sending-the-sigusr1-signal-to-the-sesam-node-process" title="Permalink to this headline">¶</a></h3>
 <p>This will create a new “stacktrace.html”-file in the “logs”-folder on the server. This requires you to have
 login-access to the server running the node, both for sending the signal and for looking at the resulting file.
 The advantage of this method compared to the api endpoint is that this will work even if the api itself
@@ -365,13 +667,13 @@ total 33104
 -rwxrwxrwx 1 777 sesam 30627178 Mar 21 12:43 node_pipe_execution.log
 
 # First, find the process identifier of the node you are interested in.
-knut.johannessen@myserver:/sesam/logs/sesam-node$ docker inspect testsesamportal_storage-sesam-node_1 | grep '"Pid"'
-      "Pid": 6280,
+knut.johannessen@myserver:/sesam/logs/sesam-node$ docker inspect testsesamportal_storage-sesam-node_1 | grep &#39;&quot;Pid&quot;&#39;
+      &quot;Pid&quot;: 6280,
 
 # Send the SIGUSR1 signal to the node-process
 knut.johannessen@myserver:/sesam/logs/sesam-node$ sudo kill -SIGUSR1 6280
 
-# A new "stacktrace.html" file is created in the logs folder:
+# A new &quot;stacktrace.html&quot; file is created in the logs folder:
 knut.johannessen@myserver:/sesam/logs/sesam-node$ ls -l
 total 33476
 -rwxrwxrwx 1   777 sesam  1548906 Mar 21 12:43 node_access.log
@@ -383,7 +685,7 @@ total 33476
 -rwxrwxrwx 1   777 sesam 30723086 Mar 21 12:44 node_pipe_execution.log
 -rw-r--r-- 1 sesam sesam   279164 Mar 21 12:43 stacktrace.html
 
-# Sending a second signal will create a new "stacktrace.html" file and rotate the existing file:
+# Sending a second signal will create a new &quot;stacktrace.html&quot; file and rotate the existing file:
 knut.johannessen@myserver:/sesam/logs/sesam-node$ sudo kill -SIGUSR1 6280
 knut.johannessen@myserver:/sesam/logs/sesam-node$ ls -l
 total 34148
@@ -402,7 +704,7 @@ knut.johannessen@myserver:/sesam/logs/sesam-node$
 </div></blockquote>
 </div>
 <div class="section" id="checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace">
-<h3>Checking if the health-checker thread in the node has created a stacktrace<a class="headerlink" href="#checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace" title="Permalink to this headline">#</a></h3>
+<h3>Checking if the health-checker thread in the node has created a stacktrace<a class="headerlink" href="#checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace" title="Permalink to this headline">¶</a></h3>
 <p>The node will periodically call its own “/api/health” endpoint and log the results to the “node_health.log” file.
 If the call to the “/api/health” endpoint fails, the health-checker thread will create a new “stacktrace.html”-file,
 just as if a SIGUSR1 signal had been sent to the node. If the node is misbehaving it is therefore worth having a
@@ -410,7 +712,7 @@ look in the “logs” folder to check if there are any recent “stacktrace.htm
 </div>
 </div>
 <div class="section" id="preventing-pipes-from-automatically-running">
-<h2>Preventing pipes from automatically running<a class="headerlink" href="#preventing-pipes-from-automatically-running" title="Permalink to this headline">#</a></h2>
+<h2>Preventing pipes from automatically running<a class="headerlink" href="#preventing-pipes-from-automatically-running" title="Permalink to this headline">¶</a></h2>
 <p>Most pipes will be configured to run automatically at certain intervals. In some cases we want to prevent
 all such pipes from being started automatically.</p>
 <p>Examples of cases where this functionality can be useful:</p>
@@ -420,7 +722,7 @@ problem because lots of pipes are being started by the taskmanager.</p></li>
 <li><p>The sesam node crashes on or soon after startup because of a problem with a pipe.</p></li>
 </ol>
 <div class="section" id="using-the-instance-configuration-gui">
-<h3>Using the “Instance configuration” gui<a class="headerlink" href="#using-the-instance-configuration-gui" title="Permalink to this headline">#</a></h3>
+<h3>Using the “Instance configuration” gui<a class="headerlink" href="#using-the-instance-configuration-gui" title="Permalink to this headline">¶</a></h3>
 <p>This is the easiest way of disabling the pump scheduler.</p>
 <blockquote>
 <div><ol class="arabic">
@@ -430,10 +732,10 @@ problem because lots of pipes are being started by the taskmanager.</p></li>
 <li><p>Use the “Insert configuration” dropdown to add a “TaskManager settings” item and set the “disable_pump_scheduler”
 property to “true”. The resulting configuration should look something like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"node"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"metadata"</span><span class="p">,</span>
-  <span class="s2">"task_manager"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"disable_pump_scheduler"</span><span class="p">:</span> <span class="n">true</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;task_manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;disable_pump_scheduler&quot;</span><span class="p">:</span> <span class="n">true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -443,27 +745,27 @@ property to “true”. The resulting configuration should look something like t
 </div></blockquote>
 </div>
 <div class="section" id="upload-a-full-node-config-with-a-node-metadata-entity">
-<h3>Upload a full node-config with a node metadata entity<a class="headerlink" href="#upload-a-full-node-config-with-a-node-metadata-entity" title="Permalink to this headline">#</a></h3>
+<h3>Upload a full node-config with a node metadata entity<a class="headerlink" href="#upload-a-full-node-config-with-a-node-metadata-entity" title="Permalink to this headline">¶</a></h3>
 <p>If you want to upload a full sesam node configuration and prevent any of the pipes in the config from starting
 automatically, you can add this entity in the configuration you are uploading:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"node"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"metadata"</span><span class="p">,</span>
-  <span class="s2">"task_manager"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"disable_pump_scheduler"</span><span class="p">:</span> <span class="n">true</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;task_manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;disable_pump_scheduler&quot;</span><span class="p">:</span> <span class="n">true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="writing-a-sesam-node-data-startup-options-json-file">
-<h3>Writing a “/sesam/node/data/startup_options.json” file<a class="headerlink" href="#writing-a-sesam-node-data-startup-options-json-file" title="Permalink to this headline">#</a></h3>
+<h3>Writing a “/sesam/node/data/startup_options.json” file<a class="headerlink" href="#writing-a-sesam-node-data-startup-options-json-file" title="Permalink to this headline">¶</a></h3>
 <p>If GUI is not accessable for some reason (for example if the node crashes on start-up), it is also possible to
 disable the pump scheduler by creating a file in the sesam node’s “data” folder.</p>
 <p>The file must be called “startup_options.json”. It must be a valid json-file and look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-     <span class="s2">"task_manager"</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s2">"disable_pump_scheduler"</span><span class="p">:</span> <span class="n">true</span>
+     <span class="s2">&quot;task_manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;disable_pump_scheduler&quot;</span><span class="p">:</span> <span class="n">true</span>
      <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -473,96 +775,59 @@ disable the pump scheduler by creating a file in the sesam node’s “data” f
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="behind-the-scenes.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Behind the scenes</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="self-hosted.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Self-hosted service</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
-              
-            </div>
-          </div>
-        </div>
-        
-      </footer>
-    </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Low-level debugging</a><ul>
-<li><a class="reference internal" href="#profiling-api-calls">Profiling API calls</a><ul>
-<li><a class="reference internal" href="#profiling-all-sesam-api-calls">Profiling all Sesam API calls</a></li>
-<li><a class="reference internal" href="#profiling-one-specific-sesam-api-call">Profiling one specific Sesam API call</a></li>
-<li><a class="reference internal" href="#profiling-a-pump-run">Profiling a pump run</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#getting-a-stacktrace-of-all-the-threads-in-the-node">Getting a stacktrace of all the threads in the node</a><ul>
-<li><a class="reference internal" href="#using-the-api-status-stacktrace-api-endpoint">Using the “/api/status/stacktrace” api endpoint</a></li>
-<li><a class="reference internal" href="#sending-the-sigusr1-signal-to-the-sesam-node-process">Sending the SIGUSR1 signal to the sesam node process</a></li>
-<li><a class="reference internal" href="#checking-if-the-health-checker-thread-in-the-node-has-created-a-stacktrace">Checking if the health-checker thread in the node has created a stacktrace</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#preventing-pipes-from-automatically-running">Preventing pipes from automatically running</a><ul>
-<li><a class="reference internal" href="#using-the-instance-configuration-gui">Using the “Instance configuration” gui</a></li>
-<li><a class="reference internal" href="#upload-a-full-node-config-with-a-node-metadata-entity">Upload a full node-config with a node metadata entity</a></li>
-<li><a class="reference internal" href="#writing-a-sesam-node-data-startup-options-json-file">Writing a “/sesam/node/data/startup_options.json” file</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-          </div>
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="self-hosted.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Self-hosted service</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="behind-the-scenes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Behind the scenes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>

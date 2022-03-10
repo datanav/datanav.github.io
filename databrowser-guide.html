@@ -1,297 +1,693 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Authentication and authorization via data" href="databrowser-auth.html" /><link rel="prev" title="Databrowser" href="databrowser.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>The Sesam Databrowser - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Sesam Databrowser &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Authentication and authorization via data" href="databrowser-auth.html" />
+    <link rel="prev" title="Databrowser" href="databrowser.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-level-overview-introduction">
+   High level overview / Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-startpage">
+     The startpage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-sections">
+     The sections
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-searchresult">
+       A searchresult
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doing-a-search-with-a-searchtext">
+     Doing a search with a searchtext
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#narrowing-a-search-with-the-daterange-slider">
+     Narrowing a search with the daterange slider
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#focused-section">
+     Focused section
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#facetsections">
+     Facetsections
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-on-filters">
+     More on Filters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-itemdetail-page">
+   The itemdetail page
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-back-to-start">
+   Getting back to start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logging-in">
+   Logging in
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authentication-with-google">
+     Authentication with google
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authentication-with-microsoft-live">
+     Authentication with microsoft live
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authentication-via-a-frontend-proxy-server">
+     Authentication via a frontend proxy server
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-object">
+     User object
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configuration">
+   Configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-what-appears-in-the-who-section">
+     Specifying what appears in the “Who”-section.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-what-appears-in-a-facetsection-via-the-itemdetail-view">
+     Specifying what appears in a facetsection via the itemdetail view.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#display-fields">
+     Display fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-fields">
+     Search fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#item-attributes">
+     Item attributes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#admin-pages">
+   Admin pages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration-page">
+     Configuration page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-types-page">
+     Data types page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logging-page">
+     Logging page
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debug-information">
+   Debug information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searchresult-explanation-page">
+   Searchresult explanation page
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redis-configuration-upload-page">
+   Redis configuration upload page
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#databrowser-api-reference">
+   Databrowser API Reference
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="the-sesam-databrowser">
-<h1>The Sesam Databrowser<a class="headerlink" href="#the-sesam-databrowser" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="the-sesam-databrowser">
+<h1>The Sesam Databrowser<a class="headerlink" href="#the-sesam-databrowser" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="high-level-overview-introduction">
-<h2>High level overview / Introduction<a class="headerlink" href="#high-level-overview-introduction" title="Permalink to this headline">#</a></h2>
+<h2>High level overview / Introduction<a class="headerlink" href="#high-level-overview-introduction" title="Permalink to this headline">¶</a></h2>
 <p>The Sesam Databrowser is a generic browser that lets you inspect
 information as it exists in the data hub. The interaction principle is a
 combination of search and traditional navigation.</p>
 <div class="section" id="the-startpage">
-<h3>The startpage<a class="headerlink" href="#the-startpage" title="Permalink to this headline">#</a></h3>
+<h3>The startpage<a class="headerlink" href="#the-startpage" title="Permalink to this headline">¶</a></h3>
 <p>This is the first page you see when loading the databrowser url.</p>
 <div class="figure align-default" id="id7">
-<span id="start-page-image"></span><a class="reference internal image-reference" href="_images/startpage.png"><img alt="Screenshot of startpage" src="_images/startpage.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of startpage</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+<span id="start-page-image"></span><a class="reference internal image-reference" href="_images/startpage.png"><img alt="Screenshot of startpage" src="_images/startpage.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of startpage</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>This page gives you a little bit of everything that is relevant to your
 user account.</p>
@@ -313,7 +709,7 @@ into</p>
 </ol>
 </div>
 <div class="section" id="the-sections">
-<span id="id1"></span><h3>The sections<a class="headerlink" href="#the-sections" title="Permalink to this headline">#</a></h3>
+<span id="id1"></span><h3>The sections<a class="headerlink" href="#the-sections" title="Permalink to this headline">¶</a></h3>
 <p>The searchresult items each has a type (“Ansatt”, “Prosjekt”,
 “Avdeling”). To organize the searchresults, the databrowser splits the
 searchresults into separate sections, based on the item types.</p>
@@ -326,11 +722,11 @@ searchresults into separate sections, based on the item types.</p>
 <p>The “Where”-section will typically contain items that represents places
 (“Department”, “Country”, etc).</p>
 <div class="section" id="a-searchresult">
-<h4>A searchresult<a class="headerlink" href="#a-searchresult" title="Permalink to this headline">#</a></h4>
+<h4>A searchresult<a class="headerlink" href="#a-searchresult" title="Permalink to this headline">¶</a></h4>
 <p>Searchresult items (9 in the <a class="reference internal" href="#start-page-image"><span class="std std-ref">startpage image</span></a> above) contains the following information:</p>
 <div class="figure align-default" id="id8">
-<img alt="searchresult item" src="_images/resultitem.png"/>
-<p class="caption"><span class="caption-text">searchresult item</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<img alt="searchresult item" src="_images/resultitem.png" />
+<p class="caption"><span class="caption-text">searchresult item</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic simple">
 <li><p>The type of the item. This is also a link for
@@ -343,32 +739,32 @@ on the items title.</p></li>
 </div>
 </div>
 <div class="section" id="doing-a-search-with-a-searchtext">
-<h3>Doing a search with a searchtext<a class="headerlink" href="#doing-a-search-with-a-searchtext" title="Permalink to this headline">#</a></h3>
+<h3>Doing a search with a searchtext<a class="headerlink" href="#doing-a-search-with-a-searchtext" title="Permalink to this headline">¶</a></h3>
 <p>You can do a text-search by entering a text in the searchtext input
 field (Element (2) in the <a class="reference internal" href="#start-page-image"><span class="std std-ref">startpage image</span></a> above). The searchresults in the sections will update automatically as
 the user types in a searchtext. If the searchquery results an a section
 containing zero searchresults, that section will be hidden.</p>
 </div>
 <div class="section" id="narrowing-a-search-with-the-daterange-slider">
-<span id="daterange-slider"></span><h3>Narrowing a search with the daterange slider<a class="headerlink" href="#narrowing-a-search-with-the-daterange-slider" title="Permalink to this headline">#</a></h3>
+<span id="daterange-slider"></span><h3>Narrowing a search with the daterange slider<a class="headerlink" href="#narrowing-a-search-with-the-daterange-slider" title="Permalink to this headline">¶</a></h3>
 <p>The daterange slider (Element (3) in the <a class="reference internal" href="#start-page-image"><span class="std std-ref">startpage image</span></a> above) lets you narrow the searchresults
 based on a daterange.</p>
 <div class="figure align-default" id="id9">
-<img alt="daterange slider" src="_images/daterange.png"/>
-<p class="caption"><span class="caption-text">daterange slider</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+<img alt="daterange slider" src="_images/daterange.png" />
+<p class="caption"><span class="caption-text">daterange slider</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p>The first (1) and last (2) year in the searchresults are displayed at
 the top of the daterange-slider. You can use the handles (3) and (4) to
 narrow the daterange, like this:</p>
 <div class="figure align-default" id="id10">
-<img alt="daterange slider" src="_images/daterange_in_action.png"/>
-<p class="caption"><span class="caption-text">daterange slider</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+<img alt="daterange slider" src="_images/daterange_in_action.png" />
+<p class="caption"><span class="caption-text">daterange slider</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>As you drag the start-date and end-date handles back and forth, the
 searchresults will be updated automatically.</p>
 </div>
 <div class="section" id="focused-section">
-<span id="id2"></span><h3>Focused section<a class="headerlink" href="#focused-section" title="Permalink to this headline">#</a></h3>
+<span id="id2"></span><h3>Focused section<a class="headerlink" href="#focused-section" title="Permalink to this headline">¶</a></h3>
 <p>To see more results from a section you can click/tap its icon or
 more-link (Elements (12) and (13) in the <a class="reference internal" href="#start-page-image"><span class="std std-ref">startpage image</span></a> above . This is called “focusing” on the
 section.</p>
@@ -379,8 +775,8 @@ searchresults are fetched from the server and added to the end of the
 list of searchresults.</p>
 <p>In the image below we have focused on the “Who”-section:</p>
 <div class="figure align-default" id="id11">
-<a class="reference internal image-reference" href="_images/focused_section.png"><img alt="focused section" src="_images/focused_section.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">focused section</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/focused_section.png"><img alt="focused section" src="_images/focused_section.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">focused section</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <p>A number of things change when focusing on a section:</p>
 <ol class="arabic simple">
@@ -393,7 +789,7 @@ like item type.</p></li>
 </ol>
 </div>
 <div class="section" id="facetsections">
-<span id="id3"></span><h3>Facetsections<a class="headerlink" href="#facetsections" title="Permalink to this headline">#</a></h3>
+<span id="id3"></span><h3>Facetsections<a class="headerlink" href="#facetsections" title="Permalink to this headline">¶</a></h3>
 <p>The facetsection displays one or more filters that can be applied to
 narrow down the number of searchresults. The number after each
 filtername gives an indication on the number of searchresults that would
@@ -406,8 +802,8 @@ item refer to another item that represents the type).</p>
 you want. The searchresult will be the intersection of the searchresults
 you would get or each of the filters on its own:</p>
 <div class="figure align-default" id="id12">
-<a class="reference internal image-reference" href="_images/focused_section_with_filters_applied.png"><img alt="focused section with filters applied" src="_images/focused_section_with_filters_applied.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">focused section with filters applied</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/focused_section_with_filters_applied.png"><img alt="focused section with filters applied" src="_images/focused_section_with_filters_applied.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">focused section with filters applied</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note that the selected filters (1) and (2) appears in the searchtext
 inputfield as text (3) and (4). Power-users can type in filters manually
@@ -419,7 +815,7 @@ will describe how to specify the filters each facetsection should
 contain.</p>
 </div>
 <div class="section" id="more-on-filters">
-<span id="hash-filtering"></span><h3>More on Filters<a class="headerlink" href="#more-on-filters" title="Permalink to this headline">#</a></h3>
+<span id="hash-filtering"></span><h3>More on Filters<a class="headerlink" href="#more-on-filters" title="Permalink to this headline">¶</a></h3>
 <p>What follows is a detailed and somewhat technical description of how the
 facet filtering is done. A user is normally not required to know the
 details here, but in some cases it can be very useful to know what is
@@ -468,11 +864,11 @@ not give any matches on items with the title ‘orange’.</p></li>
 search-input field is assumed to be a part of the title-string.</p></li>
 </ul>
 <p>Examples:</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<table class="table">
 <colgroup>
-<col style="width: 24%"/>
-<col style="width: 35%"/>
-<col style="width: 40%"/>
+<col style="width: 24%" />
+<col style="width: 35%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Search string</p></th>
@@ -502,19 +898,19 @@ search-input field is assumed to be a part of the title-string.</p></li>
 <td></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 </div>
 </div>
 <div class="section" id="the-itemdetail-page">
-<span id="item-detail-page"></span><h2>The itemdetail page<a class="headerlink" href="#the-itemdetail-page" title="Permalink to this headline">#</a></h2>
+<span id="item-detail-page"></span><h2>The itemdetail page<a class="headerlink" href="#the-itemdetail-page" title="Permalink to this headline">¶</a></h2>
 <p>When you click on a searchresult item, that item gets selected, and is
 displayed on the itemdetail page.</p>
 <p>This page displays all the attributes of the selected item, and the
 searchresults are filtered so that only items that refer to the selected
 item is displayed:</p>
 <div class="figure align-default" id="id13">
-<a class="reference internal image-reference" href="_images/itemdetail_page_collapsed.png"><img alt="Itemdetail page collapsed screenshot" src="_images/itemdetail_page_collapsed.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Itemdetail page collapsed screenshot</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_collapsed.png"><img alt="Itemdetail page collapsed screenshot" src="_images/itemdetail_page_collapsed.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Itemdetail page collapsed screenshot</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic simple">
 <li><p>The itemdetail view.</p></li>
@@ -525,8 +921,8 @@ item is displayed:</p>
 searchresults), you can click the Expand-button (element 3 in the image
 above).</p>
 <div class="figure align-default" id="id14">
-<a class="reference internal image-reference" href="_images/itemdetail_page_expanded.png"><img alt="Itemdetail page collapsed screenshot" src="_images/itemdetail_page_expanded.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Itemdetail page collapsed screenshot</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_expanded.png"><img alt="Itemdetail page collapsed screenshot" src="_images/itemdetail_page_expanded.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Itemdetail page collapsed screenshot</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 <p>When the itemdetail page is expanded, the following information is
 displayed:</p>
@@ -549,7 +945,7 @@ daterange slider.</p></li>
 </ol>
 </div>
 <div class="section" id="getting-back-to-start">
-<h2>Getting back to start<a class="headerlink" href="#getting-back-to-start" title="Permalink to this headline">#</a></h2>
+<h2>Getting back to start<a class="headerlink" href="#getting-back-to-start" title="Permalink to this headline">¶</a></h2>
 <p>There are two ways to get back to the startpage after clicking around in
 the databrowser: The first is the web-browser’s backbutton. This will
 take you one step back toward the starting point.</p>
@@ -568,28 +964,28 @@ corner. This will take you directly back to the startpage, no matter
 which page you are currently at.</p>
 </div>
 <div class="section" id="logging-in">
-<h2>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">#</a></h2>
+<h2>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">¶</a></h2>
 <p>TODO: explain how authentication works:</p>
 <div class="section" id="authentication-with-google">
-<h3>Authentication with google<a class="headerlink" href="#authentication-with-google" title="Permalink to this headline">#</a></h3>
+<h3>Authentication with google<a class="headerlink" href="#authentication-with-google" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="authentication-with-microsoft-live">
-<h3>Authentication with microsoft live<a class="headerlink" href="#authentication-with-microsoft-live" title="Permalink to this headline">#</a></h3>
+<h3>Authentication with microsoft live<a class="headerlink" href="#authentication-with-microsoft-live" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="authentication-via-a-frontend-proxy-server">
-<h3>Authentication via a frontend proxy server<a class="headerlink" href="#authentication-via-a-frontend-proxy-server" title="Permalink to this headline">#</a></h3>
+<h3>Authentication via a frontend proxy server<a class="headerlink" href="#authentication-via-a-frontend-proxy-server" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="user-object">
-<h3>User object<a class="headerlink" href="#user-object" title="Permalink to this headline">#</a></h3>
+<h3>User object<a class="headerlink" href="#user-object" title="Permalink to this headline">¶</a></h3>
 <p>The “user object” is the item that represents the currently logged-in
 user. This item will not be displayed in any searchresults, but can be
 reached by clicking on the little person-icon in the top right corner.</p>
 </div>
 </div>
 <div class="section" id="configuration">
-<span id="databrowser-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
+<span id="databrowser-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="specifying-what-appears-in-the-who-section">
-<h3>Specifying what appears in the “Who”-section.<a class="headerlink" href="#specifying-what-appears-in-the-who-section" title="Permalink to this headline">#</a></h3>
+<h3>Specifying what appears in the “Who”-section.<a class="headerlink" href="#specifying-what-appears-in-the-who-section" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned in the <a class="reference internal" href="#the-sections"><span class="std std-ref">chapter about “Sections”</span></a>, the
 searchresults are organized into different sections (for instance “Who”,
 “What”, “Where” and “Why), based on the type of each searchresult item.</p>
@@ -605,8 +1001,8 @@ of the browserwindow). This changes the view to “edit”-mode, see the
 screenshot below.</p></li>
 </ul>
 <div class="figure align-default" id="id15">
-<a class="reference internal image-reference" href="_images/itemdetail_page_editmode.png"><img alt="itemdetail page editmode" src="_images/itemdetail_page_editmode.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">itemdetail page editmode</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_editmode.png"><img alt="itemdetail page editmode" src="_images/itemdetail_page_editmode.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">itemdetail page editmode</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic simple">
 <li><p>At the top of the itemdetail view all the types of the selected item
@@ -623,8 +1019,8 @@ will open a dialogbox where you can select one of the “Who”, “What”,
 “Where” sections. Select “What”.</p></li>
 </ul>
 <div class="figure align-default" id="id16">
-<img alt="itemdetail page editmode" src="_images/itemdetail_page_editmode_sectiondialog.png"/>
-<p class="caption"><span class="caption-text">itemdetail page editmode</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
+<img alt="itemdetail page editmode" src="_images/itemdetail_page_editmode_sectiondialog.png" />
+<p class="caption"><span class="caption-text">itemdetail page editmode</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can now return to the front page (by clicking on the sesam-logo in
 the top left corner) to see who your change has affected the
@@ -636,7 +1032,7 @@ you. Click the browsers back-button to go back to the itemdetail page
 and select the “Where”- section again.</p>
 </div>
 <div class="section" id="specifying-what-appears-in-a-facetsection-via-the-itemdetail-view">
-<span id="facetsection-via-itemdetail-view"></span><h3>Specifying what appears in a facetsection via the itemdetail view.<a class="headerlink" href="#specifying-what-appears-in-a-facetsection-via-the-itemdetail-view" title="Permalink to this headline">#</a></h3>
+<span id="facetsection-via-itemdetail-view"></span><h3>Specifying what appears in a facetsection via the itemdetail view.<a class="headerlink" href="#specifying-what-appears-in-a-facetsection-via-the-itemdetail-view" title="Permalink to this headline">¶</a></h3>
 <p>The content of the <a class="reference internal" href="#facetsections"><span class="std std-ref">facetsections</span></a> can also be
 specified on the itemdetail page. In this example we will add the
 “Avdeling”-</p>
@@ -658,8 +1054,8 @@ where you can configure the attribute.</p></li>
 submit-button (2).</p></li>
 </ul>
 <div class="figure align-default" id="id17">
-<img alt="Facet section dropdown" src="_images/itemattributes_config_facetsection.png"/>
-<p class="caption"><span class="caption-text">Facet section dropdown</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
+<img alt="Facet section dropdown" src="_images/itemattributes_config_facetsection.png" />
+<p class="caption"><span class="caption-text">Facet section dropdown</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Click on the sesam-logo in the top left corner to go back to the
@@ -672,13 +1068,13 @@ to the old “Hva”-facetsection). As before: If this is a production
 system is is a good idea to revert your changes afterwards.</p>
 </div>
 <div class="section" id="display-fields">
-<h3>Display fields<a class="headerlink" href="#display-fields" title="Permalink to this headline">#</a></h3>
+<h3>Display fields<a class="headerlink" href="#display-fields" title="Permalink to this headline">¶</a></h3>
 <p>Some of the fields of an item has a special significance, and we often
 want to display the fields in a more prominent place than the generic
 field list. There are three different types of display fields:</p>
 <div class="figure align-default" id="id18">
-<a class="reference internal image-reference" href="_images/itemdetail_page_displayfield_nonedit.png"><img alt="itemdetail page with displayfields" src="_images/itemdetail_page_displayfield_nonedit.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">itemdetail page with displayfields</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_displayfield_nonedit.png"><img alt="itemdetail page with displayfields" src="_images/itemdetail_page_displayfield_nonedit.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">itemdetail page with displayfields</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic simple">
 <li><p>“Title”-fields are displayed as the title(s) of an item. Typically
@@ -692,8 +1088,8 @@ like “created date” or “modification date”, “birth date”.</p></li>
 <p>A field is assigned to a display-field via the edit-mode in the
 itemdetail-page:</p>
 <div class="figure align-default" id="id19">
-<a class="reference internal image-reference" href="_images/itemdetail_page_editmode_displayfield_description_original.png"><img alt="itemdetail page with displayfields" src="_images/itemdetail_page_editmode_displayfield_description_original.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">itemdetail page with displayfields</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_editmode_displayfield_description_original.png"><img alt="itemdetail page with displayfields" src="_images/itemdetail_page_editmode_displayfield_description_original.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">itemdetail page with displayfields</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <p>To change the display-field setting, select a setting from the dropdown
 (1) and click the submit-button (2).</p>
@@ -702,7 +1098,7 @@ example above we are looking at a text-field, so the “Date”
 display-field setting is not available in this case.</p>
 </div>
 <div class="section" id="search-fields">
-<h3>Search fields<a class="headerlink" href="#search-fields" title="Permalink to this headline">#</a></h3>
+<h3>Search fields<a class="headerlink" href="#search-fields" title="Permalink to this headline">¶</a></h3>
 <p>Search-fields are similar to display-fields, in that they are item
 fields with some special significance. But while the display-fields
 settings describes how a field is displayed to the user, the
@@ -719,12 +1115,12 @@ boost searchresults relevant to the current user.</p></li>
 </ol>
 </div>
 <div class="section" id="item-attributes">
-<span id="id4"></span><h3>Item attributes<a class="headerlink" href="#item-attributes" title="Permalink to this headline">#</a></h3>
+<span id="id4"></span><h3>Item attributes<a class="headerlink" href="#item-attributes" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the itemattribute settings we have already mentioned,
 there are a few others that we also must mention.</p>
 <div class="figure align-default" id="id20">
-<a class="reference internal image-reference" href="_images/itemdetail_page_editmode_itemattributesmisc.png"><img alt="itemdetail page misc item attributes" src="_images/itemdetail_page_editmode_itemattributesmisc.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">itemdetail page misc item attributes</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/itemdetail_page_editmode_itemattributesmisc.png"><img alt="itemdetail page misc item attributes" src="_images/itemdetail_page_editmode_itemattributesmisc.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">itemdetail page misc item attributes</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic">
 <li><p>The “psi” is the unique identifier of the item attribute type. This
@@ -754,7 +1150,7 @@ the best way of rendering the attribute.</p></li>
 </div>
 </div>
 <div class="section" id="admin-pages">
-<span id="id5"></span><h2>Admin pages<a class="headerlink" href="#admin-pages" title="Permalink to this headline">#</a></h2>
+<span id="id5"></span><h2>Admin pages<a class="headerlink" href="#admin-pages" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the normal searchresults and itemdetail pages, the
 datebrowser also has some pages that is only visible for administrative
 users.</p>
@@ -762,15 +1158,15 @@ users.</p>
 Example: if your databrowser is reached at <code class="docutils literal notranslate"><span class="pre">https://databrowser.example.com</span></code>, the admin-pages
 will be at <code class="docutils literal notranslate"><span class="pre">https://databrowser.example.com/admin_index</span></code>.</p>
 <div class="figure align-default" id="id21">
-<a class="reference internal image-reference" href="_images/admin_index_page.png"><img alt="Screenshot of admin index page" src="_images/admin_index_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of admin index page</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/admin_index_page.png"><img alt="Screenshot of admin index page" src="_images/admin_index_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of admin index page</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
 <p>Below we will look at each of the avialable admin-pages.</p>
 <div class="section" id="configuration-page">
-<h3>Configuration page<a class="headerlink" href="#configuration-page" title="Permalink to this headline">#</a></h3>
+<h3>Configuration page<a class="headerlink" href="#configuration-page" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id22">
-<a class="reference internal image-reference" href="_images/admin_configuration_page.png"><img alt="Screenshot of configuration admin page" src="_images/admin_configuration_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of configuration admin page</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/admin_configuration_page.png"><img alt="Screenshot of configuration admin page" src="_images/admin_configuration_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of configuration admin page</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
 </div>
 <p>This page displays all the configuration-settings of the databrowser. It
 is mostly useful for developers who are trying to track down some
@@ -793,10 +1189,10 @@ redis server. See the <a class="reference internal" href="#databrowser-configura
 </ol>
 </div>
 <div class="section" id="data-types-page">
-<h3>Data types page<a class="headerlink" href="#data-types-page" title="Permalink to this headline">#</a></h3>
+<h3>Data types page<a class="headerlink" href="#data-types-page" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id23">
-<a class="reference internal image-reference" href="_images/admin_datatypes_page.png"><img alt="Screenshot of datatypes admin page" src="_images/admin_datatypes_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of datatypes admin page</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/admin_datatypes_page.png"><img alt="Screenshot of datatypes admin page" src="_images/admin_datatypes_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of datatypes admin page</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </div>
 <p>This page displays information about item-types and attriute-types, and
 lets you do the same configurations as on the itemdetail page. Sometimes
@@ -805,10 +1201,10 @@ to find an item that has the item-type or attribute-types that you want
 to configure.</p>
 </div>
 <div class="section" id="logging-page">
-<h3>Logging page<a class="headerlink" href="#logging-page" title="Permalink to this headline">#</a></h3>
+<h3>Logging page<a class="headerlink" href="#logging-page" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id24">
-<a class="reference internal image-reference" href="_images/admin_logging_page.png"><img alt="Screenshot of logging admin page" src="_images/admin_logging_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of logging admin page</span><a class="headerlink" href="#id24" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/admin_logging_page.png"><img alt="Screenshot of logging admin page" src="_images/admin_logging_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of logging admin page</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 <p>This page is only of interest to developers that has access to the
 server logs. It is not meant to be used by end-users. The page lets you
@@ -820,14 +1216,14 @@ log-levels you have to modify your installation-specific
 </div>
 </div>
 <div class="section" id="debug-information">
-<span id="show-debug-information"></span><h2>Debug information<a class="headerlink" href="#debug-information" title="Permalink to this headline">#</a></h2>
+<span id="show-debug-information"></span><h2>Debug information<a class="headerlink" href="#debug-information" title="Permalink to this headline">¶</a></h2>
 <p>The “Enable debug”-link on the bottom of the page will cause additional
 information to be displayed on the page. This can be useful when trying
 to track down problems with the configuration of the databrowser.</p>
 <p>In the image below we have enabled debug information on the frontpage:</p>
 <div class="figure align-default" id="id25">
-<a class="reference internal image-reference" href="_images/startpage_with_debuginfo.png"><img alt="screenshot with debug information enabled" src="_images/startpage_with_debuginfo.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">screenshot with debug information enabled</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/startpage_with_debuginfo.png"><img alt="screenshot with debug information enabled" src="_images/startpage_with_debuginfo.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">screenshot with debug information enabled</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
 </div>
 <p>Explanation:</p>
 <ol class="arabic simple">
@@ -841,21 +1237,21 @@ render the searchresult item.</p></li>
 </ol>
 </div>
 <div class="section" id="searchresult-explanation-page">
-<span id="id6"></span><h2>Searchresult explanation page<a class="headerlink" href="#searchresult-explanation-page" title="Permalink to this headline">#</a></h2>
+<span id="id6"></span><h2>Searchresult explanation page<a class="headerlink" href="#searchresult-explanation-page" title="Permalink to this headline">¶</a></h2>
 <p>This is a special debuginfo page that displays information about the
 solr-queries that was used to generate a list of searchresults. It is
 mostly useful for developers and administrators that needs to debug and
 tweak the search configuration.</p>
 <div class="figure align-default" id="id26">
-<a class="reference internal image-reference" href="_images/searchresult_explanation_page.png"><img alt="Searchresult explanation page screenshot" src="_images/searchresult_explanation_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Searchresult explanation page screenshot</span><a class="headerlink" href="#id26" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/searchresult_explanation_page.png"><img alt="Searchresult explanation page screenshot" src="_images/searchresult_explanation_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Searchresult explanation page screenshot</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="redis-configuration-upload-page">
-<span id="databrowser-configuration-redis-upload-page"></span><h2>Redis configuration upload page<a class="headerlink" href="#redis-configuration-upload-page" title="Permalink to this headline">#</a></h2>
+<span id="databrowser-configuration-redis-upload-page"></span><h2>Redis configuration upload page<a class="headerlink" href="#redis-configuration-upload-page" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id27">
-<a class="reference internal image-reference" href="_images/configuration_redis_upload_page.png"><img alt="Redis configuration upload page screenshot" src="_images/configuration_redis_upload_page.png" style="width: 800px;"/></a>
-<p class="caption"><span class="caption-text">Screenshot of Redis upload page</span><a class="headerlink" href="#id27" title="Permalink to this image">#</a></p>
+<a class="reference internal image-reference" href="_images/configuration_redis_upload_page.png"><img alt="Redis configuration upload page screenshot" src="_images/configuration_redis_upload_page.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of Redis upload page</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </div>
 <p>This page lets you bulk-upload configuration settings directly to the Redis server.
 The current configuration is displayed in the textarea. You can either make changes to the existing
@@ -866,10 +1262,10 @@ configuration from one instance to another (for instance from a test-instance to
 -instance).</p>
 </div>
 <div class="section" id="databrowser-api-reference">
-<h2>Databrowser API Reference<a class="headerlink" href="#databrowser-api-reference" title="Permalink to this headline">#</a></h2>
+<h2>Databrowser API Reference<a class="headerlink" href="#databrowser-api-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="http get">
 <dt class="sig sig-object http" id="get--">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/</span></span><a class="headerlink" href="#get--" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/</span></span><a class="headerlink" href="#get--" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the html page that contains the data access portal application. This is the only end-user facing html page; all other interaction is done via client-side javascript and AJAX calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Query Parameters</dt>
@@ -890,9 +1286,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/</span></span><a class="headerlink" href="#post--" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/</span></span><a class="headerlink" href="#post--" title="Permalink to this definition">¶</a></dt>
 <dd><p>A POST request to the base url in a browser context (an HTML form POST action) will redirect the browser to the databrowser. After user authentication the databrowser will automatically send an access request on behalf of the user.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -902,9 +1299,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--login_implicit_flow">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/login_implicit_flow</span></span><a class="headerlink" href="#get--login_implicit_flow" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/login_implicit_flow</span></span><a class="headerlink" href="#get--login_implicit_flow" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is only used when logging in with openid connect providers that only support the “implicit flow” method. In that case the “id_token” is returned as part for the fragment-part of the url (the bit after the “#”-sign), which isn’t sent to the backend. The login_implicit_flow page contains a javascript snippet that extracts the id_token and calls the jwt_login endpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -914,9 +1312,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--jwt_login">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/jwt_login</span></span><a class="headerlink" href="#get--jwt_login" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/jwt_login</span></span><a class="headerlink" href="#get--jwt_login" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is an internal page that is only used for development and testing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -926,9 +1325,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--jwt_login">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/jwt_login</span></span><a class="headerlink" href="#post--jwt_login" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/jwt_login</span></span><a class="headerlink" href="#post--jwt_login" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is used when accessing the Data Access Portal from the the Management Studio”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -938,9 +1338,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--login-provider_id">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/login/{provider_id}</span></span><a class="headerlink" href="#post--login-provider_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/login/{provider_id}</span></span><a class="headerlink" href="#post--login-provider_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>This starts an openid connect authentication prosess. The user will eventually be redirected back to the ‘/login_callback/{provider_id}’ endpoint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -955,9 +1356,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--login_callback-provider_id">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/login_callback/{provider_id}</span></span><a class="headerlink" href="#get--login_callback-provider_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/login_callback/{provider_id}</span></span><a class="headerlink" href="#get--login_callback-provider_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>The user is redirected back here after authenticating with an openid connect authentication provider.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -977,9 +1379,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--logout">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logout</span></span><a class="headerlink" href="#get--logout" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logout</span></span><a class="headerlink" href="#get--logout" title="Permalink to this definition">¶</a></dt>
 <dd><p>This logs out the current user</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -989,9 +1392,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--otp_login">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/otp_login</span></span><a class="headerlink" href="#get--otp_login" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/otp_login</span></span><a class="headerlink" href="#get--otp_login" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is called when the user has clicked on a login-link in an email or sms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Query Parameters</dt>
@@ -1007,9 +1411,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--otp_login">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/otp_login</span></span><a class="headerlink" href="#post--otp_login" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/otp_login</span></span><a class="headerlink" href="#post--otp_login" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is called when the user has entered an email address or a mobile phonenumber in the gui and clicked the “Next” button.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1019,9 +1424,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--select_language">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/select_language</span></span><a class="headerlink" href="#post--select_language" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/select_language</span></span><a class="headerlink" href="#post--select_language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores the user’s selected language in the http session.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1031,9 +1437,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--update_loc">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/update_loc</span></span><a class="headerlink" href="#post--update_loc" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/update_loc</span></span><a class="headerlink" href="#post--update_loc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores the user’s geographical location. This is used to avoid having to ask the user for their location the next time the Data Access Portal is loaded. This endpoint should only be called if the “use_user_location” config option in the “main” config section has been set to “true”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1043,9 +1450,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--accessrequests">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequests</span></span><a class="headerlink" href="#post--accessrequests" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequests</span></span><a class="headerlink" href="#post--accessrequests" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Request JSON Object</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1063,9 +1471,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--access_request_validate_extra_fields">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/access_request_validate_extra_fields</span></span><a class="headerlink" href="#post--access_request_validate_extra_fields" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/access_request_validate_extra_fields</span></span><a class="headerlink" href="#post--access_request_validate_extra_fields" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1075,9 +1484,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--accessrequests_update">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequests_update</span></span><a class="headerlink" href="#post--accessrequests_update" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequests_update</span></span><a class="headerlink" href="#post--accessrequests_update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates an existing gdpr access request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1087,9 +1497,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--accessrequest_login">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequest_login</span></span><a class="headerlink" href="#post--accessrequest_login" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/accessrequest_login</span></span><a class="headerlink" href="#post--accessrequest_login" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is called by the client after the user has logged on (only when an accessrequest has been made previously). This will allow the client to read the data associated with the accessrequest that belongs to the specified publicKey.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1127,9 +1538,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--dataservice-search">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/search</span></span><a class="headerlink" href="#get--dataservice-search" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/search</span></span><a class="headerlink" href="#get--dataservice-search" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1138,9 +1550,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--dataservice-daterange">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/daterange</span></span><a class="headerlink" href="#get--dataservice-daterange" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/daterange</span></span><a class="headerlink" href="#get--dataservice-daterange" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1149,9 +1562,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--dataservice-itemdetails">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/itemdetails</span></span><a class="headerlink" href="#get--dataservice-itemdetails" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dataservice/itemdetails</span></span><a class="headerlink" href="#get--dataservice-itemdetails" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1160,9 +1574,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--changerequests">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/changerequests</span></span><a class="headerlink" href="#get--changerequests" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/changerequests</span></span><a class="headerlink" href="#get--changerequests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all changerequests for the specified document</p>
 <dl class="field-list simple">
 <dt class="field-odd">Query Parameters</dt>
@@ -1186,9 +1601,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--favicon.ico">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/favicon.ico</span></span><a class="headerlink" href="#get--favicon.ico" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/favicon.ico</span></span><a class="headerlink" href="#get--favicon.ico" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1197,9 +1613,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--browserconfig.xml">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/browserconfig.xml</span></span><a class="headerlink" href="#get--browserconfig.xml" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/browserconfig.xml</span></span><a class="headerlink" href="#get--browserconfig.xml" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1208,9 +1625,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--admin_index">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/admin_index</span></span><a class="headerlink" href="#get--admin_index" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/admin_index</span></span><a class="headerlink" href="#get--admin_index" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1219,9 +1637,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration</span></span><a class="headerlink" href="#options--configuration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration</span></span><a class="headerlink" href="#options--configuration" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Query Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1235,9 +1654,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration</span></span><a class="headerlink" href="#get--configuration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration</span></span><a class="headerlink" href="#get--configuration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a html page that lets the user view the current configfile settings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Query Parameters</dt>
@@ -1252,9 +1672,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration-config_file_path">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#get--configuration-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#get--configuration-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the specified configuration file in the base configuration layer. Files in the base layer overrides the configfiles in all other config-layers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1269,9 +1690,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http put">
 <dt class="sig sig-object http" id="put--configuration-config_file_path">
-<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#put--configuration-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#put--configuration-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uploads the specified configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1300,9 +1722,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http delete">
 <dt class="sig sig-object http" id="delete--configuration-config_file_path">
-<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#delete--configuration-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration/{config_file_path}</span></span><a class="headerlink" href="#delete--configuration-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the specified configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1331,9 +1754,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration-conf-config_layer-config_file_path">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#options--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#options--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1348,9 +1772,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration-conf-config_layer-config_file_path">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#get--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#get--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the specified configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1366,9 +1791,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http put">
 <dt class="sig sig-object http" id="put--configuration-conf-config_layer-config_file_path">
-<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#put--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#put--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uploads the specified configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1398,9 +1824,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http delete">
 <dt class="sig sig-object http" id="delete--configuration-conf-config_layer-config_file_path">
-<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#delete--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration/conf/{config_layer}/{config_file_path}</span></span><a class="headerlink" href="#delete--configuration-conf-config_layer-config_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the specified configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1430,9 +1857,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration_redis_upload_form">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis_upload_form</span></span><a class="headerlink" href="#options--configuration_redis_upload_form" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis_upload_form</span></span><a class="headerlink" href="#options--configuration_redis_upload_form" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1441,9 +1869,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration_redis_upload_form">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis_upload_form</span></span><a class="headerlink" href="#get--configuration_redis_upload_form" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis_upload_form</span></span><a class="headerlink" href="#get--configuration_redis_upload_form" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1452,9 +1881,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration_yaml_dump">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_yaml_dump</span></span><a class="headerlink" href="#get--configuration_yaml_dump" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_yaml_dump</span></span><a class="headerlink" href="#get--configuration_yaml_dump" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1463,9 +1893,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration_localization_strings">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings</span></span><a class="headerlink" href="#options--configuration_localization_strings" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings</span></span><a class="headerlink" href="#options--configuration_localization_strings" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1474,9 +1905,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration_localization_strings">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings</span></span><a class="headerlink" href="#get--configuration_localization_strings" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings</span></span><a class="headerlink" href="#get--configuration_localization_strings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of all the localizations strings. This endpoint is used by the translation gui in the management studio. The ordering reflects the ordering in the hardcoded “databrowser.ini”-file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1494,9 +1926,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration_localization_strings-overrides-language-localization_string_id">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#options--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#options--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1511,9 +1944,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http put">
 <dt class="sig sig-object http" id="put--configuration_localization_strings-overrides-language-localization_string_id">
-<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#put--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#put--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores an overridden value for the specified localization string. This endpoint is used by the translation gui in the management studio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1529,9 +1963,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http delete">
 <dt class="sig sig-object http" id="delete--configuration_localization_strings-overrides-language-localization_string_id">
-<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#delete--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/configuration_localization_strings/overrides/{language}/{localization_string_id}</span></span><a class="headerlink" href="#delete--configuration_localization_strings-overrides-language-localization_string_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes any overridden value for the specified localization string. This endpoint is used by the translation gui in the management studio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1547,9 +1982,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--gdpr-fileblob_download-file_id">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/gdpr/fileblob_download/{file_id}</span></span><a class="headerlink" href="#get--gdpr-fileblob_download-file_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/gdpr/fileblob_download/{file_id}</span></span><a class="headerlink" href="#get--gdpr-fileblob_download-file_id" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1563,9 +1999,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--gdpr-download">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/gdpr/download</span></span><a class="headerlink" href="#get--gdpr-download" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/gdpr/download</span></span><a class="headerlink" href="#get--gdpr-download" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1574,9 +2011,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--configuration_redis">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#options--configuration_redis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#options--configuration_redis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1585,9 +2023,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration_redis">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#get--configuration_redis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#get--configuration_redis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the configuration triples that are stored in redis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1597,9 +2036,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http put">
 <dt class="sig sig-object http" id="put--configuration_redis">
-<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#put--configuration_redis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#put--configuration_redis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1608,9 +2048,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--configuration_redis">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#post--configuration_redis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/configuration_redis</span></span><a class="headerlink" href="#post--configuration_redis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1619,9 +2060,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--configuration_fields_config">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_fields_config</span></span><a class="headerlink" href="#get--configuration_fields_config" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/configuration_fields_config</span></span><a class="headerlink" href="#get--configuration_fields_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current field-config settings. This is used by clients that need to do client-side field-formatting (for instance when the databrowser is used as a GDPR portal, and we do client-side decryption of fields.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1631,9 +2073,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--edit">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/edit</span></span><a class="headerlink" href="#post--edit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/edit</span></span><a class="headerlink" href="#post--edit" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1642,9 +2085,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--datatypes">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/datatypes</span></span><a class="headerlink" href="#get--datatypes" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/datatypes</span></span><a class="headerlink" href="#get--datatypes" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1653,9 +2097,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--logging">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logging</span></span><a class="headerlink" href="#get--logging" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logging</span></span><a class="headerlink" href="#get--logging" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1664,9 +2109,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--logging-loggers">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logging/loggers</span></span><a class="headerlink" href="#get--logging-loggers" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/logging/loggers</span></span><a class="headerlink" href="#get--logging-loggers" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1675,9 +2121,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--logging-loggers-logger_name">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/logging/loggers/{logger_name}</span></span><a class="headerlink" href="#post--logging-loggers-logger_name" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/logging/loggers/{logger_name}</span></span><a class="headerlink" href="#post--logging-loggers-logger_name" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1691,9 +2138,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--searchresult_explanation">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/searchresult_explanation</span></span><a class="headerlink" href="#get--searchresult_explanation" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/searchresult_explanation</span></span><a class="headerlink" href="#get--searchresult_explanation" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1702,9 +2150,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http post">
 <dt class="sig sig-object http" id="post--caching-clear">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/caching/clear</span></span><a class="headerlink" href="#post--caching-clear" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/caching/clear</span></span><a class="headerlink" href="#post--caching-clear" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1713,9 +2162,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http options">
 <dt class="sig sig-object http" id="options--status">
-<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/status</span></span><a class="headerlink" href="#options--status" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OPTIONS</span> </span><span class="sig-name descname"><span class="pre">/status</span></span><a class="headerlink" href="#options--status" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1724,9 +2174,10 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="http get">
 <dt class="sig sig-object http" id="get--status">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/status</span></span><a class="headerlink" href="#get--status" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/status</span></span><a class="headerlink" href="#get--status" title="Permalink to this definition">¶</a></dt>
 <dd><p>This endpoint returns misc information about the databrowser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Status Codes</dt>
@@ -1744,121 +2195,63 @@ configuration from one instance to another (for instance from a test-instance to
 </dd>
 </dl>
 </dd></dl>
+
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="databrowser-auth.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Authentication and authorization via data</div>
+
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="databrowser.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Databrowser</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
               
-            </div>
-          </div>
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="databrowser.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Databrowser</p>
         </div>
-        
-      </footer>
+    </a>
+    <a class='right-next' id="next-link" href="databrowser-auth.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Authentication and authorization via data</p>
     </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">The Sesam Databrowser</a><ul>
-<li><a class="reference internal" href="#high-level-overview-introduction">High level overview / Introduction</a><ul>
-<li><a class="reference internal" href="#the-startpage">The startpage</a></li>
-<li><a class="reference internal" href="#the-sections">The sections</a><ul>
-<li><a class="reference internal" href="#a-searchresult">A searchresult</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#doing-a-search-with-a-searchtext">Doing a search with a searchtext</a></li>
-<li><a class="reference internal" href="#narrowing-a-search-with-the-daterange-slider">Narrowing a search with the daterange slider</a></li>
-<li><a class="reference internal" href="#focused-section">Focused section</a></li>
-<li><a class="reference internal" href="#facetsections">Facetsections</a></li>
-<li><a class="reference internal" href="#more-on-filters">More on Filters</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-itemdetail-page">The itemdetail page</a></li>
-<li><a class="reference internal" href="#getting-back-to-start">Getting back to start</a></li>
-<li><a class="reference internal" href="#logging-in">Logging in</a><ul>
-<li><a class="reference internal" href="#authentication-with-google">Authentication with google</a></li>
-<li><a class="reference internal" href="#authentication-with-microsoft-live">Authentication with microsoft live</a></li>
-<li><a class="reference internal" href="#authentication-via-a-frontend-proxy-server">Authentication via a frontend proxy server</a></li>
-<li><a class="reference internal" href="#user-object">User object</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#specifying-what-appears-in-the-who-section">Specifying what appears in the “Who”-section.</a></li>
-<li><a class="reference internal" href="#specifying-what-appears-in-a-facetsection-via-the-itemdetail-view">Specifying what appears in a facetsection via the itemdetail view.</a></li>
-<li><a class="reference internal" href="#display-fields">Display fields</a></li>
-<li><a class="reference internal" href="#search-fields">Search fields</a></li>
-<li><a class="reference internal" href="#item-attributes">Item attributes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#admin-pages">Admin pages</a><ul>
-<li><a class="reference internal" href="#configuration-page">Configuration page</a></li>
-<li><a class="reference internal" href="#data-types-page">Data types page</a></li>
-<li><a class="reference internal" href="#logging-page">Logging page</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#debug-information">Debug information</a></li>
-<li><a class="reference internal" href="#searchresult-explanation-page">Searchresult explanation page</a></li>
-<li><a class="reference internal" href="#redis-configuration-upload-page">Redis configuration upload page</a></li>
-<li><a class="reference internal" href="#databrowser-api-reference">Databrowser API Reference</a></li>
-</ul>
-</li>
-</ul>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
 
-          </div>
-        </div>
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>

@@ -1,375 +1,846 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The Pump Execution Dataset" href="pump-execution.html" /><link rel="prev" title="Security" href="security.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>Notifications - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Pump Execution Dataset" href="pump-execution.html" />
+    <link rel="prev" title="Security" href="security.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data-modelling.html">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index-operations.html">Operations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pump-completed-pump-failed-notification-rules">
+   Pump completed / Pump failed notification rules
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-can-be-monitored">
+     What can be monitored?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#entities-processed">
+       Entities processed
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changed-entities">
+       Changed entities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#failed-retries">
+       Failed retries
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dead-entities">
+       Dead entities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#failed-retried-entities">
+       Failed retried entities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#successfully-retried-entities">
+       Successfully retried entities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-errors">
+       Read errors
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#write-errors">
+       Write errors
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sink-time">
+       Sink time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#source-time">
+       Source time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transform-time">
+       Transform time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reason-why-stopped">
+       Reason why stopped
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#traceback">
+       Traceback
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-low-level-errormessage">
+       Additional low-level errormessage
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-low-level-traceback">
+       Additional low-level traceback
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-it-be-monitored">
+     How can it be monitored?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#value-too-low">
+       Value too low
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#value-too-high">
+       Value too high
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#value-too-low-over-time">
+       Value too low over time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#value-too-high-over-time">
+       Value too high over time
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pump-started-overdue">
+   Pump started overdue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pump-finished-overdue">
+   Pump finished overdue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pump-failed">
+   Pump failed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restore-completed">
+   Restore completed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pump-offset-set">
+   Pump offset set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pattern-match">
+   Pattern match
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#node-heartbeat-overdue">
+   Node heartbeat overdue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alert-rate-limiting">
+   Alert rate limiting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notification-summary-api">
+   Notification summary API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-timeline">
+     Example timeline
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       10:00
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       10:01
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       10:02
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       10:03
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       10:04
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       10:05
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       10:06
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       10:07
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       10:08
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       10:09
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       10:10
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       10:11
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="notifications">
-<h1>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="notifications">
+<h1>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>SESAM lets users specify “notification rules” that will trigger alerts when certain
 conditions occur.</p>
 <p>When a notification rule triggers, the user(s) get notified in the GUI and optionally by email.</p>
 <p>Notification rules are added under the “Notifications” tab on the “Pipe”-page in the GUI.</p>
 </div>
 <div class="section" id="pump-completed-pump-failed-notification-rules">
-<h2>Pump completed / Pump failed notification rules<a class="headerlink" href="#pump-completed-pump-failed-notification-rules" title="Permalink to this headline">#</a></h2>
+<h2>Pump completed / Pump failed notification rules<a class="headerlink" href="#pump-completed-pump-failed-notification-rules" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-can-be-monitored">
-<h3>What can be monitored?<a class="headerlink" href="#what-can-be-monitored" title="Permalink to this headline">#</a></h3>
+<h3>What can be monitored?<a class="headerlink" href="#what-can-be-monitored" title="Permalink to this headline">¶</a></h3>
 <p>When a pipe has finished running (either because it has finished normally, or if some error has occured),
 it will log some key numbers about the pipe-run.</p>
 <p>A notification rule can be added for each of these values, so that the user is alerted if a value
 is too high or too low.</p>
 <div class="section" id="entities-processed">
-<span id="pipe-completed-metric-entities-last-run"></span><h4>Entities processed<a class="headerlink" href="#entities-processed" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-entities-last-run"></span><h4>Entities processed<a class="headerlink" href="#entities-processed" title="Permalink to this headline">¶</a></h4>
 <p>This is the total number of entities that was read from the pipe’s source.</p>
 </div>
 <div class="section" id="changed-entities">
-<span id="pipe-completed-metric-changes-last-run"></span><h4>Changed entities<a class="headerlink" href="#changed-entities" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-changes-last-run"></span><h4>Changed entities<a class="headerlink" href="#changed-entities" title="Permalink to this headline">¶</a></h4>
 <p>This is the number or entities that was actually changed. When writing an entity to a dataset, the
 pipe will compare the new entity to the version of entity that is already in the dataset (if any). If
 the entity is already in the dataset and is identical to the new entity, the new entity is skipped.</p>
 </div>
 <div class="section" id="failed-retries">
-<span id="pipe-completed-metric-number-of-failed-retries-last-run"></span><h4>Failed retries<a class="headerlink" href="#failed-retries" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-number-of-failed-retries-last-run"></span><h4>Failed retries<a class="headerlink" href="#failed-retries" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of entities that was unsuccessfully retried. The pipe will retry these entities again the next
 time the pipe runs..</p>
 </div>
 <div class="section" id="dead-entities">
-<span id="pipe-completed-metric-number-of-dead-entities-last-run"></span><h4>Dead entities<a class="headerlink" href="#dead-entities" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-number-of-dead-entities-last-run"></span><h4>Dead entities<a class="headerlink" href="#dead-entities" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of entities that the pipe unsuccessfully retried writing to the sink, and where the pipe
 has retried so many times that the pipe has permanently given up on the entities.</p>
 </div>
 <div class="section" id="failed-retried-entities">
-<span id="pipe-completed-metric-retry-errors-last-run"></span><h4>Failed retried entities<a class="headerlink" href="#failed-retried-entities" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-retry-errors-last-run"></span><h4>Failed retried entities<a class="headerlink" href="#failed-retried-entities" title="Permalink to this headline">¶</a></h4>
 <p>This is the total number of failed retry attempts. This number is the sum of the
 <a class="reference internal" href="#pipe-completed-metric-number-of-failed-retries-last-run"><span class="std std-ref">Failed retries</span></a>
 and <a class="reference internal" href="#pipe-completed-metric-number-of-dead-entities-last-run"><span class="std std-ref">Dead entities</span></a> properties.</p>
 </div>
 <div class="section" id="successfully-retried-entities">
-<span id="pipe-completed-metric-retries-succeeded-last-run"></span><h4>Successfully retried entities<a class="headerlink" href="#successfully-retried-entities" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-retries-succeeded-last-run"></span><h4>Successfully retried entities<a class="headerlink" href="#successfully-retried-entities" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of entities that was retried, and where the retry attempt succeeded.</p>
 </div>
 <div class="section" id="read-errors">
-<span id="pipe-completed-metric-read-errors-last-run"></span><h4>Read errors<a class="headerlink" href="#read-errors" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-read-errors-last-run"></span><h4>Read errors<a class="headerlink" href="#read-errors" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of time the pipe failed to read entities from the source.</p>
 </div>
 <div class="section" id="write-errors">
-<span id="pipe-completed-metric-write-errors-last-run"></span><h4>Write errors<a class="headerlink" href="#write-errors" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-write-errors-last-run"></span><h4>Write errors<a class="headerlink" href="#write-errors" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of times the pipe failed to write entities to the sink.</p>
 </div>
 <div class="section" id="sink-time">
-<span id="pipe-completed-metric-sink-time"></span><h4>Sink time<a class="headerlink" href="#sink-time" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-sink-time"></span><h4>Sink time<a class="headerlink" href="#sink-time" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of seconds the pipe spent writing to the sink.</p>
 </div>
 <div class="section" id="source-time">
-<span id="pipe-completed-metric-source-time"></span><h4>Source time<a class="headerlink" href="#source-time" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-source-time"></span><h4>Source time<a class="headerlink" href="#source-time" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of seconds the pipe spent reading from the source.</p>
 </div>
 <div class="section" id="transform-time">
-<span id="pipe-completed-metric-transform-time"></span><h4>Transform time<a class="headerlink" href="#transform-time" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-metric-transform-time"></span><h4>Transform time<a class="headerlink" href="#transform-time" title="Permalink to this headline">¶</a></h4>
 <p>This is the number of seconds the pipe spent doing DTL and other types for transforms.</p>
 </div>
 <div class="section" id="reason-why-stopped">
-<span id="pipe-completed-property-reason-why-stopped"></span><h4>Reason why stopped<a class="headerlink" href="#reason-why-stopped" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-property-reason-why-stopped"></span><h4>Reason why stopped<a class="headerlink" href="#reason-why-stopped" title="Permalink to this headline">¶</a></h4>
 <p>When a pipe-run fails, this value contains an error message that describes the problem.</p>
 <p>Since this is not a numeric value, it cannot be used with the “Value too high/low” rule types. It
 is intended to be used with the <a class="reference internal" href="#pump-completed-pattern-match-notification-rule"><span class="std std-ref">Pattern match</span></a> rule.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'testsystem'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9999</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span><span class="n">sludder</span> <span class="p">(</span><span class="n">Caused</span> <span class="n">by</span> <span class="n">NewConnectionError</span><span class="p">(</span><span class="s1">'&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7aaa518&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'</span><span class="p">,))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;testsystem&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9999</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span><span class="n">sludder</span> <span class="p">(</span><span class="n">Caused</span> <span class="n">by</span> <span class="n">NewConnectionError</span><span class="p">(</span><span class="s1">&#39;&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7aaa518&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution&#39;</span><span class="p">,))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="traceback">
-<span id="pipe-completed-property-traceback"></span><h4>Traceback<a class="headerlink" href="#traceback" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-property-traceback"></span><h4>Traceback<a class="headerlink" href="#traceback" title="Permalink to this headline">¶</a></h4>
 <p>When a pipe-run fails, this value contains the stacktrace of the error.</p>
 <p>Since this is not a numeric value, it cannot be used with the “Value too high/low” rule types. It
 is intended to be used with the <a class="reference internal" href="#pump-completed-pattern-match-notification-rule"><span class="std std-ref">Pattern match</span></a> rule.</p>
 <p>Tip: It is usually better to use the <a class="reference internal" href="#pipe-completed-property-reason-why-stopped"><span class="std std-ref">Reason why stopped</span></a> value
 instead, since that is less verbose while still usually containing the relevant error-message.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>\<span class="n">n</span>  <span class="n">File</span> \<span class="s2">"/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\"</span><span class="s2">, line 142, in _new_conn</span><span class="se">\n</span><span class="s2">    (self.host, self.port), self.timeout, **extra_kw)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/util/connection.py</span><span class="se">\"</span><span class="s2">, line 67, in create_connection</span><span class="se">\n</span><span class="s2">    for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/socket.py</span><span class="se">\"</span><span class="s2">, line 745, in getaddrinfo</span><span class="se">\n</span><span class="s2">    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):</span><span class="se">\n</span><span class="s2">socket.gaierror: [Errno -3] Temporary failure in name resolution</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\"</span><span class="s2">, line 578, in urlopen</span><span class="se">\n</span><span class="s2">    chunked=chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\"</span><span class="s2">, line 362, in _make_request</span><span class="se">\n</span><span class="s2">    conn.request(method, url, **httplib_request_kw)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\"</span><span class="s2">, line 1239, in request</span><span class="se">\n</span><span class="s2">    self._send_request(method, url, body, headers, encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\"</span><span class="s2">, line 1285, in _send_request</span><span class="se">\n</span><span class="s2">    self.endheaders(body, encode_chunked=encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\"</span><span class="s2">, line 1234, in endheaders</span><span class="se">\n</span><span class="s2">    self._send_output(message_body, encode_chunked=encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\"</span><span class="s2">, line 1026, in _send_output</span><span class="se">\n</span><span class="s2">    self.send(msg)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\"</span><span class="s2">, line 964, in send</span><span class="se">\n</span><span class="s2">    self.connect()</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\"</span><span class="s2">, line 167, in connect</span><span class="se">\n</span><span class="s2">    conn = self._new_conn()</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\"</span><span class="s2">, line 151, in _new_conn</span><span class="se">\n</span><span class="s2">    self, </span><span class="se">\"</span><span class="s2">Failed to establish a new connection: </span><span class="si">%s</span><span class="se">\"</span><span class="s2"> </span><span class="si">% e</span><span class="s2">)</span><span class="se">\n</span><span class="s2">requests.packages.urllib3.exceptions.NewConnectionError: &lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/adapters.py</span><span class="se">\"</span><span class="s2">, line 403, in send</span><span class="se">\n</span><span class="s2">    timeout=timeout</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\"</span><span class="s2">, line 623, in urlopen</span><span class="se">\n</span><span class="s2">    _stacktrace=sys.exc_info()[2])</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/util/retry.py</span><span class="se">\"</span><span class="s2">, line 281, in increment</span><span class="se">\n</span><span class="s2">    raise MaxRetryError(_pool, url, error or ResponseError(cause))</span><span class="se">\n</span><span class="s2">requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='testsystem', port=9999): Max retries exceeded with url: /sludder (Caused by NewConnectionError('&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/sources/json.py</span><span class="se">\"</span><span class="s2">, line 31, in getEntities</span><span class="se">\n</span><span class="s2">    with self.system.getStream(session, absolute_url, params=params) as stream:</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\"</span><span class="s2">, line 189, in getStream</span><span class="se">\n</span><span class="s2">    session=session, url=url, params=params, headers=headers)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\"</span><span class="s2">, line 182, in getStreamAndContentLength</span><span class="se">\n</span><span class="s2">    r, content_length = self.getRequestAndContentLength(session, url, params=params, headers=headers)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\"</span><span class="s2">, line 160, in getRequestAndContentLength</span><span class="se">\n</span><span class="s2">    verify=self.verify_ssl, timeout=self.timeout)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\"</span><span class="s2">, line 487, in get</span><span class="se">\n</span><span class="s2">    return self.request('GET', url, **kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\"</span><span class="s2">, line 475, in request</span><span class="se">\n</span><span class="s2">    resp = self.send(prep, **send_kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\"</span><span class="s2">, line 585, in send</span><span class="se">\n</span><span class="s2">    r = adapter.send(request, **kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\"</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/adapters.py</span><span class="se">\"</span><span class="s2">, line 467, in send</span><span class="se">\n</span><span class="s2">    raise ConnectionError(e, request=request)</span><span class="se">\n</span><span class="s2">requests.exceptions.ConnectionError: HTTPConnectionPool(host='testsystem', port=9999): Max retries exceeded with url: /sludder (Caused by NewConnectionError('&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>\<span class="n">n</span>  <span class="n">File</span> \<span class="s2">&quot;/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\&quot;</span><span class="s2">, line 142, in _new_conn</span><span class="se">\n</span><span class="s2">    (self.host, self.port), self.timeout, **extra_kw)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/util/connection.py</span><span class="se">\&quot;</span><span class="s2">, line 67, in create_connection</span><span class="se">\n</span><span class="s2">    for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/socket.py</span><span class="se">\&quot;</span><span class="s2">, line 745, in getaddrinfo</span><span class="se">\n</span><span class="s2">    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):</span><span class="se">\n</span><span class="s2">socket.gaierror: [Errno -3] Temporary failure in name resolution</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\&quot;</span><span class="s2">, line 578, in urlopen</span><span class="se">\n</span><span class="s2">    chunked=chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\&quot;</span><span class="s2">, line 362, in _make_request</span><span class="se">\n</span><span class="s2">    conn.request(method, url, **httplib_request_kw)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\&quot;</span><span class="s2">, line 1239, in request</span><span class="se">\n</span><span class="s2">    self._send_request(method, url, body, headers, encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\&quot;</span><span class="s2">, line 1285, in _send_request</span><span class="se">\n</span><span class="s2">    self.endheaders(body, encode_chunked=encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\&quot;</span><span class="s2">, line 1234, in endheaders</span><span class="se">\n</span><span class="s2">    self._send_output(message_body, encode_chunked=encode_chunked)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\&quot;</span><span class="s2">, line 1026, in _send_output</span><span class="se">\n</span><span class="s2">    self.send(msg)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/lib/python3.6/http/client.py</span><span class="se">\&quot;</span><span class="s2">, line 964, in send</span><span class="se">\n</span><span class="s2">    self.connect()</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\&quot;</span><span class="s2">, line 167, in connect</span><span class="se">\n</span><span class="s2">    conn = self._new_conn()</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connection.py</span><span class="se">\&quot;</span><span class="s2">, line 151, in _new_conn</span><span class="se">\n</span><span class="s2">    self, </span><span class="se">\&quot;</span><span class="s2">Failed to establish a new connection: </span><span class="si">%s</span><span class="se">\&quot;</span><span class="s2"> </span><span class="si">% e</span><span class="s2">)</span><span class="se">\n</span><span class="s2">requests.packages.urllib3.exceptions.NewConnectionError: &lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/adapters.py</span><span class="se">\&quot;</span><span class="s2">, line 403, in send</span><span class="se">\n</span><span class="s2">    timeout=timeout</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/connectionpool.py</span><span class="se">\&quot;</span><span class="s2">, line 623, in urlopen</span><span class="se">\n</span><span class="s2">    _stacktrace=sys.exc_info()[2])</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/packages/urllib3/util/retry.py</span><span class="se">\&quot;</span><span class="s2">, line 281, in increment</span><span class="se">\n</span><span class="s2">    raise MaxRetryError(_pool, url, error or ResponseError(cause))</span><span class="se">\n</span><span class="s2">requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host=&#39;testsystem&#39;, port=9999): Max retries exceeded with url: /sludder (Caused by NewConnectionError(&#39;&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution&#39;,))</span><span class="se">\n\n</span><span class="s2">During handling of the above exception, another exception occurred:</span><span class="se">\n</span><span class="s2">Traceback (most recent call last):</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/sources/json.py</span><span class="se">\&quot;</span><span class="s2">, line 31, in getEntities</span><span class="se">\n</span><span class="s2">    with self.system.getStream(session, absolute_url, params=params) as stream:</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\&quot;</span><span class="s2">, line 189, in getStream</span><span class="se">\n</span><span class="s2">    session=session, url=url, params=params, headers=headers)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\&quot;</span><span class="s2">, line 182, in getStreamAndContentLength</span><span class="se">\n</span><span class="s2">    r, content_length = self.getRequestAndContentLength(session, url, params=params, headers=headers)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/lake/systems/url.py</span><span class="se">\&quot;</span><span class="s2">, line 160, in getRequestAndContentLength</span><span class="se">\n</span><span class="s2">    verify=self.verify_ssl, timeout=self.timeout)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\&quot;</span><span class="s2">, line 487, in get</span><span class="se">\n</span><span class="s2">    return self.request(&#39;GET&#39;, url, **kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\&quot;</span><span class="s2">, line 475, in request</span><span class="se">\n</span><span class="s2">    resp = self.send(prep, **send_kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/sessions.py</span><span class="se">\&quot;</span><span class="s2">, line 585, in send</span><span class="se">\n</span><span class="s2">    r = adapter.send(request, **kwargs)</span><span class="se">\n</span><span class="s2">  File </span><span class="se">\&quot;</span><span class="s2">/usr/local/lib/python3.6/dist-packages/requests/adapters.py</span><span class="se">\&quot;</span><span class="s2">, line 467, in send</span><span class="se">\n</span><span class="s2">    raise ConnectionError(e, request=request)</span><span class="se">\n</span><span class="s2">requests.exceptions.ConnectionError: HTTPConnectionPool(host=&#39;testsystem&#39;, port=9999): Max retries exceeded with url: /sludder (Caused by NewConnectionError(&#39;&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7a954a8&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution&#39;,))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="additional-low-level-errormessage">
-<span id="pipe-completed-property-original-error-message"></span><h4>Additional low-level errormessage<a class="headerlink" href="#additional-low-level-errormessage" title="Permalink to this headline">#</a></h4>
+<span id="pipe-completed-property-original-error-message"></span><h4>Additional low-level errormessage<a class="headerlink" href="#additional-low-level-errormessage" title="Permalink to this headline">¶</a></h4>
 <p>When a pipe-run fails, this value can in some cases contain an additional
 low-level description of what went wrong. Note: If no additional information is available, this
 property will be empty.</p>
@@ -377,7 +848,7 @@ property will be empty.</p>
 is intended to be used with the <a class="reference internal" href="#pump-completed-pattern-match-notification-rule"><span class="std std-ref">Pattern match</span></a> rule.</p>
 </div>
 <div class="section" id="additional-low-level-traceback">
-<h4>Additional low-level traceback<a class="headerlink" href="#additional-low-level-traceback" title="Permalink to this headline">#</a></h4>
+<h4>Additional low-level traceback<a class="headerlink" href="#additional-low-level-traceback" title="Permalink to this headline">¶</a></h4>
 <p>When a pipe-run fails, this value can in some cases contain an additional low-level stacktrace of the
 error. Note: If no additional information is available, this value will be empty.</p>
 <p>Since this is not a numeric value, it cannot be used with the “Value too high/low” rule types. It
@@ -387,30 +858,30 @@ instead of this value, since that is less verbose while still usually containing
 </div>
 </div>
 <div class="section" id="how-can-it-be-monitored">
-<h3>How can it be monitored?<a class="headerlink" href="#how-can-it-be-monitored" title="Permalink to this headline">#</a></h3>
+<h3>How can it be monitored?<a class="headerlink" href="#how-can-it-be-monitored" title="Permalink to this headline">¶</a></h3>
 <p>Each of the metric described above can be monitored in a number of different ways.</p>
 <div class="section" id="value-too-low">
-<span id="pump-completed-value-too-low-notification-rule"></span><h4>Value too low<a class="headerlink" href="#value-too-low" title="Permalink to this headline">#</a></h4>
+<span id="pump-completed-value-too-low-notification-rule"></span><h4>Value too low<a class="headerlink" href="#value-too-low" title="Permalink to this headline">¶</a></h4>
 <p>This rule type triggers a notification if a metric was below a specified value.</p>
 </div>
 <div class="section" id="value-too-high">
-<span id="pump-completed-value-too-high-notification-rule"></span><h4>Value too high<a class="headerlink" href="#value-too-high" title="Permalink to this headline">#</a></h4>
+<span id="pump-completed-value-too-high-notification-rule"></span><h4>Value too high<a class="headerlink" href="#value-too-high" title="Permalink to this headline">¶</a></h4>
 <p>This rule type triggers a notification if a metric was above a specified value.</p>
 </div>
 <div class="section" id="value-too-low-over-time">
-<span id="pump-completed-value-too-low-over-time-notification-rule"></span><h4>Value too low over time<a class="headerlink" href="#value-too-low-over-time" title="Permalink to this headline">#</a></h4>
+<span id="pump-completed-value-too-low-over-time-notification-rule"></span><h4>Value too low over time<a class="headerlink" href="#value-too-low-over-time" title="Permalink to this headline">¶</a></h4>
 <p>This rule type triggers a notification if a metric has been below a specified value for a
 specified period of time.</p>
 </div>
 <div class="section" id="value-too-high-over-time">
-<span id="pump-completed-value-too-high-over-time-notification-rule"></span><h4>Value too high over time<a class="headerlink" href="#value-too-high-over-time" title="Permalink to this headline">#</a></h4>
+<span id="pump-completed-value-too-high-over-time-notification-rule"></span><h4>Value too high over time<a class="headerlink" href="#value-too-high-over-time" title="Permalink to this headline">¶</a></h4>
 <p>This rule type triggers a notification if a metric has been above a specified value for a
 specified period of time.</p>
 </div>
 </div>
 </div>
 <div class="section" id="pump-started-overdue">
-<span id="pump-started-overdue-notification-rule"></span><h2>Pump started overdue<a class="headerlink" href="#pump-started-overdue" title="Permalink to this headline">#</a></h2>
+<span id="pump-started-overdue-notification-rule"></span><h2>Pump started overdue<a class="headerlink" href="#pump-started-overdue" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this rule type is to alert the user if a pipe hasn’t started running by the
 time it is supposed to.</p>
 <p>When a pipe starts to run, the next expected starttime is calculated based on the pipe’s
@@ -424,20 +895,20 @@ of seconds the pipe-run can be overdue. The number of seconds in the “Grace pe
 ‘built-in’ grace-period of 300 seconds.</p>
 </div>
 <div class="section" id="pump-finished-overdue">
-<span id="pump-finished-overdue-notification-rule"></span><h2>Pump finished overdue<a class="headerlink" href="#pump-finished-overdue" title="Permalink to this headline">#</a></h2>
+<span id="pump-finished-overdue-notification-rule"></span><h2>Pump finished overdue<a class="headerlink" href="#pump-finished-overdue" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this rule type is to alert the user if a pipe hasn’t finished running by the
 time it is supposed to.</p>
 <p>The “Limit” parameter specified the number of seconds that the pipe is allowed to run before an alert is generated.
 The number of seconds in the “Limit” parameter is added to the ‘built-in’ limit of 300 seconds.</p>
 </div>
 <div class="section" id="pump-failed">
-<span id="pump-failed-notification-rule"></span><h2>Pump failed<a class="headerlink" href="#pump-failed" title="Permalink to this headline">#</a></h2>
+<span id="pump-failed-notification-rule"></span><h2>Pump failed<a class="headerlink" href="#pump-failed" title="Permalink to this headline">¶</a></h2>
 <p>This ruletype checks if the pipe failed the last time it ran, for any reason.</p>
 <p>If more control of when the notification rule triggers is needed, the
 <a class="reference internal" href="#pump-completed-pattern-match-notification-rule"><span class="std std-ref">Pattern match</span></a> rule can be used instead.</p>
 </div>
 <div class="section" id="restore-completed">
-<span id="restore-completed-notification-rule"></span><h2>Restore completed<a class="headerlink" href="#restore-completed" title="Permalink to this headline">#</a></h2>
+<span id="restore-completed-notification-rule"></span><h2>Restore completed<a class="headerlink" href="#restore-completed" title="Permalink to this headline">¶</a></h2>
 <p>This ruletype triggers when the pipe and its associated state and data has been restored from backup. This can happen
 if the machine the pipe is running on has failed for some reason; in this case the pipe’s state and data might
 be restored from a remote backup. After a restore the pipe will be in the state it was when the backup was made,
@@ -445,7 +916,7 @@ which means data might be reprocessed.</p>
 <p>See also the <a class="reference internal" href="#pump-offset-set-notification-rule"><span class="std std-ref">Pump offset set</span></a> notification rule.</p>
 </div>
 <div class="section" id="pump-offset-set">
-<span id="pump-offset-set-notification-rule"></span><h2>Pump offset set<a class="headerlink" href="#pump-offset-set" title="Permalink to this headline">#</a></h2>
+<span id="pump-offset-set-notification-rule"></span><h2>Pump offset set<a class="headerlink" href="#pump-offset-set" title="Permalink to this headline">¶</a></h2>
 <p>This ruletype triggers when the pipe’s offset has been set for any reason. The offset can be set manually by a
 user (for instance by resetting the pipe), or automatically if the pipe detects that something has happened to
 the upstream pipes that requires the pipe’s offset to be modified.</p>
@@ -454,7 +925,7 @@ rewound to match the max offset of the restored upstread pipe.</p>
 <p>See also the <a class="reference internal" href="#restore-completed-notification-rule"><span class="std std-ref">Restore completed</span></a> notification rule.</p>
 </div>
 <div class="section" id="pattern-match">
-<span id="pump-completed-pattern-match-notification-rule"></span><h2>Pattern match<a class="headerlink" href="#pattern-match" title="Permalink to this headline">#</a></h2>
+<span id="pump-completed-pattern-match-notification-rule"></span><h2>Pattern match<a class="headerlink" href="#pattern-match" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this rule type is to alert the user if a pipe has failed with a specific error-message.</p>
 <p>The user can specify which value to examine, but the most common use case is the
 <a class="reference internal" href="#pipe-completed-property-reason-why-stopped"><span class="std std-ref">Reason why stopped</span></a> value.</p>
@@ -462,7 +933,7 @@ rewound to match the max offset of the restored upstread pipe.</p>
 “?” matches one single character.</p>
 <p>Example:
 If the “Reason why stopped” looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'testsystem'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9999</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span><span class="n">sludder</span> <span class="p">(</span><span class="n">Caused</span> <span class="n">by</span> <span class="n">NewConnectionError</span><span class="p">(</span><span class="s1">'&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7b32550&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'</span><span class="p">,))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;testsystem&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9999</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span><span class="n">sludder</span> <span class="p">(</span><span class="n">Caused</span> <span class="n">by</span> <span class="n">NewConnectionError</span><span class="p">(</span><span class="s1">&#39;&lt;requests.packages.urllib3.connection.HTTPConnection object at 0x7f12b7b32550&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution&#39;</span><span class="p">,))</span>
 </pre></div>
 </div>
 <p>appropriate patterns to use to match this error could be:</p>
@@ -485,7 +956,7 @@ If the “Reason why stopped” looks like this:</p>
 <a class="reference internal" href="#pump-failed-notification-rule"><span class="std std-ref">Pump failed</span></a> rule instead.</p>
 </div>
 <div class="section" id="node-heartbeat-overdue">
-<h2>Node heartbeat overdue<a class="headerlink" href="#node-heartbeat-overdue" title="Permalink to this headline">#</a></h2>
+<h2>Node heartbeat overdue<a class="headerlink" href="#node-heartbeat-overdue" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this rule is to alert the user if something is wrong in the notification-machinery itself.</p>
 <p>This is a special built-in rule that is automatically applied to pipes that have one or more
 user-specified rules. It is normally never visible to end-users.</p>
@@ -497,79 +968,79 @@ a “heartbeat” message at regular intervals. If the Sesam portal backend hasn
 a long time, a “Node heartbeat overdue” notification is triggered.</p>
 </div>
 <div class="section" id="alert-rate-limiting">
-<h2>Alert rate limiting<a class="headerlink" href="#alert-rate-limiting" title="Permalink to this headline">#</a></h2>
+<h2>Alert rate limiting<a class="headerlink" href="#alert-rate-limiting" title="Permalink to this headline">¶</a></h2>
 <p>To avoid flooding users with alert, each notification rule will only generate at most one alert
 per hour. If the notification rule triggered more than once during that hour, the alert-message
 will say something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"First occurrence: 2017-11-16 09:53:16. This event has triggered</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;First occurrence: 2017-11-16 09:53:16. This event has triggered</span>
 <span class="n">an</span> <span class="n">additional</span> <span class="mi">215</span> <span class="n">times</span> <span class="n">after</span> <span class="n">the</span> <span class="n">first</span> <span class="n">occurrence</span><span class="o">.</span> <span class="n">The</span> <span class="n">last</span> <span class="n">time</span>
-<span class="n">it</span> <span class="n">triggered</span> <span class="n">was</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">16</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mf">57.</span><span class="s2">"</span>
+<span class="n">it</span> <span class="n">triggered</span> <span class="n">was</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">16</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mf">57.</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="notification-summary-api">
-<h2>Notification summary API<a class="headerlink" href="#notification-summary-api" title="Permalink to this headline">#</a></h2>
+<h2>Notification summary API<a class="headerlink" href="#notification-summary-api" title="Permalink to this headline">¶</a></h2>
 <p>The SESAM portal backend publishes a notification summary on the API endpoint <a class="reference external" href="https://portal.sesam.io/api/notifications-summary">https://portal.sesam.io/api/notifications-summary</a> .</p>
 <p>This endpoint is intended for advanced users who want a quick way of checking if any notification-rules on a
 subscription have triggered (for instance to create a status-board website).</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">'https://portal.sesam.io/api/notifications-summary'</span> <span class="o">-</span><span class="n">H</span> <span class="s1">'Authorization: bearer &lt;JWT-for-the-subscription-12345644-2a04-4ff1-9d77-7b3eb615974c&gt;'</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;https://portal.sesam.io/api/notifications-summary&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: bearer &lt;JWT-for-the-subscription-12345644-2a04-4ff1-9d77-7b3eb615974c&gt;&#39;</span>
 </pre></div>
 </div>
 <p>will result in a response that looks like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c_pumpoverduetest"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pumpoverduetest"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c_pumpoverduetest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pumpoverduetest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c_monitoring-canary"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">261</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c_monitoring-canary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">261</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s2">"alerts_will_be_visible_for_the_current_user"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s2">"event_count"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"event_timestamp"</span><span class="p">:</span> <span class="s2">"2019-09-09T11:24:46.187000Z"</span><span class="p">,</span>
-        <span class="s2">"is_ongoing"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s2">"last_event_timestamp"</span><span class="p">:</span> <span class="s2">"2019-09-09T11:24:46.187000Z"</span><span class="p">,</span>
-        <span class="s2">"msg"</span><span class="p">:</span> <span class="s2">"The value of the 'Entities processed' parameter was 0, which is below the specified limit 1."</span><span class="p">,</span>
-        <span class="s2">"notification_id"</span><span class="p">:</span> <span class="mi">57763</span><span class="p">,</span>
-        <span class="s2">"notification_rule_id"</span><span class="p">:</span> <span class="s2">"12345653-f722-4e7e-9afd-59bb3a4f82d5"</span><span class="p">,</span>
-        <span class="s2">"notification_rule_name"</span><span class="p">:</span> <span class="s2">"Too low test"</span><span class="p">,</span>
-        <span class="s2">"notification_rule_type"</span><span class="p">:</span> <span class="s2">"pump_completed_value_too_low"</span><span class="p">,</span>
-        <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"monitoring-canary"</span><span class="p">,</span>
-        <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span>
+        <span class="s2">&quot;alerts_will_be_visible_for_the_current_user&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;event_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;event_timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-09T11:24:46.187000Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_ongoing&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;last_event_timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-09T11:24:46.187000Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;The value of the &#39;Entities processed&#39; parameter was 0, which is below the specified limit 1.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_id&quot;</span><span class="p">:</span> <span class="mi">57763</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345653-f722-4e7e-9afd-59bb3a4f82d5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Too low test&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump_completed_value_too_low&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;monitoring-canary&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="s2">"alerts_will_be_visible_for_the_current_user"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s2">"event_count"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"event_timestamp"</span><span class="p">:</span> <span class="s2">"2019-09-09T11:24:46.187000Z"</span><span class="p">,</span>
-        <span class="s2">"is_ongoing"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s2">"last_event_timestamp"</span><span class="p">:</span> <span class="s2">"2019-09-09T11:24:46.187000Z"</span><span class="p">,</span>
-        <span class="s2">"msg"</span><span class="p">:</span> <span class="s2">"The value of the 'Entities processed' parameter was 0, which is below the specified limit 2."</span><span class="p">,</span>
-        <span class="s2">"notification_id"</span><span class="p">:</span> <span class="mi">57762</span><span class="p">,</span>
-        <span class="s2">"notification_rule_id"</span><span class="p">:</span> <span class="s2">"1234560e-cf92-4325-bc39-51cf2604d646"</span><span class="p">,</span>
-        <span class="s2">"notification_rule_name"</span><span class="p">:</span> <span class="s2">"Too low test2"</span><span class="p">,</span>
-        <span class="s2">"notification_rule_type"</span><span class="p">:</span> <span class="s2">"pump_completed_value_too_low"</span><span class="p">,</span>
-        <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"monitoring-canary"</span><span class="p">,</span>
-        <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span>
+        <span class="s2">&quot;alerts_will_be_visible_for_the_current_user&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;event_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;event_timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-09T11:24:46.187000Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_ongoing&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;last_event_timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-09-09T11:24:46.187000Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;The value of the &#39;Entities processed&#39; parameter was 0, which is below the specified limit 2.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_id&quot;</span><span class="p">:</span> <span class="mi">57762</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1234560e-cf92-4325-bc39-51cf2604d646&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Too low test2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_rule_type&quot;</span><span class="p">:</span> <span class="s2">&quot;pump_completed_value_too_low&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;monitoring-canary&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"monitoring-canary"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345644-2a04-4ff1-9d77-7b3eb615974c"</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;monitoring-canary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345644-2a04-4ff1-9d77-7b3eb615974c&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -605,92 +1076,92 @@ This ruletype checks if the subscription’s license is getting close to its exp
 </ul>
 <p>This endpoint implements the <a class="reference internal" href="json-pull.html"><span class="doc">JSON Pull Protocol</span></a>, but the following quirk is useful to
 know about: The ordering of the returned entities are not directly determined by when the notification each entity
-describes triggered. Example: if the endpoint returns two entities with <code class="docutils literal notranslate"><span class="pre">"_updated":1</span></code> and  <code class="docutils literal notranslate"><span class="pre">"_updated":2</span></code>,
-the entity with  <code class="docutils literal notranslate"><span class="pre">"_updated":1</span></code> might describe a notification that triggered <em>after</em> the notification in the entity
-with <code class="docutils literal notranslate"><span class="pre">"_updated":2</span></code>. This is not a problem, but can be a source of confusion if one is not aware of this behaviour.</p>
+describes triggered. Example: if the endpoint returns two entities with <code class="docutils literal notranslate"><span class="pre">&quot;_updated&quot;:1</span></code> and  <code class="docutils literal notranslate"><span class="pre">&quot;_updated&quot;:2</span></code>,
+the entity with  <code class="docutils literal notranslate"><span class="pre">&quot;_updated&quot;:1</span></code> might describe a notification that triggered <em>after</em> the notification in the entity
+with <code class="docutils literal notranslate"><span class="pre">&quot;_updated&quot;:2</span></code>. This is not a problem, but can be a source of confusion if one is not aware of this behaviour.</p>
 <div class="section" id="example-timeline">
-<h3>Example timeline<a class="headerlink" href="#example-timeline" title="Permalink to this headline">#</a></h3>
+<h3>Example timeline<a class="headerlink" href="#example-timeline" title="Permalink to this headline">¶</a></h3>
 <p>This timeline illustrates how the notification-summary api works.</p>
 <div class="section" id="id1">
-<h4>10:00<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>10:00<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>We have three pipes: pipeA, pipeB and pipeC. Initially, no pipes have triggered any notifications.
 At this time, the api returns something like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h4>10:01<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<h4>10:01<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>pipeA fails and triggers a notification</p>
 </div>
 <div class="section" id="id3">
-<h4>10:02<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<h4>10:02<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>pipeB fails and triggers a notification</p>
 </div>
 <div class="section" id="id4">
-<h4>10:03<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<h4>10:03<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>At this time, the api may return this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">01</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -698,37 +1169,37 @@ At this time, the api returns something like this:</p>
 <p>But, it may just as well return this (i.e. switching the order of pipeA and pipeB):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">01</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -736,188 +1207,188 @@ At this time, the api returns something like this:</p>
 <p>(Implementation details: This happens because the “_updated” values aren’t assigned until the “api/notification-summary” endpoint is actually called. At that point all the current notifications are gathered, and the code decides if it needs to create new entries for any of the pipes.)</p>
 </div>
 <div class="section" id="id5">
-<h4>10:04<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<h4>10:04<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>pipeC fails and triggers a notification</p>
 </div>
 <div class="section" id="id6">
-<h4>10:05<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<h4>10:05<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>At this time, the api will return this (assuming that the ordering at 10:03 was “pipeC”, “pipeB”, “pipeA”):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">01</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">04</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id7">
-<h4>10:06<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<h4>10:06<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>pipeC fails again, but in a way that triggers an additional notification.</p>
 </div>
 <div class="section" id="id8">
-<h4>10:07<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<h4>10:07<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>At this time, the api will returns this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">01</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">04</span><span class="o">**</span><span class="p">},</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">06</span><span class="o">**</span><span class="p">},</span>
     <span class="p">],</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id9">
-<h4>10:08<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<h4>10:08<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p>pipeA succeeds, and all notifications on pipeA is removed.</p>
 </div>
 <div class="section" id="id10">
-<h4>10:09<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<h4>10:09<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <p>At this time, the api will returns this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">04</span><span class="o">**</span><span class="p">},</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">06</span><span class="o">**</span><span class="p">},</span>
     <span class="p">],</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id11">
-<h4>10:10<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<h4>10:10<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <p>pipeC fails yet again, but in a way that makes the notification that was triggered at 10:06 go away.</p>
 </div>
 <div class="section" id="id12">
-<h4>10:11<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<h4>10:11<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <p>At this time, the api will returns this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeB"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeB"</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">02</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeA"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeA"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"_deleted"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab_pipeC"</span><span class="p">,</span>
-    <span class="s2">"_updated"</span><span class="p">:</span> <span class="mi">108</span><span class="p">,</span>
-    <span class="s2">"confidence"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"notifications"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;_deleted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab_pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;_updated&quot;</span><span class="p">:</span> <span class="mi">108</span><span class="p">,</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;notifications&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="o">**</span><span class="n">the</span> <span class="n">notification</span> <span class="n">that</span> <span class="n">was</span> <span class="n">triggered</span> <span class="n">at</span> <span class="mi">10</span><span class="p">:</span><span class="mi">04</span><span class="o">**</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"pipe_id"</span><span class="p">:</span> <span class="s2">"pipeC"</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">,</span>
-    <span class="s2">"subscription_id"</span><span class="p">:</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span>
+    <span class="s2">&quot;pipe_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipeC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscription_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678-1234-1234-1234-1234567890ab&quot;</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -927,133 +1398,59 @@ At this time, the api returns something like this:</p>
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="pump-execution.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">The Pump Execution Dataset</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="security.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Security</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
-              
-            </div>
-          </div>
-        </div>
-        
-      </footer>
-    </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Notifications</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#pump-completed-pump-failed-notification-rules">Pump completed / Pump failed notification rules</a><ul>
-<li><a class="reference internal" href="#what-can-be-monitored">What can be monitored?</a><ul>
-<li><a class="reference internal" href="#entities-processed">Entities processed</a></li>
-<li><a class="reference internal" href="#changed-entities">Changed entities</a></li>
-<li><a class="reference internal" href="#failed-retries">Failed retries</a></li>
-<li><a class="reference internal" href="#dead-entities">Dead entities</a></li>
-<li><a class="reference internal" href="#failed-retried-entities">Failed retried entities</a></li>
-<li><a class="reference internal" href="#successfully-retried-entities">Successfully retried entities</a></li>
-<li><a class="reference internal" href="#read-errors">Read errors</a></li>
-<li><a class="reference internal" href="#write-errors">Write errors</a></li>
-<li><a class="reference internal" href="#sink-time">Sink time</a></li>
-<li><a class="reference internal" href="#source-time">Source time</a></li>
-<li><a class="reference internal" href="#transform-time">Transform time</a></li>
-<li><a class="reference internal" href="#reason-why-stopped">Reason why stopped</a></li>
-<li><a class="reference internal" href="#traceback">Traceback</a></li>
-<li><a class="reference internal" href="#additional-low-level-errormessage">Additional low-level errormessage</a></li>
-<li><a class="reference internal" href="#additional-low-level-traceback">Additional low-level traceback</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#how-can-it-be-monitored">How can it be monitored?</a><ul>
-<li><a class="reference internal" href="#value-too-low">Value too low</a></li>
-<li><a class="reference internal" href="#value-too-high">Value too high</a></li>
-<li><a class="reference internal" href="#value-too-low-over-time">Value too low over time</a></li>
-<li><a class="reference internal" href="#value-too-high-over-time">Value too high over time</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pump-started-overdue">Pump started overdue</a></li>
-<li><a class="reference internal" href="#pump-finished-overdue">Pump finished overdue</a></li>
-<li><a class="reference internal" href="#pump-failed">Pump failed</a></li>
-<li><a class="reference internal" href="#restore-completed">Restore completed</a></li>
-<li><a class="reference internal" href="#pump-offset-set">Pump offset set</a></li>
-<li><a class="reference internal" href="#pattern-match">Pattern match</a></li>
-<li><a class="reference internal" href="#node-heartbeat-overdue">Node heartbeat overdue</a></li>
-<li><a class="reference internal" href="#alert-rate-limiting">Alert rate limiting</a></li>
-<li><a class="reference internal" href="#notification-summary-api">Notification summary API</a><ul>
-<li><a class="reference internal" href="#example-timeline">Example timeline</a><ul>
-<li><a class="reference internal" href="#id1">10:00</a></li>
-<li><a class="reference internal" href="#id2">10:01</a></li>
-<li><a class="reference internal" href="#id3">10:02</a></li>
-<li><a class="reference internal" href="#id4">10:03</a></li>
-<li><a class="reference internal" href="#id5">10:04</a></li>
-<li><a class="reference internal" href="#id6">10:05</a></li>
-<li><a class="reference internal" href="#id7">10:06</a></li>
-<li><a class="reference internal" href="#id8">10:07</a></li>
-<li><a class="reference internal" href="#id9">10:08</a></li>
-<li><a class="reference internal" href="#id10">10:09</a></li>
-<li><a class="reference internal" href="#id11">10:10</a></li>
-<li><a class="reference internal" href="#id12">10:11</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-          </div>
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="security.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Security</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="pump-execution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Pump Execution Dataset</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>

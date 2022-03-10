@@ -1,294 +1,724 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data platforms" href="index-dataplatforms.html" /><link rel="prev" title="Entity Data Model" href="entitymodel.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
-        <title>Data modelling in Sesam - Sesam Documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data modelling in Sesam &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data platforms" href="index-dataplatforms.html" />
+    <link rel="prev" title="Entity Data Model" href="entitymodel.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
     
 
-
-<style>
-  body {
-    --color-code-background: #eeffcc;
-  --color-code-foreground: black;
-  
-  }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-    }
-  }
-</style></head>
-  <body>
-    <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
-    </script>
+    <!-- Google Analytics -->
     
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="svg-toc" viewBox="0 0 24 24">
-    <title>Contents</title>
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
-      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
-    </svg>
-  </symbol>
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-    <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-    <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </symbol>
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-  </symbol>
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-    </svg>
-  </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
-</svg>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This is a preview of the upcoming Sesam Documentation. For the official documentation go to <a href="https://docs.sesam.io">docs.sesam.io</a> 
-  </aside>
-</div>
+  <div id="navbar-start">
+    
+    
 
-<div class="page">
-  <header class="mobile-header">
-    <div class="header-left">
-      <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
-      </label>
-    </div>
-    <div class="header-center">
-      <a href="index.html"><div class="brand">Sesam Documentation</div></a>
-    </div>
-    <div class="header-right">
-      <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-        </button>
-      </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-      </label>
-    </div>
-  </header>
-  <aside class="sidebar-drawer">
-    <div class="sidebar-container">
-      
-      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
-  
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="_static/sesamlogo.svg" alt="Logo"/>
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
   </div>
-  
-  
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-whatis.html">What is Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="core-principles.html">Core principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="features.html">Key benefits</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index-developer.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="best-practices.html">Project kickstart</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="pre-planning.html">Planning a project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-environment.html">Setting up an environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-dataflow.html">Creating a dataflow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html">Building blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product-features.html">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DTLReferenceGuide.html">Data Transformation Language (DTL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">Design patterns</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-synchronization.html">Data synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="idempotency.html">Non-idempotency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cron-expressions.html">Cron Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdf-support.html">RDF support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-pull.html">JSON Pull Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="json-push.html">JSON Push Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extension-points.html">Developer Extension Points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source-datatype-mapping.html">Source datatype mapping</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index-datamodelling.html">Data modelling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="entitymodel.html">Entity Data Model</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Data modelling</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-dataplatforms.html">Data platforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="azure.html">Sesam in Microsoft Azure</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index-operations.html">Operations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">Notifications</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pump-execution.html">Pump Execution Dataset</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="project-workflow.html">Configuration Management</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="version-control-system.html">Using Sesam with a version control system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing-locally.html">Testing a Sesam configuration locally</a></li>
-<li class="toctree-l4"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="automatic-deployment.html">Automatic deployment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="self-hosted.html">Self-hosted service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="low-level-debugging.html">Debugging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="behind-the-scenes.html">Behind the scenes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="management-studio.html">Management Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sesam-client.html">Sesam Client</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="gdpr-platform.html">GDPR platform</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-configuration.html">Platform configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-types-purposes-configuration.html">Datatypes and purposes configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-data-access-portal.html">The GDPR data access portal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-platform-developer-docs.html">Developer documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-getting-started.html">Getting started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gdpr-changelog.html">Changelog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">Service Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">Service API</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="deprecations.html">Deprecated features</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="databrowser.html">Databrowser</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-guide.html">Databrowser Guide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-auth.html">Authentication and authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="databrowser-api.html">Configuration file API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index-learn.html">Learn Sesam</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="legal.html">Legal</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="terms.html">Terms of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-service.html">Description of the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pricing.html">Subscription Fee, payment terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="legal-dap.html">Data Process Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partner-agreement.html">Partner Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quick-reference.html">Quick Reference</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://support.sesam.io">Support</a></li>
-</ul>
 
-</div>
-</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="quick-reference.html">
+  Quick Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+    
+</ul>
       </div>
       
     </div>
-  </aside>
-  <div class="main">
-    <div class="content">
-      <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
-              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
-              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
-            </button>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-handling-philosophy">
+   Data handling philosophy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-datasets">
+   Global datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#positive-effects-of-global-datasets">
+     Positive effects of global datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-you-have-to-take-into-account-and-what-are-the-challenges-of-global-datasets">
+     What do you have to take into account, and what are the challenges of global datasets?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#namespace-and-namespaced-identifiers">
+   Namespace and namespaced identifiers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespace">
+     Namespace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespaced-identifiers">
+     Namespaced identifiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naming-conventions">
+   Naming conventions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-rules">
+     General rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systems">
+     Systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipes">
+     Pipes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datasets">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow-for-transforming-data-in-sesam">
+   Workflow for transforming data in Sesam
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inbound-pipes">
+     Inbound pipes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#embedded-data-and-conditional-inbound-pipes">
+       Embedded data and Conditional inbound pipes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#embedded-data-as-extra-information">
+       Embedded data as extra information
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#embedded-data-for-testing">
+       Embedded data for testing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rdf-type">
+       RDF type
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#namespaces">
+       Namespaces
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global-pipes">
+     Global pipes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparation-pipes">
+     Preparation pipes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outbound-pipes">
+     Outbound pipes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips-for-global-datasets">
+   Tips for global datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-do-global-datasets-in-sesam">
+   How to do global datasets in Sesam
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recipe-for-generating-global-datasets">
+   Recipe for generating global datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-sesam-tips">
+   Additional Sesam tips
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-new-id-for-an-entity">
+     Creating a new _id for an entity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#golden-record">
+     Golden record
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-modelling">
+     Data modelling
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#raw-input">
+       Raw input
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-flow">
+       Data flow
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#enrich-data">
+       Enrich data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-data-late-binding">
+       Output data (late binding)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unmodified-dataset-as-output">
+       Unmodified dataset as output
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
-          </label>
-        </div>
-        <article role="main">
-          <div class="section" id="data-modelling-in-sesam">
-<span id="best-practice"></span><h1>Data modelling in Sesam<a class="headerlink" href="#data-modelling-in-sesam" title="Permalink to this headline">#</a></h1>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="data-modelling-in-sesam">
+<span id="best-practice"></span><h1>Data modelling in Sesam<a class="headerlink" href="#data-modelling-in-sesam" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Sesam is an Master Data Hub using a unique approach for collecting, connecting and sharing data. With Sesam data can quickly be re-purposed, re-structured and used, without changing the legacy systems that own the original data. Making all the valuable data within your company available for the whole organization.</p>
 <p>As many systems, Sesam can become complex and difficult to maintain when misused. To mitigate this, it is important to follow a small set of simple rules when starting on your journey. Adhering to these guidelines early will give your system solid foundations making it future proof and sparing you numerous headaches when time will come to connect more external systems and get even more out of your data.</p>
 <p>As the amount of data in a Sesam node grows, an optimized dataset structure will become necessary. For example, rather than approach each data flow sequentially and individually—where a single entry will lead to single merger or alteration followed by sinking the data to a recipient external system—it helps to favour aggregations of data with similar type or pertaining to the same concept. These aggregations are called “global datasets” and can be seen as authoritative datasets—e.g. the one stop shop for customer data, where the freshest and most accurate data can unequivocally be found.</p>
 </div>
 <div class="section" id="data-handling-philosophy">
-<h2>Data handling philosophy<a class="headerlink" href="#data-handling-philosophy" title="Permalink to this headline">#</a></h2>
+<h2>Data handling philosophy<a class="headerlink" href="#data-handling-philosophy" title="Permalink to this headline">¶</a></h2>
 <p>The data handling philosophy in Sesam can be described in short as connect, collect, share. Sesam uses connectors to fetch data from external systems. The internal data representation uses JSON, allowing to work with data from heterogeneous sources indistinctively of their system of origin.
 We recommend applying a few principles when importing data into Sesam:</p>
 <ol class="arabic simple">
@@ -302,14 +732,14 @@ We also recommend considering the following principles when creating the global 
 <li><p>Try to merge the data into the global dataset referring to the same concept. This semantic approach to global datasets will facilitate the consumption and improve the reusability of the data within Sesam.</p></li>
 </ol>
 <p>Following the above mentioned principles when importing data and creating global datasets will establish good foundations for Sesam’s bold objective: “All the data from all the systems, connected and available as a single shared resource».</p>
-<a class="reference internal image-reference" href="_images/Sesam-datamodel.png"><img alt="Generic pipe concept" class="align-center" src="_images/Sesam-datamodel.png" style="width: 800px;"/></a>
+<a class="reference internal image-reference" href="_images/Sesam-datamodel.png"><img alt="Generic pipe concept" class="align-center" src="_images/Sesam-datamodel.png" style="width: 800px;" /></a>
 <p>To read about the main concepts and how to get started in Sesam, please click <a class="reference internal" href="getting-started.html#getting-started-glossary"><span class="std std-ref">here</span></a>.</p>
 </div>
 <div class="section" id="global-datasets">
-<span id="best-practice-global"></span><h2>Global datasets<a class="headerlink" href="#global-datasets" title="Permalink to this headline">#</a></h2>
+<span id="best-practice-global"></span><h2>Global datasets<a class="headerlink" href="#global-datasets" title="Permalink to this headline">¶</a></h2>
 <p>The recommended way of organizing the data in Sesam is to model and store the data in global datasets.</p>
 <div class="section" id="definition">
-<h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h3>
+<h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
 <p>A global dataset is a collection of data pertaining to a same concept from different sources. In other words, a global dataset combines data from sources semantically linked to provide one single authoritative fresh data location to access when needed. This will reduce the total number of pipes needed compared to a system where you get data from the original sources each time.</p>
 <p>Global datasets can be populated by:</p>
 <ul class="simple">
@@ -322,56 +752,56 @@ We also recommend considering the following principles when creating the global 
 <p>There are three sources containing person data as shown below. If any target system wants data about this person, it would have to go through each root datasets every time. However, through the creation a <strong>global-person</strong> dataset, information can be easily fetched from one single location.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HR</span> <span class="n">system</span>
 <span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"hr-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"hr-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;hr-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span>
 <span class="p">}</span>
 
 <span class="n">CRM</span>
 <span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"crm-person:100"</span><span class="p">,</span>
-  <span class="s2">"crm-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"crm-person:ID:”100”,</span>
-  <span class="s2">"crm-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hr-person:02023688018"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;crm-person:100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:ID:”100”,</span>
+  <span class="s2">&quot;crm-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hr-person:02023688018&quot;</span>
 <span class="p">}</span>
 
 <span class="n">ERP</span>
 <span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"erp-person:0202"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hr-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ID:”0202”,</span>
-  <span class="s2">"erp-person:country"</span><span class="p">:</span><span class="s2">"NO"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;erp-person:0202&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hr-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ID:”0202”,</span>
+  <span class="s2">&quot;erp-person:country&quot;</span><span class="p">:</span><span class="s2">&quot;NO&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The dataset below is what a global dataset of the above three datasets looks like in Sesam when merging on equality of social security number (SSN).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"$ids"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"~:crm-person:100"</span><span class="p">,</span>
-    <span class="s2">"~:hr-person:02023688018"</span><span class="p">,</span>
-    <span class="s2">"~:erp-person:0202"</span>
+  <span class="s2">&quot;$ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;~:crm-person:100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:hr-person:02023688018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:erp-person:0202&quot;</span>
   <span class="p">],</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"crm-person:100"</span><span class="p">,</span>
-  <span class="s2">"hr-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"crm-person:ID:”100”,</span>
-  <span class="s2">"crm-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hrsystem-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hrsystem-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ID”:”0202”,</span>
-  <span class="s2">"erp-person:country"</span><span class="p">:</span><span class="s2">"NO"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;crm-person:100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:ID:”100”,</span>
+  <span class="s2">&quot;crm-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hrsystem-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hrsystem-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ID”:”0202”,</span>
+  <span class="s2">&quot;erp-person:country&quot;</span><span class="p">:</span><span class="s2">&quot;NO&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="positive-effects-of-global-datasets">
-<h3>Positive effects of global datasets<a class="headerlink" href="#positive-effects-of-global-datasets" title="Permalink to this headline">#</a></h3>
+<h3>Positive effects of global datasets<a class="headerlink" href="#positive-effects-of-global-datasets" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>By decoupling data from original sources, point-to-point integrations within Sesam can be avoided, thus fewer connections results in lower maintenance costs. In addition, data is available without concern for the original source</p></li>
 <li><p>All logic related to connecting and enriching data is only done once</p></li>
@@ -381,73 +811,73 @@ We also recommend considering the following principles when creating the global 
 <li><p>Adding additional integrations further refines the global datasets, and therefore continuously improves the data quality</p></li>
 </ul>
 <p>A data model without global datasets might look like the figure below. This example consists of four sources and three target systems only. Generally, it will be a lot more complicated.</p>
-<a class="reference internal image-reference" href="_images/no-global.png"><img alt="Datamodel without global datasets" class="align-center" src="_images/no-global.png" style="width: 400px;"/></a>
+<a class="reference internal image-reference" href="_images/no-global.png"><img alt="Datamodel without global datasets" class="align-center" src="_images/no-global.png" style="width: 400px;" /></a>
 <p>As shown in the figure below, a Sesam node containing global datasets results in fewer connections, making it both tidier and easier to manage.</p>
-<a class="reference internal image-reference" href="_images/global.png"><img alt="Generic pipe concept" class="align-center" src="_images/global.png" style="width: 400px;"/></a>
+<a class="reference internal image-reference" href="_images/global.png"><img alt="Generic pipe concept" class="align-center" src="_images/global.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="what-do-you-have-to-take-into-account-and-what-are-the-challenges-of-global-datasets">
-<h3>What do you have to take into account, and what are the challenges of global datasets?<a class="headerlink" href="#what-do-you-have-to-take-into-account-and-what-are-the-challenges-of-global-datasets" title="Permalink to this headline">#</a></h3>
+<h3>What do you have to take into account, and what are the challenges of global datasets?<a class="headerlink" href="#what-do-you-have-to-take-into-account-and-what-are-the-challenges-of-global-datasets" title="Permalink to this headline">¶</a></h3>
 <p>Global datasets will most likely grow and become large. If the configuration or logic is changed, this can in some cases mean that the whole dataset needs to be updated. This can potentially be a big job and will take time.</p>
 <p>As an example, an energy company has 700 000 customers, and each customer has a power meter connected to their home. When adding the historic data, the company is required to store as well, the total data objects sum up to 30 000 000. One way of managing this large data amount is to divide the data into different global datasets. In this case, the energy company chose to store their historic data in one global dataset, and the current data in a different global dataset.</p>
 </div>
 </div>
 <div class="section" id="namespace-and-namespaced-identifiers">
-<span id="best-practice-namespace"></span><h2>Namespace and namespaced identifiers<a class="headerlink" href="#namespace-and-namespaced-identifiers" title="Permalink to this headline">#</a></h2>
+<span id="best-practice-namespace"></span><h2>Namespace and namespaced identifiers<a class="headerlink" href="#namespace-and-namespaced-identifiers" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="namespace">
-<h3>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">#</a></h3>
+<h3>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h3>
 <p>A namespace consists of two parts: a namespace and a property. The namespace part can consist of any characters, ending with a colon. The property part can consist of any character except colons.
 In the example below, <strong>“crm-person”</strong> and <strong>“hr-person”</strong> are namespaces and <strong>“SSN”</strong> is the property.</p>
 <p>E.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"crm-person:ssn"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;crm-person:ssn&quot;</span>
 
-<span class="s2">"hr-person:ssn"</span>
+<span class="s2">&quot;hr-person:ssn&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="namespaced-identifiers">
-<span id="best-practice-namespaced-identifiers"></span><h3>Namespaced identifiers<a class="headerlink" href="#namespaced-identifiers" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-namespaced-identifiers"></span><h3>Namespaced identifiers<a class="headerlink" href="#namespaced-identifiers" title="Permalink to this headline">¶</a></h3>
 <p>Namespaces are used to create namespaced identifiers, which makes it possible to merge data without losing track of the source. In addition, namespaced identifiers can be mapped to complete URLs as we have unique identifiers for each object. When namespaces are enabled, the _id of an entity will be a namespaced identifier. In similar ways like foreign keys are used in a relational database, a reference to a namespaced identifier could be used to relate one entity with another. These references are usually added in the inbound pipe.</p>
 <p>A namespaced identifier takes the following form:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"~:hr-person:18057653453"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hr-person:18057653453&quot;</span>
 
-<span class="s2">"namespace:propertyName"</span><span class="p">:</span> <span class="s2">"namespaced-identifier:value"</span>
+<span class="s2">&quot;namespace:propertyName&quot;</span><span class="p">:</span> <span class="s2">&quot;namespaced-identifier:value&quot;</span>
 </pre></div>
 </div>
 <p>Namespace identifiers is a recommended way of referring to datasets for matching properties during transformations. This will ease the connection of data. Namespaced identifiers are generated to keep existing joins so we are able to keep the data model from source.</p>
 <p>By default, namespaced identifiers are stripped from the endpoint entities.</p>
 <p>If you have two different person datasets, and you want to merge on a common property, like SSN, we should use namespace identifiers. The code below will add a namespace identifier based on common SSN properties between datasets <strong>“hr-person”</strong> and <strong>“erp-person”</strong>. In other words we need to create a namespace identifier between <strong>“hr-person”</strong> and <strong>“erp-person”</strong> datasets so that we can refer to them during merging.</p>
 <p>The main reason for generating NI’s is to match the <strong>$ids</strong> they point to so you can actually use them to merge, in hops etc.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"transform"</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dtl"</span><span class="p">,</span>
-  <span class="s2">"rules"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"default"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">],</span>
-      <span class="p">[</span><span class="s2">"make-ni"</span><span class="p">,</span> <span class="s2">"hr-person"</span><span class="p">,</span> <span class="s2">"SSN"</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dtl&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;rules&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span><span class="s2">&quot;copy&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s2">&quot;make-ni&quot;</span><span class="p">,</span> <span class="s2">&quot;hr-person&quot;</span><span class="p">,</span> <span class="s2">&quot;SSN&quot;</span><span class="p">]</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>This will produce the following output. We see the [“ni”] we added in code above;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"erp-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hr-person:02023688018"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;erp-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hr-person:02023688018&quot;</span>
 </pre></div>
 </div>
 <p>You now have unique namespace identifiers based on <strong>SSN</strong>, which you can use to merge the person data from two different sources.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"global-person"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"merge"</span><span class="p">,</span>
-    <span class="s2">"datasets"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"erp-person ep"</span><span class="p">,</span> <span class="s2">"hr-person hr"</span><span class="p">],</span>
-    <span class="s2">"equality"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">[</span><span class="s2">"eq"</span><span class="p">,</span> <span class="s2">"ep.SSN-ni"</span><span class="p">,</span> <span class="s2">"hr.$ids"</span><span class="p">]</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;global-person&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;datasets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;erp-person ep&quot;</span><span class="p">,</span> <span class="s2">&quot;hr-person hr&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;equality&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span><span class="s2">&quot;eq&quot;</span><span class="p">,</span> <span class="s2">&quot;ep.SSN-ni&quot;</span><span class="p">,</span> <span class="s2">&quot;hr.$ids&quot;</span><span class="p">]</span>
     <span class="p">],</span>
-    <span class="s2">"identity"</span><span class="p">:</span> <span class="s2">"first"</span><span class="p">,</span>
-    <span class="s2">"version"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="s2">&quot;identity&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span>
   <span class="p">},</span>
-  <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"global"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"people"</span><span class="p">]</span>
+  <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -455,43 +885,43 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <p>In the above code we are connecting the foreign keys <strong>SSN</strong> of <strong>“erp-person”</strong> with the primary key <strong>“$ids”</strong> of
 <strong>“hr-person”</strong>.</p>
 <p>Output from the example code above as seen below with a join to hr-system:</p>
-<p><code class="docutils literal notranslate"><span class="pre">"erp-person:SSN-ni":</span> <span class="pre">"~:hr-person:12032920177"</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;erp-person:SSN-ni&quot;:</span> <span class="pre">&quot;~:hr-person:12032920177&quot;</span></code></p>
 <details>
 <summary><a>global-person example output</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"$ids"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"~:erp-person:12032920177"</span><span class="p">,</span>
-    <span class="s2">"~:hr-person:12032920177"</span>
+  <span class="s2">&quot;$ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;~:erp-person:12032920177&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:hr-person:12032920177&quot;</span>
   <span class="p">],</span>
-  <span class="s2">"erp-person:Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-  <span class="s2">"erp-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"CaspianNygard@einrot.com"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Firstname"</span><span class="p">:</span> <span class="s2">"Caspian"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Lastname"</span><span class="p">:</span> <span class="s2">"Nygård"</span><span class="p">,</span>
-  <span class="s2">"erp-person:MiddleInitial"</span><span class="p">:</span> <span class="s2">"I"</span><span class="p">,</span>
-  <span class="s2">"erp-person:MoneyUsed"</span><span class="p">:</span> <span class="s2">"11923"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Number"</span><span class="p">:</span> <span class="s2">"93"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN"</span><span class="p">:</span> <span class="s2">"~:hr-person:docs-erp-person:12032920177"</span><span class="p">,</span>
-  <span class="s2">"erp-person:StreetAddress"</span><span class="p">:</span> <span class="s2">"Lindøy Løkkavei"</span><span class="p">,</span>
-  <span class="s2">"erp-person:TimesOrdered"</span><span class="p">:</span> <span class="s2">"12"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-  <span class="s2">"erp-person:Username"</span><span class="p">:</span> <span class="s2">"Aney1996"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ZipCode"</span><span class="p">:</span> <span class="s2">"2213"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-  <span class="s2">"hr-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"CaspianNygard@einrot.com"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"hr-person:GivenName"</span><span class="p">:</span> <span class="s2">"Caspian"</span><span class="p">,</span>
-  <span class="s2">"hr-person:MiddleInitial"</span><span class="p">:</span> <span class="s2">"I"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Number"</span><span class="p">:</span> <span class="s2">"100"</span><span class="p">,</span>
-  <span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"12032920177"</span><span class="p">,</span>
-  <span class="s2">"hr-person:StreetAddress"</span><span class="p">:</span> <span class="s2">"Lindøy Løkkavei"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Surname"</span><span class="p">:</span> <span class="s2">"Nygård"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-  <span class="s2">"hr-person:Username"</span><span class="p">:</span> <span class="s2">"Mays1944"</span><span class="p">,</span>
-  <span class="s2">"hr-person:ZipCode"</span><span class="p">:</span> <span class="s2">"2213"</span><span class="p">,</span>
-  <span class="s2">"rdf:type"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"~:erp:person"</span><span class="p">,</span>
-    <span class="s2">"~:hr:person"</span>
+  <span class="s2">&quot;erp-person:Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;CaspianNygard@einrot.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;Caspian&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Nygård&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:MoneyUsed&quot;</span><span class="p">:</span> <span class="s2">&quot;11923&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Number&quot;</span><span class="p">:</span> <span class="s2">&quot;93&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hr-person:docs-erp-person:12032920177&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Lindøy Løkkavei&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:TimesOrdered&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Aney1996&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;2213&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;CaspianNygard@einrot.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:GivenName&quot;</span><span class="p">:</span> <span class="s2">&quot;Caspian&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Number&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;12032920177&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Lindøy Løkkavei&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Nygård&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;2213&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;rdf:type&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;~:erp:person&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:hr:person&quot;</span>
   <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -499,24 +929,24 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </div>
 </div>
 <div class="section" id="naming-conventions">
-<span id="best-practice-naming-conventions"></span><span id="best-practice-naming"></span><h2>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">#</a></h2>
+<span id="best-practice-naming-conventions"></span><span id="best-practice-naming"></span><h2>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
 <p>It is essential to have an agreed naming convention across integrations within Sesam. The motivation is to have a better visibility and understanding of where your data comes from and where it is heading, as well as to how it is internally transformed. It also makes it easier to switch between projects.</p>
 <div class="section" id="general-rules">
-<h3>General rules<a class="headerlink" href="#general-rules" title="Permalink to this headline">#</a></h3>
+<h3>General rules<a class="headerlink" href="#general-rules" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>lower case</p></li>
 <li><p>dash - as delimiter</p></li>
 </ul>
 </div>
 <div class="section" id="systems">
-<h3>Systems<a class="headerlink" href="#systems" title="Permalink to this headline">#</a></h3>
+<h3>Systems<a class="headerlink" href="#systems" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>name after the name of the service you integrate with, not the technology used (e.g. salesforce instead of mysql)</p></li>
 <li><p>if multiple systems are required to talk to a system, postfix them with a qualifier (e.g.salesforce-out)</p></li>
 </ul>
 </div>
 <div class="section" id="pipes">
-<h3>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">#</a></h3>
+<h3>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>name inbound pipes with system they read from and postfix with the type of content (e.g. salesforce-sale)</p></li>
 <li><p>do not use plural names (e.g. salesforce-sale not salesforce-sales)</p></li>
@@ -527,55 +957,55 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </ul>
 </div>
 <div class="section" id="datasets">
-<h3>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">#</a></h3>
+<h3>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>name them the same as the pipe that produced it (the default and does not need to be specified)</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="workflow-for-transforming-data-in-sesam">
-<span id="best-practice-workflow"></span><h2>Workflow for transforming data in Sesam<a class="headerlink" href="#workflow-for-transforming-data-in-sesam" title="Permalink to this headline">#</a></h2>
+<span id="best-practice-workflow"></span><h2>Workflow for transforming data in Sesam<a class="headerlink" href="#workflow-for-transforming-data-in-sesam" title="Permalink to this headline">¶</a></h2>
 <p>Most Sesam projects will have a set flow that the data goes through.</p>
 <p>The best-practice workflow follows a simple flow structure created for an optimal Sesam experience.</p>
 <div class="line-block">
-<div class="line"><br/></div>
+<div class="line"><br /></div>
 </div>
-<a class="reference internal image-reference" href="_images/sesam-flow.png"><img alt="Generic pipe concept" class="align-center" src="_images/sesam-flow.png" style="width: 800px;"/></a>
+<a class="reference internal image-reference" href="_images/sesam-flow.png"><img alt="Generic pipe concept" class="align-center" src="_images/sesam-flow.png" style="width: 800px;" /></a>
 <div class="line-block">
-<div class="line"><br/></div>
+<div class="line"><br /></div>
 </div>
 <p>The data from the source system is fed into Sesam through <strong>inbound pipes</strong> which collects and tags the data for further processing. During this step we do not wish to change the data, but rather keep it as close to it’s original state as possible. Depending on the semantical context of the data, it is sent into one of possibly several global pipes. We wish to store data in global pipes to better facilitate the consumption and improve the reusability of the data within Sesam. Connected to the global datasets, which are generated by the global pipes, are the preparation pipes. Preparation pipes are where the data is sorted, transformed and enriched to suit the requirements of the target system. Finally the data is sent through an outbound pipe which is connected to a target system.</p>
 <p><strong>Inbound pipes</strong> should preferably not change the source data, but rather tag the data for easier filtering further down in the Sesam data flow. The two standard ways of tagging data in Sesam are through namespaced identifiers and RDF types. Namespaced identifiers are tags on column level which enables us to distinguish between properties from different sources with the same name. Namespaced identifiers (in form of the <a class="reference internal" href="DTLReferenceGuide.html#dtl-transform-make-ni"><span class="std std-ref">make-ni</span></a> function) are also often used to create the Sesam equivalent of foreign keys for easier join criteria further down the Sesam flow. RDF types are tags on row level which enables us to distinguish between entites from different sources in Sesam.</p>
 <p><strong>Global pipes</strong> merge data belonging together to generate <strong>global datasets</strong>. To be able to easily spot a global pipe, the following code can be added:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s2">"global"</span><span class="p">:</span> <span class="n">true</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Preparation pipes</strong> is where <strong>global datasets</strong> are prepared for target systems. It is here most of the logic is added. It could include enriching with more context from other datasets, structuring data into other formats, adding new fields and other transformations. The main purpose is to get data ready for the target system.</p>
 <p><strong>Outbound pipes</strong> basically sends data to an endpoint and should normally have no logic.</p>
 <p>The main reason for why <strong>outbound pipes</strong> shouldn’t contain any logic or transformations is that we want to see the end result that is being sent to the target system, for debugging purposes. If logic is added in the pipe, the result will be sent straight to the target system when the pump is running. By adding the transformations in the upstream <strong>preparation pipe</strong> we will be able to look at the processed entities in the upstream dataset for the <strong>outbound pipe</strong>. Any logic added to an <strong>outbound pipe</strong> cannot either be used by other pipes.</p>
-<a class="reference internal image-reference" href="_images/Sesam-pattern.png"><img alt="Generic pipe concept" class="align-center" src="_images/Sesam-pattern.png" style="width: 800px;"/></a>
+<a class="reference internal image-reference" href="_images/Sesam-pattern.png"><img alt="Generic pipe concept" class="align-center" src="_images/Sesam-pattern.png" style="width: 800px;" /></a>
 <div class="section" id="inbound-pipes">
-<span id="best-practice-inbound-pipes"></span><h3>Inbound pipes<a class="headerlink" href="#inbound-pipes" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-inbound-pipes"></span><h3>Inbound pipes<a class="headerlink" href="#inbound-pipes" title="Permalink to this headline">¶</a></h3>
 <p>Inbound pipes are used to fetch data from external systems into Sesam. As we want to be as comprehensive as possible regarding the data we ingest, there should be very few rules about filtering or altering data embedded within the inbound pipes. Data filtering, transformation and consolidation will be done at a later stage.</p>
 <div class="section" id="embedded-data-and-conditional-inbound-pipes">
-<h4>Embedded data and Conditional inbound pipes<a class="headerlink" href="#embedded-data-and-conditional-inbound-pipes" title="Permalink to this headline">#</a></h4>
+<h4>Embedded data and Conditional inbound pipes<a class="headerlink" href="#embedded-data-and-conditional-inbound-pipes" title="Permalink to this headline">¶</a></h4>
 <p>Embedded data is data that does not originate from an external source but are manually put into a pipe. Embedded data can be used for different purposes, two of which we will explain below.</p>
 </div>
 <div class="section" id="embedded-data-as-extra-information">
-<h4>Embedded data as extra information<a class="headerlink" href="#embedded-data-as-extra-information" title="Permalink to this headline">#</a></h4>
+<h4>Embedded data as extra information<a class="headerlink" href="#embedded-data-as-extra-information" title="Permalink to this headline">¶</a></h4>
 <p>Embedded data can be used when we need extra information about data that is not available from the source providing the data. The source data could contain codes or abbreviations which need to be translated to a more readable format. Using embedded data we can create a dataset which interprets these codes and abbreviations in order to extract more information than provided by the source data, see example below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"embedded-data-pipe"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"embedded"</span><span class="p">,</span>
-    <span class="s2">"entities"</span><span class="p">:</span> <span class="p">[{</span>
-      <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"an id"</span><span class="p">,</span>
-      <span class="s2">"some-abbreviation"</span><span class="p">:</span> <span class="s2">"abbreviation meaning"</span><span class="p">,</span>
-      <span class="s2">"some-code"</span><span class="p">:</span> <span class="s2">"code meaning"</span><span class="p">,</span>
-      <span class="s2">"some-hash"</span><span class="p">:</span> <span class="s2">"hash meaning"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;embedded-data-pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;embedded&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;an id&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;some-abbreviation&quot;</span><span class="p">:</span> <span class="s2">&quot;abbreviation meaning&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;some-code&quot;</span><span class="p">:</span> <span class="s2">&quot;code meaning&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;some-hash&quot;</span><span class="p">:</span> <span class="s2">&quot;hash meaning&quot;</span>
     <span class="p">}]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -583,115 +1013,115 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </div>
 </div>
 <div class="section" id="embedded-data-for-testing">
-<h4>Embedded data for testing<a class="headerlink" href="#embedded-data-for-testing" title="Permalink to this headline">#</a></h4>
+<h4>Embedded data for testing<a class="headerlink" href="#embedded-data-for-testing" title="Permalink to this headline">¶</a></h4>
 <p>Embedded data may also be used to test new configurations through conditional pipes. Conditional pipes are a way to define several distinct sources for a single inbound pipe. For example, consider a customer that has 2 different environments, one for production and one for test. The customer’s production environment includes all the personal data for the individuals working for the company. This data is sensitive, and the access restricted to only one IP-address. The customer’s test environment might also contain sensitive personal data. Therefore, only one IP-address from the Sesam portal may have access too. There are several issues with such a setup. First, what do we do when several consultants work with the same project from multiple IPs? Second, what about minor changes to code that we would like to test out, without having to change data in the customer’s test environment?</p>
 <p>These issues are solved with the conditional source setting in the pipe config, and we will go through how to do this below.</p>
 <p>In the pipe config below we see an example of the general setup of a conditional inbound pipe. In this example we specify two environments; “Prod“ and “Dev“. In this case, the “Prod“ environment talks directly to the source data, here a csv-file. Inside the conditional “Prod“-definition we specify all the information we need in order to collect the source data.</p>
 <p>The “Dev“ environment does not connect directly to any external source. Instead we use <em>“embedded data“</em>, which is data formatted just like it would be from an external source but anonymized. As the data is embedded, or hard coded if you will, there is no access restriction.</p>
 <p>Which condition is used, should be determined by an environment variable and not by the configuration, so that we can upload the same configuration to several nodes, but determine which condition to be used independently of the node. Adding environment variables is done in the “Variables”-tab under the “Settings”-section for the Datahub.</p>
 <p>In this example, we should create an environment variable specifying which environment the node is running, let us call the variable “node-env” and set it to either “prod” or “dev” depending on which we use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"node-env"</span><span class="p">:</span> <span class="s2">"prod"</span> <span class="ow">or</span> <span class="s2">"node-env"</span><span class="p">:</span> <span class="s2">"dev"</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;node-env&quot;</span><span class="p">:</span> <span class="s2">&quot;prod&quot;</span> <span class="ow">or</span> <span class="s2">&quot;node-env&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>The corresponding env variable are used in the condition property in the pipe. It is added inside the “Source” curly brackets of the pipe as seen in example below.</p>
-<p><code class="docutils literal notranslate"><span class="pre">"condition":</span> <span class="pre">"$ENV(node-env)"</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;condition&quot;:</span> <span class="pre">&quot;$ENV(node-env)&quot;</span></code></p>
 <details>
 <summary><a>hr-person example pipe</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"hr-person"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"conditional"</span><span class="p">,</span>
-    <span class="s2">"alternatives"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"Dev"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"embedded"</span><span class="p">,</span>
-        <span class="s2">"entities"</span><span class="p">:</span> <span class="p">[{</span>
-          <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"23072451376"</span><span class="p">,</span>
-          <span class="s2">"Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-          <span class="s2">"EmailAddress"</span><span class="p">:</span> <span class="s2">"TorjusSand@einrot.com"</span><span class="p">,</span>
-          <span class="s2">"Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-          <span class="s2">"GivenName"</span><span class="p">:</span> <span class="s2">"Torjus"</span><span class="p">,</span>
-          <span class="s2">"MiddleInitial"</span><span class="p">:</span> <span class="s2">"M"</span><span class="p">,</span>
-          <span class="s2">"Number"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-          <span class="s2">"SSN"</span><span class="p">:</span> <span class="s2">"23072451376"</span><span class="p">,</span>
-          <span class="s2">"StreetAddress"</span><span class="p">:</span> <span class="s2">"Helmers vei 242"</span><span class="p">,</span>
-          <span class="s2">"Surname"</span><span class="p">:</span> <span class="s2">"Sand"</span><span class="p">,</span>
-          <span class="s2">"Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-          <span class="s2">"Username"</span><span class="p">:</span> <span class="s2">"Unjudosely"</span><span class="p">,</span>
-          <span class="s2">"ZipCode"</span><span class="p">:</span> <span class="s2">"5163"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;hr-person&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;conditional&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;alternatives&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;Dev&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;embedded&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[{</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;23072451376&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;TorjusSand@einrot.com&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;GivenName&quot;</span><span class="p">:</span> <span class="s2">&quot;Torjus&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Number&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;23072451376&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Helmers vei 242&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Sand&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Unjudosely&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;5163&quot;</span>
         <span class="p">},</span> <span class="p">{</span>
-          <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"09046987892"</span><span class="p">,</span>
-          <span class="s2">"Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-          <span class="s2">"EmailAddress"</span><span class="p">:</span> <span class="s2">"LarsEvjen@rhyta.com"</span><span class="p">,</span>
-          <span class="s2">"Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-          <span class="s2">"GivenName"</span><span class="p">:</span> <span class="s2">"Lars"</span><span class="p">,</span>
-          <span class="s2">"MiddleInitial"</span><span class="p">:</span> <span class="s2">"A"</span><span class="p">,</span>
-          <span class="s2">"Number"</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">,</span>
-          <span class="s2">"SSN"</span><span class="p">:</span> <span class="s2">"09046987892"</span><span class="p">,</span>
-          <span class="s2">"StreetAddress"</span><span class="p">:</span> <span class="s2">"Frognerveien 60"</span><span class="p">,</span>
-          <span class="s2">"Surname"</span><span class="p">:</span> <span class="s2">"Evjen"</span><span class="p">,</span>
-          <span class="s2">"Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-          <span class="s2">"Username"</span><span class="p">:</span> <span class="s2">"Wimen1979"</span><span class="p">,</span>
-          <span class="s2">"ZipCode"</span><span class="p">:</span> <span class="s2">"3121"</span>
+          <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;09046987892&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;LarsEvjen@rhyta.com&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;GivenName&quot;</span><span class="p">:</span> <span class="s2">&quot;Lars&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Number&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;09046987892&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Frognerveien 60&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Evjen&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Wimen1979&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;3121&quot;</span>
         <span class="p">}]</span>
       <span class="p">},</span>
-      <span class="s2">"Prod"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"csv"</span><span class="p">,</span>
-        <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"hr"</span><span class="p">,</span>
-        <span class="s2">"blacklist"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Password"</span><span class="p">],</span>
-        <span class="s2">"delimiter"</span><span class="p">:</span> <span class="s2">","</span><span class="p">,</span>
-        <span class="s2">"encoding"</span><span class="p">:</span> <span class="s2">"utf-8"</span><span class="p">,</span>
-        <span class="s2">"primary_key"</span><span class="p">:</span> <span class="s2">"SSN"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/file/sesam-training/data/test_people_sesam_training1.csv"</span>
+      <span class="s2">&quot;Prod&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blacklist&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Password&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="s2">&quot;SSN&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/file/sesam-training/data/test_people_sesam_training1.csv&quot;</span>
       <span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">"condition"</span><span class="p">:</span> <span class="s2">"$ENV(node-env)"</span>
+    <span class="s2">&quot;condition&quot;</span><span class="p">:</span> <span class="s2">&quot;$ENV(node-env)&quot;</span>
   <span class="p">},</span>
-  <span class="s2">"transform"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dtl"</span><span class="p">,</span>
-    <span class="s2">"rules"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"default"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"comment"</span><span class="p">,</span> <span class="s2">"below we will add a namespaced identifier and 'rdf:type' for easy filtering later"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"rdf:type"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"ni"</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">,</span> <span class="s2">"person"</span><span class="p">]</span>
+  <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dtl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rules&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;copy&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">,</span> <span class="s2">&quot;below we will add a namespaced identifier and &#39;rdf:type&#39; for easy filtering later&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;rdf:type&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;ni&quot;</span><span class="p">,</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">]</span>
         <span class="p">]</span>
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">},</span>
-  <span class="s2">"pump"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"manual"</span>
+  <span class="s2">&quot;pump&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;manual&quot;</span>
   <span class="p">},</span>
-  <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"embedded"</span><span class="p">,</span> <span class="s2">"person"</span><span class="p">]</span>
+  <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;embedded&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="rdf-type">
-<span id="best-practice-rdf-type"></span><h4>RDF type<a class="headerlink" href="#rdf-type" title="Permalink to this headline">#</a></h4>
+<span id="best-practice-rdf-type"></span><h4>RDF type<a class="headerlink" href="#rdf-type" title="Permalink to this headline">¶</a></h4>
 <p>The RDF type is metadata used to relate data and give some semantic context. When used with a namespace, it keeps track of the origin of the data, as well as the business type. It is composed upon input and will be used to relate and filter like you would use a foreign key.</p>
 </div>
 <div class="section" id="namespaces">
-<h4>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">#</a></h4>
+<h4>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h4>
 <p>The namespace identifier is added to keep track of origin and to keep exsisting joins from source. Namespaced identifier, on NI’S are prefixed by convention by a <code class="docutils literal notranslate"><span class="pre">‘~:’</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">~:crm:person</span></code>. You use the functions <code class="docutils literal notranslate"><span class="pre">make-ni</span></code> or <code class="docutils literal notranslate"><span class="pre">ni</span></code> to create it.</p>
 </div>
 </div>
 <div class="section" id="global-pipes">
-<span id="best-practice-global-pipes"></span><h3>Global pipes<a class="headerlink" href="#global-pipes" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-global-pipes"></span><h3>Global pipes<a class="headerlink" href="#global-pipes" title="Permalink to this headline">¶</a></h3>
 <p>Before going into <strong>global pipes</strong> please read on what a global dataset is and why we generate them <a class="reference internal" href="#best-practice-global"><span class="std std-ref">here</span></a>.</p>
 <p>The global pipe creates a new dataset. This dataset will be updated with entities from all sources added to the global pipe.</p>
 <p>We can choose not to join or transform some of the datasets which means they are simply “put into” the global dataset. The ones who will be joined and transformed you can read more about below.</p>
 <p>A resulting dataset can be a new dataset, but also an existing dataset where one wants to add more data from new sources when they become available for Sesam. This is done by adding source datasets to a global pipe. The new data will be added to the dataset (can be compared to the use of alter table/update of a relational database – but in one single operation).</p>
 <p>In the global pipe we want to add a metadata tag to show this is a pipe going into a global dataset, so we set the following code into the pipe:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span>
-  <span class="s2">"global"</span><span class="p">:</span> <span class="n">true</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>In addition, it gives the dataset a “global symbol” in the graph tab as seen below. This makes it easy to see this is a global pipe straight away.</p>
-<a class="reference internal image-reference" href="_images/global_true.png"><img alt="Generic pipe concept" class="align-center" src="_images/global_true.png" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="_images/global_true.png"><img alt="Generic pipe concept" class="align-center" src="_images/global_true.png" style="width: 600px;" /></a>
 <p>As a general rule when it comes to transformations, we wish to use reusable properties; e.g. global properties generated in the global dataset. This gives us opportunity to track data from start to end of flow through Sesam.</p>
 <p>In order to prioritize which ids we want to use, we use <a class="reference internal" href="DTLReferenceGuide.html#nulls"><span class="std std-ref">coalesce</span></a>.  If the global id is null, <strong>“Coalesce”</strong> gives us the opportunity to choose which is the next best option. This, in turn gives us the opportunity to use the golden record, which you can read about <a class="reference internal" href="#best-practice-golden-record"><span class="std std-ref">here</span></a>.</p>
 <p>Below we see an example of a global pipe called “global-person”. At top the type of pipe is set to <strong>“merge“</strong> enabling us to add 4 datasets that we wish to merge.</p>
@@ -699,75 +1129,75 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <details>
 <summary><a>global-person example pipe</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"global-person"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"merge"</span><span class="p">,</span>
-    <span class="s2">"datasets"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"erp-person ep"</span><span class="p">,</span> <span class="s2">"crm-person cp"</span><span class="p">,</span> <span class="s2">"salesforce-userprofile su"</span><span class="p">,</span> <span class="s2">"hr-person hr"</span><span class="p">],</span>
-    <span class="s2">"equality"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">[</span><span class="s2">"eq"</span><span class="p">,</span> <span class="s2">"ep.$ids"</span><span class="p">,</span> <span class="s2">"cp.SSN "</span><span class="p">],</span>
-      <span class="p">[</span><span class="s2">"eq"</span><span class="p">,</span> <span class="s2">"ep.$ids "</span><span class="p">,</span> <span class="s2">"hr.$ids"</span><span class="p">],</span>
-      <span class="p">[</span><span class="s2">"eq"</span><span class="p">,</span> <span class="s2">"ep.Username"</span><span class="p">,</span> <span class="s2">"su.Username"</span><span class="p">]</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;global-person&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;datasets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;erp-person ep&quot;</span><span class="p">,</span> <span class="s2">&quot;crm-person cp&quot;</span><span class="p">,</span> <span class="s2">&quot;salesforce-userprofile su&quot;</span><span class="p">,</span> <span class="s2">&quot;hr-person hr&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;equality&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span><span class="s2">&quot;eq&quot;</span><span class="p">,</span> <span class="s2">&quot;ep.$ids&quot;</span><span class="p">,</span> <span class="s2">&quot;cp.SSN &quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s2">&quot;eq&quot;</span><span class="p">,</span> <span class="s2">&quot;ep.$ids &quot;</span><span class="p">,</span> <span class="s2">&quot;hr.$ids&quot;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s2">&quot;eq&quot;</span><span class="p">,</span> <span class="s2">&quot;ep.Username&quot;</span><span class="p">,</span> <span class="s2">&quot;su.Username&quot;</span><span class="p">]</span>
     <span class="p">],</span>
-    <span class="s2">"identity"</span><span class="p">:</span> <span class="s2">"first"</span><span class="p">,</span>
-    <span class="s2">"version"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="s2">&quot;identity&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span>
   <span class="p">},</span>
-  <span class="s2">"transform"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dtl"</span><span class="p">,</span>
-    <span class="s2">"rules"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"default"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"zipcode"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"list"</span><span class="p">,</span> <span class="s2">"_S.hr-person:ZipCode"</span><span class="p">,</span> <span class="s2">"_S.erp-person:ZipCode"</span><span class="p">,</span> <span class="s2">"_S.crm-person:PostalCode"</span><span class="p">]</span>
+  <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dtl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rules&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;copy&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;zipcode&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.hr-person:ZipCode&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.erp-person:ZipCode&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:PostalCode&quot;</span><span class="p">]</span>
           <span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span> <span class="s2">"_S.EmailAddress"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.EmailAddress&quot;</span><span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"firstname"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"list"</span><span class="p">,</span> <span class="s2">"_S.crm-person:FirstName"</span><span class="p">,</span> <span class="s2">"_S.erp-person:Firstname"</span><span class="p">,</span> <span class="s2">"_S.hr-person:GivenName"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;firstname&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:FirstName&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.erp-person:Firstname&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.hr-person:GivenName&quot;</span><span class="p">]</span>
           <span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"lastname"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"list"</span><span class="p">,</span> <span class="s2">"_S.crm-person:LastName"</span><span class="p">,</span> <span class="s2">"_S.erp-person:Lastname"</span><span class="p">,</span> <span class="s2">"_S.hr-person:Surname"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;lastname&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:LastName&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.erp-person:Lastname&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.hr-person:Surname&quot;</span><span class="p">]</span>
           <span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"fullname2"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"concat"</span><span class="p">,</span> <span class="s2">"_T.global-person:firstname"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span>
-              <span class="p">[</span><span class="s2">"not"</span><span class="p">,</span>
-                <span class="p">[</span><span class="s2">"matches"</span><span class="p">,</span> <span class="s2">"*."</span><span class="p">,</span> <span class="s2">"_."</span><span class="p">]</span>
-              <span class="p">],</span> <span class="s2">"_S.MiddleInitial"</span><span class="p">],</span> <span class="s2">". "</span><span class="p">,</span> <span class="s2">"_T.global-person:lastname"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;fullname2&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;concat&quot;</span><span class="p">,</span> <span class="s2">&quot;_T.global-person:firstname&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span>
+              <span class="p">[</span><span class="s2">&quot;not&quot;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;matches&quot;</span><span class="p">,</span> <span class="s2">&quot;*.&quot;</span><span class="p">,</span> <span class="s2">&quot;_.&quot;</span><span class="p">]</span>
+              <span class="p">],</span> <span class="s2">&quot;_S.MiddleInitial&quot;</span><span class="p">],</span> <span class="s2">&quot;. &quot;</span><span class="p">,</span> <span class="s2">&quot;_T.global-person:lastname&quot;</span><span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"fullname"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"concat"</span><span class="p">,</span> <span class="s2">"_T.global-person:firstname"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span>
-            <span class="p">[</span><span class="s2">"filter"</span><span class="p">,</span>
-              <span class="p">[</span><span class="s2">"neq"</span><span class="p">,</span> <span class="s2">"_."</span><span class="p">,</span> <span class="s2">". "</span><span class="p">],</span>
-              <span class="p">[</span><span class="s2">"concat"</span><span class="p">,</span>
-                <span class="p">[</span><span class="s2">"coalesce"</span><span class="p">,</span>
-                  <span class="p">[</span><span class="s2">"list"</span><span class="p">,</span> <span class="s2">"_S.crm-person:MiddleInitial"</span><span class="p">,</span> <span class="s2">"_S.erp-person:MiddleInitial"</span><span class="p">,</span> <span class="s2">"_S.hr-person:MiddleInitial"</span><span class="p">]</span>
-                <span class="p">],</span> <span class="s2">". "</span><span class="p">]</span>
-            <span class="p">],</span> <span class="s2">"_T.global-person:lastname"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;fullname&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;concat&quot;</span><span class="p">,</span> <span class="s2">&quot;_T.global-person:firstname&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span>
+              <span class="p">[</span><span class="s2">&quot;neq&quot;</span><span class="p">,</span> <span class="s2">&quot;_.&quot;</span><span class="p">,</span> <span class="s2">&quot;. &quot;</span><span class="p">],</span>
+              <span class="p">[</span><span class="s2">&quot;concat&quot;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;coalesce&quot;</span><span class="p">,</span>
+                  <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:MiddleInitial&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.erp-person:MiddleInitial&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.hr-person:MiddleInitial&quot;</span><span class="p">]</span>
+                <span class="p">],</span> <span class="s2">&quot;. &quot;</span><span class="p">]</span>
+            <span class="p">],</span> <span class="s2">&quot;_T.global-person:lastname&quot;</span><span class="p">]</span>
         <span class="p">]</span>
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">},</span>
-  <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"global"</span><span class="p">:</span> <span class="n">true</span>
+  <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="n">true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>When running the global pipe, the result is a “global dataset” consisting of entities with joined data that has been through the listed transformations.</p>
 <p>The first property that greets us in a global dataset is called <strong>“$ids”</strong>, which will be a list of <strong>namespaced identifiers</strong>. When an entity is merged into another entity in a merge pipe, the pipe will add the _id of the source entity to the <strong>“$ids”</strong> property. Thus, the <strong>ids</strong> property consists of the ids of all the source entities that were merged to created that specific merged entity, typically looking like below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"$ids"</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"~:erp-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"~:crm-person:100"</span><span class="p">,</span>
-  <span class="s2">"~:salesforce-userprofile:Mays1944"</span><span class="p">,</span>
-  <span class="s2">"~:hr-person:02023688018"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;$ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;~:erp-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;~:crm-person:100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;~:salesforce-userprofile:Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;~:hr-person:02023688018&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -777,130 +1207,130 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <details>
 <summary><a>global-person example output</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"$ids"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"~:erp-person:02023688018"</span><span class="p">,</span>
-    <span class="s2">"~:crm-person:100"</span><span class="p">,</span>
-    <span class="s2">"~:salesforce-userprofile:Mays1944"</span><span class="p">,</span>
-    <span class="s2">"~:hr-person:02023688018"</span>
+  <span class="s2">&quot;$ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;~:erp-person:02023688018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:crm-person:100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:salesforce-userprofile:Mays1944&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:hr-person:02023688018&quot;</span>
   <span class="p">],</span>
-  <span class="s2">"crm-person:Address"</span><span class="p">:</span> <span class="s2">"Ørneveien 40"</span><span class="p">,</span>
-  <span class="s2">"crm-person:Customerid"</span><span class="p">:</span> <span class="s2">"100"</span><span class="p">,</span>
-  <span class="s2">"crm-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"crm-person:FirstName"</span><span class="p">:</span> <span class="s2">"Isak"</span><span class="p">,</span>
-  <span class="s2">"crm-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"crm-person:LastName"</span><span class="p">:</span> <span class="s2">"Eikeland"</span><span class="p">,</span>
-  <span class="s2">"crm-person:MiddleInitial"</span><span class="p">:</span> <span class="s2">"E"</span><span class="p">,</span>
-  <span class="s2">"crm-person:PostalCode"</span><span class="p">:</span> <span class="s2">"1357"</span><span class="p">,</span>
-  <span class="s2">"crm-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:Username"</span><span class="p">:</span> <span class="s2">"Mays1944"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-  <span class="s2">"erp-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Firstname"</span><span class="p">:</span> <span class="s2">"Isak"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Lastname"</span><span class="p">:</span> <span class="s2">"Eikeland"</span><span class="p">,</span>
-  <span class="s2">"erp-person:MiddleInitial"</span><span class="p">:</span> <span class="s2">"E"</span><span class="p">,</span>
-  <span class="s2">"erp-person:MoneyUsed"</span><span class="p">:</span> <span class="s2">"19392"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Number"</span><span class="p">:</span> <span class="s2">"100"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:crm-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:StreetAddress"</span><span class="p">:</span> <span class="s2">"Frodegaten gate"</span><span class="p">,</span>
-  <span class="s2">"erp-person:TimesOrdered"</span><span class="p">:</span> <span class="s2">"16"</span><span class="p">,</span>
-  <span class="s2">"erp-person:Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-  <span class="s2">"erp-person:Username"</span><span class="p">:</span> <span class="s2">"Mays1944"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ZipCode"</span><span class="p">:</span> <span class="s2">"4017"</span><span class="p">,</span>
-  <span class="s2">"erp-person:subscriptions"</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;crm-person:Address&quot;</span><span class="p">:</span> <span class="s2">&quot;Ørneveien 40&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:Customerid&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:FirstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:LastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;1357&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:MoneyUsed&quot;</span><span class="p">:</span> <span class="s2">&quot;19392&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Number&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:crm-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Frodegaten gate&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:TimesOrdered&quot;</span><span class="p">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;4017&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:subscriptions&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">"erp-person:active"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-      <span class="s2">"erp-person:category"</span><span class="p">:</span> <span class="s2">"Types of Drink"</span><span class="p">,</span>
-      <span class="s2">"erp-person:hash"</span><span class="p">:</span> <span class="s2">"cd821925a05449c7d5b907157d00fe4b"</span><span class="p">,</span>
-      <span class="s2">"erp-person:items-ordered"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-      <span class="s2">"erp-person:received"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-      <span class="s2">"erp-person:specials"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
-      <span class="s2">"erp-person:start-date"</span><span class="p">:</span> <span class="s2">"~t2005-05-02T05:17:30.6196185Z"</span><span class="p">,</span>
-      <span class="s2">"erp-person:subscription-psuedo-name"</span><span class="p">:</span> <span class="s2">"Alpha"</span>
+      <span class="s2">&quot;erp-person:active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:category&quot;</span><span class="p">:</span> <span class="s2">&quot;Types of Drink&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:hash&quot;</span><span class="p">:</span> <span class="s2">&quot;cd821925a05449c7d5b907157d00fe4b&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:items-ordered&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:received&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:specials&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:start-date&quot;</span><span class="p">:</span> <span class="s2">&quot;~t2005-05-02T05:17:30.6196185Z&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:subscription-psuedo-name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alpha&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s2">"erp-person:active"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-      <span class="s2">"erp-person:category"</span><span class="p">:</span> <span class="s2">"Foreign Cities"</span><span class="p">,</span>
-      <span class="s2">"erp-person:hash"</span><span class="p">:</span> <span class="s2">"02f30f1fd084eef209c64bcbb577c66d"</span><span class="p">,</span>
-      <span class="s2">"erp-person:items-ordered"</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
-      <span class="s2">"erp-person:received"</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
-      <span class="s2">"erp-person:specials"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"erp-person:start-date"</span><span class="p">:</span> <span class="s2">"~t2007-07-01T07:17:30.6196185Z"</span><span class="p">,</span>
-      <span class="s2">"erp-person:subscription-psuedo-name"</span><span class="p">:</span> <span class="s2">"Delta"</span>
+      <span class="s2">&quot;erp-person:active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:category&quot;</span><span class="p">:</span> <span class="s2">&quot;Foreign Cities&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:hash&quot;</span><span class="p">:</span> <span class="s2">&quot;02f30f1fd084eef209c64bcbb577c66d&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:items-ordered&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:received&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:specials&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:start-date&quot;</span><span class="p">:</span> <span class="s2">&quot;~t2007-07-01T07:17:30.6196185Z&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:subscription-psuedo-name&quot;</span><span class="p">:</span> <span class="s2">&quot;Delta&quot;</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s2">"erp-person:active"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-      <span class="s2">"erp-person:category"</span><span class="p">:</span> <span class="s2">"Something You're Afraid Of"</span><span class="p">,</span>
-      <span class="s2">"erp-person:end-date"</span><span class="p">:</span> <span class="s2">"~t2006-12-26T12:17:30.6196185Z"</span><span class="p">,</span>
-      <span class="s2">"erp-person:hash"</span><span class="p">:</span> <span class="s2">"f0145edebae47eccd463a2dec9ac7485"</span><span class="p">,</span>
-      <span class="s2">"erp-person:items-ordered"</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
-      <span class="s2">"erp-person:received"</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span>
-      <span class="s2">"erp-person:specials"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
-      <span class="s2">"erp-person:start-date"</span><span class="p">:</span> <span class="s2">"~t2005-12-26T12:17:30.6196185Z"</span><span class="p">,</span>
-      <span class="s2">"erp-person:subscription-psuedo-name"</span><span class="p">:</span> <span class="s2">"Beta"</span>
+      <span class="s2">&quot;erp-person:active&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:category&quot;</span><span class="p">:</span> <span class="s2">&quot;Something You&#39;re Afraid Of&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:end-date&quot;</span><span class="p">:</span> <span class="s2">&quot;~t2006-12-26T12:17:30.6196185Z&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:hash&quot;</span><span class="p">:</span> <span class="s2">&quot;f0145edebae47eccd463a2dec9ac7485&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:items-ordered&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:received&quot;</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:specials&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:start-date&quot;</span><span class="p">:</span> <span class="s2">&quot;~t2005-12-26T12:17:30.6196185Z&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;erp-person:subscription-psuedo-name&quot;</span><span class="p">:</span> <span class="s2">&quot;Beta&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
-  <span class="s2">"global-person:email"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"global-person:firstname"</span><span class="p">:</span> <span class="s2">"Isak"</span><span class="p">,</span>
-  <span class="s2">"global-person:fullname"</span><span class="p">:</span> <span class="s2">"Isak E. Eikeland"</span><span class="p">,</span>
-  <span class="s2">"global-person:fullname2"</span><span class="p">:</span> <span class="s2">"Isak E. Eikeland"</span><span class="p">,</span>
-  <span class="s2">"global-person:lastname"</span><span class="p">:</span> <span class="s2">"Eikeland"</span><span class="p">,</span>
-  <span class="s2">"global-person:zipcode"</span><span class="p">:</span> <span class="s2">"1357"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Country"</span><span class="p">:</span> <span class="s2">"NO"</span><span class="p">,</span>
-  <span class="s2">"hr-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"hr-person:GivenName"</span><span class="p">:</span> <span class="s2">"Isak"</span><span class="p">,</span>
-  <span class="s2">"hr-person:MiddleInitial"</span><span class="p">:</span> <span class="s2">"E"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Number"</span><span class="p">:</span> <span class="s2">"100"</span><span class="p">,</span>
-  <span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"hr-person:StreetAddress"</span><span class="p">:</span> <span class="s2">"Nadderudåsen 186"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Surname"</span><span class="p">:</span> <span class="s2">"Eikeland"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Title"</span><span class="p">:</span> <span class="s2">"Mr."</span><span class="p">,</span>
-  <span class="s2">"hr-person:Username"</span><span class="p">:</span> <span class="s2">"Mays1944"</span><span class="p">,</span>
-  <span class="s2">"hr-person:ZipCode"</span><span class="p">:</span> <span class="s2">"1357"</span><span class="p">,</span>
-  <span class="s2">"rdf:type"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"~:erp:person"</span><span class="p">,</span>
-    <span class="s2">"~:crm:person"</span><span class="p">,</span>
-    <span class="s2">"~:salesforce:userprofile"</span><span class="p">,</span>
-    <span class="s2">"~:hr:person"</span>
+  <span class="s2">&quot;global-person:email&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak E. Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:fullname2&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak E. Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:zipcode&quot;</span><span class="p">:</span> <span class="s2">&quot;1357&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Country&quot;</span><span class="p">:</span> <span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:GivenName&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:MiddleInitial&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Number&quot;</span><span class="p">:</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Nadderudåsen 186&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Title&quot;</span><span class="p">:</span> <span class="s2">&quot;Mr.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;1357&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;rdf:type&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;~:erp:person&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:crm:person&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:salesforce:userprofile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;~:hr:person&quot;</span>
   <span class="p">],</span>
-  <span class="s2">"salesforce-userprofile:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"salesforce-userprofile:Username"</span><span class="p">:</span> <span class="s2">"Mays1944"</span><span class="p">,</span>
-  <span class="s2">"salesforce-userprofile:phone_number"</span><span class="p">:</span> <span class="mi">24887159</span>
+  <span class="s2">&quot;salesforce-userprofile:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;salesforce-userprofile:Username&quot;</span><span class="p">:</span> <span class="s2">&quot;Mays1944&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;salesforce-userprofile:phone_number&quot;</span><span class="p">:</span> <span class="mi">24887159</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="preparation-pipes">
-<span id="best-practice-preparation-pipes"></span><h3>Preparation pipes<a class="headerlink" href="#preparation-pipes" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-preparation-pipes"></span><h3>Preparation pipes<a class="headerlink" href="#preparation-pipes" title="Permalink to this headline">¶</a></h3>
 <p>The aggregated data residing in a global dataset often needs to be transformed and/or enriched before it can be delivered to targets. Transforming and enriching data to ready it for delivery is implemented through preparation pipes. Preparation pipes use the aggregated entities from global datasets to combine and narrow the data down to what is necessary/required by the recipient system. The <a class="reference internal" href="DTLReferenceGuide.html#filter-dtl-function"><span class="std std-ref">filtering</span></a> and relating of data are performed using the <a class="reference internal" href="#best-practice-rdf-type"><span class="std std-ref">RDF types</span></a> introduced earlier. Data can also be augmented by performing hops to other datasets, for example a city-name can be fetched from a different dataset using the difi-postnummer. The goal is to have the data ready to be picked up by the outbound pipe.</p>
 <p>Below is an example of a preparation pipe, based on the global pipe above, where we wish to update the data in the system generating the hr-person data with crm-person data. More precicely, we wish to update data in the HR system to reflect the golden records from global-person. In addition we wish to update the HR data for “StreetAddress” with the address stated in the crm-person key “Address”.</p>
 <details>
 <summary><a>address-hr example pipe</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"address-hr"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dataset"</span><span class="p">,</span>
-    <span class="s2">"dataset"</span><span class="p">:</span> <span class="s2">"global-person"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;address-hr&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;global-person&quot;</span>
   <span class="p">},</span>
-  <span class="s2">"transform"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dtl"</span><span class="p">,</span>
-    <span class="s2">"rules"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"default"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">[</span><span class="s2">"filter"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"in"</span><span class="p">,</span> <span class="s2">"~:crm:person"</span><span class="p">,</span> <span class="s2">"_S.rdf:type"</span><span class="p">]</span>
+  <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dtl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rules&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;~:crm:person&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.rdf:type&quot;</span><span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"list"</span><span class="p">,</span> <span class="s2">"hr-person:SSN"</span><span class="p">,</span> <span class="s2">"_id"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;copy&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"filter"</span><span class="p">,</span>
-          <span class="p">[</span><span class="s2">"is-not-null"</span><span class="p">,</span> <span class="s2">"_S.crm-person:Address"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span>
+          <span class="p">[</span><span class="s2">&quot;is-not-null&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:Address&quot;</span><span class="p">]</span>
         <span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"StreetAddress"</span><span class="p">,</span> <span class="s2">"_S.crm-person:Address"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"GivenName"</span><span class="p">,</span> <span class="s2">"_S.global-person:firstname"</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"Surname"</span><span class="p">,</span> <span class="s2">"_S.global-person:lastname"</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;StreetAddress&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.crm-person:Address&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;GivenName&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.global-person:firstname&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Surname&quot;</span><span class="p">,</span> <span class="s2">&quot;_S.global-person:lastname&quot;</span><span class="p">]</span>
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -910,35 +1340,35 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <p>In this case we need to make sure that we do not overwrite existing “StreetAddress” values with potential null-values (altough we should be able to trust the master data from the CRM system, mistakes do occur). We do not have to perform the same check for the properties from our golden records since in this case the hr-person data is part of the coalesce in the global-person pipe. Note that even though several of these properties is already the same in both the HR system and the CRM system, they do not have to be. The first time this integration runs there might be some unnecessary updates, but Sesam’s built-in <a class="reference internal" href="product-features.html#concepts-change-tracking"><span class="std std-ref">change tracking</span></a> will make sure only future changes will be passed through to the target system.</p>
 <p>The result from the address-hr pipe with the input from the global-person example with crm-person:100 look like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"address-hr:GivenName"</span><span class="p">:</span> <span class="s2">"Isak"</span><span class="p">,</span>
-  <span class="s2">"address-hr:StreetAddress"</span><span class="p">:</span> <span class="s2">"Ørneveien 40"</span><span class="p">,</span>
-  <span class="s2">"address-hr:Surname"</span><span class="p">:</span> <span class="s2">"Eikeland"</span><span class="p">,</span>
-  <span class="s2">"hr-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span>
+  <span class="s2">&quot;address-hr:GivenName&quot;</span><span class="p">:</span> <span class="s2">&quot;Isak&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;address-hr:StreetAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;Ørneveien 40&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;address-hr:Surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Eikeland&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="outbound-pipes">
-<span id="best-practice-output-pipes"></span><h3>Outbound pipes<a class="headerlink" href="#outbound-pipes" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-output-pipes"></span><h3>Outbound pipes<a class="headerlink" href="#outbound-pipes" title="Permalink to this headline">¶</a></h3>
 <p>The outbound pipe is the inbound pipe counterpart. While the inbound pipe is used solely to import data into Sesam, the outbound pipe sole function is to export data out of Sesam. As mentioned in the Inbound pipe section, the focus of the inbound pipe will be on its source component/property. The outbound pipe on the other hand will be built around its <a class="reference internal" href="configuration.html#sink-section"><span class="std std-ref">sink</span></a> . Similarly, the outbound pipe will use a Sesam <a class="reference internal" href="developer-guide.html#concepts-systems"><span class="std std-ref">system</span></a> to interface with target systems. This system will either access an embedded connector or an outside interface, called a <a class="reference internal" href="getting-started.html#getting-started-microservices"><span class="std std-ref">microservice</span></a>. The function of the microservice, or the connector, is to interface at the API level with the external system.</p>
 <p>Below is an example of an outbound pipe. This pipe uses the dataset created by the pipe <strong>address-hr</strong> in the previous example to send data to the Sesam system called HR.</p>
 <details>
 <summary><a>address-hr-endpoint output example</a></summary>
 </details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"address-hr-endpoint"</span><span class="p">,</span>
-  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"pipe"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"dataset"</span><span class="p">,</span>
-    <span class="s2">"dataset"</span><span class="p">:</span> <span class="s2">"address-hr"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;address-hr-endpoint&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;address-hr&quot;</span>
   <span class="p">},</span>
-  <span class="s2">"sink"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"sql"</span><span class="p">,</span>
-    <span class="s2">"system"</span><span class="p">:</span> <span class="s2">"HR"</span><span class="p">,</span>
-    <span class="s2">"primary_key"</span><span class="p">:</span> <span class="s2">"SSN"</span><span class="p">,</span>
-    <span class="s2">"table"</span><span class="p">:</span> <span class="s2">"SomeTable"</span>
+  <span class="s2">&quot;sink&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sql&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;HR&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="s2">&quot;SSN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="s2">&quot;SomeTable&quot;</span>
   <span class="p">},</span>
-  <span class="s2">"pump"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"cron_expression"</span><span class="p">:</span> <span class="s2">"*/10 * * * ?"</span>
+  <span class="s2">&quot;pump&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;cron_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;*/10 * * * ?&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -947,7 +1377,7 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </div>
 </div>
 <div class="section" id="tips-for-global-datasets">
-<h2>Tips for global datasets<a class="headerlink" href="#tips-for-global-datasets" title="Permalink to this headline">#</a></h2>
+<h2>Tips for global datasets<a class="headerlink" href="#tips-for-global-datasets" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>All datasets should go into a global dataset</p></li>
 <li><p>In most data models, between 10–20 global datasets are sufficient. This is based on experience on various size of projects at Sesam. The smaller  projects could have close to 10, and some of the bigger projects has over 20 global datasets, with hundreds of pipes connected to them. To identify how many global datasets a project might need it is important to perform a proper analysis. For instance, if a company’s needs are met by five global datasets, then they don’t have to have at least ten. This is only for best practice, but we do have examples of larger data models with less than ten global datasets</p></li>
@@ -959,7 +1389,7 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </ul>
 </div>
 <div class="section" id="how-to-do-global-datasets-in-sesam">
-<h2>How to do global datasets in Sesam<a class="headerlink" href="#how-to-do-global-datasets-in-sesam" title="Permalink to this headline">#</a></h2>
+<h2>How to do global datasets in Sesam<a class="headerlink" href="#how-to-do-global-datasets-in-sesam" title="Permalink to this headline">¶</a></h2>
 <p>When initiating a new project in Sesam, it is important to begin with the data model. Start by analyzing the sources and data to determine the needs of the organization. This will have an impact on the data model and more specifically how the global datasets will be organized. It is here the organization needs to think: what is important to me? What data do I use often, and therefore needs to be easily available? The results vary for each organization and each data model. It is however normal to add global datasets, or to re-arrange them, as the amount of data is growing.</p>
 <p>To get an idea of the granularity, please see final chapter called “Examples of real global datasets”.</p>
 <p>Generally, most organizations need five basic global datasets. This is not true for all organizations and data integrations, but it is a good basis to start from.</p>
@@ -972,7 +1402,7 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <p>This is only the first part of the analysis. The second part is how to enrich data in the global datasets, and to determine which aggregated datasets there is a need for. These are questions that need to be asked in order to make the enriched datasets as useful as possible.</p>
 </div>
 <div class="section" id="recipe-for-generating-global-datasets">
-<h2>Recipe for generating global datasets<a class="headerlink" href="#recipe-for-generating-global-datasets" title="Permalink to this headline">#</a></h2>
+<h2>Recipe for generating global datasets<a class="headerlink" href="#recipe-for-generating-global-datasets" title="Permalink to this headline">¶</a></h2>
 <p>It is impossible to make a universal recipe for all integration projects using Sesam as all projects are unique. The different data variety, data model complexity and costumer requirements are all integral parts structuring each individual Sesam node. In addition, the order you do the various tasks might vary, so please use this as a guideline only, not a comprehensive recipe.</p>
 <ol class="arabic simple">
 <li><p>The first step is to consider what the goal of the integration is; what do you want to achieve?</p></li>
@@ -995,10 +1425,10 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <p>crm-organisation</p>
 <p>Looking at the names of the datasets, it would be logical to create two global datasets. The first could contain data about person, such as user, customer, name, employee and so on.</p>
 <p><strong>global-person</strong></p>
-<a class="reference internal image-reference" href="_images/global-person1.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-person1.png" style="width: 700px;"/></a>
+<a class="reference internal image-reference" href="_images/global-person1.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-person1.png" style="width: 700px;" /></a>
 <p>The second could contain data concerning the organization. This might include names of departments, customers, regions and so on.</p>
 <p><strong>global-organisation</strong></p>
-<a class="reference internal image-reference" href="_images/global-organisation.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-organisation.png" style="width: 700px;"/></a>
+<a class="reference internal image-reference" href="_images/global-organisation.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-organisation.png" style="width: 700px;" /></a>
 <p>When the number of sources and datasets increases it will become natural to add more “buckets” or global datasets to put them in.</p>
 <p>Below are new sources with data from Difi and Salesforce. In addition, more datasets from existing sources were added.</p>
 <p>Datasets:</p>
@@ -1013,62 +1443,62 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 <p>crm-order</p>
 <p>The datasets might be organized like this, please see below. As seen no changes in <strong>“global-organization”</strong>. New datasets added to <strong>“global-person”</strong> and new “bucket” called <strong>“global-project”</strong> is generated.</p>
 <p><strong>global-person</strong></p>
-<a class="reference internal image-reference" href="_images/global-person2.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-person2.png" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="_images/global-person2.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-person2.png" style="width: 600px;" /></a>
 <p>The second could contain data concerning projects. This might be orders, project numbers, sales opportunities etc.</p>
 <p><strong>global-project</strong></p>
-<a class="reference internal image-reference" href="_images/global-project.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-project.png" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="_images/global-project.png"><img alt="Generic pipe concep" class="align-center" src="_images/global-project.png" style="width: 600px;" /></a>
 <p>It is important to emphasize that this is only a suggestion on how it might be logical to organize the datasets. The end result is highly individual and will most likely vary. This does however give an idea on how architecture in Sesam is built and developed using global datasets.</p>
 </div>
 <div class="section" id="additional-sesam-tips">
-<h2>Additional Sesam tips<a class="headerlink" href="#additional-sesam-tips" title="Permalink to this headline">#</a></h2>
+<h2>Additional Sesam tips<a class="headerlink" href="#additional-sesam-tips" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="creating-a-new-id-for-an-entity">
-<span id="best-practice-new-id"></span><h3>Creating a new _id for an entity<a class="headerlink" href="#creating-a-new-id-for-an-entity" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-new-id"></span><h3>Creating a new _id for an entity<a class="headerlink" href="#creating-a-new-id-for-an-entity" title="Permalink to this headline">¶</a></h3>
 <p>Every entity in Sesam is given a unique identifier, which is stored in the <code class="docutils literal notranslate"><span class="pre">_id</span></code> field. The best practice when handling the identity field in downstream pipes is to keep the identity of the current entity being processed by the pipe. However, it is sometimes logical to change the identity of an entity. This is mainly done when a pipe is creating new entities (through the emit children functionality for instance), but also if an entity is changing context or type when applied through a DTL transform.</p>
 <p>There is one important thing to be aware of when changing the value of the <code class="docutils literal notranslate"><span class="pre">_id</span></code> field. Any transforms or operations prior to the change of the <code class="docutils literal notranslate"><span class="pre">_id</span></code>, will adhere to the original identity of the entity. This means for instance that if you add a filter to a DTL transform before changing the identity, the filter will apply to the old identity, which may result in the entity not being filtered out if a change occur in the original entity. Since the entity is stored in the sink dataset with the new identity, but the entity processed is filtered out with the original identity.</p>
 <p>Using values from entities added through the hops function as part of the <code class="docutils literal notranslate"><span class="pre">_id</span></code> field should also be used with extreme care and mostly avoided. If a value from a joined entity is used to generate a new identifier is changed, the new identity will no longer match the previous identity and the entity will then be treated as a new entity. The same applies to using fields from the original entity as part of the <code class="docutils literal notranslate"><span class="pre">_id</span></code>, if one of these changes value it will generate a new identifier.</p>
 <p>If it is necessary to create a new <code class="docutils literal notranslate"><span class="pre">_id</span></code> for an entity it should then be created before any filters are applied to the transform and no values from joined entities should be used as part of the new identity.</p>
 </div>
 <div class="section" id="golden-record">
-<span id="best-practice-golden-record"></span><h3>Golden record<a class="headerlink" href="#golden-record" title="Permalink to this headline">#</a></h3>
+<span id="best-practice-golden-record"></span><h3>Golden record<a class="headerlink" href="#golden-record" title="Permalink to this headline">¶</a></h3>
 <p>A golden record is a single, well-defined version of all the data entities in an organizational ecosystem. In this context, a golden record is sometimes called the <strong>“single version of the truth”</strong>, where <strong>“truth”</strong> is understood to mean the reference to which data users can to turn when they want to ensure that they have the correct version of a piece of information.</p>
 <p>In the example below, all three sources provide a <strong>zip-code</strong>, such that some properties in a global dataset might be duplicates from different sources. In this case it could be fitting to add a <strong>“global-person:zipcode”</strong> property to the global dataset. This property should contain the most reliable zip-code value of the three sources and will be the property we access when we want the person’s zip-code. This global property becomes a part of a <strong>“golden record”</strong> which ensures a single, well-defined representation of the person.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">"$ids"</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"~:crm-person:100"</span><span class="p">,</span>
-  <span class="s2">"~:hr-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"~:erp-person:0202"</span>
+  <span class="s2">&quot;$ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;~:crm-person:100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;~:hr-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;~:erp-person:0202&quot;</span>
   <span class="p">],</span>
-  <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"crm-person:100"</span><span class="p">,</span>
-  <span class="s2">"hr-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"hr-person:Gender"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
-  <span class="s2">"hr-person:ZipCode"</span><span class="p">:</span> <span class="s2">"null"</span><span class="p">,</span>
-  <span class="s2">"crm-person:EmailAddress"</span><span class="p">:</span> <span class="s2">"IsakEikeland@teleworm.us"</span><span class="p">,</span>
-  <span class="s2">"crm-person:ID"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span>
-  <span class="s2">"crm-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hrsystem-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"crm-person:PostalCode"</span><span class="p">:</span> <span class="s2">"3732"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN"</span><span class="p">:</span> <span class="s2">"02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:SSN-ni"</span><span class="p">:</span> <span class="s2">"~:hrsystem-person:02023688018"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ID"</span><span class="p">:</span><span class="s2">"0202"</span><span class="p">,</span>
-  <span class="s2">"erp-person:ZipCode"</span><span class="p">:</span> <span class="s2">"5003"</span><span class="p">,</span>
-  <span class="s2">"global-person:zipcode"</span><span class="p">:</span> <span class="s2">"3732"</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;crm-person:100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:Gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hr-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:EmailAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;IsakEikeland@teleworm.us&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:ID&quot;</span><span class="p">:</span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hrsystem-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;crm-person:PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;3732&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:SSN-ni&quot;</span><span class="p">:</span> <span class="s2">&quot;~:hrsystem-person:02023688018&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ID&quot;</span><span class="p">:</span><span class="s2">&quot;0202&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;erp-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;5003&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;global-person:zipcode&quot;</span><span class="p">:</span> <span class="s2">&quot;3732&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>In addition to the zip-code from the 3 different data sources, the “global-person” dataset now also contains a <strong>global-person:zipcode</strong>. When creating a golden record in Sesam, one configures the priority of the sources and the value of the property that is highest on the priority list and has data will be used.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"hr-person:ZipCode"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"crm-person:PostalCode"</span><span class="p">:</span> <span class="s2">"3732"</span><span class="p">,</span>
-<span class="s2">"erp-person:ZipCode"</span><span class="p">:</span> <span class="s2">"5003"</span><span class="p">,</span>
-<span class="s2">"global-person:zipcode"</span><span class="p">:</span> <span class="s2">"3732"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;hr-person:ZipCode&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">&quot;crm-person:PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;3732&quot;</span><span class="p">,</span>
+<span class="s2">&quot;erp-person:ZipCode&quot;</span><span class="p">:</span> <span class="s2">&quot;5003&quot;</span><span class="p">,</span>
+<span class="s2">&quot;global-person:zipcode&quot;</span><span class="p">:</span> <span class="s2">&quot;3732&quot;</span>
 </pre></div>
 </div>
 <p>Now, the most trusted zip-code value can be accessed without evaluating all three at every inquiry.</p>
 </div>
 <div class="section" id="data-modelling">
-<h3>Data modelling<a class="headerlink" href="#data-modelling" title="Permalink to this headline">#</a></h3>
+<h3>Data modelling<a class="headerlink" href="#data-modelling" title="Permalink to this headline">¶</a></h3>
 <p>Below are principles of doing data modelling in Sesam.</p>
 <div class="section" id="raw-input">
-<h4>Raw input<a class="headerlink" href="#raw-input" title="Permalink to this headline">#</a></h4>
+<h4>Raw input<a class="headerlink" href="#raw-input" title="Permalink to this headline">¶</a></h4>
 <p>When reading data into Sesam it is best practice to copy it and not start changing it. This way we have a dataset which is identical or close to identical to the source data. It is, however, common practice to add namespaces to the properties in order to keep track of where the data comes from. If you know that a property is a reference to another entity (like a foreign key in a relational database), it is good practice to make a namespaced identifier based on that property. Such a property is usually added as a new property, with a -ni postfix, for example “my-order:customer-ni”: “~:my-customer:1” (the source entity will here usually have a property like this: “my-order:customer”: 1).</p>
 <p>It is also advisable to add, as mentioned earlier a RDF type and other metadata tags if required. Each entity should have a <strong>id</strong> and if the id isn’t generated by the system, we should add it. This <strong>id</strong> (_id) can then be referenced to as a namespaced identifier in other entities, like a foreign key (this being the primary key).</p>
 <p>Benefits:</p>
@@ -1082,150 +1512,81 @@ In the example below, <strong>“crm-person”</strong> and <strong>“hr-person
 </ul>
 </div>
 <div class="section" id="data-flow">
-<h4>Data flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">#</a></h4>
+<h4>Data flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h4>
 <p>In Sesam data is collected, connected, enriched and transformed from the datasets formed from retrieving data from the source systems. This is done by compiling data from multiple datasets, transforming data into new data formats or standards, and adapting the data to new target systems. In this way, new values are created for the re-use and use of data. This is done in the global dataset where the main purpose is that one should not need to look up multiple datasets and compile data for each time one needs it, but rather make the connecting and enriching once and look up in one place.</p>
 </div>
 <div class="section" id="enrich-data">
-<h4>Enrich data<a class="headerlink" href="#enrich-data" title="Permalink to this headline">#</a></h4>
+<h4>Enrich data<a class="headerlink" href="#enrich-data" title="Permalink to this headline">¶</a></h4>
 <p>There are multiple ways to enrich the original source data, the most common one is to do a DTL transformation, a simple example would be to concatenate “firstname” and “lastname” into a new property called “name”.</p>
 <p>Another way to enrich data, is to derive it based on the original properties. One example of this can be a “map-coordinate” property that is stored in the coordinate system that Google uses, but the target system needs it in another coordinate system. This is achieved by calling a coordinate microservice, that returns one or more extra properties based on other coordinate systems.</p>
 <p>Yet another example on how to enrich data is by adding mapping to the properties to support a corporate standard information model or simply mapping to a target system.</p>
 <p>Doing these enrichments in a global pipe and storing the enriched data in the global dataset means that the enriched data will be available for future integrations and dataflows that might need the same enrichment.</p>
 </div>
 <div class="section" id="output-data-late-binding">
-<h4>Output data (late binding)<a class="headerlink" href="#output-data-late-binding" title="Permalink to this headline">#</a></h4>
+<h4>Output data (late binding)<a class="headerlink" href="#output-data-late-binding" title="Permalink to this headline">¶</a></h4>
 <p>Principle - adaptation of data to the receiving system is done as late as possible in the data flow, and as close to the receiving system as possible.</p>
 </div>
 <div class="section" id="unmodified-dataset-as-output">
-<h4>Unmodified dataset as output<a class="headerlink" href="#unmodified-dataset-as-output" title="Permalink to this headline">#</a></h4>
+<h4>Unmodified dataset as output<a class="headerlink" href="#unmodified-dataset-as-output" title="Permalink to this headline">¶</a></h4>
 <p>When writing data out of Sesam the dataset might be transferred as it is (unmodified dataset as output), transformed on the way out or transferred directly to other sources.</p>
 </div>
 </div>
 </div>
 </div>
 
-        </article>
-      </div>
-      <footer>
-        
-        <div class="related-pages">
-          <a class="next-page" href="index-dataplatforms.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Data platforms</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="entitymodel.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Entity Data Model</div>
-                
-              </div>
-            </a>
-        </div>
-        <div class="bottom-of-page">
-          <div class="left-details">
-            <div class="copyright">
-                Copyright &#169; 2022 Sesam.io AS
-            </div>
-            Made with 
-            <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
-          </div>
-          <div class="right-details">
-            <div class="icons">
-              
-            </div>
-          </div>
-        </div>
-        
-      </footer>
-    </div>
-    <aside class="toc-drawer">
-      
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Data modelling in Sesam</a><ul>
-<li><a class="reference internal" href="#summary">Summary</a></li>
-<li><a class="reference internal" href="#data-handling-philosophy">Data handling philosophy</a></li>
-<li><a class="reference internal" href="#global-datasets">Global datasets</a><ul>
-<li><a class="reference internal" href="#definition">Definition</a></li>
-<li><a class="reference internal" href="#positive-effects-of-global-datasets">Positive effects of global datasets</a></li>
-<li><a class="reference internal" href="#what-do-you-have-to-take-into-account-and-what-are-the-challenges-of-global-datasets">What do you have to take into account, and what are the challenges of global datasets?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#namespace-and-namespaced-identifiers">Namespace and namespaced identifiers</a><ul>
-<li><a class="reference internal" href="#namespace">Namespace</a></li>
-<li><a class="reference internal" href="#namespaced-identifiers">Namespaced identifiers</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#naming-conventions">Naming conventions</a><ul>
-<li><a class="reference internal" href="#general-rules">General rules</a></li>
-<li><a class="reference internal" href="#systems">Systems</a></li>
-<li><a class="reference internal" href="#pipes">Pipes</a></li>
-<li><a class="reference internal" href="#datasets">Datasets</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#workflow-for-transforming-data-in-sesam">Workflow for transforming data in Sesam</a><ul>
-<li><a class="reference internal" href="#inbound-pipes">Inbound pipes</a><ul>
-<li><a class="reference internal" href="#embedded-data-and-conditional-inbound-pipes">Embedded data and Conditional inbound pipes</a></li>
-<li><a class="reference internal" href="#embedded-data-as-extra-information">Embedded data as extra information</a></li>
-<li><a class="reference internal" href="#embedded-data-for-testing">Embedded data for testing</a></li>
-<li><a class="reference internal" href="#rdf-type">RDF type</a></li>
-<li><a class="reference internal" href="#namespaces">Namespaces</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#global-pipes">Global pipes</a></li>
-<li><a class="reference internal" href="#preparation-pipes">Preparation pipes</a></li>
-<li><a class="reference internal" href="#outbound-pipes">Outbound pipes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tips-for-global-datasets">Tips for global datasets</a></li>
-<li><a class="reference internal" href="#how-to-do-global-datasets-in-sesam">How to do global datasets in Sesam</a></li>
-<li><a class="reference internal" href="#recipe-for-generating-global-datasets">Recipe for generating global datasets</a></li>
-<li><a class="reference internal" href="#additional-sesam-tips">Additional Sesam tips</a><ul>
-<li><a class="reference internal" href="#creating-a-new-id-for-an-entity">Creating a new _id for an entity</a></li>
-<li><a class="reference internal" href="#golden-record">Golden record</a></li>
-<li><a class="reference internal" href="#data-modelling">Data modelling</a><ul>
-<li><a class="reference internal" href="#raw-input">Raw input</a></li>
-<li><a class="reference internal" href="#data-flow">Data flow</a></li>
-<li><a class="reference internal" href="#enrich-data">Enrich data</a></li>
-<li><a class="reference internal" href="#output-data-late-binding">Output data (late binding)</a></li>
-<li><a class="reference internal" href="#unmodified-dataset-as-output">Unmodified dataset as output</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-          </div>
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="entitymodel.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Entity Data Model</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="index-dataplatforms.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data platforms</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
-      
-      
-    </aside>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    </body>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
 </html>
