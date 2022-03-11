@@ -17,3 +17,25 @@ h3 {
 .toc-drawer {
 	place-content: end;
 }*/
+
+/* add any theme overrides here */
+
+h3 {
+    /* color: green; */
+}
+
+.container-xl {
+	min-width: 100%
+}
+
+.bd-sidebar {
+	max-width: 20%;
+}
+
+.bd-toc {
+	min-width: 20%;
+}
+
+.bd-content {
+	min-width: 60%;
+}
