@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transforms &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DTL transform" href="configuration-transforms-dtl.html" />
+    <link rel="prev" title="REST source (experimental)" href="configuration-sources-rest.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://portal.sesam.io">
+  Login
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-reference.html">
+   Quick Reference
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-general.html">
+     General
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-variables.html">
+     Environment variables and secrets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-metadata.html">
+     Service metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-pipes.html">
+     Pipes
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-sources.html">
+     Sources
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-dataset.html">
+       Dataset source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-merge.html">
+       Merge source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-union-datasets.html">
+       Union datasets source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-merge-datasets.html">
+       Merge datasets source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-diff-datasets.html">
+       Diff datasets source (experimental)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-embedded.html">
+       Embedded source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sql.html">
+       SQL source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-conditional.html">
+       Conditional source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-csv.html">
+       CSV source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-rdf.html">
+       RDF source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sdshare.html">
+       SDShare source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-ldap.html">
+       LDAP source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-json.html">
+       JSON source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-empty.html">
+       Empty source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-http.html">
+       HTTP endpoint source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sparql.html">
+       SPARQL source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-rest.html">
+       REST source (experimental)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="current reference internal" href="#">
+     Transforms
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-dtl.html">
+       DTL transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-json-schema-validation.html">
+       JSON Schema validation transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-conditional.html">
+       Conditional transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-http.html">
+       HTTP transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-emit-children.html">
+       Emit children transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-xml.html">
+       XML transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-rdf.html">
+       RDF transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-rest.html">
+       REST transform
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-sinks.html">
+     Sinks
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-conditional.html">
+       Conditional sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-dataset.html">
+       Dataset sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-databrowser.html">
+       Sesam Databrowser sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-json.html">
+       JSON push sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sdshare.html">
+       SDShare push sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sms.html">
+       SMS message sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-solr.html">
+       Solr sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-elasticsearch.html">
+       Elasticsearch sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sparql.html">
+       SPARQL sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sql.html">
+       SQL sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-email.html">
+       Email Message sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-null.html">
+       Null sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-http.html">
+       HTTP endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-csv.html">
+       CSV endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-xml.html">
+       XML endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-rest.html">
+       REST sink
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-systems.html">
+     Systems
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-sql.html">
+       SQL systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-oracle.html">
+       Oracle system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-oracle-tns.html">
+       Oracle TNS system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mssql-legacy.html">
+       Legacy Microsoft SQL Server system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mssql.html">
+       Microsoft SQL Server system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mysql.html">
+       MySQL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-postgresql.html">
+       PostgreSQL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-ldap.html">
+       LDAP system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-smtp.html">
+       SMTP system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-solr.html">
+       Solr system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-elasticsearch.html">
+       Elasticsearch system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-twilio.html">
+       Twilio system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-url.html">
+       URL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-rest.html">
+       REST system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-microservice.html">
+       Microservice system
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-pump.html">
+     Pumps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="transforms">
+<span id="transform-section"></span><h1>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h1>
+<p>Transforms sit between the source and the sink. Entities passed from a
+source to a sink, can optionally be passed through a chain of
+transforms before they are passed on to the sink. This makes it
+possible to reshape the entities on their way to the sink. Transforms
+can also be used to filter entities and construct new entities.</p>
+<p>Transforms can be configured on a pipe by specifying the
+“<code class="docutils literal notranslate"><span class="pre">transform</span></code>” property. The field is optional, and can contain
+either a transform configuration object or a list of them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Name of pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="o">...</span>
+    <span class="p">},</span>
+    <span class="o">..</span>
+    <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name of transform (NOTE: deprecated)&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a comment&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;description of the transform (optional)&quot;</span>
+        <span class="o">...</span><span class="n">the</span> <span class="n">rest</span> <span class="n">of</span> <span class="n">the</span> <span class="n">transform</span> <span class="n">configuration</span> <span class="n">goes</span> <span class="n">here</span><span class="o">...</span>
+    <span class="p">}</span>
+ <span class="p">}}</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="configuration-sources-rest.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">REST source (experimental)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="configuration-transforms-dtl.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DTL transform</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
+</html>

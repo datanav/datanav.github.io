@@ -1,0 +1,1529 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pipes &#8212; Sesam Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sources" href="configuration-sources.html" />
+    <link rel="prev" title="Service metadata" href="configuration-metadata.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="index.html">
+  <img src="_static/sesamlogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-whatis.html">
+  What is Sesam
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index-developer.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index-learn.html">
+  Learn
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="community.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="legal.html">
+  Legal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://support.sesam.io">
+  Support
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference external nav-link" href="https://portal.sesam.io">
+  Login
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-reference.html">
+   Quick Reference
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="best-practices.html">
+   Project kickstart
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pre-planning.html">
+     Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup-environment.html">
+     Setting up an environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-dataflow.html">
+     Creating a dataflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="developer-guide.html">
+   Building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="product-features.html">
+   Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DTLReferenceGuide.html">
+   Data Transformation Language (DTL)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="patterns.html">
+   Design patterns
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-synchronization.html">
+   Data synchronization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="idempotency.html">
+     Non-idempotency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cron-expressions.html">
+     Cron Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rdf-support.html">
+     RDF support
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-pull.html">
+     JSON Pull Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json-push.html">
+     JSON Push Protocol
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extension-points.html">
+     Developer Extension Points
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source-datatype-mapping.html">
+     Source datatype mapping
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-datamodelling.html">
+   Data modelling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="entitymodel.html">
+     Entity Data Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-modelling.html">
+     Data modelling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-dataplatforms.html">
+   Data platforms
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure.html">
+     Sesam in Microsoft Azure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="index-operations.html">
+   Operations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="security.html">
+     Security
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notifications.html">
+     Notifications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pump-execution.html">
+     Pump Execution Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="project-workflow.html">
+     Configuration Management
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="version-control-system.html">
+       Using Sesam with a version control system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="testing-locally.html">
+       Testing a Sesam configuration locally
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="continuous-integration.html">
+       Continuous integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="automatic-deployment.html">
+       Automatic deployment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="self-hosted.html">
+     Self-hosted service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="low-level-debugging.html">
+     Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="behind-the-scenes.html">
+     Behind the scenes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tools.html">
+   Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="management-studio.html">
+     Management Studio
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sesam-client.html">
+     Sesam Client
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="gdpr-platform.html">
+     GDPR platform
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-configuration.html">
+       Platform configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-types-purposes-configuration.html">
+       Datatypes and purposes configuration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-data-access-portal.html">
+       The GDPR data access portal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-platform-developer-docs.html">
+       Developer documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-getting-started.html">
+       Getting started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="gdpr-changelog.html">
+       Changelog
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="configuration.html">
+   Service Configuration
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-general.html">
+     General
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-variables.html">
+     Environment variables and secrets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-metadata.html">
+     Service metadata
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pipes
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-sources.html">
+     Sources
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-dataset.html">
+       Dataset source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-merge.html">
+       Merge source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-union-datasets.html">
+       Union datasets source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-merge-datasets.html">
+       Merge datasets source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-diff-datasets.html">
+       Diff datasets source (experimental)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-embedded.html">
+       Embedded source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sql.html">
+       SQL source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-conditional.html">
+       Conditional source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-csv.html">
+       CSV source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-rdf.html">
+       RDF source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sdshare.html">
+       SDShare source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-ldap.html">
+       LDAP source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-json.html">
+       JSON source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-empty.html">
+       Empty source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-http.html">
+       HTTP endpoint source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-sparql.html">
+       SPARQL source
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sources-rest.html">
+       REST source (experimental)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-transforms.html">
+     Transforms
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-dtl.html">
+       DTL transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-json-schema-validation.html">
+       JSON Schema validation transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-conditional.html">
+       Conditional transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-http.html">
+       HTTP transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-emit-children.html">
+       Emit children transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-xml.html">
+       XML transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-rdf.html">
+       RDF transform
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-transforms-rest.html">
+       REST transform
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-sinks.html">
+     Sinks
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-conditional.html">
+       Conditional sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-dataset.html">
+       Dataset sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-databrowser.html">
+       Sesam Databrowser sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-json.html">
+       JSON push sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sdshare.html">
+       SDShare push sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sms.html">
+       SMS message sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-solr.html">
+       Solr sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-elasticsearch.html">
+       Elasticsearch sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sparql.html">
+       SPARQL sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-sql.html">
+       SQL sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-email.html">
+       Email Message sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-null.html">
+       Null sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-http.html">
+       HTTP endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-csv.html">
+       CSV endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-xml.html">
+       XML endpoint sink
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-sinks-rest.html">
+       REST sink
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="configuration-systems.html">
+     Systems
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-sql.html">
+       SQL systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-oracle.html">
+       Oracle system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-oracle-tns.html">
+       Oracle TNS system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mssql-legacy.html">
+       Legacy Microsoft SQL Server system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mssql.html">
+       Microsoft SQL Server system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-mysql.html">
+       MySQL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-postgresql.html">
+       PostgreSQL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-ldap.html">
+       LDAP system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-smtp.html">
+       SMTP system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-solr.html">
+       Solr system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-elasticsearch.html">
+       Elasticsearch system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-twilio.html">
+       Twilio system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-url.html">
+       URL system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-rest.html">
+       REST system
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="configuration-systems-microservice.html">
+       Microservice system
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="configuration-pump.html">
+     Pumps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   Service API
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="deprecations.html">
+   Deprecated features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="databrowser.html">
+     Databrowser
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-guide.html">
+       Databrowser Guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-auth.html">
+       Authentication and authorization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="databrowser-api.html">
+       Configuration file API
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batching">
+   Batching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties">
+   Properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#namespaces">
+   Namespaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compaction">
+   Compaction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#circuit-breakers">
+   Circuit breakers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resetting">
+   Resetting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automatic-reprocessing">
+   Automatic reprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#completeness">
+   Completeness
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-configuration">
+   Example configuration
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="pipes">
+<span id="pipe-section"></span><h1>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h1>
+<p>A pipe defines the flow of data from a <em>source</em> to a <em>sink</em> on some schedule as defined by the pump settings.
+Optionally, a pipe may define an ordered list of transforms that are applied to entities as they flow from the
+<em>source</em> to the <em>sink</em>. As the name implies, a pump “pumps” data in the form of entities from the source to the
+sink at regular or scheduled intervals. A chain of transforms can be placed in between the source and the sink, so that entities
+are transformed on their way to the sink.</p>
+<p>The pipe configuration consists of a <a class="reference internal" href="configuration-sources.html#source-section"><span class="std std-ref">source</span></a>, <a class="reference internal" href="configuration-transforms.html#transform-section"><span class="std std-ref">transform</span></a>,
+<a class="reference internal" href="configuration-sinks.html#sink-section"><span class="std std-ref">sink</span></a> and a <a class="reference internal" href="configuration-pump.html#pump-section"><span class="std std-ref">pump</span></a>.</p>
+<p>Note that the forward slash character (“<code class="docutils literal notranslate"><span class="pre">/</span></code>”) is not allowed in the pipe <code class="docutils literal notranslate"><span class="pre">_id</span></code> property.</p>
+<div class="section" id="prototype">
+<h2>Prototype<a class="headerlink" href="#prototype" title="Permalink to this headline">¶</a></h2>
+<p>The following <em>JSON</em> snippet shows the general form of a pipe definition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe-id&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Name of pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a description of the pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a comment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;sink&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;pump&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that if no <code class="docutils literal notranslate"><span class="pre">name</span></code> property is explicitly set for the source, sink or pump configurations one will be generated based on the <code class="docutils literal notranslate"><span class="pre">name</span></code> of the pipe (i.e. the contents of this property postfixed with “source”, “sink” or “pump” respectively).</p>
+</div>
+<div class="section" id="batching">
+<span id="pipe-batching"></span><h2>Batching<a class="headerlink" href="#batching" title="Permalink to this headline">¶</a></h2>
+<p>Pipes support batching if the sink supports batching. It does this by
+accumulating source entities in a buffer before writing the batch to
+transforms and the sink. The size of each batch can be specified using
+the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> property on the pipe. The default batch size
+is usually 100, but this may vary depending on the source- and
+sink-type used in the pipe. The <a class="reference internal" href="configuration-sinks-rest.html#rest-sink"><span class="std std-ref">REST sink</span></a> will
+for instance make the default batch_size 1.</p>
+<p>Note that the sink may have its own <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> property. This is
+useful if the pipe has transforms that produce more entities than the
+number of entities taken as input.</p>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_id</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The id of the pipe, this should be unique within a Sesam service instance. Note that you cannot use the <code class="docutils literal notranslate"><span class="pre">/</span></code>
+character in the id property.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>String</p></td>
+<td><p>A human readable name of the component.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>String or list of strings</p></td>
+<td><p>A human readable description of the component (optional).</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">comment</span></code></p></td>
+<td><p>String or list of strings</p></td>
+<td><p>A human readable comment on the component (optional).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The type of the component, for pipes the only allowed value is “pipe”</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p></td>
+<td><p>Integer(&gt;=1)</p></td>
+<td><p>The number of source entities to consume before writing to the sink. The batch size
+can be used to buffer up entities so that they can be written together to the sink in
+one go. The sink must support batch for the bulking to happen. This may increase the
+throughput of the pipe, at the cost of extra memory usage. If the batch fails,
+then entities will be retried individually.</p></td>
+<td><p>usually 100, but varies with other pipe settings.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoint_interval</span></code></p></td>
+<td><p>Integer(&gt;=1)</p></td>
+<td><p>Specifies how often the pipe offset is saved. It says how many batches
+must be processed before the pipe offset is saved the next time. Note that the pipe
+offset is always saved at the end of the sync if it changed.</p>
+<p>The default value is 10000/<code class="docutils literal notranslate"><span class="pre">batch_size</span></code> = 100, i.e. the
+checkpoint happens every 100 batches. The exception is if <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> is 1, in which case the
+default value of <code class="docutils literal notranslate"><span class="pre">checkpoint_interval</span></code> is also set to 1.</p>
+</td>
+<td><p>100 (1 if batch_size=1)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">disable_set_last_seen</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If this flag is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, it will no longer be possible to reset or set the ‘last seen’ parameter for this
+pipe. The primary use case for this property is when you need to protect the pipe from accidental resets.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even" id="pipe-settings-enable-background-rescan"><td><p><code class="docutils literal notranslate"><span class="pre">enable_background_rescan</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>When set to true, enables running <a class="reference internal" href="configuration-pump.html#pipe-rescans"><span class="std std-ref">pipe rescans</span></a> in the background for this pipe.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">source</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A configuration object for the <a class="reference internal" href="configuration-sources.html#source-section"><span class="std std-ref">source</span></a> component of the pipe.</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">transform</span></code></p></td>
+<td><p>Object/List</p></td>
+<td><p>Zero or more configuration objects for the <a class="reference internal" href="configuration-transforms.html#transform-section"><span class="std std-ref">transform</span></a> components of the pipe.
+The default is to do no transformation of the entities. If a list of more than one transform components is
+given, then they are chained together in the order given. This means that the output of the first transform
+is passed as the input of the second, and so on. The output of the last transform is then passed to the
+sink. The first transform gets its input from the source.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sink</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A configuration object for the <a class="reference internal" href="configuration-sinks.html#sink-section"><span class="std std-ref">sink</span></a> component of the pipe. If omitted, it defaults to
+a <a class="reference internal" href="configuration-sinks-dataset.html#dataset-sink"><span class="std std-ref">dataset sink</span></a> with its <code class="docutils literal notranslate"><span class="pre">dataset</span></code> property set to same as the pipe’s <code class="docutils literal notranslate"><span class="pre">_id</span></code> property.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pump</span></code></p></td>
+<td><p>Object</p></td>
+<td><p>A configuration object for the <a class="reference internal" href="configuration-pump.html#pump-section"><span class="std std-ref">pump</span></a> component of the pipe.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dependency_tracking.dependency_warning_threshold</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The number of entities that dependency tracking can keep in memory at a given time. If this number is exceeded then a warning message is written to the log. The default value is inherited from the <a class="reference internal" href="configuration-metadata.html#service-metadata-dependency-tracking-dependency-warning-threshold"><span class="std std-ref">service metadata</span></a>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10000</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dependency_tracking.dependency_error_threshold</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The number of entities that dependency tracking can keep in memory at a given time. If this number is exceeded then the pump will fail. The default value is inherited from the <a class="reference internal" href="configuration-metadata.html#service-metadata-dependency-tracking-dependency-error-threshold"><span class="std std-ref">service metadata</span></a>.  Do not set this value too high as it may cause excessive memory usage.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50000</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dependency_tracking.dependency_warning_threshold_total_bytes</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The number of bytes that dependency tracking can keep in memory at a given time. If this number is exceeded then a warning message is written to the log. The default value is inherited from the <a class="reference internal" href="configuration-metadata.html#service-metadata-dependency-tracking-dependency-warning-threshold-total-bytes"><span class="std std-ref">service metadata</span></a>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">33554432</span></code> (32MB)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dependency_tracking.dependency_error_threshold_total_bytes</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The number of bytes that dependency tracking can keep in memory at a given time. If this number is exceeded then the pump will fail. The default value is inherited from the <a class="reference internal" href="configuration-metadata.html#service-metadata-dependency-tracking-dependency-error-threshold-total-bytes"><span class="std std-ref">service metadata</span></a>.  Do not set this value too high as it may cause excessive memory usage.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">134217728</span></code> (128MB)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dependency_tracking.enable_hops_thresholds</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, then warning and error thresholds that apply for dependency tracking also apply for regular <code class="docutils literal notranslate"><span class="pre">&quot;hops&quot;</span></code> expressions. The default value is inherited from the <a class="reference internal" href="configuration-metadata.html#service-metadata-dependency-tracking-enable-hops-thresholds"><span class="std std-ref">service metadata</span></a>. It is recommended that you set this property to <code class="docutils literal notranslate"><span class="pre">true</span></code> in development environments.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="namespaces">
+<span id="id1"></span><h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h2>
+<p>Namespaces can be used by <a class="reference internal" href="entitymodel.html#id-field"><span class="std std-ref">entity identifiers</span></a>, entity property names and the <a class="reference internal" href="entitymodel.html#ni-data-type"><span class="std std-ref">namespaced identifier datatype</span></a>. A namespaced identifier consists of two parts; a namespace and an identifier. The namespace part can consist of any character, including colons. The identifier part can consist of any character except colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>).</p>
+<p>Example of an entity with namespaces:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user:123&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;user:username&quot;</span><span class="p">:</span> <span class="s2">&quot;erica&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;user:first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Erica&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;user:manager&quot;</span><span class="p">:</span> <span class="s2">&quot;~:user:101&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Namespaced identifiers can be enabled by setting the
+<code class="docutils literal notranslate"><span class="pre">namespaced_identifiers</span></code> property to <code class="docutils literal notranslate"><span class="pre">true</span></code> in the pipe
+configuration (see below) or the service metadata. The former
+enables it for just the one pipe. The latter enables it for all
+pipes - except for those pipes that have explicitly disabled it.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of the DTL functions are namespace aware and they will behave
+slightly differently when namespaces are enabled. See the section
+on <a class="reference internal" href="DTLReferenceGuide.html#namespace-aware-functions"><span class="std std-ref">namespaces</span></a> in the DTL
+reference guide for more details.</p>
+</div>
+<div class="section" id="id2">
+<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">namespaced_identifiers</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>Flag used to enable namespaced identifers support on the pipe. The default value is read from the service metadata. If not specified in the service metadata then the default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+<td><p>Service metadata default</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">namespaces.identity</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The namespace used for identifiers. The default value is the pipe’s id.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pipe.id</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">namespaces.property</span></code></p></td>
+<td><p>String</p></td>
+<td><p>The namespace used for properties. The default value is the pipe’s id.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pipe.id</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add_namespaces</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> then the current identity namespace will be added to <code class="docutils literal notranslate"><span class="pre">_id</span></code> and the current property namespace will be added to all properties. The namespaces are added before the first transform. This property is normally only specified on inbound pipes.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">namespaced_identifiers</span></code> is enabled in the service metadata then the source default value is used. The following sources has a default value of <code class="docutils literal notranslate"><span class="pre">true</span></code>: <a class="reference internal" href="configuration-sources-csv.html#csv-source"><span class="std std-ref">csv</span></a>, <a class="reference internal" href="configuration-sources-ldap.html#ldap-source"><span class="std std-ref">ldap</span></a>, <a class="reference internal" href="configuration-sources-sql.html#sql-source"><span class="std std-ref">sql</span></a>, <a class="reference internal" href="configuration-sources-embedded.html#embedded-source"><span class="std std-ref">embedded</span></a>, <a class="reference internal" href="configuration-sources-http.html#http-endpoint-source"><span class="std std-ref">http_endpoint</span></a>, and <a class="reference internal" href="configuration-sources-json.html#json-source"><span class="std std-ref">json</span></a>.</p>
+</td>
+<td><p>Source default</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">remove_namespaces</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> then namespaces will be removed from <code class="docutils literal notranslate"><span class="pre">_id</span></code>, properties and namespaced identifier values. The namespaces are removed after the last transform. This property is normally only specified on outbound pipes.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">namespaced_identifiers</span></code> is enabled in the service metadata then the sink default value is used. The following sinks has a default value of <code class="docutils literal notranslate"><span class="pre">true</span></code>:  <a class="reference internal" href="configuration-sinks-csv.html#csv-endpoint-sink"><span class="std std-ref">csv_endpoint</span></a>, <a class="reference internal" href="configuration-sinks-elasticsearch.html#elasticsearch-sink"><span class="std std-ref">elasticsearch</span></a>, <a class="reference internal" href="configuration-sinks-email.html#mail-sink"><span class="std std-ref">mail</span></a>, <a class="reference internal" href="configuration-sinks-rest.html#rest-sink"><span class="std std-ref">rest</span></a>, <a class="reference internal" href="configuration-sinks-sms.html#sms-sink"><span class="std std-ref">sms</span></a>, <a class="reference internal" href="configuration-sinks-solr.html#solr-sink"><span class="std std-ref">solr</span></a>, <a class="reference internal" href="configuration-sinks-sql.html#sql-sink"><span class="std std-ref">sql</span></a>, <a class="reference internal" href="configuration-sinks-http.html#http-endpoint-sink"><span class="std std-ref">http_endpoint</span></a>, and <a class="reference internal" href="configuration-sinks-json.html#json-sink"><span class="std std-ref">json</span></a>.</p>
+</td>
+<td><p>Sink default</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="compaction">
+<span id="pipe-compaction"></span><h2>Compaction<a class="headerlink" href="#compaction" title="Permalink to this headline">¶</a></h2>
+<p>Compaction deletes the oldest entities in a dataset and reclaims space for those
+entities in the dataset’s indexes.</p>
+<p>Datasets that are written to by pipes using the <a class="reference internal" href="configuration-sinks-dataset.html#dataset-sink"><span class="std std-ref">dataset sink</span></a> are compacted incrementally as
+the pipe writes new entities to the dataset by default (compaction type “sink” enabled). If sink compaction is disabled,
+the dataset is automatically compacted once every 24 hours (compaction type “background” in the global settings or
+compaction.sink set to <code class="docutils literal notranslate"><span class="pre">false</span></code>). The default is to keep the last two versions of every
+entity up until the current time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Compaction will only be performed up to the lowest offset for which there exists a pipe doing dependency tracking on the dataset. Each pipe doing dependency tracking keeps a tracking offset on the dataset so that it knows which entities to perform dependency tracking for. It is this tracking offset that compaction cannot go beyond. This is done so that those pipes should not fall out of sync. If the compaction did not hold off then we could not guarantee that the output of those pipes are correct.</p>
+<p>Be aware that disabled pipes also hold off compaction. If the pipes are to be disabled for a long time then it is better to remove the pipe, or alternatively comment out the hops.</p>
+</div>
+<div class="section" id="id3">
+<h3>Properties<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.automatic</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> then the dataset is a candidate for automatic compaction.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.sink</span></code></p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> then the dataset sink will perform dataset compaction. This will make compaction happen incrementally as new entities are written to the dataset. If this is enabled, then automatic compaction won’t run for the dataset itself, but dataset index compaction will be scheduled. Note that dataset index compaction does not require a lock on the dataset.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.keep_versions</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>The number of unique versions of an entity to keep around. The default is <code class="docutils literal notranslate"><span class="pre">2</span></code>.
+The value must be greater than or equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">0</span></code> then a time
+threshold must be set explicitly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A value less than <code class="docutils literal notranslate"><span class="pre">2</span></code> means that dependency tracking is best effort only,
+and it will not be able to find all reprocessable entities. Do full or partial
+rescans as a counter measure.</p>
+</div>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.time_threshold_hours</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>Specifies the threshold for how old entities must be before they are considered
+for compaction. This property is usually used when you want to keep entities
+around for a certain time.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.time_threshold_hours_pump</span></code></p></td>
+<td><p>Integer</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">compaction.time_threshold_hours</span></code>, but applies to the pipe’s pump
+execution dataset. Pump execution datasets are always trimmed by time.  The
+default is 30 days, which is the minimum value allowed.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">720</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.growth_threshold</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>The growth factor required for the automatically scheduled compaction to kick
+in. Uses the minimum value of <code class="docutils literal notranslate"><span class="pre">1.0</span></code> by default, meaning that compaction will always
+run when new entities are written to the dataset.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compaction.compaction_interval</span></code></p></td>
+<td><p>Float</p></td>
+<td><p>Specifies the sink compaction interval. If this value is zero, sink compaction will run every time
+the pipe runs. If it is larger than zero, sink compaction will only run if at least
+<code class="docutils literal notranslate"><span class="pre">compaction_interval</span></code> seconds has passed since the last sink compaction. The use-case for this setting is
+to prevent a pipe that run often from constantly trying to compact the sink-dataset.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="circuit-breakers">
+<span id="circuit-breakers-section"></span><h2>Circuit breakers<a class="headerlink" href="#circuit-breakers" title="Permalink to this headline">¶</a></h2>
+<p>A circuit breaker is a safety mechanism that one can enable on the
+<a class="reference internal" href="configuration-sinks-dataset.html#dataset-sink"><span class="std std-ref">dataset sink</span></a>. The circuit breaker will trip if
+the number of entities written to a dataset in a pipe run exceeds a
+certain configurable limit.</p>
+<p>Note that a circuit breaker is only activated if the sink dataset is
+populated. In practice this means that the pipe must have ran to
+completion at least once. This is to avoid tripping it on the initial
+sync.</p>
+<p>A tripped circuit breaker will prevent the pipe from running.
+It can either be rolled back or committed. Rolling it back
+will delete any entities that were written in the pipe run before the
+circuit breaker was tripped. Committing it will expose the uncommitted
+entities. Both operations resets the circuit breaker so that pipe can
+run again.</p>
+<p>Compaction will not be performed on datasets with a tripped circuit
+breaker. It is also not possible to repost entities to these datasets.</p>
+<p>You can rollback or commit the circuit breaker on the dataset page in
+the <a class="reference internal" href="management-studio.html"><span class="doc">Management Studio</span></a>, or use the
+<a class="reference external" href="api.html#post--datasets-dataset_id">service API</a>.</p>
+</div>
+<div class="section" id="resetting">
+<h2>Resetting<a class="headerlink" href="#resetting" title="Permalink to this headline">¶</a></h2>
+<p>When the configuration of a pipe is modified in such a way that the entities the pipe
+produces changes (for instance by changing the DTL transform of the pipe), the pipe’s “last-seen”
+value must be cleared in order to reprocess already seen entities with the new pipe
+configuration.</p>
+<p>This can be done by setting the “last-seen” value to an empty string with the
+<a class="reference external" href="./api.html#api-reference-pump-update-last-seen">update-last-seen</a> operation in the Service API.</p>
+</div>
+<div class="section" id="automatic-reprocessing">
+<span id="id4"></span><h2>Automatic reprocessing<a class="headerlink" href="#automatic-reprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Datasets that are input to a pipe or datasets that are hop-ed to by a pipe may be deleted. When this happens the data output by a pipe is no longer in sync with the input data. By default a pipe will not reset automatically if this happens, but it will maintain a list of datasets that are out of sync. Alternatively one can set the reprocessing policy to <code class="docutils literal notranslate"><span class="pre">automatic</span></code> so that such resets happen automatically.</p>
+<div class="section" id="id5">
+<h3>Properties<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reprocessing_policy</span></code></p></td>
+<td><p>Enum&lt;String&gt;</p></td>
+<td><p>Specifies the policy that the pipe uses to decide if a pipe needs to be reset or not.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code> (the default) means that the pipe will continue processing input entities, and not reset the pipe, even though there might be factors indicating the the pipe should be reset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">automatic</span></code> means that the pipe will automatically reset the pipe when it finds that there are factors that indicate that the pipe should be reset. The rationale for resetting the pipe is so that input entities can the reprocessed so that the output is correct.</p></li>
+</ul>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="completeness">
+<span id="id6"></span><h2>Completeness<a class="headerlink" href="#completeness" title="Permalink to this headline">¶</a></h2>
+<p>When a pipe completes a successful run the sink dataset will inherit the smallest completeness timestamp value of the source datasets and the related datasets. Inbound pipes will use the current time as the completeness timestamp value (the <a class="reference internal" href="configuration-sources-http.html#http-endpoint-source"><span class="std std-ref">http_endpoint</span></a> can optionally get the completeness value from a request header). This mechanism has been introduced so that a pipe can hold off processing source entities that are more recent than the source dataset’s completeness timestamp value. The propagation of these timestamp values is done automatically. Individual datasets can be excluded from completeness timestamp calculation via the <code class="docutils literal notranslate"><span class="pre">exclude_completeness</span></code> property on the pipe.  One can enable the completeness filtering feature on a pipe by setting the <code class="docutils literal notranslate"><span class="pre">completeness</span></code> property on the <a class="reference internal" href="configuration-sources-dataset.html#dataset-source"><span class="std std-ref">dataset source</span></a> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Completeness is implictly incompatible with full rescans as they do not necessarily expose all the latest entities. This means that if deletion tracking is performed by the pipe that has completeness set to <code class="docutils literal notranslate"><span class="pre">true</span></code> then the non-covered entity ids will get deleted from the sink dataset. This may or may not be a problem depending on the use-case. Deletion tracking is only performed by pipes with <code class="docutils literal notranslate"><span class="pre">dataset</span></code> sinks currently. Set <code class="docutils literal notranslate"><span class="pre">deletion_tracking</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> on the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> sink if you do not want deletion tracking to be performed.</p>
+</div>
+<div class="section" id="id7">
+<h3>Properties<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Req</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exclude_completeness</span></code></p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>A list of dataset ids that should not contribute to the completeness timestamp value. Any
+dataset listed in this property will be ignored when calculating the dataset sink
+completeness timestamp value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If all datasets are excluded a new completeness timestamp value will be generated in this pipe.</p>
+</div>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="example-configuration">
+<h2>Example configuration<a class="headerlink" href="#example-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The following example shows a pipe definition that exposes data from a SQL database table called <code class="docutils literal notranslate"><span class="pre">customers</span></code>, and feeds it into a sink that writes the data into a dataset called <code class="docutils literal notranslate"><span class="pre">Northwind:Customers</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;northwind-customers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Northwind customers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sql&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;Northwind&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="s2">&quot;Customers&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;sink&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="s2">&quot;Northwind:Customers&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;pump&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;schedule_interval&quot;</span><span class="p">:</span> <span class="mi">3600</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;compaction&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;keep_versions&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;time_threshold_hours&quot;</span><span class="p">:</span> <span class="mi">48</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="configuration-metadata.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Service metadata</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="configuration-sources.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022 Sesam.io AS.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDKEJY06V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZDKEJY06V9');
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/19709964.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  </body>
+</html>
